@@ -65,6 +65,8 @@ Use these defaults unless I specify otherwise:
 
 Every project lives under `20_Projects/<ESH number>/<Revision>/`.
 
+### Root-level files (mandatory)
+
 Each revision folder **must** contain at minimum:
 
 | File | Purpose |
@@ -74,13 +76,30 @@ Each revision folder **must** contain at minimum:
 | **STATUS.md** | Current focus, next actions, risks/blockers |
 | **DECISIONS.md** | Decision log with rationale and impact |
 | **DESIGN_LOG.md** | Chronological record of design work, decisions, and iterations |
-| **DESIGN_PROGRESS.md** | Design milestone tracking and progress summary |
 
-Additional files per project type:
+### Phase-specific subfolders (organization)
 
-- **Verification projects:** VERIFICATION.md, DUT_LOG.md
-- **Design projects:** (covered by mandatory files above)
-- **Design + Verification:** all of the above
+Organize documentation by phase in subfolders. Each phase folder has a **README.md** that indexes its contents:
+
+| Folder | Purpose | Contents |
+|--------|---------|----------|
+| **Design/** | Design work and progress | DESIGN_PROGRESS.md, design artifacts |
+| **Review/** | Design reviews (schematic, layout) | SCHEMATIC_REVIEW.md, LAYOUT_REVIEW.md, findings |
+| **Verification/** | Test planning and execution | VERIFICATION.md, DUT_LOG.md, test data |
+| **Signoff/** | Design and verification approvals | DESIGN_SIGNOFF.md, VERIFICATION_SIGNOFF.md |
+| **ProductionTest/** | Production test procedures | (To be defined per project) |
+
+### Standard folders (all projects)
+
+- **ASSETS/** — Images, PDFs, part datasheets, reference docs
+- **DOCS/** — Design documentation, schematics, layout files
+- **ISSUES/** — Known issues, errata, design changes
+
+### Project type guidance
+
+- **Design projects:** Use Design/ and Review/ folders
+- **Verification projects:** Use Verification/ and ProductionTest/ folders
+- **Design + Verification:** Use all folders as needed
 
 ### New project setup
 When creating a new project:

@@ -1,0 +1,38 @@
+; Version : LOCAL
+; Job     : C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_Fixture_Electronics\Sparrow_FE_R3\PCB\sparrow_fixture.pcb
+; User    : ESHARP-MARTIN:MartinJohansson
+; Date    : Mon Dec 22 10:40:39 2025
+; Format  : 3.3 / Absolute / MM / Leading
+; Contents: Thru / Mill / Plated
+M48
+METRIC,TZ
+FMAT,2
+ICI,OFF
+T04C1.000
+%
+M71
+G90
+G93X0Y0
+T04
+G00X14480Y9500
+M15
+G01X13430
+X15530
+M16
+G00X61520
+M15
+G01X60470
+X62570
+M16
+G00X73755
+M15
+G01X72705
+X74805
+M16
+G00X98745
+M15
+G01X97695
+X99795
+M17
+T00
+M30
