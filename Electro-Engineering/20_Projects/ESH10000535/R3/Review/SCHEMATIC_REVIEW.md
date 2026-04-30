@@ -16,7 +16,7 @@ reviewer: Martin Johansson / AI-assisted
 | Netlist imported | ✅ `DOCS/NetList_Sparrow_NTop_R3.qcv` |
 | BOM imported | ✅ `DOCS/PartsList_Sparrow_NTop_R3.csv` |
 | Structural ERC (C/P/S/B) | ✅ Complete |
-| Component data coverage | ⏳ 18/19 types in COMPONENT_DATA.md — ERC-C08/P06/D pending; 1 missing datasheet (G20N06D52) |
+| Component data coverage | ⏳ 19/19 types in COMPONENT_DATA.md — ERC-C08/P06/D pending for all |
 | Findings dispositioned | ⏳ In progress |
 | Sign-off | ⏳ Pending |
 
@@ -68,9 +68,9 @@ reviewer: Martin Johansson / AI-assisted
 | 16 | SN74LVC1G125DBVR | U23 | ✅ (= SN74CBTLV1G125 — FET bus switch) | ✅ sn74cbtlv1g125.pdf | ⏳ Pending | ⏳ Pending | ⏳ Pending |
 | 17 | SN74LVC1G126DBVR | U24 | ✅ | ✅ sn74lvc1g126.pdf | ⏳ Pending | ⏳ Pending | ⏳ Pending |
 | 18 | SN74LVC2G06DBVR | U26 | ✅ | — | ⏳ Pending | ⏳ Pending | ⏳ Pending |
-| 19 | G20N06D52 | Q1 | ❌ | ❌ Missing | ⏳ Pending | ⏳ Pending | ⏳ Pending |
+| 19 | G20N06D52 | Q1 | ✅ | ✅ G20N06D52.pdf | ⏳ Pending | ⏳ Pending | ⏳ Pending |
 
-**Coverage summary:** 18/19 types in COMPONENT_DATA.md. 1 type still missing: G20N06D52 (Q1, no datasheet). Note: SN74LVC1G125DBVR (U23) is a FET bus switch (SN74CBTLV1G125DBVR), not a 3-state buffer — verify intent in ERC-D.
+**Coverage summary:** 19/19 types in COMPONENT_DATA.md. All datasheets present. Note: SN74LVC1G125DBVR (U23) is a FET bus switch (SN74CBTLV1G125DBVR), not a 3-state buffer — verify intent in ERC-D. G20N06D52 (Q1) is a dual N-ch MOSFET — verify which instance is used in schematic.
 
 ---
 
@@ -159,7 +159,7 @@ reviewer: Martin Johansson / AI-assisted
 | # | ID | Description | Status |
 |---|----|-------------|--------|
 | 1 | OI-01 | Component data: 13 entries added 2026-04-30; 17/19 types now in COMPONENT_DATA.md | ✅ Closed |
-| 2 | OI-02 | Missing datasheet: G20N06D52 (Q1) — not in 70_Assets. U23 resolved (sn74cbtlv1g125.pdf = SN74CBTLV1G125DBVR). | ⏳ Open |
+| 2 | OI-02 | Missing datasheets resolved: U23 = sn74cbtlv1g125.pdf; Q1 = G20N06D52.pdf | ✅ Closed |
 | 3 | OI-03 | VOUT+/VOUT− caps C2/C3 are NM — verify this is intentional in schematic | ⏳ Pending engineer confirmation |
 | 4 | OI-04 | ATmega4809 (U18): 26/48 pins in netlist — verify unconnected I/O pins are intentional NCs | ⏳ Pending engineer confirmation |
 

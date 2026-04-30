@@ -40,6 +40,7 @@
 - [AD5593R](#ad5593r) — 8-Channel 12-bit Configurable ADC/DAC with I2C Interface (Analog Devices)
 - [SN74HCS32](#sn74hcs32) — Quadruple 2-Input OR Gate with Schmitt-Trigger Inputs (Texas Instruments)
 - [KAQY214](#kaqy214) — 400 V / 130 mA N.O. PhotoMOS Solid State Relay (COSMO Electronics)
+- [G20N06D52](#g20n06d52) — 60V / 20A N-Channel Enhancement Mode Power MOSFET, Dual DFN5×6-8L (Goford Semiconductor)
 - [PS509LEX](#ps509lex) — Differential 4:1 / Dual 4:1 Precision Analog Multiplexer (Diodes Inc.)
 - [SN74LVC126APW](#sn74lvc126apw) — Quad Bus Buffer with 3-State Outputs, Active-HIGH OE (Texas Instruments)
 - [SN74LVC125APW](#sn74lvc125apw) — Quad Bus Buffer with 3-State Outputs, Active-LOW OE (Texas Instruments)
@@ -2555,6 +2556,78 @@ Device is a 1-Form-A (normally open) switch: pins 3–4 are open when IF = 0; cl
 ### Project Usage Notes
 
 > **[ESH10000540 R3]:** U30–U37 (KAQY214STLD, SOP-4). Eight relay instances used as analog switches on the AGND domain. Pin 2 (LED cathode) → GND; pin 1 (LED anode) driven by control signals (e.g. PHANTOM_LOAD_L_RES, MIC_BIAS_LOAD_L_RES) from logic circuitry. Pin 3 (L1) → AGND; pin 4 (L2) → individual load nets (U30_LOAD, U31_LOAD, U32_LOAD etc.) via series resistors. Used to switch audio phantom power and microphone bias loads.
+
+---
+
+## G20N06D52
+
+**Manufacturer:** Goford Semiconductor (gofordsemi.com)  
+**Mfr Part Number:** G20N06D52  
+**Package:** DFN5×6-8L Dual (8-lead, 5 mm × 6 mm); contains two independent N-ch MOSFETs  
+**Category:** IC — Power / MOSFET (N-channel, dual)  
+**Datasheet:** G20N06D52, Goford Semiconductor, Rev. A1505  
+**Added:** 2026-04-30  
+**Used in:** ESH10000535 R3
+
+N-channel enhancement mode power MOSFET using trench technology. Two independent MOSFETs in one DFN5×6-8L package. 60 V VDS, 20 A continuous drain current, 30 mΩ RDS(ON) typical. Suitable for power switching and DC/DC converter applications.
+
+### Pin Description (DFN5×6-8L Dual)
+
+> **Note:** The pin assignment diagram in the datasheet is a graphical image and could not be extracted as text. Verify exact pin-to-gate/source/drain mapping against the datasheet figure or the PCB footprint. Typical dual-MOSFET DFN8 assigns pins 1–4 to one MOSFET and pins 5–8 to the second, with separate G/S/D per device and a shared exposed pad (drain or thermal) on the back.
+
+| Pin Group | Typical Assignment | Notes |
+|-----------|--------------------|-------|
+| Pins 1–4 | MOSFET 1: G1, S1, S1, S1 (or variant) | Verify from datasheet figure |
+| Pins 5–8 | MOSFET 2: D2, D2, G2, S2 (or variant) | Verify from datasheet figure |
+| Exposed pad | Drain (common) or thermal only | Verify — may be shared drain |
+
+### Key Electrical Parameters
+
+| Parameter | Symbol | Min | Typ | Max | Unit | Conditions |
+|-----------|--------|-----|-----|-----|------|------------|
+| Drain-source voltage | VDS | — | — | 60 | V | — |
+| Continuous drain current | ID | — | — | 20 | A | TC=25°C |
+| Pulsed drain current | IDM | — | — | 80 | A | Pulse-limited by TJ |
+| Gate-source voltage | VGS | — | — | ±20 | V | |
+| Power dissipation | PD | — | — | 48 | W | TC=25°C |
+| Single-pulse avalanche energy | EAS | — | — | 36 | mJ | Tj=25°C, VDD=50V, L=0.5mH |
+| Drain-source breakdown voltage | V(BR)DSS | 60 | — | — | V | VGS=0V, ID=250µA |
+| Zero-gate drain current | IDSS | — | — | 1 | µA | VDS=60V, VGS=0V |
+| Gate-source leakage | IGSS | — | — | ±100 | nA | VGS=±20V |
+| Gate threshold voltage | VGS(th) | 1.0 | 1.5 | 2.5 | V | VDS=VGS, ID=250µA |
+| On-resistance | RDS(ON) | — | 26 | 30 | mΩ | VGS=10V, ID=10A |
+| On-resistance | RDS(ON) | — | 30 | 40 | mΩ | VGS=4.5V, ID=10A |
+| Transconductance | gFS | — | 11 | — | S | VGS=5V, ID=10A |
+| Input capacitance | Ciss | — | 1326 | — | pF | VGS=0V, VDS=30V, f=1MHz |
+| Output capacitance | Coss | — | 55 | — | pF | Same conditions |
+| Reverse transfer capacitance | Crss | — | 51 | — | pF | Same conditions |
+| Total gate charge | Qg | — | 25 | — | nC | VDD=30V, ID=10A, VGS=10V |
+| Gate-source charge | Qgs | — | 4.5 | — | nC | |
+| Gate-drain charge | Qgd | — | 6.5 | — | nC | |
+| Turn-on delay | td(on) | — | 5 | — | ns | VDD=30V, ID=10A, RG=3Ω |
+| Turn-on rise time | tr | — | 2.6 | — | ns | |
+| Turn-off delay | td(off) | — | 16 | — | ns | |
+| Turn-off fall time | tf | — | 2.3 | — | ns | |
+| Body diode current | IS | — | — | 20 | A | TC=25°C |
+| Body diode forward voltage | VSD | — | — | 1.2 | V | ISD=10A, VGS=0V |
+| Reverse recovery charge | Qrr | — | 49 | — | nC | IF=10A, di/dt=100A/µs |
+| Reverse recovery time | Trr | — | 29 | — | ns | |
+| Thermal res. junction-ambient | RthJA | — | — | 50 | °C/W | |
+| Thermal res. junction-case | RthJC | — | — | 2.6 | °C/W | |
+| Operating junction temperature | TJ | −55 | — | 150 | °C | |
+
+### Application Notes
+
+- **Dual package:** Two independent MOSFETs share one DFN5×6-8L package. Each MOSFET has its own G/S/D. Confirm which MOSFET instance is used for Q1 in the schematic.
+- **Gate drive:** Full enhancement at VGS=10V (26 mΩ typ). Logic-level operation possible at VGS=4.5V (30 mΩ typ) — confirm drive voltage in design.
+- **VGS(th)=1–2.5V:** Ensure gate drive is above 2.5V max threshold plus margin for reliable turn-on.
+- **Body diode** is present and has significant Qrr (49 nC) — relevant if used in synchronous rectification or H-bridge configurations.
+- **Avalanche rated:** 36 mJ single-pulse avalanche energy (EAS).
+- Exposed pad thermal connection is critical for rated PD; solder to PCB copper.
+
+### Project Usage Notes
+
+> **[ESH10000535 R3]:** Q1 (G20N06D52). Power switch or DC/DC element. Gate drive voltage, rail connection, and which of the two FET instances is used must be confirmed in schematic review (ERC-C08/P06/D).
 
 ---
 
