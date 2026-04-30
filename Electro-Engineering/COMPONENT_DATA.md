@@ -38,6 +38,8 @@
 - [ALM2402-Q1](#alm2402-q1) — AEC-Q100 Dual High-Current Op-Amp, 400 mA (Texas Instruments)
 - [TPS259474](#tps259474) — 2.7V–23V 5.5A eFuse, Adjustable OVLO, Circuit Breaker (Texas Instruments)
 - [AD5593R](#ad5593r) — 8-Channel 12-bit Configurable ADC/DAC with I2C Interface (Analog Devices)
+- [SN74HCS32](#sn74hcs32) — Quadruple 2-Input OR Gate with Schmitt-Trigger Inputs (Texas Instruments)
+- [KAQY214](#kaqy214) — 400 V / 130 mA N.O. PhotoMOS Solid State Relay (COSMO Electronics)
 
 ---
 
@@ -2060,7 +2062,7 @@ Low-drift (10 ppm/°C max), low-power (95 µA max) precision CMOS voltage refere
 | 6 | READY | O | Connection ready (open-drain; HIGH=disconnected, LOW=connected); pullup 10 kΩ to VDD(A) |
 | 7 | INT | I/O | Card-side open-drain interrupt/sideband; **must tie to VSS if unused** |
 | 8 | VSS | GND | Ground (0 V) |
-| 9 | VDDA_SEL | I | VDD(A) threshold select; float=auto; HIGH for VDD(A)>2.2 V; LOW for VDD(A)<2.4 V |
+| 9 | VDDA_SEL | I | VDD(A) range select: VDDA_SEL=0 (LOW) → VDD(A) = 0.8–2.4 V; VDDA_SEL=1 (HIGH) → VDD(A) = 2.2–5.5 V |
 | 10 | DINTP | I/O | Differential INT+ (leave NC if INT unused) |
 | 11 | DINTM | I/O | Differential INT− (leave NC if INT unused) |
 | 12 | DSCLM | I/O | Differential SCL− |
@@ -2073,7 +2075,8 @@ Low-drift (10 ppm/°C max), low-power (95 µA max) precision CMOS voltage refere
 
 | Parameter | Min | Typ | Max | Unit | Notes |
 |-----------|-----|-----|-----|------|-------|
-| VDD(A) range | 0.8 | — | 5.5 | V | Card-side supply |
+| VDD(A) range (VDDA_SEL=0) | 0.8 | — | 2.4 | V | Card-side supply; VDDA_SEL tied LOW |
+| VDD(A) range (VDDA_SEL=1) | 2.2 | — | 5.5 | V | Card-side supply; VDDA_SEL tied HIGH |
 | VDD(B) range | 3.0 | — | 5.5 | V | Diff-side supply; best at 5 V |
 | Bus speed | — | — | 1 | MHz | Fm+ capable |
 | Diff. output voltage | — | 1.5 | — | V | Nominal differential |
@@ -2089,14 +2092,14 @@ Low-drift (10 ppm/°C max), low-power (95 µA max) precision CMOS voltage refere
 
 - **INT pin (pin 7):** If unused, **must** be tied to VSS — do not leave floating (may generate false bus signals due to noise on high-impedance input).
 - **PIDET (pin 5) and READY (pin 6):** Connect pull-up resistors (typically 10 kΩ) to VDD(A); leave open or tie to VSS if status monitoring not required.
-- **VDDA_SEL (pin 9):** Float for automatic threshold selection. Tie through resistor to VDD(B) when VDD(A) > 2.2 V.
+- **VDDA_SEL (pin 9):** Selects VDD(A) operating range. Recommend explicit tie — do not float. VDDA_SEL=0 (tie to VSS): VDD(A) = 0.8–2.4 V. VDDA_SEL=1 (tie to VDD(B) via resistor): VDD(A) = 2.2–5.5 V.
 - **EN pin (pin 3):** HIGH connects device to bus; must only change state during bus idle — never during an active I2C transaction.
 - **Differential termination:** Each end of cable terminated with R1-R2-R1 network; R1 = 600 Ω, R2 = 120 Ω (CAT5, VDD(B) = 5 V) giving 100 Ω differential impedance.
 - **Single-ended pull-ups:** Required on SDA and SCL lines; size based on bus capacitance and desired speed.
 
 ### Project Usage Notes
 
-> **[ESH10000540 R3]:** U1–U4 — VDD(A) = 3V3 (card-side), VDD(B) = 5V (diff-bus side). INT pin (pin 7) tied to GND per datasheet requirement. Unconnected pins 10, 11 (DINTP/DINTM) in netlist — confirmed correct when INT channel unused. Diff pairs routed to cable connectors.
+> **[ESH10000540 R3]:** U1–U4 — VDD(B) = 3V3 (diff-side; within 3.0–5.5 V ✅). VDDA_SEL (pin 9) pulled HIGH via R1/R4/R13/R16 (to 3V3) → VDDA_SEL=1 mode; VDD(A) must be 2.2–5.5 V. U1–U3: VDD(A) = 3V3 ✅. U4: VDD(A) = VIO_EXT — accepted; VIO_EXT must remain within 2.2–5.5 V (ERC-P06, ESH10000540 R3, 2026-04-30). INT pin (pin 7) tied to GND per datasheet requirement. Unconnected pins 10, 11 (DINTP/DINTM) — confirmed correct when INT channel unused. Diff pairs routed to cable connectors.
 
 ---
 
@@ -2423,4 +2426,118 @@ Fixed prefix 0b0010_0x0, where x = A0 pin:
 
 ### Project Usage Notes
 
-> **[ESH10000540 R3]:** U5, U6 (AD5593R, TSSOP-16). SDA (pin 15) on SDA bus; SCL (pin 16) on SCL bus. A0 determines I2C address per instance. VREF connected to VREF net (REF3425 2.5 V output). VLOGIC = 3V3. RESET tied HIGH for normal operation.
+> **[ESH10000540 R3]:** U5, U6 (AD5593R, TSSOP-16). SDA (pin 15) on SDA bus; SCL (pin 16) on SCL bus. A0 determines I2C address per instance. VREF connected to VREF net (REF3425 2.5 V output). VLOGIC = 3V3 (confirmed). RESET tied HIGH for normal operation.
+
+---
+
+## SN74HCS32
+
+**Manufacturer:** Texas Instruments  
+**Mfr Part Number:** SN74HCS32PWR (TSSOP-14)  
+**Description:** Quadruple 2-Input OR Gate with Schmitt-Trigger Inputs  
+**Datasheet:** SN74HCS32 datasheet, Texas Instruments (ti.com/lit/ds/symlink/sn74hcs32.pdf)
+
+### Pin Functions (TSSOP-14)
+
+| Pin | Name | Type | Function |
+|-----|------|------|----------|
+| 1 | 1A | I | Gate 1 input A |
+| 2 | 1B | I | Gate 1 input B |
+| 3 | 1Y | O | Gate 1 output (1A OR 1B) |
+| 4 | 2A | I | Gate 2 input A |
+| 5 | 2B | I | Gate 2 input B |
+| 6 | 2Y | O | Gate 2 output (2A OR 2B) |
+| 7 | GND | PWR | Ground |
+| 8 | 3Y | O | Gate 3 output (3A OR 3B) |
+| 9 | 3A | I | Gate 3 input A |
+| 10 | 3B | I | Gate 3 input B |
+| 11 | 4Y | O | Gate 4 output (4A OR 4B) |
+| 12 | 4A | I | Gate 4 input A |
+| 13 | 4B | I | Gate 4 input B |
+| 14 | VCC | PWR | Positive supply (2–6 V) |
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VCC | 2 | — | 6 | V | — |
+| VI | 0 | — | VCC | V | Input voltage range |
+| IOH | — | — | −6 | mA | At VCC = 4.5 V |
+| IOL | — | — | 6 | mA | At VCC = 4.5 V |
+| VOH (IOH = −20 µA) | VCC − 0.1 | — | — | V | Min high-level output |
+| VOL (IOL = 20 µA) | — | 0.002 | — | V | Typ low-level output |
+| tpd (VCC = 3.3 V, CL = 50 pF) | — | — | 18 | ns | Propagation delay |
+| tpd (VCC = 4.5 V, CL = 50 pF) | — | 13 | — | ns | Typical |
+| IQ | — | — | 2 | µA | Quiescent current |
+| Temperature | −40 | — | +125 | °C | — |
+
+### Application Notes
+
+- **Unused inputs:** All unused inputs must be tied to VCC or GND — must not float. A 10 kΩ pull-up or pull-down resistor is acceptable if the input may be driven later.
+- **Schmitt-trigger inputs:** Input hysteresis (~0.9 V at 3.3 V) provides noise immunity; safe for slowly-transitioning signals.
+- **Output loading:** CMOS outputs; do not exceed IOH/IOL limits to maintain valid output levels.
+
+### Layout Notes
+
+- Bypass 100 nF ceramic at VCC (pin 14) to GND (pin 7).
+- Keep output traces short to minimise capacitive loading and maintain tpd specification.
+
+### Project Usage Notes
+
+> **[ESH10000540 R3]:** U28 (SN74HCS32PWR, TSSOP-14). VCC = 3V3. Implements combinational OR logic for SR-latch set/reset generation: gate outputs drive Set and CLR inputs of 74HCS74 D flip-flops (U25, U26) used as latches for audio load switching (phantom/bias load control). All four gate inputs are driven by logic signals from U7 (PCA9506) and U25/U38 (74HCS86).
+
+---
+
+## KAQY214
+
+**Manufacturer:** COSMO Electronics Corporation  
+**Mfr Part Number:** KAQY214STLD (SOP-4)  
+**Description:** 400 V / 130 mA Normally-Open PhotoMOS Solid State Relay  
+**Datasheet:** KAQY214 datasheet, COSMO Electronics (cosmo-ic.com/upload/product/KAQY214.PDF)
+
+### Pin Functions (SOP-4)
+
+| Pin | Name | Side | Function |
+|-----|------|------|---------|
+| 1 | A+ | Input | LED anode — control current input |
+| 2 | A− | Input | LED cathode — control current return |
+| 3 | L1 | Output | MOSFET switch terminal 1 |
+| 4 | L2 | Output | MOSFET switch terminal 2 |
+
+Device is a 1-Form-A (normally open) switch: pins 3–4 are open when IF = 0; close when IF ≥ IFT.
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| LED forward voltage (VF) | — | 1.2 | 1.5 | V | At IF = 5 mA |
+| LED forward current (IF) max | — | — | 50 | mA | Continuous |
+| LED peak forward current (IFP) | — | — | 1 | A | Pulsed |
+| LED reverse voltage max | — | — | 5 | V | — |
+| Output blocking voltage (VOFF) | 400 | — | — | V | AC or DC |
+| Output on-current (ION) max | — | — | 130 | mA | Continuous |
+| Output on-resistance (RON) | — | 30 | — | Ω | IF=10 mA, IL=100 mA, VL=20 V |
+| Output leakage (ILEAK) | — | 0.1 | — | mA | VL=400 V, IF=0 |
+| Turn-on time (TON) | — | 1.0 | — | ms | IF=10 mA, VL=20 V, IL=100 mA |
+| Turn-off time (TOFF) | — | 1.0 | — | ms | Same conditions |
+| Isolation voltage (KAQY214) | 5000 | — | — | Vrms | Input–output |
+| Isolation resistance (Riso) | 10¹⁰ | — | — | Ω | Vio = 500 V |
+| Operating temperature | −40 | — | +85 | °C | — |
+
+### Application Notes
+
+- **Control current:** LED must be forward biased (pin 1 = anode, pin 2 = cathode). Typical control current 5–10 mA; limit with series resistor from drive signal to pin 1.
+- **Output polarity:** Pins 3 and 4 are bidirectional — relay switches both AC and DC loads.
+- **RON:** 30 Ω on-resistance is significant for low-voltage signal switching; include in signal path budget.
+- **No snubber required:** Internal MOSFET handles inductive switching; no external clamp needed for resistive/capacitive loads within ratings.
+- **Isolation:** KAQY214 variant has 5000 Vrms isolation; KAQY214S variant has 1500 Vrms — verify suffix when ordering.
+
+### Layout Notes
+
+- Keep input (LED) loop compact to minimise radiated emission from switching transient.
+- Output pins 3–4 must be rated for load current on PCB copper; 130 mA requires ≥ 0.2 mm trace at 1 oz Cu.
+- Maintain creepage/clearance between input and output pads per isolation rating.
+
+### Project Usage Notes
+
+> **[ESH10000540 R3]:** U30–U37 (KAQY214STLD, SOP-4). Eight relay instances used as analog switches on the AGND domain. Pin 2 (LED cathode) → GND; pin 1 (LED anode) driven by control signals (e.g. PHANTOM_LOAD_L_RES, MIC_BIAS_LOAD_L_RES) from logic circuitry. Pin 3 (L1) → AGND; pin 4 (L2) → individual load nets (U30_LOAD, U31_LOAD, U32_LOAD etc.) via series resistors. Used to switch audio phantom power and microphone bias loads.

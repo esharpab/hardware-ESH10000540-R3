@@ -4,7 +4,7 @@ Overview of all projects — active and otherwise.
 
 | Project | Product / Document | Revision | Phase | Status | Notes |
 |---|---|---|---|---|---|
-| ESH10000540 | Sparrow Fixture Electronics PCBA | R3 | Verification & Production Test | 🔵 Planned | Requirements definition pending |
+| ESH10000540 | Sparrow Fixture Electronics PCBA | R3 | Schematic ERC Review | 🟢 Active | ERC signed off MJ 2026-04-30; layout review next |
 
 ---
 
