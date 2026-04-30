@@ -40,6 +40,19 @@
 - [AD5593R](#ad5593r) — 8-Channel 12-bit Configurable ADC/DAC with I2C Interface (Analog Devices)
 - [SN74HCS32](#sn74hcs32) — Quadruple 2-Input OR Gate with Schmitt-Trigger Inputs (Texas Instruments)
 - [KAQY214](#kaqy214) — 400 V / 130 mA N.O. PhotoMOS Solid State Relay (COSMO Electronics)
+- [PS509LEX](#ps509lex) — Differential 4:1 / Dual 4:1 Precision Analog Multiplexer (Diodes Inc.)
+- [SN74LVC126APW](#sn74lvc126apw) — Quad Bus Buffer with 3-State Outputs, Active-HIGH OE (Texas Instruments)
+- [SN74LVC125APW](#sn74lvc125apw) — Quad Bus Buffer with 3-State Outputs, Active-LOW OE (Texas Instruments)
+- [LTC3265EDHC](#ltc3265edhc) — Dual Charge Pump + Dual LDO Bipolar Supply (Analog Devices / Linear Technology)
+- [AD5592R](#ad5592r) — 8-Channel 12-bit Configurable ADC/DAC/GPIO with SPI Interface (Analog Devices)
+- [PGA849](#pga849) — Low-Noise Wide-Bandwidth Precision Programmable Gain InAmp (Texas Instruments)
+- [74LVC1G19DBV](#74lvc1g19dbv) — Single 1-of-2 Decoder / Demultiplexer (Nexperia)
+- [OPA192](#opa192) — Precision Rail-to-Rail I/O Op-Amp (Texas Instruments)
+- [LP5012RUKR](#lp5012rukr) — 12-Channel I2C RGB LED Driver (Texas Instruments)
+- [ATmega4809](#atmega4809) — 48-Pin megaAVR 0-Series Microcontroller (Microchip Technology)
+- [SN74AVC4T774RGYR](#sn74avc4t774rgyr) — 4-Bit Dual-Supply Bus Transceiver with Independent Direction Control (Texas Instruments)
+- [TLV9102IDR](#tlv9102idr) — Dual Low-Voltage Rail-to-Rail Op-Amp (Texas Instruments)
+- [SN74LVC1G126DBVR](#sn74lvc1g126dbvr) — Single Bus Buffer with 3-State Output, Active-HIGH OE (Texas Instruments)
 
 ---
 
@@ -2541,3 +2554,842 @@ Device is a 1-Form-A (normally open) switch: pins 3–4 are open when IF = 0; cl
 ### Project Usage Notes
 
 > **[ESH10000540 R3]:** U30–U37 (KAQY214STLD, SOP-4). Eight relay instances used as analog switches on the AGND domain. Pin 2 (LED cathode) → GND; pin 1 (LED anode) driven by control signals (e.g. PHANTOM_LOAD_L_RES, MIC_BIAS_LOAD_L_RES) from logic circuitry. Pin 3 (L1) → AGND; pin 4 (L2) → individual load nets (U30_LOAD, U31_LOAD, U32_LOAD etc.) via series resistors. Used to switch audio phantom power and microphone bias loads.
+
+---
+
+## PS509LEX
+
+**Manufacturer:** Diodes Incorporated  
+**Mfr Part Number:** PS509LEX (TSSOP-16)  
+**Package:** TSSOP-16 (L suffix)  
+**Category:** IC — Analog Switch / Multiplexer  
+**Datasheet:** PS508/PS509, DS41784 Rev 2-2, Diodes Incorporated, June 2020  
+**Added:** 2026-04-30  
+**Used in:** ESH10000535 R3
+
+Differential 4:1 (or dual single-ended 4:1) precision CMOS analog multiplexer. Operates with dual supplies ±5 V to ±18 V or single supply 10 V–36 V. Rail-to-rail switching, break-before-make action.
+
+### Pin Description (PS509, TSSOP-16 — top view)
+
+| Pin | Name | Type | Description |
+|-----|------|------|-------------|
+| 1 | A0 | I | Address bit 0 |
+| 2 | EN | I | Enable, active HIGH. LOW = all channels off. |
+| 3 | VSS | Pwr | Negative supply (most negative potential) |
+| 4 | S1A | I/O | Source 1A (channel 1, differential half A) |
+| 5 | S2A | I/O | Source 2A |
+| 6 | S3A | I/O | Source 3A |
+| 7 | S4A | I/O | Source 4A |
+| 8 | DA | I/O | Drain A (common output, differential half A) |
+| 9 | DB | I/O | Drain B (common output, differential half B) |
+| 10 | S4B | I/O | Source 4B |
+| 11 | S3B | I/O | Source 3B |
+| 12 | S2B | I/O | Source 2B |
+| 13 | S1B | I/O | Source 1B |
+| 14 | VDD | Pwr | Positive supply (most positive potential) |
+| 15 | GND | Pwr | Ground (0 V reference) |
+| 16 | A1 | I | Address bit 1 |
+
+**Truth table (PS509):**
+
+| EN | A1 | A0 | Channels closed |
+|----|----|----|-----------------|
+| 0 | X | X | All off |
+| 1 | 0 | 0 | S1A–DA and S1B–DB |
+| 1 | 0 | 1 | S2A–DA and S2B–DB |
+| 1 | 1 | 0 | S3A–DA and S3B–DB |
+| 1 | 1 | 1 | S4A–DA and S4B–DB |
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VDD (dual) | ±5 | — | ±18 | V | Dual supply |
+| VDD (single) | 10 | — | 36 | V | Single supply |
+| RON | — | 125 | — | Ω | Typical on-resistance |
+| CON | — | 20 | — | pF | On-capacitance |
+| Charge injection | — | 0.9 | — | pC | |
+| Input leakage | — | 30 | — | pA | |
+| Transition time | — | 171 | — | ns | Break-before-make |
+| IDD (supply current) | — | 135 | — | µA | |
+| Logic threshold VIH | 2 | — | VDD | V | TTL-compatible |
+| Analog signal range | VSS−2 | — | VDD+2 | V | Signal pins |
+| ESD (HBM) | — | — | 2000 | V | ANSI/ESDA/JEDEC JS-001 |
+| Operating temp | −40 | — | +125 | °C | |
+
+### Application Notes
+
+- Decouple VDD and VSS each with 0.1 µF–10 µF ceramic to GND near the device.
+- EN pin can be tied to VDD to permanently enable the device.
+- Logic inputs (A0, A1, EN) are TTL-compatible when within the valid supply range; no special level shift needed when driven from 3.3 V with VDD ≥ 5 V.
+- Break-before-make ensures no two channels overlap during address transitions.
+- Unused SxA/SxB pins may be left floating; unused DA/DB must not be left floating — connect to a defined potential or through a pull resistor.
+
+### Project Usage Notes
+
+> **[ESH10000535 R3]:** U2, U3, U12, U25 (PS509LEX). Configured as 4:1 differential multiplexers. VDD=+18V, VSS=−18V. Used to switch analog measurement channels. A0, A1 address inputs driven from MCU/IO expander.
+
+---
+
+## SN74LVC126APW
+
+**Manufacturer:** Texas Instruments  
+**Mfr Part Number:** SN74LVC126APW (TSSOP-14)  
+**Package:** TSSOP-14 (PW)  
+**Category:** IC — Logic / Buffer (3-state, active-HIGH OE)  
+**Datasheet:** SN74LVC126A, SCAS339U, Texas Instruments, Revised July 2024  
+**Added:** 2026-04-30  
+**Used in:** ESH10000535 R3
+
+Quadruple bus buffer gate with 3-state outputs. Each channel has an independent active-HIGH output-enable (OE) — output is enabled when OE is HIGH; output is high-Z when OE is LOW. VCC 1.65 V–3.6 V, inputs accept up to 5.5 V.
+
+### Pin Description (TSSOP-14, top view)
+
+| Pin | Name | Type | Description |
+|-----|------|------|-------------|
+| 1 | 1OE | I | Channel 1 output enable, active HIGH |
+| 2 | 1A | I | Channel 1 input |
+| 3 | 1Y | O/Z | Channel 1 output (3-state) |
+| 4 | 2OE | I | Channel 2 output enable, active HIGH |
+| 5 | 2A | I | Channel 2 input |
+| 6 | 2Y | O/Z | Channel 2 output (3-state) |
+| 7 | GND | — | Ground |
+| 8 | 3Y | O/Z | Channel 3 output (3-state) |
+| 9 | 3A | I | Channel 3 input |
+| 10 | 3OE | I | Channel 3 output enable, active HIGH |
+| 11 | 4Y | O/Z | Channel 4 output (3-state) |
+| 12 | 4A | I | Channel 4 input |
+| 13 | 4OE | I | Channel 4 output enable, active HIGH |
+| 14 | VCC | — | Supply voltage |
+
+**Function:** OE=H → Y=A (non-inverting). OE=L → Y=Hi-Z.
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VCC | 1.65 | — | 3.6 | V | Operating |
+| VI (input) | — | — | 5.5 | V | 5.5 V tolerant inputs |
+| IOH | — | — | −12 | mA | At VCC=3.3 V |
+| IOL | — | — | 12 | mA | At VCC=3.3 V |
+| tpd (3.3 V) | — | — | 4.7 | ns | A→Y propagation |
+| ICC (static) | — | — | 10 | µA | VI=VCC or GND |
+| Operating temp | −40 | — | +125 | °C | |
+
+### Application Notes
+
+- To ensure the output is high-Z at power-up, tie OE to GND through a pull-down resistor (the input must not float).
+- Do not allow input pins to float; undefined logic levels cause excessive ICC.
+- **OE active-HIGH distinguishes 126A from 125A (active-LOW).** Verify the part number before using in mixed OE-polarity designs.
+
+### Project Usage Notes
+
+> **[ESH10000535 R3]:** U4, U5 (SN74LVC126APW). Used as bus buffers on D-SPI and U-SPI external interfaces. OE signals driven by MCU or IO expander to enable/disable SPI bus segments.
+
+---
+
+## SN74LVC125APW
+
+**Manufacturer:** Texas Instruments  
+**Mfr Part Number:** SN74LVC125APW (TSSOP-14)  
+**Package:** TSSOP-14 (PW)  
+**Category:** IC — Logic / Buffer (3-state, active-LOW OE)  
+**Datasheet:** SN74LVC125A, Texas Instruments  
+**Added:** 2026-04-30  
+**Used in:** ESH10000535 R3
+
+Quadruple bus buffer gate with 3-state outputs. Each channel has an independent active-LOW output-enable (OE\) — output is enabled when OE\ is LOW; output is high-Z when OE\ is HIGH. VCC 1.65 V–3.6 V, inputs accept up to 5.5 V.
+
+### Pin Description (TSSOP-14, top view)
+
+| Pin | Name | Type | Description |
+|-----|------|------|-------------|
+| 1 | 1OE\ | I | Channel 1 output enable, active LOW |
+| 2 | 1A | I | Channel 1 input |
+| 3 | 1Y | O/Z | Channel 1 output (3-state) |
+| 4 | 2OE\ | I | Channel 2 output enable, active LOW |
+| 5 | 2A | I | Channel 2 input |
+| 6 | 2Y | O/Z | Channel 2 output (3-state) |
+| 7 | GND | — | Ground |
+| 8 | 3Y | O/Z | Channel 3 output (3-state) |
+| 9 | 3A | I | Channel 3 input |
+| 10 | 3OE\ | I | Channel 3 output enable, active LOW |
+| 11 | 4Y | O/Z | Channel 4 output (3-state) |
+| 12 | 4A | I | Channel 4 input |
+| 13 | 4OE\ | I | Channel 4 output enable, active LOW |
+| 14 | VCC | — | Supply voltage |
+
+**Function:** OE\=L → Y=A (non-inverting). OE\=H → Y=Hi-Z.
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VCC | 1.65 | — | 3.6 | V | Operating |
+| VI (input) | — | — | 5.5 | V | 5.5 V tolerant |
+| IOH | — | — | −12 | mA | At VCC=3.3 V |
+| IOL | — | — | 12 | mA | At VCC=3.3 V |
+| tpd (3.3 V) | — | — | 4.8 | ns | A→Y propagation |
+| ICC (static) | — | — | 10 | µA | |
+| Operating temp | −40 | — | +125 | °C | |
+
+### Application Notes
+
+- To ensure output is high-Z at power-up, OE\ must be tied HIGH through a pull-up resistor.
+- **OE active-LOW distinguishes 125A from 126A (active-HIGH).**
+- Inputs must not float.
+
+### Project Usage Notes
+
+> **[ESH10000535 R3]:** U6, U7 (SN74LVC125APW). Used as bus buffers on U-SPI and UART external interfaces. OE\ driven LOW by MCU or IO expander to enable the buffer; HIGH disables (high-Z).
+
+---
+
+## LTC3265EDHC
+
+**Manufacturer:** Analog Devices (formerly Linear Technology)  
+**Mfr Part Number:** LTC3265EDHC (18-lead DFN, 5 mm × 3 mm)  
+**Package:** DFN-18 (DHC), 5 mm × 3 mm × 0.75 mm, exposed pad = GND  
+**Category:** IC — Power / Charge Pump + LDO  
+**Datasheet:** LTC3265, 3265fa, Linear Technology / Analog Devices  
+**Added:** 2026-04-30  
+**Used in:** ESH10000535 R3
+
+Low-noise dual bipolar supply: boost charge pump (×2 positive) + inverting charge pump (×−1 negative), each followed by an LDO post-regulator. Generates adjustable ±outputs from a single positive input. Up to 50 mA per LDO. Supports Burst Mode (low quiescent) or constant-frequency (low noise) operation.
+
+### Pin Description (DFN-18 — pin numbers for DFN package)
+
+| Pin | Name | Description |
+|-----|------|-------------|
+| 1 | CBST− | Boost charge pump flying capacitor, negative connection |
+| 2 | CBST+ | Boost charge pump flying capacitor, positive connection |
+| 3 | VIN\_P | Input supply for boost charge pump (4.5 V–16 V). Bypass with ceramic cap. |
+| 4 | EN− | Active-HIGH enable for inverting charge pump and LDO−. Do not float. |
+| 5 | BYP− | LDO− reference bypass. Connect 100 nF to GND to reduce output noise; leave floating if unused. |
+| 6 | ADJ− | Feedback for LDO−. Servos to −1.2 V when loop is closed. |
+| 7 | LDO− | Negative LDO output. Requires ≥2 µF low-ESR output cap to GND. |
+| 8 | VOUT− | Inverting charge pump output (= −VIN\_N in constant-frequency mode). |
+| 9 | CINV− | Inverting charge pump flying capacitor, positive connection |
+| 10 | CINV+ | Inverting charge pump flying capacitor, negative connection |
+| 11 | VIN\_N | Input for inverting charge pump (4.5 V–32 V). Tie to VIN\_P or VOUT+ per application. Bypass with ceramic cap. |
+| 12 | RT | Frequency programming input (servos to 1.2 V when enabled). Resistor to GND sets fSW; tie to GND for 500 kHz fixed. |
+| 13 | EN+ | Active-HIGH enable for boost charge pump and LDO+. Do not float. |
+| 14 | MODE | Charge pump mode: HIGH = Burst Mode (low Iq, higher ripple); LOW = constant frequency (low noise). Do not float. |
+| 15 | BYP+ | LDO+ reference bypass. Connect 100 nF to GND; leave floating if unused. |
+| 16 | ADJ+ | Feedback for LDO+. Servos to +1.2 V when loop is closed. |
+| 17 | LDO+ | Positive LDO output. Requires ≥2 µF low-ESR output cap to GND. |
+| 18 | VOUT+ | Boost charge pump output (= 2×VIN\_P in constant-frequency mode). |
+| 19 (EP) | GND | Exposed pad. Must be soldered to PCB ground plane. |
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VIN\_P | 4.5 | — | 16 | V | Boost charge pump input |
+| VIN\_N | 4.5 | — | 32 | V | Inverting charge pump input |
+| VOUT+ (const. freq) | — | 2×VIN\_P | — | V | Boost output |
+| VOUT+ (Burst Mode) | — | 0.94×2×VIN\_P | — | V | Regulated in Burst Mode |
+| VOUT− (const. freq) | — | −VIN\_N | — | V | Inverting output |
+| VOUT− (Burst Mode) | — | −0.94×VIN\_N | — | V | Regulated in Burst Mode |
+| ILDO+ max | — | — | 50 | mA | LDO+ output current |
+| ILDO− max | — | — | 50 | mA | LDO− output current |
+| ADJ+ reference | — | 1.200 | — | V | LDO+ feedback voltage |
+| ADJ− reference | — | −1.200 | — | V | LDO− feedback voltage |
+| LDO− dropout | — | — | 500 | mV | At ILDO− = −50 mA |
+| Quiescent current (Burst Mode) | — | 135 | — | µA | Both LDOs on |
+| Shutdown current | — | 3 | — | µA | EN+ and EN− both LOW |
+| fSW (programmable) | 50 | — | 500 | kHz | Via RT resistor |
+| fSW (RT = GND) | — | 500 | — | kHz | Fixed 500 kHz |
+| EN threshold HIGH | 1.1 | — | — | V | Rising threshold |
+| EN threshold LOW | — | — | 1.0 | V | Falling threshold |
+| Operating temp (E grade) | −40 | — | +125 | °C | Junction |
+
+### Output Voltage Setting
+
+For LDO+: VLDO+ = 1.2 V × (1 + R1/R2), where R1 from LDO+ to ADJ+ and R2 from ADJ+ to GND.  
+For LDO−: VLDO− = −1.2 V × (1 + R3/R4), where R3 from LDO− to ADJ− and R4 from ADJ− to GND.
+
+VIN\_N configuration:
+- Tie VIN\_N = VOUT+: VOUT− = −2×VIN\_P → symmetric ±outputs.
+- Tie VIN\_N = VIN\_P: VOUT− = −VIN\_P → asymmetric outputs.
+
+### Application Notes
+
+- **VOUT+ and VOUT−** are intermediate charge-pump output nodes, not external supply rails. LDO+ and LDO− are the regulated outputs.
+- C2/C3 on VOUT+/VOUT− are optional filter capacitors and may be NM if ripple is acceptable.
+- The exposed pad (GND) must be soldered down for thermal and electrical integrity.
+- Place flying capacitors (CBST, CINV) and input bypass caps as close as possible to the device.
+- Do not float EN+, EN−, or MODE pins.
+
+### Project Usage Notes
+
+> **[ESH10000535 R3]:** U8 (LTC3265EDHC). Generates ±18 V from 12 V input. VIN\_P=12 V, VIN\_N=VOUT+ (→VOUT−=−24 V? No — VIN\_N tied to VOUT+ → VOUT−=−2×VIN\_P=−24 V pre-LDO, LDO− regulated to −18 V). LDO+→+18V, LDO−→−18V. VOUT+ and VOUT− are internal nodes; C2 and C3 (NM) are optional filter caps on these nodes — NM is accepted per OI-03.
+
+---
+
+## AD5592R
+
+**Manufacturer:** Analog Devices  
+**Mfr Part Number:** AD5592R (16-lead TSSOP)  
+**Package:** TSSOP-16; also available WLCSP-16, LFCSP-16  
+**Category:** IC — Mixed-Signal / ADC/DAC/GPIO  
+**Datasheet:** AD5592R, Rev. H, Analog Devices, July 2023  
+**Added:** 2026-04-30  
+**Used in:** ESH10000535 R3
+
+> **Note:** AD5592R uses SPI interface. The related AD5593R uses I2C — these are different parts. See separate AD5593R entry if needed.
+
+8-channel, 12-bit configurable ADC/DAC with GPIO and integrated 2.5 V reference. Each I/O pin (I/O0–I/O7) is independently configurable as a 12-bit DAC output, 12-bit ADC input, digital output, or digital input. SPI interface up to 50 MHz (20 MHz for ADC operations). On-chip temperature sensor.
+
+### Pin Description (TSSOP-16 — top view)
+
+| Pin | Name | Type | Description |
+|-----|------|------|-------------|
+| 1 | RESET | I | Asynchronous reset, active LOW. Tie HIGH for normal operation. |
+| 2 | SYNC | I | Frame sync / chip select, active LOW. |
+| 3 | VDD | Pwr | Supply, 2.7 V–5.5 V |
+| 4 | I/O0 | I/O | Configurable ADC/DAC/GPIO pin 0 |
+| 5 | I/O1 | I/O | Configurable ADC/DAC/GPIO pin 1 |
+| 6 | I/O2 | I/O | Configurable ADC/DAC/GPIO pin 2 |
+| 7 | I/O3 | I/O | Configurable ADC/DAC/GPIO pin 3 |
+| 8 | VREF | I/O | Reference I/O. Internal 2.5 V ref available here; or apply external ref (1 V–VDD). Bypass with 100 nF to GND. |
+| 9 | SDO | O | Serial data output. Bits clocked out on rising SCLK edge. |
+| 10 | I/O4 | I/O | Configurable ADC/DAC/GPIO pin 4 |
+| 11 | I/O5 | I/O | Configurable ADC/DAC/GPIO pin 5 |
+| 12 | I/O6 | I/O | Configurable ADC/DAC/GPIO pin 6 |
+| 13 | I/O7 | I/O | Configurable ADC/DAC/GPIO pin 7. Also configurable as BUSY output. |
+| 14 | GND | Pwr | Ground |
+| 15 | SDI | I | Serial data input. Data clocked in on falling SCLK edge. |
+| 16 | SCLK | I | Serial clock. Up to 50 MHz for DAC writes; max 20 MHz for ADC conversions. |
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VDD | 2.7 | — | 5.5 | V | Operating |
+| VREF (internal) | — | 2.5 | — | V | 20 ppm/°C drift |
+| ADC resolution | — | 12 | — | bit | |
+| ADC throughput | — | — | 400 | kSPS | |
+| DAC output range | 0 | — | VREF or 2×VREF | V | Configurable |
+| SCLK (DAC write) | — | — | 50 | MHz | |
+| SCLK (ADC/readback) | — | — | 20 | MHz | |
+| Operating temp | −40 | — | +125 | °C | Junction |
+
+### Application Notes
+
+- RESET must be tied HIGH; a low pulse resets all registers to default.
+- VREF: bypass with ≥100 nF to GND for specified noise performance. Internal reference is off by default — enable via control register.
+- I/O pins not configured as analog inputs should be driven to a valid logic level; floating I/O pins will pick up noise.
+- I/O7 can be configured as a BUSY output to signal ongoing ADC conversions.
+- SPI protocol is 16-bit frames: SYNC low → 16 SCLK falling edges for data in, rising edges for data out.
+
+### Project Usage Notes
+
+> **[ESH10000535 R3]:** U10, U22 (AD5592R). SPI interface on internal SPI bus (SCK/SCK\_R net). Used for analog measurement and/or control channels. VDD = 3V3 or 5VA (verify in schematic).
+
+---
+
+## PGA849
+
+**Manufacturer:** Texas Instruments  
+**Mfr Part Number:** PGA849RGT (VQFN-16, 3 mm × 3 mm)  
+**Package:** VQFN-16 (RGT), 3 mm × 3 mm, exposed thermal pad  
+**Category:** IC — Analog / Instrumentation Amplifier  
+**Datasheet:** PGA849, SBOSAG3A, Texas Instruments, March 2024 – December 2024  
+**Added:** 2026-04-30  
+**Used in:** ESH10000535 R3
+
+Low-noise, wide-bandwidth precision programmable gain instrumentation amplifier (InAmp). Differential to single-ended conversion. Eight pin-programmable binary gains: 1/8, 1/4, 1/2, 1, 2, 4, 8, 16 V/V (set by A2:A0 pins). Separate input-stage and output-stage supplies for isolation from downstream devices. Input overvoltage protection to ±40 V beyond supplies.
+
+### Pin Description (VQFN-16 — top view)
+
+| Pin | Name | Type | Description |
+|-----|------|------|-------------|
+| 1 | A2 | I | Gain select bit 2 (MSB) |
+| 2 | IN+ | I | Non-inverting differential input |
+| 3 | IN− | I | Inverting differential input |
+| 4 | A0 | I | Gain select bit 0 (LSB) |
+| 5 | A1 | I | Gain select bit 1 |
+| 6 | VS+ | Pwr | Input-stage positive supply |
+| 7 | LVDD | Pwr | Output-stage positive supply |
+| 8 | NC | — | No connect |
+| 9 | DA\_IN+ | I | Output difference amplifier summing node (+) |
+| 10 | REF | I | Reference input (must be driven by low-impedance source) |
+| 11 | OUT | O | Signal output |
+| 12 | DA\_IN− | I | Output difference amplifier summing node (−) |
+| 13 | NC | — | No connect |
+| 14 | LVSS | Pwr | Output-stage negative supply |
+| 15 | VS− | Pwr | Input-stage negative supply |
+| 16 | DGND | Pwr | Ground reference for digital logic and gain-setting pins |
+| EP | Thermal pad | Pwr | Must be soldered to PCB. Connect to VS− or float (not GND unless VS−=GND). |
+
+**Gain table (A2, A1, A0):**
+
+| A2 | A1 | A0 | Gain (V/V) |
+|----|----|----|------------|
+| 0 | 0 | 0 | 1/8 |
+| 0 | 0 | 1 | 1/4 |
+| 0 | 1 | 0 | 1/2 |
+| 0 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 2 |
+| 1 | 0 | 1 | 4 |
+| 1 | 1 | 0 | 8 |
+| 1 | 1 | 1 | 16 |
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VS (input stage) | ±4 | — | ±18 | V | VS+ − VS− range |
+| VSOUT (output stage) | ±2.25 | — | ±18 | V | LVDD − LVSS range |
+| VIN (signal) | VS− − 40 | — | VS+ + 40 | V | Overvoltage protected |
+| Bandwidth (all gains) | — | 10 | — | MHz | |
+| Slew rate (G ≥ 1/2) | — | 35 | — | V/µs | |
+| Gain error drift | — | — | ±2 | ppm/°C | |
+| Input noise (G=16) | — | 8.6 | — | nV/√Hz | |
+| Input current noise | — | 0.3 | — | pA/√Hz | |
+| Settling (0.01%) | — | 700 | — | ns | |
+| Output current | −100 | — | 100 | mA | Short-circuit continuous |
+| Operating temp | −50 | — | +150 | °C | TA |
+
+### Application Notes
+
+- **REF pin** must be driven from a low-impedance source. Tie to mid-supply or 0 V for single-ended output referenced to GND.
+- **DA\_IN+ / DA\_IN−** are the summing nodes of the internal output difference amplifier. These pins allow inserting a filter network in the signal path between the input G-stage and the output diff amp.
+- **Thermal pad:** connect to VS− (or a copper plane tied to VS−) for thermal relief. Do not leave floating; do not connect to GND unless VS− = GND.
+- **DGND** is the ground reference for the A2:A0 pins and internal logic. Connect to VS− in most cases, or to circuit GND.
+- LVDD/LVSS supply the output stage independently — protects downstream ADC from overdrive if input is overdriven.
+- Gain-select pins A2:A1:A0 are static; change only when device is not processing a signal.
+
+### Project Usage Notes
+
+> **[ESH10000535 R3]:** U11, U16 (PGA849). VS+=+18V, VS−=−18V (from LTC3265). LVDD/LVSS=5VA\_supply (verify in schematic). Used as precision front-end InAmps for differential analog measurement channels. Gain set by A2:A1:A0 from MCU or IO expander.
+
+---
+
+## 74LVC1G19DBV
+
+**Manufacturer:** Nexperia  
+**Mfr Part Number:** 74LVC1G19DBV (SOT363 / TSSOP6)  
+**Package:** SOT363 (6-pin, also called TSSOP6)  
+**Category:** IC — Logic / Decoder/Demultiplexer  
+**Datasheet:** 74LVC1G19, Nexperia  
+**Added:** 2026-04-30  
+**Used in:** ESH10000535 R3
+
+Single 1-of-2 decoder / demultiplexer. Active-LOW enable (E\). When enabled, input A selects which output (Y0 or Y1) the input drives. When disabled (E\=HIGH), both outputs are HIGH. VCC 1.65 V–5.5 V, inputs 5.5 V tolerant.
+
+### Pin Description (SOT363 / TSSOP6 — top view)
+
+| Pin | Name | Type | Description |
+|-----|------|------|-------------|
+| 1 | A | I | Select / data input |
+| 2 | E\ | I | Enable, active LOW. HIGH = both outputs HIGH (disabled). |
+| 3 | GND | Pwr | Ground |
+| 4 | Y1 | O | Output 1 |
+| 5 | Y2 | O | Output 2 |
+| 6 | VCC | Pwr | Supply voltage |
+
+**Function table:**
+
+| E\ | A | Y1 | Y2 |
+|----|---|----|----|
+| H | X | H | H |
+| L | L | L | H |
+| L | H | H | L |
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VCC | 1.65 | — | 5.5 | V | Operating |
+| VI | — | — | 5.5 | V | Input voltage (5.5 V tolerant) |
+| IOH/IOL | — | — | ±32 | mA | At VCC=3.3 V |
+| tpd (3.3 V) | — | — | ~6 | ns | Typical propagation |
+| Operating temp | −40 | — | +125 | °C | |
+
+### Application Notes
+
+- Tie E\ LOW for permanent enable; use E\ as a chip-select-like gating signal.
+- Unused outputs may be left unconnected, but input A must not float when E\=LOW.
+
+### Project Usage Notes
+
+> **[ESH10000535 R3]:** U13 (74LVC1G19DBV). Used as a 1-of-2 mux/demux on the UPDI programming interface. A = select input; E\ driven LOW to enable. Y0 and Y1 route UPDI signal to different destinations (ATmega4809 or external programming header).
+
+---
+
+## OPA192
+
+**Manufacturer:** Texas Instruments  
+**Mfr Part Number:** OPA192IDBVT (SOT-23-5)  
+**Package:** SOT-23-5 (DBV)  
+**Category:** IC — Analog / Op-Amp  
+**Datasheet:** OPA192, Texas Instruments  
+**Added:** 2026-04-30  
+**Used in:** ESH10000535 R3
+
+Precision rail-to-rail input/output (RRIO) op-amp. Key specs: ±2.25 V–±18 V supply, ±5 µV Vos (typ), 10 MHz GBW, 20 V/µs slew rate, RRIO, low noise. Suitable for precision single-supply or dual-supply applications.
+
+### Pin Description (SOT-23-5 — top view)
+
+| Pin | Name | Type | Description |
+|-----|------|------|-------------|
+| 1 | OUT | O | Output |
+| 2 | V− | Pwr | Negative supply / ground |
+| 3 | +IN | I | Non-inverting input |
+| 4 | −IN | I | Inverting input |
+| 5 | V+ | Pwr | Positive supply |
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VS (supply range) | ±2.25 | — | ±18 | V | Single: 4.5 V–36 V |
+| Vos (offset voltage) | — | ±5 | — | µV | |
+| GBW | — | 10 | — | MHz | |
+| Slew rate | — | 20 | — | V/µs | |
+| Input voltage range | V− − 0.1 | — | V+ + 0.1 | V | Rail-to-rail |
+| Output swing | V− + 20 mV | — | V+ − 20 mV | V | Rail-to-rail |
+| Quiescent current | — | 1.2 | — | mA | Per amplifier |
+| Operating temp | −40 | — | +125 | °C | |
+
+### Application Notes
+
+- Unity-gain stable.
+- RRIO: output can swing within ~20 mV of either rail.
+- When used as a voltage follower (unity gain buffer): connect OUT (pin 1) to −IN (pin 4).
+
+### Project Usage Notes
+
+> **[ESH10000535 R3]:** U15 (OPA192, SOT-23-5). Unity-gain voltage buffer: OUT(1)=VREF\_BUF, −IN(4)=VREF\_BUF (feedback), +IN(3)=VREF, V+(5)=5VA, V−(2)=GND. Buffers a reference voltage (VREF) to a low-impedance output (VREF\_BUF).
+
+---
+
+## LP5012RUKR
+
+**Manufacturer:** Texas Instruments  
+**Mfr Part Number:** LP5012RUKR (WQFN-20, 3 mm × 3 mm)  
+**Package:** WQFN-20 (RUK), 3 mm × 3 mm, exposed thermal pad  
+**Category:** IC — LED Driver  
+**Datasheet:** LP5009/LP5012, SLVSEH2B, Texas Instruments, May 2019 – August 2020  
+**Added:** 2026-04-30  
+**Used in:** ESH10000535 R3
+
+12-channel constant-current I2C RGB LED driver. 12-bit PWM per channel (29 kHz), integrated 3-phase PWM-shifting. Up to 25.5 mA per channel (VCC full range) or 35 mA (VCC ≥ 3.3 V). Supports independent colour-mixing and brightness control per RGB group. Up to 4 devices on one I2C bus (ADDR0/ADDR1). Fast-mode I2C up to 400 kHz.
+
+### Pin Description (WQFN-20 — top view)
+
+| Pin | Name | Type | Description |
+|-----|------|------|-------------|
+| 1 | VCAP | Pwr | Internal LDO bypass cap. Connect 1 µF ceramic to GND. |
+| 2 | OUT0 | O | LED current sink 0 |
+| 3 | OUT1 | O | LED current sink 1 |
+| 4 | OUT2 | O | LED current sink 2 |
+| 5 | OUT3 | O | LED current sink 3 |
+| 6 | OUT4 | O | LED current sink 4 |
+| 7 | OUT5 | O | LED current sink 5 |
+| 8 | OUT6 | O | LED current sink 6 |
+| 9 | OUT7 | O | LED current sink 7 |
+| 10 | OUT8 | O | LED current sink 8 |
+| 11 | OUT9 | O | LED current sink 9 |
+| 12 | OUT10 | O | LED current sink 10 |
+| 13 | OUT11 | O | LED current sink 11 |
+| 14 | ADDR0 | I | I2C address bit 0. Must not be left floating. |
+| 15 | ADDR1 | I | I2C address bit 1. Must not be left floating. |
+| 16 | VCC | Pwr | Supply voltage (2.7 V–5.5 V) |
+| 17 | SDA | I/O | I2C data |
+| 18 | SCL | I | I2C clock (up to 400 kHz) |
+| 19 | EN | I | Chip enable. LOW = shutdown (1 µA max IDD). |
+| 20 | IREF | — | Current reference. Connect resistor to GND to set full-scale current. |
+| EP | Thermal pad | Pwr | GND (combines AGND/PGND/DGND). Must be soldered to PCB ground plane. |
+
+**I2C base address:** 0x14 (ADDR1=0, ADDR0=0); up to 4 addresses selectable with ADDR0/ADDR1.
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VCC | 2.7 | — | 5.5 | V | |
+| VLED (LED anode supply) | — | — | 6 | V | Max LED forward voltage |
+| IOUT per channel (VCC full range) | — | — | 25.5 | mA | |
+| IOUT per channel (VCC ≥ 3.3 V) | — | — | 35 | mA | |
+| Device-to-device accuracy | — | — | ±5 | % | |
+| Channel-to-channel accuracy | — | — | ±5 | % | |
+| IDD (shutdown, EN=LOW) | — | — | 1 | µA | |
+| IDD (power-saving, all off >30 ms) | — | 10 | — | µA | |
+| PWM frequency | — | 29 | — | kHz | 12-bit |
+| I2C speed | — | — | 400 | kHz | Fast mode |
+| Operating temp | −40 | — | +85 | °C | |
+
+### Application Notes
+
+- **VCAP:** Bypass with 1 µF ceramic cap to GND close to the pin.
+- **IREF:** A resistor from IREF to GND sets the full-scale output current for all channels.
+- **EN:** Pull LOW to enter shutdown (<1 µA). Pull HIGH to enable.
+- **ADDR0/ADDR1** must be driven (HIGH or LOW); do not leave floating.
+- Unused OUT pins may be left floating.
+
+### Project Usage Notes
+
+> **[ESH10000535 R3]:** U17 (LP5012RUKR). VCC=5V (from 5V rail via J3). Drives D2–D8 (QBLP600-RGB LEDs, 7 × RGB = 21 channels? Verify in schematic). ADDR0/ADDR1 set the I2C address. Controlled by ATmega4809 (U18) over I2C bus.
+
+---
+
+## ATmega4809
+
+**Manufacturer:** Microchip Technology  
+**Mfr Part Number:** ATmega4809 (48-pin TQFP or UQFN)  
+**Package:** TQFP-48 or UQFN-48; center pad (QFN) to GND or floating  
+**Category:** IC — Microcontroller (megaAVR 0-series)  
+**Datasheet:** ATmega4808/4809 Data Sheet, DS40002173A, Microchip Technology, 2020  
+**Added:** 2026-04-30  
+**Used in:** ESH10000535 R3
+
+8-bit megaAVR 0-series MCU. 48 KB Flash, 6 KB SRAM, 256 B EEPROM, 48 pins. Peripherals: 4×USART, 1×SPI (master/slave), 1×TWI (I2C), 3×TCB timers, 1×TCA timer, 1×ADC (12-bit), 1×AC, 5×CCL LUT, event system, UPDI programming interface. Configurable custom logic (CCL) and flexible event system.
+
+### Pin Description (48-Pin TQFP — sorted by pin number)
+
+| Pin | Name | Domain | Alternate Functions |
+|-----|------|--------|---------------------|
+| 1 | GND | Pwr | — |
+| 2 | VDD | Pwr | — |
+| 3 | PA5 | VDD | USART0-XCK, SPI0-MISO, TCA0-WO5, EVOUT-A |
+| 4 | PA6 | VDD | USART0-TXD (alt), SPI0-MOSI, TCA0-WO0 (alt) |
+| 5 | PD6 | VDD | DAC0-OUT |
+| 6 | PD7 | VDD | AIN7 |
+| 7 | PB0 | VDD | USART3-TXD, SPI0-SCK (alt), TWI0-SDA (alt) |
+| 8 | PD0 | VDD | AIN0, USART0-TXD (alt) |
+| 9 | PD1 | VDD | AIN1, USART0-RXD (alt) |
+| 10 | PC3 | VDD | USART1-XDIR, SPI0-SS (alt), TCA0-WO3 |
+| 11 | PA2 | VDD | TWI0-SDA, USART0-XCK, SPI0-MOSI (alt), TCA0-WO2, EVOUTA |
+| 12 | PF4 | VDD | USART2-TXD (alt) |
+| 13 | PD5 | VDD | AIN5 |
+| 14 | PC6 | VDD | USART1-TXD (alt), SPI0-MISO (alt) |
+| 15 | PC7 | VDD | USART1-RXD (alt) |
+| 16 | UPDI | VDD | Programming and debug interface |
+| 17 | PF5 | VDD | USART2-RXD (alt) |
+| 18 | PF6 | VDD | RESET (when RSTPIN fuse = 1) |
+| 19 | PA1 | VDD | USART0-RXD, SPI0-MOSI (alt), TCA0-WO1, EVOUTA |
+| 20 | PA4 | VDD | USART0-XDIR, SPI0-SS, TCA0-WO4, EVOUTA |
+| 21 | PD4 | VDD | AIN4, USART0-RXD (alt) |
+| 22 | PB4 | VDD | USART3-XDIR, SPI0-SS (alt) |
+| 23 | VDD | Pwr | — |
+| 24 | GND | Pwr | — |
+| 25 | PC2 | VDD | USART1-TXD, SPI0-MISO (alt), TCA0-WO2 (alt) |
+| 26 | PE3 | VDD | USART2-XDIR (alt) |
+| 27 | PE0 | VDD | USART2-TXD, TWI0-SDA (alt) |
+| 28 | PE2 | VDD | USART2-XCK (alt) |
+| 29 | PE1 | VDD | USART2-RXD, TWI0-SCL (alt) |
+| 30 | PB3 | VDD | USART3-XDIR (alt), SPI0-SS (alt), TWI0-SCL (alt) |
+| 31 | PB2 | VDD | USART3-TXD (alt), SPI0-MOSI (alt), TWI0-SDA (alt) |
+| 32 | PB1 | VDD | USART3-RXD (alt), SPI0-MISO (alt), TWI0-SCL (alt) |
+| 33 | PA3 | VDD | TWI0-SCL, USART0-TXD, SPI0-SS (alt), TCA0-WO3, EVOUTA |
+| 34 | PF1 (TOSC2) | VDD | Crystal oscillator, USART2-RXD (alt) |
+| 35 | PF0 (TOSC1) | VDD | Crystal oscillator, USART2-TXD (alt) |
+| 36 | PF3 | VDD | USART2-XDIR |
+| 37 | PF2 | VDD | USART2-XCK, USART2-TXD (alt) |
+| 38 | PD3 | VDD | AIN3 |
+| 39 | PD2 | VDD | AIN2 |
+| 40 | PC5 | VDD | USART1-RXD (alt), TCA0-WO5 (alt) |
+| 41 | PC4 | VDD | USART1-XCK (alt), TCA0-WO4 (alt) |
+| 42 | PC1 | VDD | USART1-RXD, SPI0-SS (alt), TCA0-WO1 (alt) |
+| 43 | PC0 | VDD | USART1-TXD (alt), TCA0-WO0 (alt) |
+| 44 | PA7 | VDD | USART0-RXD (alt), SPI0-SCK (alt) |
+| 45 | PB5 | VDD | USART3-RXD (alt) |
+| 46 | GND | Pwr | — |
+| 47 | AVDD | AVDD | Analog supply for ADC/AC/DAC. Bypass separately. |
+| 48 | PA0 (EXTCLK) | VDD | External clock input |
+
+**Power supply pins:**
+- VDD: pins 2, 23 — digital supply
+- GND: pins 1, 24, 46 — digital ground
+- AVDD: pin 47 — analog supply (must be separately bypassed; connect to VDD if no separate analog supply)
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VDD | 1.8 | — | 5.5 | V | Full operating range |
+| AVDD | VDD − 0.1 | — | VDD + 0.1 | V | Keep within 0.1 V of VDD |
+| FCLK (max) | — | — | 20 | MHz | At VDD ≥ 4.5 V |
+| FCLK (max, 1.8–2.7 V) | — | — | 8 | MHz | |
+| Flash | — | 48 | — | KB | |
+| SRAM | — | 6 | — | KB | |
+| EEPROM | — | 256 | — | B | |
+| I/O pins | — | 40 | — | — | (48-pin package) |
+| ADC resolution | — | 12 | — | bit | |
+| Operating temp | −40 | — | +85 | °C | Industrial |
+
+### Application Notes
+
+- **UPDI** (pin 16): unified programming and debugging interface. Requires a single-wire half-duplex serial connection.
+- **AVDD** (pin 47): must be decoupled with at least 100 nF ceramic cap close to pin. Connect to VDD if no separate analog supply.
+- **TOSC1/TOSC2** (pins 35/34): external 32.768 kHz crystal or clock for RTC.
+- **Unconnected GPIO pins** are valid: configure as inputs with pull-ups enabled in firmware to avoid floating. In netlist/schematic, pins not connected are expected behaviour for an MCU — not an ERC error.
+- **PF6** can be configured as RESET pin via fuse; by default it is a GPIO.
+- Center pad (UQFN only): connect to GND or leave floating. Solder for mechanical stability.
+
+### Project Usage Notes
+
+> **[ESH10000535 R3]:** U18 (ATmega4809, TQFP-48). VDD=3V3. AVDD=3V3. 26/48 pins present in netlist — unconnected I/O pins are intentional NCs (OI-04, pending engineer confirmation). Runs I2C bus (TWI0: PA2/PA3), SPI (SPI0), UART (USART), and UPDI programming via U13 mux. Controls bus buffers via SPI\_ENn, UART\_ENn.
+
+---
+
+## SN74AVC4T774RGYR
+
+**Manufacturer:** Texas Instruments  
+**Mfr Part Number:** SN74AVC4T774RGYR (VQFN-16, 4 mm × 3.5 mm)  
+**Package:** VQFN-16 (RGY), 4 mm × 3.5 mm, exposed thermal pad  
+**Category:** IC — Logic / Bus Transceiver (level shifting, bidirectional)  
+**Datasheet:** SN74AVC4T774, SCES693I, Texas Instruments, February 2008 – February 2025  
+**Added:** 2026-04-30  
+**Used in:** ESH10000535 R3
+
+4-bit dual-supply bidirectional bus transceiver with configurable voltage-level shifting and 3-state outputs. VCCA and VCCB each independently accept 1.1 V–3.6 V. Each of the 4 channels has an independent DIR control input. One shared OE\ input (active LOW). Control inputs (DIR, OE) are referenced to VCCA.
+
+### Pin Description (VQFN-16 / RGY — top view)
+
+| Pin | Name | Type | Description |
+|-----|------|------|-------------|
+| 1 | DIR1 | I | Direction control, channel 1. HIGH = A→B; LOW = B→A. Referenced to VCCA. |
+| 2 | DIR2 | I | Direction control, channel 2 |
+| 3 | A1 | I/O | Port A, channel 1 (VCCA domain) |
+| 4 | A2 | I/O | Port A, channel 2 |
+| 5 | A3 | I/O | Port A, channel 3 |
+| 6 | A4 | I/O | Port A, channel 4 |
+| 7 | DIR3 | I | Direction control, channel 3 |
+| 8 | DIR4 | I | Direction control, channel 4 |
+| 9 | OE | I | Output enable, active LOW (shared). HIGH = all outputs high-Z. Referenced to VCCA. |
+| 10 | GND | Pwr | Ground |
+| 11 | B4 | I/O | Port B, channel 4 (VCCB domain) |
+| 12 | B3 | I/O | Port B, channel 3 |
+| 13 | B2 | I/O | Port B, channel 2 |
+| 14 | B1 | I/O | Port B, channel 1 |
+| 15 | VCCB | Pwr | Port B supply (1.1 V–3.6 V) |
+| 16 | VCCA | Pwr | Port A supply (1.1 V–3.6 V) |
+| EP | Thermal pad | Pwr | GND. Connect to PCB GND. |
+
+**Logic (one channel, OE=LOW):**
+- DIR=HIGH: A→B (A is input, B is output)
+- DIR=LOW: B→A (B is input, A is output)
+- OE=HIGH: both A and B outputs high-Z
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VCCA | 1.1 | — | 3.6 | V | Port A and control supply |
+| VCCB | 1.1 | — | 3.6 | V | Port B supply |
+| VI, VO tolerance | — | — | 4.6 | V | I/O pin max voltage |
+| Data rate (1.8V↔3.3V) | — | 380 | — | Mbps | |
+| Data rate (<1.8V↔3.3V) | — | 200 | — | Mbps | |
+| ESD (HBM) | — | — | ±8000 | V | |
+| ESD (CDM) | — | — | ±1500 | V | |
+| Operating temp | −40 | — | +125 | °C | |
+
+### Application Notes
+
+- **OE should be tied HIGH (to VCCA) through a pull-up during power-up** to keep outputs high-Z until the supplies are stable. Minimum pull-up resistance is set by the OE driver's current capability.
+- **Inputs must not float.** A floating A or B pin can cause excess ICC.
+- If either VCC rail is at GND (VCC isolation feature), both ports go high-Z automatically.
+- When translating from a lower VCCA to higher VCCB, or vice versa, DIR control is latency-critical — ensure DIR settles before the first data edge.
+
+### Project Usage Notes
+
+> **[ESH10000535 R3]:** U19, U20 (SN74AVC4T774RGYR). VCCA=3V3 (MCU side), VCCB=3V3 or different voltage (verify in schematic). Used as 4-bit bidirectional level-shifting buffers on SPI or other bus interfaces. DIR1–DIR4 driven individually from MCU or IO expander.
+
+---
+
+## TLV9102IDR
+
+**Manufacturer:** Texas Instruments  
+**Mfr Part Number:** TLV9102IDR (SOIC-8)  
+**Package:** SOIC-8 (D)  
+**Category:** IC — Analog / Op-Amp (dual)  
+**Datasheet:** TLV9102, Texas Instruments  
+**Added:** 2026-04-30  
+**Used in:** ESH10000535 R3
+
+Dual rail-to-rail input/output (RRIO) op-amp in SOIC-8. 2.7 V–16 V supply (or ±1.35 V–±8 V), 1.1 MHz GBW, 0.5 V/µs slew rate. General-purpose low-voltage dual op-amp for signal conditioning.
+
+### Pin Description (SOIC-8 — top view)
+
+| Pin | Name | Type | Description |
+|-----|------|------|-------------|
+| 1 | OUT1 | O | Output, amplifier 1 |
+| 2 | −IN1 | I | Inverting input, amplifier 1 |
+| 3 | +IN1 | I | Non-inverting input, amplifier 1 |
+| 4 | V− | Pwr | Negative supply |
+| 5 | +IN2 | I | Non-inverting input, amplifier 2 |
+| 6 | −IN2 | I | Inverting input, amplifier 2 |
+| 7 | OUT2 | O | Output, amplifier 2 |
+| 8 | V+ | Pwr | Positive supply |
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VS (supply) | 2.7 | — | 16 | V | Single supply |
+| VS (dual) | ±1.35 | — | ±8 | V | |
+| GBW | — | 1.1 | — | MHz | |
+| Slew rate | — | 0.5 | — | V/µs | |
+| Input range | V− | — | V+ | V | Rail-to-rail |
+| Output swing | V− + 30 mV | — | V+ − 30 mV | V | Rail-to-rail |
+| Quiescent current | — | 60 | — | µA | Per amplifier |
+| Operating temp | −40 | — | +125 | °C | |
+
+### Application Notes
+
+- Unity-gain stable.
+- Very low quiescent current (60 µA/amp) makes it suitable for battery or low-power applications.
+- Input common-mode range includes both supply rails (true RRIO).
+
+### Project Usage Notes
+
+> **[ESH10000535 R3]:** U21 (TLV9102IDR). Supply rails and signal nets to be confirmed in schematic review (ERC-C08/P06). Used as dual op-amp for signal conditioning.
+
+---
+
+## SN74LVC1G126DBVR
+
+**Manufacturer:** Texas Instruments  
+**Mfr Part Number:** SN74LVC1G126DBVR (SOT-23-5)  
+**Package:** SOT-23-5 (DBV)  
+**Category:** IC — Logic / Buffer (single, 3-state, active-HIGH OE)  
+**Datasheet:** SN74LVC1G126, Texas Instruments  
+**Added:** 2026-04-30  
+**Used in:** ESH10000535 R3
+
+Single bus buffer gate with 3-state output. Active-HIGH output enable (OE): output is enabled when OE is HIGH; output is high-Z when OE is LOW. VCC 1.65 V–5.5 V, inputs accept up to 5.5 V.
+
+### Pin Description (SOT-23-5 — top view)
+
+| Pin | Name | Type | Description |
+|-----|------|------|-------------|
+| 1 | OE | I | Output enable, active HIGH |
+| 2 | GND | Pwr | Ground |
+| 3 | A | I | Input |
+| 4 | Y | O/Z | Output (3-state) |
+| 5 | VCC | Pwr | Supply voltage |
+
+**Function:** OE=H → Y=A. OE=L → Y=Hi-Z.
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VCC | 1.65 | — | 5.5 | V | Operating |
+| VI (input) | — | — | 5.5 | V | 5.5 V tolerant |
+| IOH/IOL | — | — | ±32 | mA | At VCC=3.3 V |
+| Operating temp | −40 | — | +125 | °C | |
+
+### Application Notes
+
+- OE must not be left floating; tie to GND to keep output permanently high-Z, or to VCC (or a driver) to enable.
+- Single-channel version of SN74LVC126A (which has 4 channels in TSSOP-14).
+- **Active-HIGH OE**: same polarity as SN74LVC126A. Contrast with SN74LVC1G125 (active-LOW OE).
+
+### Project Usage Notes
+
+> **[ESH10000535 R3]:** U24 (SN74LVC1G126DBVR). Single buffer used to gate a signal (net TBD). OE driven from MCU or IO expander.

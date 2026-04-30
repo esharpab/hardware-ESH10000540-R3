@@ -1,0 +1,226 @@
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_Fixture_Electronics\Sparrow_NTop_R3\PCB\Panel\sparrow_n-top\Output\GerberPanel_Sparrow_NTop_R3\jlc\layer2.gb2' ----   Fri Dec 12 09:38:36 2025
+
+D11   --> D100
+D10   --> D101
+D12   --> D102
+D14   --> D103
+D13   --> D104
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_Fixture_Electronics\Sparrow_NTop_R3\PCB\Panel\sparrow_n-top\Output\GerberPanel_Sparrow_NTop_R3\jlc\layer3.gb3' ----   Fri Dec 12 09:38:36 2025
+
+D11   --> D105
+D12   --> D106
+D10   --> D107
+D13   --> D108
+D15   --> D109
+D14   --> D110
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_Fixture_Electronics\Sparrow_NTop_R3\PCB\Panel\sparrow_n-top\Output\GerberPanel_Sparrow_NTop_R3\jlc\layer4.gb4' ----   Fri Dec 12 09:38:36 2025
+
+D11   --> D111
+D10   --> D112
+D12   --> D113
+D14   --> D114
+D13   --> D115
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_Fixture_Electronics\Sparrow_NTop_R3\PCB\Panel\sparrow_n-top\Output\GerberPanel_Sparrow_NTop_R3\jlc\layer5.gb5' ----   Fri Dec 12 09:38:37 2025
+
+D11   --> D116
+D10   --> D117
+D12   --> D118
+D14   --> D119
+D13   --> D120
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_Fixture_Electronics\Sparrow_NTop_R3\PCB\Panel\sparrow_n-top\Output\GerberPanel_Sparrow_NTop_R3\jlc\layer6.gb6' ----   Fri Dec 12 09:38:37 2025
+
+D11   --> D121
+D12   --> D122
+D10   --> D123
+D13   --> D124
+D15   --> D125
+D14   --> D126
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_Fixture_Electronics\Sparrow_NTop_R3\PCB\Panel\sparrow_n-top\Output\GerberPanel_Sparrow_NTop_R3\jlc\layer7.gb7' ----   Fri Dec 12 09:38:37 2025
+
+D11   --> D127
+D10   --> D128
+D12   --> D129
+D14   --> D130
+D13   --> D131
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_Fixture_Electronics\Sparrow_NTop_R3\PCB\Panel\sparrow_n-top\Output\GerberPanel_Sparrow_NTop_R3\jlc\layer8.gbl' ----   Fri Dec 12 09:38:37 2025
+
+D70   --> D132
+D18   --> D133
+D17   --> D134
+D19   --> D135
+D16   --> D136
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_Fixture_Electronics\Sparrow_NTop_R3\PCB\Panel\sparrow_n-top\Output\GerberPanel_Sparrow_NTop_R3\jlc\Maskbottom.gbs' ----   Fri Dec 12 09:38:37 2025
+
+D17   --> D137
+D10   --> D138
+D16   --> D139
+D14   --> D140
+D13   --> D141
+D15   --> D142
+D12   --> D143
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_Fixture_Electronics\Sparrow_NTop_R3\PCB\Panel\sparrow_n-top\Output\GerberPanel_Sparrow_NTop_R3\jlc\Masktop.gts' ----   Fri Dec 12 09:38:37 2025
+
+D28   --> D144
+D10   --> D145
+D26   --> D146
+D20   --> D147
+D34   --> D148
+D42   --> D149
+D32   --> D150
+D33   --> D151
+D45   --> D152
+D31   --> D153
+D30   --> D154
+D27   --> D155
+D44   --> D156
+D43   --> D157
+D14   --> D158
+D12   --> D159
+D29   --> D160
+D23   --> D161
+D35   --> D162
+D52   --> D163
+D21   --> D164
+D13   --> D165
+D58   --> D166
+D71   --> D167
+D73   --> D168
+D72   --> D169
+D25   --> D170
+D16   --> D171
+D17   --> D172
+D36   --> D173
+D70   --> D174
+D24   --> D175
+D15   --> D176
+D46   --> D177
+D19   --> D178
+D18   --> D179
+D22   --> D180
+D51   --> D181
+D57   --> D182
+D37   --> D183
+D39   --> D184
+D40   --> D185
+D41   --> D186
+D38   --> D187
+D54   --> D188
+D55   --> D189
+D56   --> D190
+D53   --> D191
+D48   --> D192
+D50   --> D193
+D47   --> D194
+D49   --> D195
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_Fixture_Electronics\Sparrow_NTop_R3\PCB\Panel\sparrow_n-top\Output\GerberPanel_Sparrow_NTop_R3\jlc\panel.gko' ----   Fri Dec 12 09:38:38 2025
+
+D10   --> D196
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_Fixture_Electronics\Sparrow_NTop_R3\PCB\Panel\sparrow_n-top\Output\GerberPanel_Sparrow_NTop_R3\jlc\Pastebottom.gbp' ----   Fri Dec 12 09:38:38 2025
+
+D11   --> D197
+D10   --> D198
+D12   --> D199
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_Fixture_Electronics\Sparrow_NTop_R3\PCB\Panel\sparrow_n-top\Output\GerberPanel_Sparrow_NTop_R3\jlc\Pastetop.gtp' ----   Fri Dec 12 09:38:38 2025
+
+D22   --> D200
+D35   --> D201
+D28   --> D202
+D29   --> D203
+D37   --> D204
+D27   --> D205
+D26   --> D206
+D36   --> D207
+D21   --> D208
+D12   --> D209
+D10   --> D210
+D23   --> D211
+D70   --> D212
+D72   --> D213
+D42   --> D214
+D18   --> D215
+D11   --> D216
+D47   --> D217
+D17   --> D218
+D25   --> D219
+D24   --> D220
+D20   --> D221
+D14   --> D222
+D15   --> D223
+D73   --> D224
+D16   --> D225
+D71   --> D226
+D13   --> D227
+D19   --> D228
+D30   --> D229
+D32   --> D230
+D33   --> D231
+D34   --> D232
+D31   --> D233
+D39   --> D234
+D41   --> D235
+D38   --> D236
+D40   --> D237
+D44   --> D238
+D45   --> D239
+D46   --> D240
+D43   --> D241
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_Fixture_Electronics\Sparrow_NTop_R3\PCB\Panel\sparrow_n-top\Output\GerberPanel_Sparrow_NTop_R3\jlc\Silkbottom.gbo' ----   Fri Dec 12 09:38:38 2025
+
+D10   --> D242
+D11   --> D243
+D12   --> D244
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_Fixture_Electronics\Sparrow_NTop_R3\PCB\Panel\sparrow_n-top\Output\GerberPanel_Sparrow_NTop_R3\jlc\Silktop.gto' ----   Fri Dec 12 09:38:39 2025
+
+D12   --> D245
+D11   --> D246
+D13   --> D247
+D10   --> D248
+D18   --> D249
+D15   --> D250
+D14   --> D251
+D70   --> D252
+D17   --> D253
+D16   --> D254
+D19   --> D255
+-----------------------------------------------------------------
