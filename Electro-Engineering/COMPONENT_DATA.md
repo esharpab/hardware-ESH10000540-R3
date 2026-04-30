@@ -52,6 +52,7 @@
 - [ATmega4809](#atmega4809) — 48-Pin megaAVR 0-Series Microcontroller (Microchip Technology)
 - [SN74AVC4T774RGYR](#sn74avc4t774rgyr) — 4-Bit Dual-Supply Bus Transceiver with Independent Direction Control (Texas Instruments)
 - [TLV9102IDR](#tlv9102idr) — Dual Low-Voltage Rail-to-Rail Op-Amp (Texas Instruments)
+- [SN74LVC1G125DBVR](#sn74lvc1g125dbvr) — Single Low-Voltage FET Bus Switch, Active-LOW OE (Texas Instruments)
 - [SN74LVC1G126DBVR](#sn74lvc1g126dbvr) — Single Bus Buffer with 3-State Output, Active-HIGH OE (Texas Instruments)
 
 ---
@@ -3348,6 +3349,65 @@ Dual rail-to-rail input/output (RRIO) op-amp in SOIC-8. 2.7 V–16 V supply (or 
 ### Project Usage Notes
 
 > **[ESH10000535 R3]:** U21 (TLV9102IDR). Supply rails and signal nets to be confirmed in schematic review (ERC-C08/P06). Used as dual op-amp for signal conditioning.
+
+---
+
+## SN74LVC1G125DBVR
+
+**Manufacturer:** Texas Instruments  
+**Mfr Part Number:** SN74CBTLV1G125DBVR (SOT-23-5); BOM/schematic reference: SN74LVC1G125DBVR  
+**Package:** SOT-23-5 (DBV)  
+**Category:** IC — Logic / Bus Switch (single FET, bidirectional)  
+**Datasheet:** SN74CBTLV1G125, SCDS057H, Texas Instruments, Revised June 2006 (file: sn74cbtlv1g125.pdf)  
+**Added:** 2026-04-30  
+**Used in:** ESH10000535 R3
+
+> **Note:** The BOM lists this device as SN74LVC1G125DBVR; the TI orderable part number in the datasheet is SN74CBTLV1G125DBVR. These refer to the same device. This is a **bidirectional FET bus switch**, not a unidirectional 3-state buffer — see function table below.
+
+Single high-speed FET bus switch. When OE is LOW, port A is connected to port B through a low-resistance (~5 Ω) FET switch. When OE is HIGH, the switch is open (ports isolated). Rail-to-rail signal switching. Supports partial power-down via Ioff.
+
+### Pin Description (SOT-23-5 / DBV — top view)
+
+| Pin | Name | Type | Description |
+|-----|------|------|-------------|
+| 1 | OE | I | Output enable, active LOW. LOW = A↔B connected; HIGH = disconnected. |
+| 2 | B | I/O | Port B — bidirectional switch terminal |
+| 3 | GND | Pwr | Ground |
+| 4 | A | I/O | Port A — bidirectional switch terminal |
+| 5 | VCC | Pwr | Supply voltage |
+
+**Function table:**
+
+| OE | Function |
+|----|----------|
+| L | A port = B port (5 Ω switch closed) |
+| H | Disconnect (both ports isolated) |
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VCC | 2.3 | — | 3.6 | V | Operating |
+| VI (signal, rail-to-rail) | 0 | — | VCC | V | A and B ports |
+| VI (absolute max) | −0.5 | — | 4.6 | V | |
+| RON | — | 5 | — | Ω | Switch on-resistance |
+| VIH (OE, VCC=2.7–3.6V) | 2.0 | — | — | V | |
+| VIL (OE, VCC=2.7–3.6V) | — | — | 0.8 | V | |
+| Ioff | — | — | 10 | µA | VCC=0, VI/VO=0–3.6V (partial power-down) |
+| ICC (static) | — | — | 10 | µA | |
+| Operating temp | −40 | — | +85 | °C | |
+
+### Application Notes
+
+- **Bidirectional:** Unlike a buffer, signal flow is not fixed — either A or B may be the driver depending on the circuit context.
+- OE should be tied to VCC through a pull-up resistor to ensure the switch is open during power-up/power-down.
+- The OE input must not be left floating.
+- RON of 5 Ω is negligible for most digital signals but matters in analog or high-speed paths (voltage drop = I × 5 Ω).
+- Ioff ensures no backflow current when VCC = 0, enabling safe use in partial-power-down systems.
+
+### Project Usage Notes
+
+> **[ESH10000535 R3]:** U23 (SN74LVC1G125DBVR / SN74CBTLV1G125DBVR). OE control net and A/B signal nets TBD from schematic. Bidirectional switch — verify direction intent in ERC-D.
 
 ---
 
