@@ -1,0 +1,743 @@
+========================================================================
+  FILE:      AMS1117_20120314.pdf
+  PATH:      70_Assets/Datasheets/AMS1117_20120314.pdf
+  PAGES:     9 total  |  extracted: 1–9
+  SIZE:      792 KB
+  EXTRACTED: 2026-04-30 09:37
+========================================================================
+
+USAGE NOTE: Feed to AI using the extraction prompt in
+  30_Workflows/component-data-workflow.md
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 1 / 9
+────────────────────────────────────────────────────────────────────────
+    1A  Adjustable/Fixed Low Dropout Linear Regulator 
+ 
+                                                                                1 
+- Low dropout voltage 
+-  Load regulation: 0.2% typical 
+-  Optimized for Low Voltage 
+-  On-chip thermal limiting 
+-  Standard SOT-223 and TO-252 packages 
+- Three-terminal adjustable or fixed low dropout             
+1.2V,1.5V,1.8V, 2.5V, 2.85V, 3.3V, 5V. Regulators 
+ - Active SCSI terminators 
+ - High efficiency linear regulators 
+ - Post regulators for switching supplies 
+ - Battery chargers 
+ - 12V to 5V linear regulators 
+ - Motherboard clock supplies 
+ 
+The AMS1117-ADJ and AMS1117-1.2,-1.5,-1.8,-2.5,-2.85, 
+-3.3 and-5 are low dropout three-terminal regulators with 
+1A output current capability. These devices have been 
+optimized for low voltage where transient response and 
+minimum input voltage are critical. The 2.85V version is 
+designed specifically to be used in Active Terminators for 
+SCSI bus. 
+ 
+On-chip thermal limiting provides protection against any 
+combination of overload and ambient temperatures that 
+would create excessive  junction temperatures. 
+ 
+Unlike PNP type regulators where up to 10% of the output 
+current is wasted as quiescent current, the quiescent cur-
+rent of the AMS1117 flows into the load, increasing effi-
+ciency. 
+ 
+The AMS1117 series regulators are available in the indus-
+try-standard SOT-223 and TO-252 power packages. 
+     Key Features 
+     Applications 
+    General Description 
+    Typical Application 
+Notice: The distance between Vout pin and Capacitor should not exceed 4cm for excellent performance 
+Figure 1. Typical Applications of  AMS1117 
+AMS1117
+Advanced Monolithic Systems    http://www.ams-semitech.com
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 2 / 9
+────────────────────────────────────────────────────────────────────────
+    1A  Adjustable/Fixed Low Dropout Linear Regulator 
+ 
+                                                                                  2 
+      Pin Assignments 
+*With package soldered to 0.5 square inch copper area over backside ground plane or internal power plane, ΘJA can vary from 30°C/W to 
+more than 50°C/W.  Other mounting techniques may provide better thermal resistance than 30°C/W. 
+       Absolute Maximum Ratings 
+Figure 2. Pin Assignments of  AMS1117 
+Parameter 
+Min. 
+  Max. 
+Unit 
+VIN 
+ 
+18 
+V 
+(VIN – VOUT) * IOUT 
+ 
+See Figure 3 
+ 
+Operating Junction Temperature Range 
+-20 
+125 
+°C  
+Storage Temperature Range 
+-65 
+150 
+°C  
+Lead Temperature (Soldering, 10 sec.) 
+  
+300 
+°C  
+AMS1117
+Advanced Monolithic Systems    http://www.ams-semitech.com
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 3 / 9
+────────────────────────────────────────────────────────────────────────
+    1A  Adjustable/Fixed Low Dropout Linear Regulator 
+ 
+                                                                                   3 
+Typicals and limits appearing in normal type apply for TJ=25℃.Limits appearing in Boldface type apply over the entire junction temperature for 
+operation, -20℃to 125℃. 
+     Electrical Characteristic  
+    Block Diagram 
+Thermal  
+   Limit 
+Current  
+  Limit 
+VOUT 
+VIN 
+Substrate 
+GND (fixed output) 
+ADJ. (adjustable output) 
+Figure 3. Block Diagram of AMS1117 
+Symbol 
+Parameter 
+Conditions 
+Min 
+(Note 2) 
+Typ 
+(Note 1) 
+Max 
+(Note 2) 
+Units 
+VREF 
+Reference  
+Voltage 
+AMS1117 
+1.5V<=(VIN-VOUT)<=7V,10mA<=IOUT<=1A 
+ 1.225 
+1.250 
+ 1.275 
+ V 
+VOUT 
+Output Voltage 
+10mA<= 
+IOUT<=1A 
+IOUT = 10mA, VIN = 3.2V 
+AMS1117-1.2 ,2.7V<= VIN<=8.2V 
+1.176 
+1.152 
+1.200 
+1.200 
+1.224 
+1.248 
+V 
+AMS1117-1.5 ,3.0V<= VIN<=8.5V 
+1.470 
+1.500 
+1.530 
+V 
+AMS1117-1.8 ,3.3V<= VIN<=8.8V 
+1.764 
+1.800 
+1.836 
+V 
+AMS1117-2.5 ,4V<= VIN<= 9.5V 
+2.450 
+2.500 
+2.550 
+V 
+AMS1117-2.85 ,  4.35V <= V IN<= 9.85V 
+2.793 
+2.850 
+2.907 
+V 
+AMS1117-3.3 , 4.8V<= VIN <=10.3V 
+3.234 
+3.300 
+3.366 
+V 
+AMS1117-5.0,6.5V<=VIN <= 12V 
+4.900 
+5.000 
+5.100 
+V 
+AMS1117
+Advanced Monolithic Systems    http://www.ams-semitech.com
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 4 / 9
+────────────────────────────────────────────────────────────────────────
+    1A  Adjustable/Fixed Low Dropout Linear Regulator 
+   
+                                                                               4 
+Typicals and limits appearing in normal type apply for TJ=25℃.Limits appearing in Boldface type apply over the entire junction temperature for 
+operation, -20℃ to 125℃. 
+     Electrical Characteristic  
+(Continued) 
+Symbol 
+Parameter 
+Conditions 
+Min 
+(Note 2) 
+Typ 
+(Note 1) 
+Max 
+(Note 2) 
+Units 
+△VOUT 
+Line Regultion 
+(Note 3) 
+IOUT=10mA ,(VOUT+1.5V)<=VIN<=12V 
+  
+0.035 
+0.2 
+% 
+Load Regultion 
+(Note 3) 
+VIN-VOUT=2V,10mA<= IOUT<=1A, 
+  
+0.2 
+0.7 
+% 
+AMS1117-1.2  
+VIN-VOUT=2V,10mA<= IOUT<=1A, 
+ 
+0.2 
+1 
+% 
+VIN-VOUT 
+Dropout Volage 
+IOUT=1A,△VREF=1% 
+  
+1.100 
+1.250 
+V 
+ILimit 
+Current Limit 
+VIN-VOUT= 2V, TJ=25℃ 
+1.1 
+1.5 
+  
+A 
+Minimum Load 
+Current   (Note 4) 
+AMS1117-ADJ 
+1.5V<=(VIN-VOUT)<=10V 
+10  
+  
+  
+mA 
+Quiescent Curent 
+VIN=VOUT+1.25V 
+  
+5 
+13 
+mA 
+Thermal 
+Regulation 
+TA = 25°C, 30ms pulse 
+  
+0.01 
+0.1 
+%/W 
+Ripple 
+Rejection 
+f=120Hz,VIN-VOUT=3V, VRipple=1VPP 
+60 
+72 
+  
+dB 
+Adjust Pin Current 
+  
+  
+50 
+120 
+µA 
+Adjust Pin Current 
+Change 
+1.5V<=VIN-VOUT<=7V, 10mA<=IOUT<=1A 
+  
+0.2 
+5 
+µA 
+Temperature 
+Stability 
+  
+  
+0.5 
+  
+% 
+Long Term 
+Stability 
+TA = 125°C, 1000hrs. 
+  
+0.3 
+  
+% 
+AMS1117
+Advanced Monolithic Systems    http://www.ams-semitech.com
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 5 / 9
+────────────────────────────────────────────────────────────────────────
+    1A Adjustable/Fixed Low Dropout Linear Regulator 
+    
+                                                                              5 
+Note 1: Typical Values represent the most likely parametric norm. 
+Note 2: All limits are guaranteed by testing or statistical analysis. 
+Note 3: Load and line regulation are measured at constant junction room temperature. 
+Note 4: The minimum output current required to maintain regulation. 
+ Typical Performance Characteristics 
+Typicals and limits appearing in normal type apply for TJ=25℃.Limits appearing in Boldface type apply over the entire junction temperature for 
+operation, -20℃to 125℃. 
+     Electrical Characteristic  
+(Continued) 
+Symbol 
+Parameter 
+Conditions 
+Min 
+(Note 2) 
+Typ 
+(Note 1) 
+Max 
+(Note 2) 
+Units 
+ILimit 
+RMS Output Noise(% of 
+VOUT) 
+TA = 25°C, 10Hz<= f <=10kHz 
+ 
+0.003 
+ 
+% 
+Thermal Resistance, Junction 
+to Case 
+SOT-223 
+ 
+15 
+ 
+℃/W 
+TO-252 
+ 
+3 
+ 
+℃/W 
+Thermal Shutdown 
+Junction Temperature 
+ 
+155 
+ 
+℃ 
+Thermal Shutdown Hysteresis 
+ 
+ 
+25 
+ 
+℃ 
+Output Current ( A )  
+0          0.2       0.4          0.6         0.8        1.0 
+1.5 
+1.4 
+1.3 
+1.2 
+1.0 
+0.9 
+0.8 
+0.7 
+0.6 
+0.5 
+  0 
+Dropout Voltage ( V )
+ 
+Figure 4. Dropout Voltage VS. Output Current  
+AMS1117
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 6 / 9
+────────────────────────────────────────────────────────────────────────
+    1A  Adjustable/Fixed Low Dropout Linear Regulator 
+ 
+                                                                                  6 
+      Typical Performance Characteristics  
+(Continued) 
+Figure 6. Output Voltage VS. Temperature 
+Output Voltage( V )
+ 
+3.70 
+3.65 
+3.60 
+3.55 
+3.50 
+3.45 
+3.40 
+3.35 
+3.30 
+3.25 
+3.20 
+Junction Temperature ( ℃ )  
+-75  –50  –25  0    25  50   75  100 125  150  175 
+Figure 5. Reference Voltage VS. Temperature 
+ReferenceVoltage( V )
+ 
+0.260 
+1.255 
+1.250 
+1.245 
+1.240 
+1.235 
+1.225 
+1.220 
+1.215 
+1.210 
+Junction Temperature ( ℃ )  
+-75  –50  –25   0    25   50   75  100  125  150  175 
+Figure 7. Minimum Load Current VS. Temperature 
+Minimum Load Current( mA )
+ 
+5 
+4 
+3 
+2 
+1 
+0 
+      Junction Temperature ( ℃ )  
+-75  –50  –25   0    25   50   75  100  125  150  175 
+Figure 8. ADJ Pin Current VS. Temperature 
+ADJ Pin Current( µA )
+ 
+100 
+90 
+80 
+70 
+60 
+50 
+40 
+30 
+20 
+10 
+ 0 
+          Junction Temperature ( ℃ )  
+-75  –50  –25   0    25   50   75  100 125  150  175 
+Note: 
+       AMS1117 Only 
+AMS1117
+Advanced Monolithic Systems    http://www.ams-semitech.com
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 7 / 9
+────────────────────────────────────────────────────────────────────────
+   1A  Adjustable/Fixed Low Dropout Linear Regulator 
+   
+                                                                               7 
+      Mechanical Dimensions 
+          4-Lead SOT-223 Package 
+Symbol 
+Inches 
+Millimeters 
+Notes 
+Min. 
+Max. 
+Min. 
+Max. 
+A 
+Ñ 
+.071 
+Ñ 
+1.80 
+ 
+A1 
+Ñ 
+.181 
+Ñ 
+4.80 
+ 
+B 
+.025 
+.033 
+.064 
+.840 
+ 
+c 
+Ñ 
+0.90 
+Ñ 
+2.29 
+ 
+D 
+.248 
+.264 
+6.30 
+6.71 
+ 
+E 
+.130 
+.148 
+3.30 
+3.71 
+ 
+e 
+.115 
+.124 
+2.95 
+3.15 
+ 
+F 
+.033 
+.041 
+.840 
+1.04 
+ 
+H 
+.264 
+.287 
+6.71 
+7.29 
+ 
+I 
+.0121 
+Ñ 
+.310 
+Ñ 
+ 
+J 
+Ñ 
+10° 
+Ñ 
+10° 
+ 
+K 
+10° 
+16° 
+10° 
+16° 
+ 
+L 
+.0008 
+.0040 
+.0203 
+.1018 
+ 
+M 
+10° 
+16° 
+10° 
+16° 
+ 
+N 
+.010 
+.014 
+.250 
+.360 
+ 
+Figure 9. 4-Lead SOT-223 Package 
+AMS1117
+Advanced Monolithic Systems    http://www.ams-semitech.com
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 8 / 9
+────────────────────────────────────────────────────────────────────────
+    1A  Adjustable/Fixed Low Dropout Linear Regulator 
+ 
+                                                                                  8 
+      Mechanical Dimensions 
+(Continued) 
+          3-Lead TO-252 Package 
+Notes: 
+            1. Dimensions are exclusive of mold flash, metal burrs 
+or interlead protrusion. 
+            2. Stand off-height is measured from lead tip with ref. to 
+Datum –B-. 
+            3. Foot length is measured with ref. to Datum –A– with 
+lead surface. 
+            4. Thermal pad contour optional within dimension b3 
+and L3. 
+            5. Formed leads to be planar with respect to one another 
+at seating place –C-. 
+            6. Dimensions and tolerances. 
+Symbol 
+Inches 
+Millimeters 
+Notes 
+Min. 
+Max. 
+Min. 
+Max. 
+A 
+.086 
+.094 
+2.19 
+2.39 
+ 
+b 
+.025 
+.035 
+0.64 
+0.89 
+ 
+b2 
+.030 
+.045 
+0.76 
+1.14 
+ 
+b3 
+.205 
+.215 
+5.12 
+5.46 
+4 
+c 
+.018 
+.024 
+0.46 
+0.61 
+ 
+c2 
+.018 
+.023 
+0.46 
+0.58 
+ 
+D 
+.210 
+.245 
+5.33 
+6.22 
+1 
+E 
+.250 
+.265 
+6.35 
+6.73 
+1 
+e 
+.090 BSC 
+2.29 BSC 
+ 
+H 
+.370 
+.410 
+9.40 
+10.41 
+ 
+L 
+.055 
+.070 
+1.40 
+1.78 
+3 
+L1 
+.108 REF 
+2.74 REF 
+ 
+L3 
+.035 
+.080 
+0.89 
+2.03 
+4 
+L4 
+.025 
+.040 
+0.64 
+1.02 
+ 
+Figure 10. 3-Lead TO-252 Package 
+AMS1117
+Advanced Monolithic Systems    http://www.ams-semitech.com
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 9 / 9
+────────────────────────────────────────────────────────────────────────
+    1A  Adjustable/Fixed Low Dropout Linear Regulator 
+ 
+                                                                                  9 
+ 
+Advanced Monolithic Systems   
+http://www.ams-semitech.com 
+             
+                            
+         
+The "     " logo is a registered trademark of Advanced Monolithic Systems.
+All other company and product names are trademarks of their respective owners                                                      
+ 
+  Ordering Information 
+Package 
+Temperature Range 
+Part Number 
+Output Voltage 
+Packing Marking 
+Transport Media 
+SOT－223 
+-20℃ - +125℃       AMS1117-1.2 
+1.2V 
+AMS1117 1.2                  2.5K Tape and Reel 
+-20℃ - +125℃       AMS1117-1.5 
+1.5V 
+AMS1117 1.5                  2.5K Tape and Reel 
+-20℃ - +125℃       AMS1117-1.8                1.8V 
+AMS1117 1.8                  2.5K Tape and Reel 
+-20℃ - +125℃       AMS1117-2.5 
+2.5V 
+AMS1117 2.5                  2.5K Tape and Reel 
+-20℃ - +125℃       AMS1117-2.85               2.85V                         AMS1117 2.8                  2.5K Tape and Reel 
+-20℃ - +125℃       AMS1117-3.3                 3.3V                           AMS1117 3.3                  2.5K Tape and Reel 
+-20℃ - +125℃       AMS1117-5                    5V                              AMS1117 5 
+2.5K Tape and Reel 
+-20℃ - +125℃       AMS1117                       Adjust                         AMS1117                         2.5K Tape and Reel 
+TO－252 
+-20℃ - +125℃       AMS1117-1.2                 1.2V                           AMS1117 1.2                   2.5K Tape and Reel 
+-20℃ - +125℃       AMS1117-1.5 
+1.5V                           AMS1117 1.5 
+2.5K Tape and Reel 
+-20℃ - +125℃       AMS1117-1.8 
+1.8V                           AMS1117 1.8 
+2.5K Tape and Reel 
+-20℃ - +125℃       AMS1117-2.5 
+2.5V                           AMS1117 2.5 
+2.5K Tape and Reel 
+-20℃ - +125℃       AMS1117-2.85               2.85V                         AMS1117 2.8 
+2.5K Tape and Reel 
+-20℃ - +125℃       AMS1117-3.3                 3.3V                           AMS1117 3.3 
+2.5K Tape and Reel 
+-20℃ - +125℃       AMS1117-5                   5.0V                           AMS1117 5                      2.5K Tape and Reel 
+-20℃ - +125℃       AMS1117CD                 Adjust                         AMS1117CD                    2.5K Tape and Reel 
+Disclaimer:  
+• 
+AMS reserves the right to make changes to the information herein for the improvement of the design and performance 
+without further notice! Customers should obtain the latest relevant information before placing orders and should verify 
+that such information is complete and current. 
+• 
+All semiconductor products malfunction or fail with some probability under special conditions. When using AMS products 
+in system design or complete machine manufacturing, it is the responsibility of the buyer to comply with the safety 
+standards strictly and take essential measures to avoid situations in which a malfunction or failure of such AMS products 
+could cause loss of body injury or damage to property. 
+• 
+AMS will supply the best possible product for customers! 
+AMS1117
+Advanced Monolithic Systems    http://www.ams-semitech.com

@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(pip install pymupdf)",
+      "PowerShell(python -m pip install pymupdf)",
+      "Bash(sort -t'-' -k1,1 -k2,2n)",
+      "WebFetch(domain:www.ti.com)",
+      "WebFetch(domain:www.analog.com)",
+      "Bash(python -c ' *)",
+      "WebFetch(domain:datasheets.maximintegrated.com)",
+      "WebSearch",
+      "WebFetch(domain:www.sunrom.com)",
+      "WebFetch(domain:www.farnell.com)"
+    ]
+  }
+}

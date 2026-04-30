@@ -1,0 +1,623 @@
+========================================================================
+  FILE:      ad5593r.pdf
+  PATH:      70_Assets/Datasheets/ad5593r.pdf
+  PAGES:     47 total  |  extracted: 17–27
+  SIZE:      2.8 MB
+  EXTRACTED: 2026-04-30 09:38
+========================================================================
+
+USAGE NOTE: Feed to AI using the extraction prompt in
+  30_Workflows/component-data-workflow.md
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 17 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+THEORY OF OPERATION
+analog.com
+Rev. H | 17 of 47
+The AD5593R is an 8-channel, configurable analog and digital
+I/O port. The AD5593R has eight pins that can be independently
+configured as a 12-bit DAC output channel, a 12-bit ADC input
+channel, a digital input pin, or a digital output pin.
+The function of each pin is determined by programming the ADC,
+DAC, or GPIO configuration registers as appropriate.
+DAC SECTION
+The AD5593R contains eight 12-bit DACs. Each DAC consists of a
+string of resistors followed by an output buffer amplifier. Figure 31
+shows a block diagram of the DAC architecture.
+Figure 31. DAC Channel Architecture Block Diagram
+The DAC channels share a single DAC range bit (in the General-
+Purpose Control Register section, see Bit 4 in Table 19) that sets
+the output range to 0 V to VREF or 0 V to 2 × VREF. Because the
+range bit is shared by all channels, it is not possible to set different
+output ranges on a per channel basis. The input coding to the DAC
+is straight binary. Therefore, the ideal output voltage is given by
+VOUT = G × VREF ×
+D
+2N
+(3)
+where:
+G = 1 for an output range of 0 V to VREF or G = 2 for an output
+range of 0 V to 2 × VREF.
+VREF is the voltage on the VREF pin.
+D is the decimal equivalent of the binary code (0 to 4095) that is
+loaded to the DAC register.
+N = 12.
+Resistor String
+The simplified segmented resistor string DAC structure is shown
+in Figure 32. The code loaded to the DAC register determines the
+switch on the string that is connected to the output buffer.
+Because each resistance in the string has the same value, R, the
+string DAC is guaranteed monotonic.
+Figure 32. Resistor String
+DAC Output Buffer
+The output buffer is designed as an input/output rail-to-rail buffer.
+The output buffer can drive 2 nF capacitance with a 1 kΩ resistor
+in parallel. The slew rate is 1.25 V/µs with a ¼ to ¾ scale settling
+time of 6 µs. By default, the DAC outputs update directly after data
+has been written to the input register. The LDAC register delays the
+updates until additional channels have been written to if required.
+See the LDAC Mode Operation section for more information.
+DAC Output Range
+The DAC output voltage range can be configured to 0 V to VREF
+(gain = 1) or 0 V to 2 × VREF (gain = 2) using DAC range bit of the
+general-purpose control register, as shown in Figure 33 and Figure
+34, respectively. When VREF = VDD, the 0 V to 2 × VREF range does
+not allow the DAC to swing the output beyond VDD.
+Figure 33. Output Voltage Range of the DAC with Gain = 1 (Unloaded
+Condition)
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 18 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+THEORY OF OPERATION
+analog.com
+Rev. H | 18 of 47
+Figure 34. Output Voltage Range of the DAC with Gain = 2 (Unloaded
+Condition)
+When VREF = VDD for gain = 1 or VREF = 0.5 × VDD for gain = 2,
+there is an upper dead band of 10 mV at the DAC channel output
+in unloaded conditions. Additionally, there is a lower dead band of
+~4.88 mV at the DAC channel output in unloaded conditions. When
+drawing a load current at either rail, the output voltage headroom
+with respect to that rail is limited by the 25 Ω typical channel
+resistance of the DAC channel. For example, when sinking 1 mA,
+the minimum output voltage = 25 Ω × 1 mA = 25 mV.
+ADC SECTION
+The ADC section is a fast, 12-bit, single-supply ADC with a conver-
+sion time of 2 µs. The ADC is preceded by a multiplexer that
+switches selected I/O pins to the ADC. A sequencer is included
+to switch the multiplexer to the next selected channel automatical-
+ly. Channels are selected for conversion by writing to the ADC
+sequence register. When the write to the ADC sequence register
+has completed, the first channel in the conversion sequence is
+put into track mode. Each channel can track the input signal for a
+minimum of 500 ns. The conversion is initiated on the rising edge
+of the clock for the acknowledge (ACK) that occurs after the slave
+address (see Figure 39).
+Each conversion takes 2 µs. The ADC has a range bit (ADC range
+select in the general-purpose control register, see Bit 5 in Table 19)
+that sets the input range as 0 V to VREF or 0 V to 2 × VREF. All input
+channels share the same range. The output coding of the ADC is
+straight binary. It is possible to set each I/Ox pin as both a DAC and
+an ADC. In this case, the primary function is that of the DAC. If the
+pin is selected for inclusion in an ADC conversion sequence, the
+voltage on the pin is converted and made available via the serial
+interface. This allows the DAC voltage to be monitored.
+Calculating ADC Input Current
+The current flowing into the I/Ox pins configured as ADC inputs
+varies with sampling rate (fS), the voltage difference between
+successive channels (VDIFF), and whether buffered or unbuffered
+mode is used. Figure 35 shows a simplified version of the ADC
+input structure. When a new channel is selected for conversion,
+5.8 pF must be charged to or discharged from the voltage that on
+the previously selected channel. The time required for the charge
+or discharge depends on the voltage difference between the two
+channels. This dependence affects the input impedance of the
+multiplexer and, therefore, the input current flowing into the I/Ox
+pins.
+In buffered mode, Switch S1 is open and Switch S2 is closed. In
+buffered mode, the U1 buffer directly drives the 23.1 pF capacitor
+and the charging time of the capacitors is negligible. In unbuffered
+mode, Switch S1 is closed and Switch S2 is closed. In unbuffered
+mode, the 23.1 pF capacitor must be charged from the I/Ox pins;
+this charging contributes to the input current. For applications
+where the ADC input current is too high, an external input buffer
+may be required. The choice of buffer is a function of the particular
+application.
+Calculate the input current for buffered mode as follows:
+fS × C × VDIFF + 1 nA
+where:
+fS is the ADC sample rate in Hz.
+C is the sampling capacitance in farads.
+VDIFF is the voltage change between successive channels.
+Calculate the input current for buffered mode as follows:
+fS × C × VDIFF
+where 1 nA is the dc leakage current associated with unbuffered
+mode.
+The input current for the ADC in buffered mode, where I/O0 = 0.5 V,
+I/O1 = 2 V, and fS = 10 kHz, is as follows:
+(10,000 × 5.8 × 10−12 × 1.5) + 1 nA = 88 nA
+Under the same conditions, the ADC input current in unbuffered
+mode is as follows:
+(10,000 × 28.9 × 10−12 × 1.5) = 433.5 nA
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 19 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+THEORY OF OPERATION
+analog.com
+Rev. H | 19 of 47
+Figure 35. ADC Input Structure
+GPIO SECTION
+Each of the eight I/Ox pins can be configured as a general-purpose
+digital input by programming the GPIO read configuration register
+or output pin by programming the GPIO write configuration register.
+When an I/Ox pin is configured as an output, the pin can be set
+high or low by programming the GPIO write data register. Logic
+levels for general-purpose outputs are relative to VDD and GND.
+When an I/Ox pin is configured as an input, its status can be
+determined by setting the pointer byte to 0b01100000. When an
+I/Ox pin is set as an output, it is possible to read its status by also
+setting it as an input pin. When reading the status of the I/Ox pins
+set as inputs the status of an I/Ox pin set as both and input and
+output pin is also returned.
+INTERNAL REFERENCE
+The AD5593R contains an on-chip 2.5 V reference. The reference
+is powered down by default and is enabled by setting Bit 9 in the
+power-down/reference control register to 1. When the on-chip refer-
+ence is powered up, the reference voltage appears on the VREF pin
+and may be used as a reference source for other components.
+When the internal reference is used, it is recommended to decouple
+VREF to GND using a 100 nF capacitor. It is recommended that
+the internal reference be buffered before using it elsewhere in
+the system. When the reference is powered down, an external
+reference must be connected to VREF. Suitable external reference
+sources for the AD5593R include the AD780, AD1582, ADR431,
+REF193, and ADR391.
+RESET FUNCTION
+The AD5593R has an asynchronous RESET pin. For normal oper-
+ation, RESET is tied high. A falling edge on RESET resets all
+registers to their default values and reconfigures the I/O pins to
+their default values (85 kΩ pull-down resistor to GND). The reset
+function takes 250 µs maximum; do not write new data to the
+AD5593R during this time. The AD5593R has a software reset that
+performs the same function as the RESET pin. The reset function is
+activated by writing 0x0F to the pointer byte and 0x0D and 0xAC to
+the most significant and least significant bytes of the software reset
+register, respectively.
+TEMPERATURE INDICATOR
+The AD5593R contains an integrated temperature indicator that
+can be read to provide an estimation of the die temperature. This
+can be used in fault detection where a sudden rise in die temper-
+ature may indicate a fault condition, such as a shorted output.
+Temperature readback is enabled by setting Bit 8 in the ADC
+sequence register. The temperature result is then added to the ADC
+sequence. The temperature result has an address of 0b1000 (see
+Table 34) and care must be taken that this result is not confused
+with the readback from DAC0 (see Table 32). The temperature
+conversion takes 5 µs with the ADC buffer enabled and 20 µs when
+the buffer is disabled. Calculate the temperature using the following
+formulae:
+For ADC gain = 1,
+Temperature (°C) = 25 +
+ADC Code −
+0.5 / VREF
+× 4095
+2.654 ×
+2.5 / VREF
+For ADC gain = 2,
+Temperature (°C) =
+25 +
+ADC Code −
+0.5 / 2 × VREF
+× 4095
+1.327 ×
+2.5 / VREF
+The range of codes returned by the ADC when reading from the
+temperature indicator is approximately 645 to 1035, (for ADC gain
+= 1) corresponding to a temperature between −40°C and +105°C.
+The accuracy of the temperature indicator is typically 3°C when
+averaged over five samples.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 20 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+SERIAL INTERFACE
+analog.com
+Rev. H | 20 of 47
+The AD5593R has a 2-wire, I2C-compatible serial interface (refer
+to The I2C -Bus Specification, Version 2.1, January 2000). The
+AD5593R is connected to an I2C bus as a slave device under the
+control of a master device. See Figure 2 for a timing diagram of
+a typical write sequence. The AD5593R supports standard mode
+(100 kHz) and fast mode (400 kHz). Support is not provided for
+10-bit addressing and general call addressing. The AD5593R has a
+7-bit slave address; its six MSBs are set to 001000. The LSB is set
+by the state of the A0 address pin, which determines the state of
+the A0 bit. The facility to change the logic level of the A0 pin before
+a read or write operation allows the user to incorporate multiple
+AD5593R devices on one bus.
+The 2-wire serial bus protocol operates as follows: the master
+initiates data transfer by establishing a start condition when a
+high-to-low transition on the SDA line occurs while SCL is high.
+The following byte is the address byte, which consists of the 7-bit
+slave address. The slave address corresponding to the transmitted
+address responds by pulling SDA low during the ninth clock pulse
+(this is termed the acknowledge bit). At this stage, all other devices
+on the bus remain idle while the selected device waits for data to be
+written to or read from its shift register.
+Data is transmitted over the serial bus in sequences of nine clock
+pulses (eight data bits followed by an acknowledge bit). The transi-
+tions on the SDA line must occur during the low period of SCL and
+remain stable during the high period of SCL. When all data bits
+have been read or written, a stop condition is established.
+In write mode, the master pulls the SDA line high during the 10th
+clock pulse to establish a stop condition. In read mode, the master
+issues a no acknowledge for the ninth clock pulse (that is, the
+SDA line remains high). The master brings the SDA line low before
+the 10th clock pulse and then high during the 10th clock pulse to
+establish a stop condition.
+WRITE OPERATION
+When writing to the AD5593R, the user must begin with a start
+command followed by an address byte R/W = 0), after which the
+AD5593R acknowledges that it is prepared to receive data by
+pulling SDA low. The AD5593R requires three bytes of data. The
+first byte is the pointer byte. This byte contains information defining
+the type of operation that is required of the AD5593R, such as
+configuring the I/O pins and writing to a DAC. The pointer byte is
+followed by the most significant byte and the least significant byte,
+as shown in Figure 36. After these data bytes are acknowledged by
+the AD5593R, a stop condition follows.
+Figure 36. 4-Byte I2C Write
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 21 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+SERIAL INTERFACE
+analog.com
+Rev. H | 21 of 47
+READ OPERATION
+When reading data back from the AD5593R, the user begins with a
+start command followed by an address byte (R/W = 0), after which
+the AD5593R acknowledges that it is prepared to transmit data by
+pulling SDA low. The pointer byte is then written to select what is
+to be read back. A repeat start or a new I2C transmission can then
+follow to read two bytes of data from the AD5593R. Both bytes are
+acknowledged by the master, as shown in Figure 37.
+It is also possible to perform consecutive readbacks without having
+to provide interim start and stop conditions or slave addresses. This
+method can be used to read blocks of conversions from the ADC,
+as shown in Figure 39.
+Figure 37. Read One 16-Bit Word
+Figure 38. Read One 16-Bit Word, Maintain Control of the Bus
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 22 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+SERIAL INTERFACE
+analog.com
+Rev. H | 22 of 47
+Figure 39. I2C Block Read
+POINTER BYTE
+The pointer byte contains eight bits. Bits[7:4] are mode bits that
+select the operation to be executed. The data contained in Bits[3:0]
+depend on the operation required. Table 8 and Table 9 show
+the configuration of the pointer byte. When Bits[7:4] are 0b0000,
+the mode dependent bits (Bits[3:0]) select a control register (see
+Table 10) to write data to. The data written to a control register is
+contained in the MSB and LSB as shown in Figure 36. The mode
+dependent data bits also select which DAC is updated during a
+DAC write operation and which register is selected for readback.
+CONTROL REGISTERS
+Table 11 shows the control register map for the AD5593R. The
+control registers configure the I/O pins and set various operating
+parameters in the AD5593R, such as enabling the reference, se-
+lecting the LDAC mode function, or selecting power-down modes.
+The control registers are written to using the 4-byte I2C write se-
+quence shown in Figure 36. To write to a control register, the mode
+bits (Bits[7:4]) of the pointer byte are zeros. The mode dependent
+data bits (Bits[3:0]) of the pointer byte select which control register
+is to be accessed. The data to be written to the control register is
+contained in the most significant and least significant data bytes.
+These contain a total of 16 bits and are shown as Bits[15:0] in
+the Register Details: AD5593R Control Register Map section. The
+contents of the control registers can be read back using the read
+sequence shown in Figure 37 or Figure 38.
+GENERAL-PURPOSE CONTROL REGISTER
+The general-purpose control register enables or disables certain
+functions associated with the DAC, ADC, and I/O pin configuration
+(see Table 19). The register sets the output range of the DAC
+and input range of the ADC, which sets their transfer functions, en-
+ables/disables the ADC buffer, and enables the precharge function
+(see the ADC Section section for more details). The register is also
+used to lock the I/O pin configuration to prevent accidental change.
+When Bit 7 is set to 1, writes to the configuration registers are
+ignored.
+CONFIGURING THE AD5593R
+The AD5593R I/O pins are configured by writing to a series of pin
+configuration registers. The control registers are accessed when
+Bits[7:4] of the pointer byte are 0b0000. Bits[3:0] determine which
+register is accessed as shown in Table 11.
+On power-up, the I/O pins are configured as 85 kΩ resistors
+connected to GND. The I/O channels of the AD5593R can be
+configured to operate as DAC outputs, ADC inputs, digital outputs,
+digital inputs, three-state, or connected to GND with 85 kΩ pull-
+down resistors. When configured as digital outputs, the pins have
+the additional option of being configured as push/pull or open-drain.
+The I/O channels are configured by writing to the appropriate
+configuration registers, as shown in Table 11. To assign a particular
+function for an I/O channel, write to the appropriate register and
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 23 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+SERIAL INTERFACE
+analog.com
+Rev. H | 23 of 47
+set the corresponding bit to 1. For example, setting Bit 0 in the
+DAC pin configuration register configures I/O0 as a DAC. In the
+event that the bit for an I/O channel is set in multiple configuration
+registers, the I/O channel adopts the function dictated by the last
+write operation.
+The exceptions to this rule are that an I/Ox pin can be set as both
+a DAC and ADC or as a digital input and output. When an I/Ox pin
+is configured as a DAC and ADC, the primary function is as a DAC
+and the ADC can be used to measure the voltage being provided
+by the DAC. This feature can be used to monitor the output voltage
+to detect short circuits or overload conditions. Figure 40 shows
+an example of how to configure I/O1 and I/O7 as DACs. When
+a pin is configured as both a general-purpose input and output,
+the primary function is as an output pin. This configuration allows
+the status of the output pin to be determined by programming the
+GPIO read configuration register and then setting the pointer byte
+to 0b01100000.
+The general-purpose control register contains a lock configuration
+bit. When the lock configuration bit is set to 1, any writes to the pin
+configuration registers are ignored, thus preventing the function of
+the I/O pins from being changed.
+The I/O pins can be reconfigured any time when the AD5593R is in
+an idle state, that is, no ADC conversions are taking place and no
+registers are being read back. The lock configuration bit must also
+be set to 0.
+Figure 40. Configuring I/O1 and I/O7 as DACs
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 24 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+SERIAL INTERFACE
+analog.com
+Rev. H | 24 of 47
+DAC WRITE OPERATION
+Data is written to a DAC when the mode bits (Bits[7:4]) of the
+pointer byte are 0b0001 (see Table 8). Bits[2:0] determine which
+DAC is addressed (see Table 12). Data to be written to the DAC
+is contained in the MSB and LSB, as shown in Table 31. Data is
+written to the selected DAC input register. Data written to the input
+register can be automatically copied to the DAC register, if required.
+Data is transferred to the DAC register based on the setting of the
+LDAC mode register (see Table 23).
+LDAC Mode Operation
+The transfer of data from an input register to a DAC register is
+controlled by Bits[1:0] of the LDAC mode register (pointer byte
+= 0b00000111). When the LDAC mode bits (Bits[1:0]) are set to
+00, new data is automatically transferred from the input register to
+the DAC register and the analog output updates. When the LDAC
+mode bits are set to 01, data remains in the input register. This
+allows writes to input registers without affecting the analog outputs.
+After loading the input registers with the desired values and setting
+the LDAC mode bits to 10, the values in the input registers transfer
+to the DAC registers and the analog outputs update simultaneously.
+The LDAC mode bits then revert to 01.
+DAC READBACK
+The input register of each DAC can be read back via the I2C inter-
+face. This can be useful to confirm that the data was received cor-
+rectly before writing to the LDAC mode register or simply checking
+what value was last loaded to a DAC. Data can be read back from
+a DAC only when no ADC conversion sequence is taking place. A
+DAC input register can be read back using the sequence shown in
+Figure 37 or Figure 38. The mode dependent bits, Bits[3:0], of the
+DAC readback mode register (pointer byte = 0b0101XXXX), select
+which DAC input register is to be read back (see Table 14). When
+the DAC register is read back as shown in Table 32, the MSB of the
+most significant data byte is a 1 to indicate that the result is a DAC
+register. The next three bits (Bits[14:12]) contain the DAC register
+address (see Table 32) and Bits[11:0] contain the DAC register
+value. Figure 41 shows an example of reading the input register of
+DAC2.
+Figure 41. DAC Input Register Readback
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 25 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+SERIAL INTERFACE
+analog.com
+Rev. H | 25 of 47
+ADC OPERATION
+The ADC channels of the AD5593R operate as a traditional multi-
+channel ADC, where each serial transfer selects the next channel
+for conversion. The user must write to the ADC pin configuration
+register (see Table 20) to select the input channels as ADC inputs
+to be included in the conversion sequence before initiating any
+conversions. This is done using the I2C write sequence shown in
+Figure 36. When writing to the ADC sequence register (see Table
+18), select which channels are to be converted in sequence. The
+user can also set the REP bit to have the ADC repeat conversions
+in the sequence.
+When the sequence register has been written to, the ADC begins
+to track the first channel in the sequence. ADC data can be read
+from the AD5593R using any of the three read operations shown in
+Figure 37, Figure 38, and Figure 39, with the I2C block read (Figure
+39) being the most efficient.
+If more than one channel is selected in the ADC sequence register,
+the ADC converts all selected channels sequentially in ascending
+order. Conversion is started by the rising edge of SCL at the
+acknowledge (ACK) preceding the MSB (see Figure 39).
+If the REP bit is set after all of the selected channels in the
+sequence register have been converted, the ADC repeats the
+sequence. If the REP bit is clear, the ADC clocks out the last result
+on subsequent I2C reads. When ADC data is clocked out by the
+serial interface, Bit 15 = 0 to indicate that the result is ADC data.
+Bits[14:12] contain a 3-bit address to indicate which ADC the data
+is coming from, and Bits[11:0] contain the 12-bit ADC result (see
+Table 33).
+Figure 42 shows how to configure the AD5593R to perform ADC
+conversions. In Step 1, I/O7 and I/O0 are configured as ADCs.
+Step 2 writes to the ADC sequence register, sets the REP bit, and
+selects ADC7 and ADC0 for inclusion in the conversion sequence.
+Step 3 selects the ADCs for reading and Step 4 begins reading the
+ADC results (see Table 33). The conversions are repeated until a
+stop condition is given by the controller.
+The ADC sequence can be changed by writing the new sequence
+to the ADC sequence register when conversions are not taking
+place. When a new sequence is written, any channels remaining to
+be converted from the earlier sequence are ignored and the ADC
+starts converting the first channel of the new sequence.
+To stop the ADC conversion sequence, clear the REP, TEMP, and
+ADC7 to ADC0 bits in the ADC sequence register to 0.
+Figure 42. Configuring the ADC for Conversion
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 26 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+SERIAL INTERFACE
+analog.com
+Rev. H | 26 of 47
+GPIO OPERATION
+Each of the I/Ox pins of the AD5593R can be configured to operate
+as a general-purpose, digital input or output pin. The function of
+the pins is determined by writing to the appropriate bit in the GPIO
+read configuration register and the GPIO write configuration register
+using the 4-byte I2C write shown in Figure 36.
+Setting Pins as Outputs
+To set a pin as a general-purpose output, set the appropriate bit in
+the GPIO write configuration register (pointer byte = 0b00001000)
+to 1. For example, setting Bit 0 to 1 enables I/O0 as a general-pur-
+pose output.
+The outputs can be independently configured as push/pull or open-
+drain outputs. When in push/pull configuration, the output is driven
+to VDD or GND as determined by the data in the GPIO write
+data register (pointer byte = 0b00001001). When in open-drain
+configuration (pointer byte = 0b00001100), the output is driven to
+GND when a data bit in the GPIO write data register sets the pin
+low. When the pin is set high, the output is not driven and must be
+pulled high by an external resistor. This allows multiple output pins
+to be tied together. If all the pins are normally high, it allows one pin
+to pull down the others. This is commonly used where multiple pins
+are used to trigger an alarm or interrupt pin. The state of the output
+pin is controlled by setting or clearing the bits in the GPIO write
+data register (pointer byte = 0b00001001). A data bit is ignored if it
+is written to a location that is not configured as an output.
+Setting Pins as Inputs
+To set an I/Ox pin as a general-purpose input, set the appropri-
+ate bit in the GPIO read configuration register (pointer byte =
+0b00001010) to 1. For example, setting Bit 0 to 1 enables I/O0 as a
+general-purpose input. To read the state of general-purpose inputs,
+set the pointer byte to 0b01100000 (see Table 9) using any of the
+read operations shown in Figure 37, Figure 38, and Figure 39. The
+status of any I/O pin set as a general-purpose input appears in the
+appropriate bit location in the least significant data byte.
+THREE-STATE PINS
+The I/Ox pins can be set to three-state by writing to the three-state
+configuration register (pointer byte = 0b00001101) as shown in
+Table 29.
+85 KΩ PULL-DOWN PINS
+The I/Ox pins can be connected to GND via a pull-down resistor
+(85 kΩ) by setting the appropriate bits in the pull-down configuration
+register (pointer byte = 0b00000110) as shown in Table 22.
+POWER-DOWN/REFERENCE CONTROL
+The AD5593R has a power-down/reference control register (pointer
+byte = 0b00001011) that reduces the power consumption when
+certain functions are not needed. The power-down register allows
+any channels set as DACs to be placed in a power-down state
+individually. When in power-down, the DAC outputs are three-stat-
+ed. When a DAC channel is returned into normal mode, the DAC
+output returns to its previous value. The internal reference and its
+buffer are powered down by default and are enabled by setting
+the EN_REF bit in the power-down/reference control register. The
+internal reference voltage then appears at the VREF pin.
+There is no dedicated power-down function for the ADC, but the
+ADC is automatically powered down if none of the I/Ox pins are
+selected as ADCs. The ADC powers up if a read of the tempera-
+ture indicator is initiated. The PD_ALL bit powers down all the
+DACs, the reference, its buffer, and the ADC. The PD_ALL bit also
+overrides the settings of Bits[9:0]. Table 27 shows the power-down
+register.
+RESET FUNCTION
+The AD5593R can be reset to its default conditions by writing
+0x0DAC to the software reset register (pointer byte = 0b00001111).
+This resets all registers to their default values and reconfigures the
+I/Ox pins to their default values (85 kΩ pull-down to GND). The
+reset function is triggered on the SCL falling edge of the eighth bit
+of the least significant byte (Bit 0 of Frame 4 in Figure 36), and the
+AD5593R does not generate an ACK signal for this byte of data.
+The AD5593R has a RESET pin that performs the same function.
+For normal operation, RESET is tied high. A falling edge on RESET
+triggers the reset function. Both the hardware and the software
+reset functions take 250 µs maximum and there must be no activity
+on the SCL pin of the AD5593R during this time.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 27 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+APPLICATIONS INFORMATION
+analog.com
+Rev. H | 27 of 47
+MICROPROCESSOR INTERFACING
+Microprocessor interfacing to the AD5593R is via a serial bus using
+a standard I2C protocol. The communications channel requires a
+2-wire interface consisting of a clock signal and a data signal.
+AD5593R TO ADSP-BF537 INTERFACE
+The I2C interface of the AD5593R is designed to be easily con-
+nected to industry-standard DSPs and microcontrollers. Figure 43
+shows the AD5593R connected to the Analog Devices Blackfin®
+DSP. The Blackfin has an integrated I2C port that can be connected
+directly to the I2C pins of the AD5593R.
+Figure 43. ADSP-BF537 Interface
+LAYOUT GUIDELINES
+In any circuit where accuracy is important, careful consideration
+of the power supply and ground return layout helps to ensure the
+rated performance. The printed circuit board (PCB) on which the
+AD5593R is mounted must be designed so that the AD5593R lies
+on the analog plane.
+The AD5593R must have ample supply bypassing of 10 µF in
+parallel with 0.1 µF on each supply, located as close to the pack-
+age as possible, ideally right up against the device. The 10 µF
+capacitors are the tantalum bead type. The 0.1 µF capacitor must
+have low effective series resistance (ESR) and low effective series
+inductance (ESI) such as the common ceramic types, which provide
+a low impedance path to ground at high frequencies to handle
+transient currents due to internal logic switching.

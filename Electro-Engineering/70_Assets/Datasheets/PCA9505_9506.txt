@@ -1,0 +1,2834 @@
+========================================================================
+  FILE:      PCA9505_9506.pdf
+  PATH:      70_Assets/Datasheets/PCA9505_9506.pdf
+  PAGES:     33 total  |  extracted: 1–23
+  SIZE:      438 KB
+  EXTRACTED: 2026-04-30 09:38
+========================================================================
+
+USAGE NOTE: Feed to AI using the extraction prompt in
+  30_Workflows/component-data-workflow.md
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 1 / 33
+────────────────────────────────────────────────────────────────────────
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+Rev. 5 — 30 September 2021
+Product data sheet
+ 
+ 
+1
+General description
+The PCA9505/PCA9506 provide 40-bit parallel input/output (I/O) port expansion for I2C-
+bus applications organized in 5 banks of 8 I/Os. At 5 V supply voltage, the outputs are
+capable of sourcing 10 mA and sinking 15 mA with a total package load of 600 mA to
+allow direct driving of 40 LEDs. Any of the 40 I/O ports can be configured as an input or
+output. Output ports are totem-pole and their logic state changes at the Acknowledge
+(bank change). The PCA9505 is identical to the PCA9506 except that it includes 100 kΩ
+internal pull-up resistors on all the I/Os. The PCA9506 does not include the internal pull-
+ups on the I/Os to reduce power consumption when used as outputs or when the input is
+driven by a push-pull driver.
+The device can be configured to have each input port to be masked in order to prevent it
+from generating interrupts when its state changes and to have the I/O data logic state to
+be inverted when read by the system controller.
+An open-drain interrupt (INT) output pin allows monitoring of the input pins and is
+asserted each time a change occurs in one or several input ports (unless masked).
+The Output Enable (OE) pin 3-states any I/O selected as an output and can be used
+as an input signal to blink or dim LEDs (PWM with frequency > 80 Hz and change duty
+cycle).
+The internal Power-On Reset (POR) or hardware reset (RESET) pin initializes the 40 I/
+Os as inputs. Three address select pins configure one of 8 target addresses.
+The PCA9506 is available in 56-pin TSSOP and HVQFN packages, while the PCA9505
+is available only in a TSSOP package. They are both specified over the -40 °C to +85 °C
+industrial temperature range.
+2
+Features and benefits
+• Standard mode (100 kHz) and Fast mode (400 kHz) compatible I2C-bus serial interface
+• 2.3 V to 5.5 V operation with 5.5 V tolerant I/Os
+• 40 configurable I/O pins that default to inputs at power-up
+• PCA9505 includes 100 kΩ internal pull-up resistors on all the I/Os
+• Outputs:
+– Totem-pole (10 mA source, 15 mA sink) with controlled edge rate output structure
+– Active LOW output enable (OE) input pin 3-states all outputs
+– Output state change on Acknowledge
+– Open-drain active LOW interrupt (INT) output pin allows monitoring of logic level
+change of pins programmed as inputs
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 2 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+• Inputs:
+– Programmable Interrupt Mask Control for input pins that do not require an interrupt
+when their states change
+– Polarity Inversion register allows inversion of the polarity of the I/O pins when read
+• Active LOW reset (RESET) input pin resets device to power-up default state
+• 3 programmable address pins allowing 8 devices on the same bus
+• Designed for live insertion
+– Minimize line disturbance (IOFF and power-up 3-state)
+– Signal transient rejection (50 ns noise filter and robust I2C-bus state machine)
+• Low standby current
+• -40 °C to +85 °C operation
+• ESD protection exceeds 2000 V HBM per JESD22-A114, 200 V MM per JESD22-A115,
+and 1000 V CDM per JESD22-C101
+• Latch-up testing is done to JEDEC Standard JESD78, which exceeds 100 mA
+• Offered in TSSOP56 (PCA9505, PCA9506) and HVQFN56 (PCA9506) packages
+3
+Applications
+• Servers
+• RAID systems
+• Industrial control
+• Medical equipment
+• PLCs
+• Cell phones
+• Gaming machines
+• Instrumentation and test measurement
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+2 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 3 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+4
+Ordering information
+Package
+Type number
+Topside mark
+Name
+Description
+Version
+PCA9505DGG PCA9505DGG
+TSSOP56
+plastic thin shrink small outline package; 56 leads;
+body width 6.1 mm with 0.5 mm pitch
+SOT364-1
+PCA9506DGG PCA9506DGG
+TSSOP56
+plastic thin shrink small outline package; 56 leads;
+body width 6.1 mm with 0.5 mm pitch
+SOT364-1
+PCA9506BS
+PCA9506BS
+HVQFN56
+plastic thermal enhanced very thin quad flat package;
+no leads; 56 terminals; body 8 × 8 × 0.85 mm with 0.5
+mm pitch
+SOT684-1
+Table 1. Ordering information
+4.1
+Ordering options
+Type number
+Orderable part
+number
+Package
+Packing method[1]
+Minimum
+order
+quantity
+Temperature
+PCA9505DGG,118[2] TSSOP56
+reel, 13 inch, q1, non dry
+pack
+2000
+Tamb = -40 °C to +85 °C
+PCA9505DGG
+PCA9505DGGY
+TSSOP56
+reel, 13 inch, q1, dry pack
+2000
+Tamb = -40 °C to +85 °C
+PCA9506DGG
+PCA9506DGG,518
+TSSOP56
+reel, 13 inch, q1, dry pack
+2000
+Tamb = -40 °C to +85 °C
+PCA9506BS
+PCA9506BS,118
+HVQFN56
+reel, 13 inch, q1, non dry
+pack
+2000
+Tamb = -40 °C to +85 °C
+Table 2. Ordering options
+[1]
+Standard packing quantities and other packaging data are available at www.nxp.com/ packages/
+[2]
+Discontinuation notice 202107021DN - drop-in replacement is PCA9505DGGY - this is documented in PCN202102010F01.
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+3 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 4 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+5
+Block diagram
+PCA9505/PCA9506
+POWER-ON 
+RESET
+002aab492
+VSS
+VDD
+RESET
+I2C-BUS 
+CONTROL
+LOW PASS 
+INPUT 
+FILTERS
+SCL
+SDA
+A0
+A1
+INT
+OE
+8-bit
+IO0_0
+IO0_1
+IO0_2
+IO0_3
+IO0_4
+IO0_5
+IO0_6
+IO0_7
+INPUT/ 
+OUTPUT 
+PORTS 
+ 
+BANK 0
+write pulse 0
+read pulse 0
+BANK 1
+BANK 2
+BANK 3
+8-bit
+IO4_0
+IO4_1
+IO4_2
+IO4_3
+IO4_4
+IO4_5
+IO4_6
+IO4_7
+INPUT/ 
+OUTPUT 
+PORTS 
+ 
+BANK 4
+write pulse 4
+read pulse 4
+A2
+LP FILTER
+INTERRUPT 
+MANAGEMENT
+All I/Os are set to inputs at power-up and RESET.
+Figure 1. Block diagram of PCA9505/06
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+4 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 5 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+VDD
+IOx_y
+VSS
+configuration port register data (Cx[y])
+output port register data (Ox[y])
+I/O configuration  
+register
+D
+Q
+CK
+Q
+data from 
+shift register
+write configuration 
+pulse
+output port  
+register
+D
+Q
+CK
+data from 
+shift register
+write pulse
+polarity inversion 
+register
+D
+Q
+CK
+data from 
+shift register
+write polarity 
+pulse
+ESD protection  
+diode
+input port  
+register
+D
+Q
+CK
+read pulse
+input port 
+register data 
+(Ix[y])
+INT
+polarity 
+register data 
+(Px[y])
+002aab493
+INTERRUPT 
+MANAGEMENT
+Mx[y]
+PCA9505 
+only
+100 kΩ
+On power-up or RESET, all registers return to default values.
+Figure 2. Simplified schematic of IO0_0 to IO4_7
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+5 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 6 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+6
+Pinning information
+6.1
+Pinning
+PCA9505DGG 
+PCA9506DGG
+SDA
+RESET
+SCL
+INT
+IO0_0
+IO4_7
+IO0_1
+IO4_6
+IO0_2
+IO4_5
+VSS
+VSS
+IO0_3
+IO4_4
+IO0_4
+IO4_3
+IO0_5
+IO4_2
+IO0_6
+IO4_1
+VSS
+VDD
+IO0_7
+IO4_0
+IO1_0
+IO3_7
+IO1_1
+IO3_6
+IO1_2
+IO3_5
+IO1_3
+IO3_4
+IO1_4
+IO3_3
+VDD
+VSS
+IO1_5
+IO3_2
+IO1_6
+IO3_1
+IO1_7
+IO3_0
+IO2_0
+IO2_7
+VSS
+VSS
+IO2_1
+IO2_6
+IO2_2
+IO2_5
+IO2_3
+IO2_4
+A0
+OE
+A1
+A2
+002aab491
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+56
+55
+54
+53
+52
+51
+50
+49
+48
+47
+46
+45
+44
+43
+42
+41
+40
+39
+38
+37
+36
+35
+34
+33
+32
+31
+30
+29
+Figure 3. Pin configuration for TSSOP56
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+6 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 7 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+IO1_5
+VDD
+002aab975
+PCA9506BS
+Transparent top view
+IO3_0
+IO1_6
+IO1_7
+IO3_1
+IO3_2
+VSS
+IO1_4
+IO3_3
+IO1_3
+IO3_4
+IO1_2
+IO3_5
+IO1_1
+IO3_6
+IO1_0
+IO3_7
+IO0_7
+IO4_0
+VSS
+VDD
+IO0_6
+IO4_1
+IO0_5
+IO4_2
+IO0_4
+IO4_3
+IO2_0
+VSS
+IO2_1
+IO2_2
+IO2_3
+A0
+A1
+A2
+OE
+IO2_4
+IO2_5
+IO2_6
+VSS
+IO2_7
+IO0_3
+VSS
+IO0_2
+IO0_1
+IO0_0
+SCL
+SDA
+RESET
+INT
+IO4_7
+IO4_6
+IO4_5
+VSS 
+IO4_4
+14
+29
+13
+30
+12
+31
+11
+32
+10
+33
+9
+34
+8
+35
+7
+36
+6
+37
+5
+38
+4
+39
+3
+40
+2
+41
+1
+42
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+56
+55
+54
+53
+52
+51
+50
+49
+48
+47
+46
+45
+44
+43
+terminal 1 
+index area
+Figure 4. Pin configuration for HVQFN56
+6.2
+Pin description
+Pin
+Symbol
+TSSOP56
+HVQFN56
+Type
+Description
+SDA
+1
+50
+I/O
+serial data line
+SCL
+2
+51
+I
+serial clock line
+IO0_0 to IO0_7
+3, 4, 5, 7, 8, 9,
+10, 12
+52, 53, 54, 56, 1,
+2, 3, 5
+I/O
+input/output bank 0
+IO1_0 to IO1_7
+13, 14, 15, 16,
+17, 19, 20, 21
+6, 7, 8, 9, 10, 12,
+13, 14
+I/O
+input/output bank 1
+IO2_0 to IO2_7
+22, 24, 25, 26,
+31, 32, 33, 35
+15, 17, 18, 19,
+24, 25, 26, 28
+I/O
+input/output bank 2
+IO3_0 to IO3_7
+36, 37, 38, 40,
+41, 42, 43, 44
+29, 30, 31, 33,
+34, 35, 36, 37
+I/O
+input/output bank 3
+IO4_0 to IO4_7
+45, 47, 48, 49,
+50, 52, 53, 54
+38, 40, 41, 42,
+43, 45, 46, 47
+I/O
+input/output bank 4
+VSS
+6, 11, 23, 34,
+39, 51
+4, 16, 27, 32, 44,
+55[1]
+power
+supply
+ground supply voltage
+VDD
+18, 46
+11, 39
+power
+supply
+supply voltage
+A0
+27
+20
+I
+address input 0
+A1
+28
+21
+I
+address input 1
+A2
+29
+22
+I
+address input 2
+Table 3. Pin description
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+7 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 8 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+Pin
+Symbol
+TSSOP56
+HVQFN56
+Type
+Description
+OE
+30
+23
+I
+active LOW output enable input
+INT
+55
+48
+O
+active LOW interrupt output
+RESET
+56
+49
+I
+active LOW reset input
+Table 3. Pin description...continued
+[1]
+HVQFN56 package die supply ground is connected to both VSS pins and exposed center pad. VSS pins must be
+connected to supply ground for proper device operation. For enhanced thermal, electrical, and board level performance,
+the exposed pad needs to be soldered to the board using a corresponding thermal pad on the board and for proper heat
+conduction through the board, thermal vias need to be incorporated in the printed-circuit board in the thermal pad region.
+7
+Functional description
+Refer to Figure 1 and Figure 2IO0_0 to IO4_7".
+7.1
+Device address
+Following a START condition, the bus controller must send the address of the target it
+is accessing and the operation it wants to perform (read or write). The address of the
+PCA9505/06 is shown in Figure 5. Target address pins A2, A1, and A0 choose 1 of 8
+target addresses and need to be connected to VDD (1) or VSS (0). To conserve power, no
+internal pull-up resistors are incorporated on A2, A1, and A0.
+002aab494
+0
+1
+0
+0
+A2
+A1
+A0
+R/W
+fixed
+target address
+programmable
+Figure 5. PCA9505/06 address
+The last bit of the first byte defines the operation to be performed. When set to logic 1 a
+read is selected, while a logic 0 selects a write operation.
+7.2
+Command register
+Following the successful acknowledgement of the target address + R/W bit, the bus
+controller will send a byte to the PCA9505/06, which will be stored in the Command
+register.
+002aab495
+1
+0
+0
+0
+0
+0
+0
+0
+AI
+-
+D5
+D4
+D3
+D2
+D1
+D0
+Auto-Increment
+register number
+default at power-up 
+or after RESET
+Figure 6. Command register
+The lowest 6 bits are used as a pointer to determine which register will be accessed. The
+registers are:
+• IP: Input Port registers (5 registers)
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+8 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 9 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+• OP: Output Port registers (5 registers)
+• PI: Polarity Inversion registers (5 registers)
+• IOC: I/O Configuration registers (5 registers)
+• MSK: Mask interrupt registers (5 registers)
+If the Auto-Increment flag is set (AI = 1), the 3 least significant bits are automatically
+incremented after a read or write. This allows the user to program and/or read the 5
+register banks sequentially.
+If more than 5 bytes of data are written and AI = 1, previous data in the selected registers
+will be overwritten. Reserved registers are skipped and not accessed (refer to Table 4).
+If the Auto-Increment flag is cleared (AI = 0), the 3 least significant bits are not
+incremented after data is read or written. During a read operation, the same register bank
+is read each time. During a write operation, data is written to the same register bank each
+time.
+Only a Command register code with the 5 least significant bits equal to the 25 allowable
+values as defined in Table 4 are valid. Reserved or undefined command codes must not
+be accessed for proper device functionality. At power-up, this register defaults to 0x80,
+with the AI bit set to logic 1, and the lowest 7 bits set to logic 0.
+During a write operation, the PCA9505/06 will acknowledge a byte sent to OPx, PIx, and
+IOCx and MSKx registers, but will not acknowledge a byte sent to the IPx registers since
+these are read-only registers.
+7.3
+Register definitions
+Register #
+(hex)
+D5
+D4
+D3
+D2
+D1
+D0
+Symbol
+Access
+Description
+Input Port registers
+00
+0
+0
+0
+0
+0
+0
+IP0
+read only
+Input Port register bank 0
+01
+0
+0
+0
+0
+0
+1
+IP1
+read only
+Input Port register bank 1
+02
+0
+0
+0
+0
+1
+0
+IP2
+read only
+Input Port register bank 2
+03
+0
+0
+0
+0
+1
+1
+IP3
+read only
+Input Port register bank 3
+04
+0
+0
+0
+1
+0
+0
+IP4
+read only
+Input Port register bank 4
+05
+0
+0
+0
+1
+0
+1
+-
+-
+reserved for future use
+06
+0
+0
+0
+1
+1
+0
+-
+-
+reserved for future use
+07
+0
+0
+0
+1
+1
+1
+-
+-
+reserved for future use
+Output Port registers
+08
+0
+0
+1
+0
+0
+0
+OP0
+read/write
+Output Port register bank 0
+09
+0
+0
+1
+0
+0
+1
+OP1
+read/write
+Output Port register bank 1
+0A
+0
+0
+1
+0
+1
+0
+OP2
+read/write
+Output Port register bank 2
+0B
+0
+0
+1
+0
+1
+1
+OP3
+read/write
+Output Port register bank 3
+0C
+0
+0
+1
+1
+0
+0
+OP4
+read/write
+Output Port register bank 4
+0D
+0
+0
+1
+1
+0
+1
+-
+-
+reserved for future use
+0E
+0
+0
+1
+1
+1
+0
+-
+-
+reserved for future use
+Table 4. Register summary
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+9 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 10 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+Register #
+(hex)
+D5
+D4
+D3
+D2
+D1
+D0
+Symbol
+Access
+Description
+0F
+0
+0
+1
+1
+1
+1
+-
+-
+reserved for future use
+Polarity Inversion registers
+10
+0
+1
+0
+0
+0
+0
+PI0
+read/write
+Polarity Inversion register bank 0
+11
+0
+1
+0
+0
+0
+1
+PI1
+read/write
+Polarity Inversion register bank 1
+12
+0
+1
+0
+0
+1
+0
+PI2
+read/write
+Polarity Inversion register bank 2
+13
+0
+1
+0
+0
+1
+1
+PI3
+read/write
+Polarity Inversion register bank 3
+14
+0
+1
+0
+1
+0
+0
+PI4
+read/write
+Polarity Inversion register bank 4
+15
+0
+1
+0
+1
+0
+1
+-
+-
+reserved for future use
+16
+0
+1
+0
+1
+1
+0
+-
+-
+reserved for future use
+17
+0
+1
+0
+1
+1
+1
+-
+-
+reserved for future use
+I/O Configuration registers
+18
+0
+1
+1
+0
+0
+0
+IOC0
+read/write
+I/O Configuration register bank 0
+19
+0
+1
+1
+0
+0
+1
+IOC1
+read/write
+I/O Configuration register bank 1
+1A
+0
+1
+1
+0
+1
+0
+IOC2
+read/write
+I/O Configuration register bank 2
+1B
+0
+1
+1
+0
+1
+1
+IOC3
+read/write
+I/O Configuration register bank 3
+1C
+0
+1
+1
+1
+0
+0
+IOC4
+read/write
+I/O Configuration register bank 4
+1D
+0
+1
+1
+1
+0
+1
+-
+-
+reserved for future use
+1E
+0
+1
+1
+1
+1
+0
+-
+-
+reserved for future use
+1F
+0
+1
+1
+1
+1
+1
+-
+-
+reserved for future use
+Mask Interrupt registers
+20
+1
+0
+0
+0
+0
+0
+MSK0
+read/write
+Mask Interrupt register bank 0
+21
+1
+0
+0
+0
+0
+1
+MSK1
+read/write
+Mask Interrupt register bank 1
+22
+1
+0
+0
+0
+1
+0
+MSK2
+read/write
+Mask Interrupt register bank 2
+23
+1
+0
+0
+0
+1
+1
+MSK3
+read/write
+Mask Interrupt register bank 3
+24
+1
+0
+0
+1
+0
+0
+MSK4
+read/write
+Mask Interrupt register bank 4
+25
+1
+0
+0
+1
+0
+1
+-
+-
+reserved for future use
+26
+1
+0
+0
+1
+1
+0
+-
+-
+reserved for future use
+27
+1
+0
+0
+1
+1
+1
+-
+-
+reserved for future use
+Table 4. Register summary...continued
+7.3.1
+IP0 to IP4 - Input Port registers
+These registers are read-only. They reflect the incoming logic levels of the port pins
+regardless of whether the pin is defined as an input or an output by the I/O Configuration
+register. If the corresponding Px[y] bit in the PI registers is set to logic 0, or the inverted
+incoming logic levels if the corresponding Px[y] bit in the PI register is set to logic 1.
+Writes to these registers have no effect.
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+10 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 11 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+Legend: * default value ‘X’ determined by the externally applied logic level.
+Address
+Register
+Bit
+Symbol
+Access
+Value
+Description
+00h
+IP0
+7 to 0
+I0[7:0]
+R
+XXXX XXXX*
+Input Port register bank 0
+01h
+IP1
+7 to 0
+I1[7:0]
+R
+XXXX XXXX*
+Input Port register bank 1
+02h
+IP2
+7 to 0
+I2[7:0]
+R
+XXXX XXXX*
+Input Port register bank 2
+03h
+IP3
+7 to 0
+I3[7:0]
+R
+XXXX XXXX*
+Input Port register bank 3
+04h
+IP4
+7 to 0
+I4[7:0]
+R
+XXXX XXXX*
+Input Port register bank 4
+Table 5. IP0 to IP4 - Input Port registers (address 00h to 04h) bit description
+The Polarity Inversion register can invert the logic states of the port pins. The polarity
+of the corresponding bit is inverted when Px[y] bit in the PI register is set to logic 1. The
+polarity of the corresponding bit is not inverted when Px[y] bits in the PI register is set to
+logic 0.
+7.3.2
+OP0 to OP4 - Output Port registers
+These registers reflect the outgoing logic levels of the pins defined as outputs by the
+I/O Configuration register. Bit values in these registers have no effect on pins defined
+as inputs. In turn, reads from these registers reflect the values that are in the flip-flops
+controlling the output selection, not the actual pin values.
+Ox[y] = 0: IOx_y = 0 if IOx_y defined as output (Cx[y] in IOC register = 0).
+Ox[y] = 1: IOx_y = 1 if IOx_y defined as output (Cx[y] in IOC register = 0).
+Where ‘x’ refers to the bank number (0 to 4); ‘y’ refers to the bit number (0 to 7).
+Legend: * default value.
+Address
+Register
+Bit
+Symbol
+Access
+Value
+Description
+08h
+OP0
+7 to 0
+O0[7:0]
+R/W
+0000 0000*
+Output Port register bank 0
+09h
+OP1
+7 to 0
+O1[7:0]
+R/W
+0000 0000*
+Output Port register bank 1
+0Ah
+OP2
+7 to 0
+O2[7:0]
+R/W
+0000 0000*
+Output Port register bank 2
+0Bh
+OP3
+7 to 0
+O3[7:0]
+R/W
+0000 0000*
+Output Port register bank 3
+0Ch
+OP4
+7 to 0
+O4[7:0]
+R/W
+0000 0000*
+Output Port register bank 4
+Table 6. OP0 to OP4 - Output Port registers (address 08h to 0Ch) bit description
+7.3.3
+PI0 to PI4 - Polarity Inversion registers
+These registers allow inversion of the polarity of the corresponding Input Port register.
+Px[y] = 0: The corresponding Input Port register data polarity is retained.
+Px[y] = 1: The corresponding Input Port register data polarity is inverted.
+Where ‘x’ refers to the bank number (0 to 4); ‘y’ refers to the bit number (0 to 7).
+Legend: * default value.
+Address
+Register
+Bit
+Symbol
+Access
+Value
+Description
+10h
+PI0
+7 to 0
+P0[7:0]
+R/W
+0000 0000*
+Polarity Inversion register bank 0
+11h
+PI1
+7 to 0
+P1[7:0]
+R/W
+0000 0000*
+Polarity Inversion register bank 1
+Table 7. PI0 to PI4 - Polarity Inversion registers (address 10h to 14h) bit description
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+11 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 12 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+Legend: * default value.
+Address
+Register
+Bit
+Symbol
+Access
+Value
+Description
+12h
+PI2
+7 to 0
+P2[7:0]
+R/W
+0000 0000*
+Polarity Inversion register bank 2
+13h
+PI3
+7 to 0
+P3[7:0]
+R/W
+0000 0000*
+Polarity Inversion register bank 3
+14h
+PI4
+7 to 0
+P4[7:0]
+R/W
+0000 0000*
+Polarity Inversion register bank 4
+Table 7. PI0 to PI4 - Polarity Inversion registers (address 10h to 14h) bit description...continued
+7.3.4
+IOC0 to IOC4 - I/O Configuration registers
+These registers configure the direction of the I/O pins.
+Cx[y] = 0: The corresponding port pin is an output.
+Cx[y] = 1: The corresponding port pin is an input.
+Where ‘x’ refers to the bank number (0 to 4); ‘y’ refers to the bit number (0 to 7).
+Legend: * default value.
+Address
+Register
+Bit
+Symbol
+Access
+Value
+Description
+18h
+IOC0
+7 to 0
+C0[7:0]
+R/W
+1111 1111*
+I/O Configuration register bank 0
+19h
+IOC1
+7 to 0
+C1[7:0]
+R/W
+1111 1111*
+I/O Configuration register bank 1
+1Ah
+IOC2
+7 to 0
+C2[7:0]
+R/W
+1111 1111*
+I/O Configuration register bank 2
+1Bh
+IOC3
+7 to 0
+C3[7:0]
+R/W
+1111 1111*
+I/O Configuration register bank 3
+1Ch
+IOC4
+7 to 0
+C4[7:0]
+R/W
+1111 1111*
+I/O Configuration register bank 4
+Table 8. IOC0 to IOC4 - I/O Configuration registers (address 18h to 1Ch) bit description
+7.3.5
+MSK0 to MSK4 - Mask interrupt registers
+These registers mask the interrupt due to a change in the I/O pins configured as inputs.
+‘x’ refers to the bank number (0 to 4); ‘y’ refers to the bit number (0 to 7).
+Mx[y] = 0: A level change at the I/O will generate an interrupt if IOx_y defined as input
+(Cx[y] in IOC register = 1).
+Mx[y] = 1: A level change in the input port will not generate an interrupt if IOx_y
+defined as input (Cx[y] in IOC register = 1).
+Legend: * default value.
+Address
+Register
+Bit
+Symbol
+Access
+Value
+Description
+20h
+MSK0
+7 to 0
+M0[7:0]
+R/W
+1111 1111*
+Mask Interrupt register bank 0
+21h
+MSK1
+7 to 0
+M1[7:0]
+R/W
+1111 1111*
+Mask Interrupt register bank 1
+22h
+MSK2
+7 to 0
+M2[7:0]
+R/W
+1111 1111*
+Mask Interrupt register bank 2
+23h
+MSK3
+7 to 0
+M3[7:0]
+R/W
+1111 1111*
+Mask Interrupt register bank 3
+24h
+MSK4
+7 to 0
+M4[7:0]
+R/W
+1111 1111*
+Mask Interrupt register bank 4
+Table 9. MSK0 to MSK4 - Mask interrupt registers (address 20h to 24h) bit description
+7.4
+Power-on reset
+When power is applied to VDD, an internal Power-On Reset (POR) holds the PCA9505/06
+in a reset condition until VDD has reached VPOR. At that point, the reset condition is
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+12 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 13 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+released and the PCA9505/06 registers and I2C-bus state machine will initialize to their
+default states. Thereafter, VDD must be lowered below 0.2 V to reset the device.
+7.5
+RESET input
+A reset can be accomplished by holding the RESET pin LOW for a minimum of tw(rst). The
+PCA9505/06 registers and I2C-bus state machine will be held in their default states until
+the RESET input is once again HIGH.
+7.6
+Interrupt output (INT)
+The open-drain active LOW interrupt is activated when one of the port pins changes
+state and the port pin is configured as an input and the interrupt on it is not masked. The
+interrupt is deactivated when the port pin input returns to its previous state or the Input
+Port register is read.
+Remark: Changing an I/O from an output to an input may cause a false interrupt to occur
+if the state of the pin does not match the contents of the Input Port register.
+Only a read of the Input Port register that contains the bit(s) image of the input(s) that
+generated the interrupt clears the interrupt condition.
+If more than one input register changed state before a read of the Input Port register is
+initiated, the interrupt is cleared when all the input registers containing all the inputs that
+changed are read.
+Example: If IO0_5, IO2_3, and IO3_7 change state at the same time, the interrupt is
+cleared only when INREG0, INREG2, and INREG3 are read.
+7.7
+Output enable input (OE)
+The active LOW output enable pin allows to enable or disable all the I/Os at the same
+time. When a LOW level is applied to the OE pin, all the I/Os configured as outputs are
+enabled and the logic value programmed in their respective OP registers is applied to the
+pins. When a HIGH level is applied to the OE pin, all the I/Os configured as outputs are
+3-stated.
+For applications requiring LED blinking with brightness control, this pin can be used to
+control the brightness by applying a high frequency PWM signal on the OE pin. LEDs can
+be blinked using the Output Port registers and can be dimmed using the PWM signal on
+the OE pin thus controlling the brightness by adjusting the duty cycle.
+7.8
+Live insertion
+The PCA9505/06 are fully specified for live insertion applications using IOFF, power-
+up 3-states, robust state machine, and 50 ns noise filter. The IOFF circuitry disables the
+outputs, preventing damaging current backflow through the device when it is powered
+down. The power-up 3-state’s circuitry places the outputs in the high-impedance state
+during power-up and power-down, which prevents driver conflict and bus contention.
+The robust state machine does not respond until it sees a valid START condition and
+the 50 ns noise filter will filter out any insertion glitches. The PCA9505/06 will not cause
+corruption of active data on the bus, nor will the device be damaged or cause damage to
+devices already on the bus when similar featured devices are being used.
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+13 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 14 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+7.9
+Standby
+The PCA9505/06 goes into standby when the I2C-bus is idle. Standby supply current is
+lower than 1 μA (typical).
+8
+Characteristics of the I2C-bus
+The I2C-bus is for 2-way, 2-line communication between different ICs or modules. The
+two lines are a serial data line (SDA) and a serial clock line (SCL). Both lines must be
+connected to a positive supply via a pull-up resistor when connected to the output stages
+of a device. Data transfer may be initiated only when the bus is not busy.
+8.1
+Bit transfer
+One data bit is transferred during each clock pulse. The data on the SDA line must
+remain stable during the HIGH period of the clock pulse as changes in the data line at
+this time will be interpreted as control signals (see Figure 7).
+mba607
+data line 
+stable; 
+data valid
+change 
+of data 
+allowed
+SDA
+SCL
+Figure 7. Bit transfer
+8.1.1
+START and STOP conditions
+Both data and clock lines remain HIGH when the bus is not busy. A HIGH-to-LOW
+transition of the data line while the clock is HIGH is defined as the START condition (S).
+A LOW-to-HIGH transition of the data line while the clock is HIGH is defined as the STOP
+condition (P) (see Figure 8).
+mba608 
+SDA
+SCL
+P
+STOP condition
+S
+START condition
+Figure 8. Definition of START and STOP conditions
+8.2
+System configuration
+A device generating a message is a ‘transmitter’; a device receiving is the ‘receiver’. The
+device that controls the message is the ‘controller' and the devices which are controlled
+by the controller are the ‘targets' (see Figure 9).
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+14 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 15 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+002aaa966
+CONTROLLER
+TRANSMITTER/
+RECEIVER
+TARGET
+RECEIVER
+TARGET
+TRANSMITTER/
+RECEIVER
+CONTROLLER
+TRANSMITTER
+CONTROLLER
+TRANSMITTER/
+RECEIVER
+SDA
+SCL
+I2C-BUS
+MULTIPLEXER
+TARGET
+Figure 9. System configuration
+8.3
+Acknowledge
+The number of data bytes transferred between the START and the STOP conditions
+from transmitter to receiver is not limited. Each byte of eight bits is followed by one
+acknowledge bit. The acknowledge bit is a HIGH level put on the bus by the transmitter,
+whereas the controller generates an extra acknowledge related clock pulse.
+A target receiver which is addressed must generate an acknowledge after the reception
+of each byte. Also a controller must generate an acknowledge after the reception of each
+byte that has been clocked out of the target transmitter. The device that acknowledges
+has to pull down the SDA line during the acknowledge clock pulse, so that the SDA line is
+stable LOW during the HIGH period of the acknowledge related clock pulse; set-up and
+hold times must be taken into account.
+A controller receiver must signal an end of data to the transmitter by not generating an
+acknowledge on the last byte that has been clocked out of the target. In this event, the
+transmitter must leave the data line HIGH to enable the controller to generate a STOP
+condition.
+002aaa987
+S
+START
+condition
+9
+8
+2
+1
+clock pulse for
+acknowledgement
+not acknowledge
+acknowledge
+data output
+by transmitter
+data output
+by receiver
+SCL from controller
+Figure 10. Acknowledgement on the I2C-bus
+8.4
+Bus transactions
+Data is transmitted to the PCA9505/06 registers using Write Byte transfers (see
+Figure 11, Figure 12, and Figure 13). Data is read from the PCA9505/06 registers using
+Read and Receive Byte transfers (see Figure 14).
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+15 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 16 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+002aab496
+0
+1
+0
+0 A2 A1 A0 0
+target address
+R/W
+S
+START condition
+SDA
+A
+acknowledge
+from target
+1
+0
+0
+0
+1
+0
+0
+0
+command register
+AI = 1
+A
+acknowledge
+from target
+DATA BANK 0
+A
+acknowledge
+from target
+DATA BANK 1
+A
+acknowledge
+from target
+DATA BANK 2
+A
+acknowledge
+from target
+DATA BANK 3
+P
+STOP
+condition
+A
+acknowledge
+from target
+output bank 
+register bank 0
+is selected
+DATA BANK 4
+A
+acknowledge
+from target
+write to port
+data out from port
+tv(Q)
+data valid
+bank 0
+data valid
+bank 1
+data valid
+bank 2
+data valid
+bank 3
+data valid
+bank 4
+OE is LOW to observe a change in the outputs.
+If more than 5 bytes are written, previous data are overwritten.
+Figure 11. Write to the 5 output ports
+002aab497
+0
+1
+0
+0 A2 A1 A0 0
+target address
+R/W
+S
+START condition
+SDA
+A
+acknowledge
+from target
+AI 0
+0
+0
+1 D2 D1 D0 A
+acknowledge
+from target
+DATA BANK X
+A
+acknowledge
+from target
+P
+STOP
+condition
+A
+write to port
+data out from port
+tv(Q)
+data X
+valid
+OE is LOW to observe a change in the outputs.
+Two, three, or four adjacent banks can be programmed by using the Auto-Increment feature (AI = 1) and change at the corresponding output port becomes effective at each
+acknowledge.
+Figure 12. Write to a specific output port
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+16 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 17 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+002aab498
+0
+1
+0
+0
+A2 A1 A0
+0
+target address
+R/W
+S
+START condition
+SDA
+A
+acknowledge
+from target
+1
+0 D5 D4 D3 D2 D1 D0
+command register
+AI = 1
+A
+acknowledge
+from target
+DATA BANK 0
+A
+DATA BANK 1
+A
+DATA BANK 2
+A
+DATA BANK 3
+P
+STOP
+condition
+A
+acknowledge
+from target
+DATA BANK 4
+A
+acknowledge
+from target
+acknowledge
+from target
+D[5:0] = 01 0000 for Polarity Inversion register programming bank 0
+D[5:0] = 01 1000 for Configuration register programming bank 0
+acknowledge
+from target
+acknowledge
+from target
+D[5:0] = 10 0000 for Mask Interrupt register programming bank 0
+The programming becomes effective at the acknowledge.
+Less than 5 bytes can be programmed by using this scheme. D5, D4, D3, D2, D1, D0 refers to the first register to be programmed.
+If more than 5 bytes are written, previous data are overwritten (the sixth Configuration register will roll over to the first addressed Configuration register, the sixth Polarity Inversion
+register will roll over to the first addressed Polarity Inversion register and the sixth Mask Interrupt register will roll over to the first addressed Mask Interrupt register).
+Figure 13. Write to the I/O Configuration, Polarity Inversion or Mask Interrupt registers
+002aab499
+0
+1
+0
+0
+0
+target address
+R/W
+S
+START condition
+SDA
+A
+acknowledge
+from target
+1
+0 D5 D4 D3 D2 D1 D0
+command register
+AI = 1
+A
+acknowledge from target
+A
+P
+STOP
+condition
+A
+acknowledge from controller
+D[5:0] = 00 1000 for Output Port register bank 0
+D[5:0] = 01 0000 for Polarity Inversion register bank 0
+Sr
+repeated START condition
+0
+1
+0
+0
+1
+target address
+R/W
+A
+acknowledge from target
+D[5:0] = 01 1000 for Configuration register bank 0
+(cont.)
+At this moment controller-transmitter becomes controller-receiver, 
+and target-receiver becomes target-transmitter.
+DATA
+data from register
+first byte
+register determined by D[5:0]
+A
+acknowledge from controller
+DATA
+data from register
+second byte
+DATA
+data from register
+last byte
+no acknowledge from controller
+D[5:0] = 00 0000 for Input Port register bank 0
+D[5:0] = 10 0000 for Mask Interrupt register bank 0
+A2 A1 A0
+A2 A1 A0
+If AI = 0, the same register is read during the whole sequence.
+If AI = 1, the register value is incremented after each read. When the last register bank is read, it rolls over to the first byte of the category (see category definition in Section 7.2).
+The INT signal is released only when the last register containing an input that changed has been read. For example, when IO2_4 and IO4_7 change at the same time and an Input
+Port register’s read sequence is initiated, starting with IP0, INT is released after IP4 is read (and not after IP2 is read).
+Figure 14. Read from Input Port, Output Port, I/O Configuration, Polarity Inversion or Mask Interrupt registers
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+17 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 18 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+9
+Application design-in information
+PCA9505/06
+IO0_0
+IO0_1
+SCL
+SDA
+VDD
+CONTROLLER
+SCL
+SDA
+INT
+1.6 k
+IO0_2
+VDD
+A2
+A1
+A0
+5 V
+VDD
+RESET
+OE
+GND
+1.1 k
+(optional)
+OE
+INT
+RESET
+2 k
+1.1 k
+(optional)
+SUB-SYSTEM 1
+(e.g., temp sensor)
+IO0_3
+INT
+SUB-SYSTEM 2
+(e.g., counter)
+RESET
+controlled
+switch
+(e.g., CBT device)
+VDD
+A
+B
+ENABLE
+SUB-SYSTEM 3
+(e.g., alarm system)
+ALARM
+IO0_4
+IO0_5
+IO1_0
+IO3_7
+IO4_0
+IO4_7
+24 LED MATRIX
+ALPHA NUMERIC
+KEYPAD
+VSS
+002aab500
+Device address configured as 0100 000X for this example.
+IO0_0, IO0_2, IO0_3, IO1_0 to IO3_7 are configured as outputs.
+IO0_1, IO0_4, IO4_0 to IO4_7 configured as inputs.
+Figure 15. Typical application
+10 Limiting values
+In accordance with the Absolute Maximum Rating System (IEC 60134).
+Symbol
+Parameter
+Conditions
+Min
+Max
+Unit
+VDD
+supply voltage
+-0.5
++6
+V
+VI
+input voltage
+VSS - 0.5
+5.5
+V
+II
+input current
+-
+±20
+mA
+VI/O(n)
+input/output voltage on any other pin
+VSS - 0.5
+5.5
+V
+VI/O(IO0n)
+input/output voltage on pin IO0_n
+VSS - 0.5
+5.5
+V
+IO(I/On)
+output current on an I/O pin
+-20
++50
+mA
+IDD
+supply current
+-
+500
+mA
+ISS
+ground supply current
+-
+1100
+mA
+Table 10. Limiting values
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+18 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 19 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+In accordance with the Absolute Maximum Rating System (IEC 60134).
+Symbol
+Parameter
+Conditions
+Min
+Max
+Unit
+Ptot
+total power dissipation
+-
+500
+mW
+Tstg
+storage temperature
+-65
++150
+°C
+Tamb
+ambient temperature
+operating
+-40
++85
+°C
+operating
+-
+125
+°C
+Tj
+junction temperature
+storage
+-
+150
+°C
+Table 10. Limiting values...continued
+11 Static characteristics
+VDD = 2.3 V to 5.5 V; VSS = 0 V; Tamb = -40 °C to +85 °C; unless otherwise specified.
+Symbol
+Parameter
+Conditions
+Min
+Typ
+Max
+Unit
+Supply
+VDD
+supply voltage
+2.3
+-
+5.5
+V
+PCA9506 only; operating
+mode; no load; fSCL = 400
+kHz
+VDD = 2.3 V
+-
+56
+95
+μA
+VDD = 3.3 V
+-
+98
+150
+μA
+VDD = 5.5 V
+-
+225
+300
+μA
+PCA9505 only; operating
+mode; no load; fSCL = 400
+kHz
+VDD = 2.3 V
+-
+1
+1.5
+mA
+VDD = 3.3 V
+-
+1.5
+2
+mA
+IDD
+supply current
+VDD = 5.5 V
+-
+2.7
+3.5
+mA
+no load; fSCL = 0 kHz; I/O
+= inputs; VI = VDD
+VDD = 2.3 V
+-
+0.15
+11
+μA
+VDD = 3.3 V
+-
+0.25
+12
+μA
+IstbH
+HIGH-level standby current
+VDD = 5.5 V
+-
+0.75
+15.5
+μA
+PCA9505 only
+VDD = 2.3 V
+-
+0.97
+2
+mA
+VDD = 3.3 V
+-
+1.3
+3
+mA
+IstbL
+LOW-level standby current
+VDD = 5.5 V
+-
+2.2
+5
+mA
+VPOR
+power-on reset voltage[1]
+no load; VI = VDD or VSS
+-
+1.70
+2.0
+V
+Input SCL; input/output SDA
+VIL
+LOW-level input voltage
+-0.5
+-
++0.3VDD
+V
+VIH
+HIGH-level input voltage
+0.7VDD
+-
+5.5
+V
+Table 11. Static characteristics
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+19 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 20 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+VDD = 2.3 V to 5.5 V; VSS = 0 V; Tamb = -40 °C to +85 °C; unless otherwise specified.
+Symbol
+Parameter
+Conditions
+Min
+Typ
+Max
+Unit
+IOL
+LOW-level output current
+VOL = 0.4 V
+20
+-
+-
+mA
+IL
+leakage current
+VI = VDD = VSS
+-1
+-
++1
+μA
+Ci
+input capacitance
+VI = VSS
+-
+5
+10
+pF
+I/Os
+VIL
+LOW-level input voltage
+-0.5
+-
++0.8
+V
+VIH
+HIGH-level input voltage
+2
+-
+5.5
+V
+VOL = 0.5 V
+VDD = 2.3 V
+10
+-
+-
+mA
+VDD = 3.0 V
+12
+-
+-
+mA
+IOL
+LOW-level output current
+VDD = 4.5 V
+15
+-
+-
+mA
+IOL(tot)
+total LOW-level output current
+VOL = 0.5 V; VDD = 4.5 V
+-
+-
+0.6
+A
+IOH = -10 mA
+VDD = 2.3 V
+1.6
+-
+-
+V
+VDD = 3.0 V
+2.3
+-
+-
+V
+VOH
+HIGH-level output voltage
+VDD = 4.5 V
+4.0
+-
+-
+V
+ILIH
+HIGH-level input leakage current
+VDD = 3.6 V; VI = VDD
+-1
+-
++1
+μA
+VDD = 5.5 V; VI = VSS
+PCA9506 only
+-1
+-
++1
+μA
+ILIL
+LOW-level input leakage current
+PCA9505 only
+-100
+-
++1
+μA
+Ci
+input capacitance
+-
+6
+7
+pF
+Co
+output capacitance
+-
+6
+7
+pF
+Interrupt INT
+IOL
+LOW-level output current
+VOL = 0.4 V
+6
+-
+-
+mA
+IOH
+HIGH-level output current
+-1
+-
++1
+μA
+Co
+output capacitance
+-
+3.0
+5
+pF
+Inputs RESET and OE
+VIL
+LOW-level input voltage
+-0.5
+-
++0.8
+V
+VIH
+HIGH-level input voltage
+2
+-
+5.5
+V
+ILI
+input leakage current
+-1
+-
++1
+μA
+Ci
+input capacitance
+-
+3.0
+5
+pF
+Inputs A0, A1, A2
+VIL
+LOW-level input voltage
+-0.5
+-
++0.3VDD
+V
+VIH
+HIGH-level input voltage
+0.7VDD
+-
+5.5
+V
+ILI
+input leakage current
+-1
+-
++1
+μA
+Ci
+input capacitance
+-
+3.5
+5
+pF
+Table 11. Static characteristics...continued
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+20 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 21 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+[1]
+VDD must be lowered to 0.2 V in order to reset part.
+12 Dynamic characteristics
+Standard
+mode I2C-bus
+Fast mode I2C-bus
+Symbol
+Parameter
+Conditions
+Min
+Max
+Min
+Max
+Unit
+fSCL
+SCL clock frequency
+[1]
+0
+100
+0
+400
+kHz
+tBUF
+bus free time between a STOP and
+START condition
+4.7
+-
+1.3
+-
+μs
+tHD;STA
+hold time (repeated) START
+condition
+4.0
+-
+0.6
+-
+μs
+tSU;STA
+set-up time for a repeated START
+condition
+4.7
+-
+0.6
+-
+μs
+tSU;STO
+set-up time for STOP condition
+4.0
+-
+0.6
+-
+μs
+tHD;DAT
+data hold time
+0
+-
+0
+-
+ns
+tVD;ACK
+data valid acknowledge time[2]
+0.1
+3.45
+0.1
+0.9
+μs
+tVD;DAT
+data valid time[3]
+0.1
+3.45
+0.1
+0.9
+μs
+tSU;DAT
+data set-up time
+250
+-
+100
+-
+ns
+tLOW
+LOW period of the SCL clock
+4.7
+-
+1.3
+-
+μs
+tHIGH
+HIGH period of the SCL clock
+4.0
+-
+0.6
+-
+μs
+tf
+fall time of both SDA and SCL
+signals
+[4][5]
+-
+300
+20 + 0.1Cb
+[6]
+300
+ns
+tr
+rise time of both SDA and SCL
+signals
+[4][5]
+-
+1000
+20 + 0.1Cb
+[6]
+300
+ns
+tSP
+pulse width of spikes that must be
+suppressed by the input filter
+[7]
+-
+50
+-
+50
+ns
+Port timing
+ten
+enable time
+output
+-
+80
+-
+80
+ns
+tdis
+disable time
+output
+-
+40
+-
+40
+ns
+tv(Q)
+data output valid time
+-
+250
+-
+250
+ns
+tsu(D)
+data input set-up time
+100
+-
+100
+-
+ns
+th(D)
+data input hold time
+0.5
+-
+0.5
+-
+μs
+Interrupt timing
+tv(INT_N)
+valid time on pin INT_N
+-
+4
+-
+4
+μs
+trst(INT_N)
+reset time on pin INT_N
+-
+4
+-
+4
+μs
+Reset
+tw(rst)
+reset pulse width
+4
+-
+4
+-
+ns
+trec(rst)
+reset recovery time
+0
+-
+0
+-
+ns
+trst
+reset time
+100
+-
+100
+-
+ns
+Table 12. Dynamic characteristics
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+21 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 22 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+[1]
+Minimum SCL clock frequency is limited by the bus time-out feature, which resets the serial bus interface if either SDA or SCL is held LOW for a minimum
+of 25 ms. Disable bus time-out feature for DC operation.
+[2]
+tVD;ACK = time for Acknowledgement signal from SCL LOW to SDA (out) LOW.
+[3]
+tVD;DAT = minimum time for SDA data out to be valid following SCL LOW.
+[4]
+A controller device must internally provide a hold time of at least 300 ns for the SDA signal (refer to the VIL of the SCL signal) in order to bridge the
+undefined region SCL’s falling edge.
+[5]
+The maximum tf for the SDA and SCL bus lines is specified at 300 ns. The maximum fall time for the SDA output stage tf is specified at 250 ns. This
+allows series protection resistors to be connected between the SDA and the SCL pins and the SDA/SCL bus lines without exceeding the maximum
+specified tf.
+[6]
+Cb = total capacitance of one bus line in pF.
+[7]
+Input filters on the SDA and SCL inputs suppress noise spikes less than 50 ns.
+tSP
+tBUF
+tHD;STA
+P
+P
+S
+tLOW
+tr
+tHD;DAT
+tf
+tHIGH
+tSU;DAT
+tSU;STA
+Sr
+tHD;STA
+tSU;STO
+SDA
+SCL
+002aaa986
+0.7 × VDD
+0.3 × VDD
+0.7 × VDD
+0.3 × VDD
+Figure 16. Definition of timing on the I2C-bus
+002aab175
+protocol
+START
+condition
+(S)
+bit 7
+MSB
+(A7)
+bit 6
+(A6)
+bit 0
+(R/W)
+acknowledge
+(A)
+STOP
+condition
+(P)
+SCL
+SDA
+tHD;STA
+tSU;DAT
+tHD;DAT
+tf
+tBUF
+tSU;STA
+tLOW
+tHIGH
+tVD;ACK
+tSU;STO
+1 / fSCL
+tr
+tVD;DAT
+0.3 × VDD
+0.7 × VDD
+0.3 × VDD
+0.7 × VDD
+Rise and fall times refer to VIL and VIH.
+Figure 17. I2C-bus timing diagram
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+22 / 33
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 23 / 33
+────────────────────────────────────────────────────────────────────────
+NXP Semiconductors
+PCA9505_9506
+40-bit I2C-bus I/O port with RESET, OE and INT
+SDA
+SCL
+002aac018
+trst
+50 %
+30 %
+50 %
+50 %
+50 %
+trec(rst)
+tw(rst)
+RESET
+IOx_y
+output off
+START
+trst
+ACK or read cycle
+Figure 18. Reset timing
+13 Test information
+PULSE 
+GENERATOR
+VO
+CL 
+50 pF
+RL 
+500 Ω
+002aac019
+RT
+VI
+VDD
+DUT
+2VDD
+open
+VSS
+500 Ω
+RL = load resistance
+CL = load capacitance includes jig and probe capacitance
+RT = termination resistance should be equal to the output impedance Zo of the pulse generators.
+Figure 19. Test circuitry for switching times
+PCA9505_9506
+All information provided in this document is subject to legal disclaimers.
+© NXP B.V. 2021. All rights reserved.
+Product data sheet
+Rev. 5 — 30 September 2021
+23 / 33

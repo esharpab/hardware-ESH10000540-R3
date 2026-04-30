@@ -1,0 +1,1705 @@
+========================================================================
+  FILE:      PCA9616.pdf
+  PATH:      70_Assets/Datasheets/PCA9616.pdf
+  PAGES:     32 total  |  extracted: 1–22
+  SIZE:      941 KB
+  EXTRACTED: 2026-04-30 09:37
+========================================================================
+
+USAGE NOTE: Feed to AI using the extraction prompt in
+  30_Workflows/component-data-workflow.md
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 1 / 32
+────────────────────────────────────────────────────────────────────────
+ 
+1. General description
+The PCA9616 is a Fast-mode Plus (Fm+) SMBus/I2C-bus buffer that extends the normal 
+single-ended SMBus/I2C-bus through electrically noisy environments using a differential 
+SMBus/I2C-bus (dI2C) physical layer, which is transparent to the SMBus/I2C-bus protocol 
+layer. It consists of three single-ended to differential driver channels for the SCL (serial 
+clock), SDA (serial data), and a third channel useful for INT or other signaling.
+Remark: If the third channel is not used, the INT pin (pin 7 of the TSSOP16 package) 
+should not be left disconnected or ‘floating’ (it may generate incorrect bus signals due to 
+system noise entering this high-impedance node). Tie it to VSS.
+The use of differential transmission lines between identical dI2C bus buffers removes 
+electrical noise and common-mode offsets that are present when signal lines must pass 
+between different voltage domains, are bundled with hostile signals, or run adjacent to 
+electrical noise sources, such as high energy power supplies and electric motors.
+The SMBus/I2C-bus was conceived as a simple slow speed digital link for short runs, 
+typically on a single PCB or between adjacent PCBs with a common ground connection. 
+Applications that extend the bus length or run long cables require careful design to 
+preserve noise margin and reject interference.
+The dI2C-bus buffers were designed to solve these problems and are ideally suited for 
+rugged high noise environments and/or longer cable applications, allow multiple slaves, 
+and operate at bus speeds up to 1 MHz clock rate. Cables can be extended to at least 
+three meters (3 m), or longer cable runs at lower clock speeds. The dI2C-bus buffers are 
+compatible with existing SMBus/I2C-bus devices and can drive Standard, Fast-mode, and 
+Fast-mode Plus devices on the single-ended side.
+Signal direction is automatic, and requires no external control. To prevent bus latch up, 
+the standard SMBus/I2C-bus side of the bus buffer, the PCA9616 employs static offset, 
+care should be taken when connecting these to other SMBus/I2C-bus buffers that may not 
+operate with offset.
+This device is a bridge between the normal 2-wire single-ended wired-OR SMBus/I2C-bus 
+and the 4-wire dI2C-bus.
+Additional circuitry allows the PCA9616 to be used for ‘hot swap’ applications, where 
+systems are always on, but require insertion or removal of modules or cards without 
+disruption to existing signals.
+The PCA9616 has two supply voltages, VDD(A) and VDD(B). VDD(A), the card side supply, 
+only serves as a reference and ranges from 0.8 V to 5.5 V. VDD(B), the line side supply, 
+serves as the majority supply for circuitry and ranges from 3.0 V to 5.5 V.
+PCA9616
+3-channel multipoint Fast-mode Plus differential I2C-bus 
+buffer with hot-swap logic
+Rev. 2 — 10 March 2014
+Product data sheet
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 2 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+2 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+ 
+2. Features and benefits
+New dI2C-bus buffers offer improved resistance to system noise and ground offset 
+up to 1⁄2 of supply voltage
+Hot swap (allows insertion or removal of modules or card without disruption to bus 
+data)
+READY signal (PCA9616 output) indicates device is ready from a cold start
+EN signal (PCA9616 input) controls PCA9616 hot swap sequence
+Bus idle detect (PCA9616 internal function) waits for a bus idle condition before 
+connection is made
+3 channel dI2C (differential I2C-bus) to Fm+ single-ended buffer operating up to 1 MHz 
+with 30 mA SDA/SCL > 2.2 V, or 3 mA SDA/SCL < 2.4 V
+Compatible with I2C-bus Standard/Fast-mode and SMBus, Fast-mode Plus up to 
+1 MHz
+Active HIGH (internal pull-up resistor) Enable disables the device to high-impedance 
+state
+Single-ended I2C-bus on card side up to 540 pF >2.2 V and 400 pF <2.4 V
+Differential I2C-bus on cable side supporting multi-drop bus
+Maximum cable length: 3 m (approximately 10 feet) (longer at lower frequency)
+dI2C output: 1.5 V differential output with nominal terminals
+Differential line impedance (user defined): 100 nominal suggested
+Receive input sensitivity: 200 mV
+Hysteresis: 30 mV typical
+Input impedance: high-impedance (200 k typical)
+Receive input voltage range: 0.5 V to +5.5 V
+Lock-up free operation
+Supports arbitration and clock stretching across the dI2C-bus buffers
+Powered-off and powering-up high-impedance I2C-bus pins
+Operating supply voltage (VDD(A)) range of 0.8 V to 5.5 V with single-ended side 5.5 V 
+tolerant
+Fig 1.
+SMBus/I2C-bus translation to dI2C-bus and back to SMBus/I2C-bus
+VDD(A)1
+SCL
+SDA
+PCA9616
+aaa-009537
+dI2C-bus
+(differential I2C-bus,
+1 of 3 lines shown)
+twisted-pair cable
+single-ended
+I2C-bus
+PCA9616
+SCL
+SDA
+GND1
+GND2
+VDD(A)2
+single-ended
+I2C-bus
+VDD(B)
+VDD(B)
+INT
+INT
+VDD(B)
+VDD(B)
+PIDET
+PIDET
+READY
+READY
+EN
+EN
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 3 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+3 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+Differential I2C-bus operating supply voltage (VDD(B)) range of 3.0 V to 5.5 V with 
+5.5 V tolerant. Best operation is at 5 V.
+ESD protection exceeds 2000 V HBM per JESD22-A114 and 1000 V CDM per 
+JESD22-C101
+Latch-up testing is done to JEDEC Standard JESD78 which exceeds 100 mA
+Package offering: TSSOP16
+3. Applications
+Any application with multiple power supplies and the potential for ground offsets up to 
+2.5 V
+Any application that requires long I2C-bus runs in electrically noisy environments
+Monitor remote temperature/leak detectors in harsh environment with interrupt back to 
+master
+Control of power supplies in high noise environment
+Transmission of I2C-bus between equipment cabinets
+Commercial lighting and industrial heating/cooling control
+4. Ordering information
+ 
+4.1
+Ordering options
+ 
+Table 1.
+Ordering information
+Type number
+Topside 
+marking
+Package
+Name
+Description
+Version
+PCA9616PW
+PCA9616
+TSSOP16
+plastic thin shrink small outline package; 16 leads; 
+body width 4.4 mm
+SOT403-1
+Table 2.
+Ordering options
+Type number
+Orderable part 
+number
+Package
+Packing method
+Minimum 
+order quantity
+Temperature range
+PCA9616PW
+PCA9616PW,118
+TSSOP16
+Reel 13” Q1/T1 
+*standard mark SMD
+2500
+Tamb = 40 C to +85 C
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 4 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+4 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+5. Block diagram
+ 
+ 
+Fig 2.
+Block diagram (level 0)
+Fig 3.
+Differential output driver simplified circuit
+DSCLP
+DSCLM
+SCL
+DSDAP
+DSDAM
+SDA
+DINTP
+DINTM
+INT
+PCA9616
+VDD(A)
+VDD(B)
+002aah589
+connect
+I2C-BUS
+HOT SWAP LOGIC
+EN
+READY
+en
+POWER-ON RESET,
+PLUG-IN DETECTION
+AND DEBOUNCING
+PIDET
+connect
+VDDA_SEL
+connect
+connect
+VSS
+connect
+VDD(A)
+DSCLP, DSDAP, DINTP
+002aag405
+VDD
+DSCLM, DSDAM, DINTM
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 5 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+5 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+6. Pinning information
+6.1
+Pinning
+ 
+6.2
+Pin description
+ 
+Fig 4.
+Pin configuration for TSSOP16
+PCA9616PW
+VDD(A)
+VDD(B)
+SDA
+DSDAM
+EN
+DSDAP
+SCL
+DSCLP
+PIDET
+DSCLM
+READY
+DINTM
+INT
+DINTP
+VSS
+VDDA_SEL
+002aah588
+1
+2
+3
+4
+5
+6
+7
+8
+10
+9
+12
+11
+14
+13
+16
+15
+Table 3.
+Pin description
+Symbol
+Pin
+Description
+VDD(A)
+1
+I2C-bus side power supply (0.8 V to 5.5 V)
+SDA
+2
+card side open-drain serial data input/output
+EN
+3
+enable input (active HIGH); internal pull-up resistor to VDD(A)
+SCL
+4
+card side open-drain serial clock input/output
+PIDET
+5
+plug-in detection, open-drain output LOW to indicate that all hot-swap pins 
+have been steady and reliably plugged into the backplane
+READY
+6
+open-drain output that goes HIGH when SDA and SCL are disconnected 
+from DSDA and DSCL, and pulls LOW when two sides are connected
+INT
+7
+card side open-drain interrupt input/output
+VSS
+8
+ground supply voltage (0 V)
+VDDA_SEL
+9
+VDD(A) supply pin option input. Floating automatically selects threshold 
+based on VDD(A) magnitude. Recommend to be HIGH when VDD(A) > 2.2 V 
+and be LOW when VDD(A) < 2.4 V through a resistor.
+DINTP
+10
+line side differential open-drain interrupt plus input/output
+DINTM
+11
+line side differential open-drain interrupt minus input/output
+DSCLM
+12
+line side differential open-drain clock minus input/output
+DSCLP
+13
+line side differential open-drain clock plus input/output
+DSDAP
+14
+line side differential open-drain data plus input/output
+DSDAM
+15
+line side differential open-drain data minus input/output
+VDD(B)
+16
+differential side power supply (3.0 V to 5.5 V)
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 6 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+6 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+7. Functional description
+Refer to Figure 2.
+The PCA9616 is used at each node of the dI2C-bus signal path, to provide conversion 
+from the dI2C-bus signal format to conventional I2C-bus/SMBus, allowing the connection 
+of existing I2C-bus/SMBus devices as slaves or the bus master. Because the signal 
+voltages on the I2C-bus/SMBus bus side may be different from the dI2C-bus side, there 
+are two power supply pins and a common ground. Static offset is employed by the 
+I2C-bus/SMBus side to prevent bus latch up. Signal direction is determined by the 
+I2C-bus/SMBus bus protocol, and does not require a direction signal, as these bus buffers 
+automatically set signal flow direction. An enable pin (EN) is provided to disable the bus 
+buffer, and is useful for fault finding, power-up sequencing, or reconfiguration of a large 
+bus system by isolating sections not needed at all times.
+Construction of the differential transmission line is not device dependent. PCB traces, 
+open wiring, twisted pair cables or a combination of these may be used. Twisted pair 
+cables offer the best performance. A typical twisted pair transmission line cable has a 
+characteristic impedance of ‘about 100 ’ and must be terminated at both ends in 100  
+to prevent unwanted signal reflections. Multiple nodes (each using a dI2C-bus buffer) may 
+be connected at any point along this transmission line, however, the stub length will 
+degrade the bus performance, and should therefore be minimized.
+7.1
+I2C-bus/SMBus side
+The I2C-bus/SMBus side of the PCA9616 differential bus buffer is connected to other 
+I2C-bus/SMBus devices and requires pull-up resistors on each of the SCL and SDA 
+signals. The value of the resistor should be chosen based on the bus capacitance and 
+desired data speed, being careful not to overload the driver current rating of 3 mA for 
+Standard and Fast modes, 30 mA for Fast-mode Plus (Fm+). Note that at lower supply 
+voltages the driver will not deliver the higher current (see Table 5 “Static characteristics”). 
+The I2C-bus/SMBus side of the PCA9616 is powered from the VDD(A) supply pin.
+7.2
+dI2C-bus side differential pair
+In previous I2C-bus/SMBus designs the nodes (Master and one or more Slaves) are 
+connected by wired-OR in combination with a single pull-up resistor. This simple 
+arrangement is not suited for long distances more than one meter (1 m) or about 
+three feet (3 ft), due to ringing and reflections on the un-terminated bus. The use of a 
+transmission line with correct termination eliminates this problem, and is further improved 
+by differential signaling used in the dI2C-bus scheme. Each node acts as both a driver and 
+a receiver to allow bidirectional signal flow, but not at the same time. Switching from 
+transmit to receive is done automatically. The dI2C-bus side of the PCA9616 is powered 
+from the VDD(B) supply pin.
+The dI2C-bus is also biased to an idle state (D+ more positive than D) to be compatible 
+with the I2C-bus/SMBus wired-OR scheme, when not transmitting traffic (data). This 
+allows every node to receive broadcast messages from the Master, and return ACK/NACK 
+and data in response. Biasing is done with additional resistors, connected to VDD(B) and 
+VSS (the local ground), as shown in Figure 5. The transmission line is terminated in the 
+characteristic impedance of the cable, typically 100 . This is the value defined by three 
+resistors, the other two resistors providing the idle condition bias to the twisted pair.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 7 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+7 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+ 
+7.2.1
+Noise rejection
+Impulse noise coupled into the I2C-bus/SMBus signals can prevent the I2C-bus/SMBus 
+bus from operating reliably. The hostile signals may appear on the SCL line, SDA line, or 
+both. Impulse noise may also enter the common ground connection, or be caused by 
+current in the ground path caused by DC power supplies, or other signals sharing the 
+common ground return path. This problem is removed by using a differential transmission 
+line, in place of the I2C-bus/SMBus signal path. The dI2C-bus receiver (at each dI2C-bus 
+node) subtracts the signals on the two differential lines (D+ and D), and eliminates any 
+common-mode noise that is coupled into the dI2C-bus. The receiver amplifies the signals 
+which are also attenuated by the bulk resistance of the transmission line cable 
+connection, and does not rely on a common ground connection at each node.
+7.2.2
+Rejection of ground offset voltage
+Hostile signals interfere with the I2C-bus/SMBus bus through the common ground 
+connection between each node. Current in this ground path will cause an offset that may 
+cause false data or push the I2C-bus/SMBus signals outside of an acceptable range. 
+Unwanted ground offset can be caused by heavy DC current in the ground path, or 
+injection of ground current from AC signals, either of which may show up as false signals.
+Because the dI2C-bus node’s receiver responds only to the difference between the two 
+dI2C-bus transmission lines, common-mode signals are ignored. There is no need to have 
+a ground connection between each of the nodes, which may be powered locally. Nodes 
+may also be powered by extra conductors (for VDD and ground) run with the dI2C-bus 
+signals. Voltage offsets caused by DC current in these additional wires will be ignored by 
+the dI2C-bus receiver, which subtracts the two differential signals (D+ and D).
+7.2.3
+Interrupt channel
+The PCA9616 has a third channel identical to the SCL or SDA channel that can be used 
+as a side band for interrupt or reset.
+If unused, the INT pin should be held LOW and the DINTM and DINTP are left ‘not 
+connected’.
+Fig 5.
+dI2C-bus terminations
+DxxxP
+DxxxM
+aaa-011061
+twisted-pair cable
+DxxxP
+DxxxM
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 8 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+8 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+7.3
+EN pin
+Enable input to connect the device into bus. When this pin is LOW, the device will never 
+connect to the bus, and disconnect the SCL/SDA from differential SCL/SDA, and READY 
+pin set HIGH. When EN is driven HIGH, and VDD(A) and VDD(B) are stable and dI2C-bus 
+side are with appropriate loads (indicated by PIDET goes LOW), the EN pin connects 
+SDA/SCL to differential SDA/SCL after a stop bit or bus idle has been detected on 
+differential line bus. EN pin should never change state during an I2C-bus/SMBus 
+operation because disabling during a bus operation will hang the bus and enabling part 
+way through a bus cycle could confuse the I2C-bus/SMBus parts being enabled. The EN 
+pin should only change state when the global bus and the buffer port are in an idle state to 
+prevent system failures.
+7.4
+PIDET pin
+Plug-in status output. This open-drain N-channel MOSFET output pulls LOW when the 
+hot-swapped pins (differential SDA and SCL) have been steady and reliably plugged into 
+the bus when VDD(A) and VDD(B) are powered. Connect a pull-up resistor, typically 10 k, 
+from this pin to VDD(A). Leave open or tie to VSS if unused.
+7.5
+READY pin
+Connection ready status output. This open-drain N-channel MOSFET output goes HIGH 
+when the input and output sides are disconnected. READY is pulled LOW when EN is 
+HIGH, PIDET is LOW, and a connection has been established between the input and 
+differential output. Connect a pull-up resistor, typically 10 k, from this pin to VDD(A). 
+Leave open or tie to VSS if unused.
+7.6
+VDDA_SEL pin
+Enable input to select VDD(A) range. Tie to VDD(B) if VDD(A) is greater than 2.2 V and 
+constant VOL on SCL/SDA (0.52 V) is desired, and tie to VSS if VDD(A) is less than 2.4 V 
+and the ratio VOL (0.2 VDD(A)) is desired. Or leave open to let the device automatically 
+switch based on VDD(A) magnitude.
+7.7
+Hot swap and power-on reset
+During a power-on sequence, an initialization circuit holds the PCA9616 in a disconnected 
+state, meaning all outputs — SDA, SCL and the differential pins DSCLP/DSCLM and 
+DSDAP/DSDAM — are in a high-impedance state. As the power supply rises (either 
+power-up or live insertion), the initialization circuit enters a state where the internal 
+references are stabilized and an internal timer is triggered. After 1 ms, power is applied to 
+the rest of the circuitry and the PCA9616 detects the status on the differential 
+DSCLP/DSCLM and DSDAP/DSDAM lines. When the differential lines are detected as 
+connected to a bus with valid termination, that is, both DSCLM/DSDAM < 0.9 VDD(B) and 
+DSCLP/DSDAP > 0.1 VDD(B), another timer is triggered. At the end of 10 ms, hot-swap 
+logic (Figure 2) is enabled and the EN pin can detect a Stop Bit and Bus Idle condition. 
+However, there is still no connection between SDA and DSDAP/DSDAM or between SCL 
+and DSCLP/DSCLM. A successful EN pin sequence must occur for actual connection.
+When the EN pin is set HIGH and the DSDAP and DSCLP pins have been HIGH for the 
+bus idle time or when both the SCL and SDA pins are HIGH and a STOP condition has 
+been seen on the differential bus (DSDAP/DSDAM and DSCLP/DSCLM pins), a 
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 9 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+9 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+connection is established between the differential and the single-ended buses. Whenever 
+disconnected status is detected or the device is un-powered, the PCA9616 will disconnect 
+the single-ended to differential buses, and the hot swap sequence will repeat again before 
+the PCA9616 connects SDA to DSDAP/DSDAM and SCL to DSCLP/DSCLM.
+Remark: Start-up process is the same for both PCA9616PW and PCA9615DP, except 
+that PIDET and READY signals are only available in 16-pin package.
+ 
+For PCA9616, the READY time is at least 11 ms (1 ms for power ready, 10 ms for 
+plug-in debouncing delay), which means the device can only be in operation after 11 ms 
+with VDD(A), VDD(B) ON and a bus idle/stop detected.
+Fig 6.
+Hot swap related timings
+~11 ms
+~1 ms
+ten for power-on 
+and stabilization
+VDD(A), VDD(B)
+pwon
+~10 ms
+PIDET
+EN
+only when EN goes HIGH  
+and PIDET inputs go LOW 
+will the bus idle/stop detector 
+start functioning
+tidle
+SCL/SDA,
+DSCL/DSDA
+tstop
+READY = pwon && PIDET && EN && 
+002aah591
+(set by bus idle or stop)
+plug-in debouncing time
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 10 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+10 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+8. Application design-in information
+8.1
+I2C-bus
+As with the standard I2C-bus system, pull-up resistors are required to provide the logic 
+HIGH levels on the single-ended buffered bus (standard open-drain configuration of the 
+I2C-bus). The size of these pull-up resistors depends on the system. The device is 
+designed to work with Standard-mode, Fast-mode and Fast-mode Plus I2C-bus devices in 
+addition to SMBus devices. Standard-mode and Fast-mode I2C-bus and SMBus devices 
+only specify 3 mA output drive; this limits the termination current to 3 mA in a generic 
+I2C-bus system where Standard-mode devices and multiple masters are possible. 
+When only Fast-mode Plus devices are used, then higher termination currents can be 
+used due to their 30 mA sink capability. The sink capability varies from 3 mA at 0.8 V to 
+30 mA at 5.5 V with the cut-off between 30 mA and 3 mA at 2.3 V.
+8.2
+Differential I2C-bus application
+See Figure 7 through Figure 9.
+The simple application (Figure 7) shows an existing SMBus/I2C-bus being extended over 
+a section of dI2C-bus transmission line, containing a dedicated twisted pair for SCL and 
+SDA. At one end of the transmission line a resistor network (R1-R2-R1) terminates the 
+twisted pair cable and biases D+ positive with respect to D. An identical resistor network 
+at the other end of the transmission line terminates the twisted pair cable. DC power for 
+each end of the transmission line and the VDD(B) of each PCA9616 bus buffer can be from 
+separate and isolated power supplies, or use the same supply and ground run in separate 
+wires along the same path as the dI2C-bus signal twisted pairs.
+Telecom category 5 (‘CAT 5’) data cable is well suited for this task, but loose wires may 
+also be used, with a reduction in performance. Assuming VDD(B) is 5 V, and using CAT 5 
+cable, R2 is 120 , and R1 is 600 . The parallel combination yields a termination of 
+100  at each end of the twisted pairs.
+Either side of the dI2C-bus buffer pair is connected to standard SMBus/I2C buses, which 
+require their own pull-up resistors to VDD(A) of the PCA9616 bus buffers. VDD(A) and VDD(B) 
+can be the same supply, however, making them different voltages enables the PCA9616 
+bus buffers to level translate between the SMBus/I2C-bus and dI2C-bus sections of the 
+bus, or to have different supply voltages and level translate at either end of the dI2C-bus 
+and SMBus/I2C-bus system.
+For example, the left-hand bus master (and local slave) may operate on a 3.3 V supply 
+and SMBus/I2C-bus while the dI2C-bus transmission lines are at 5 V, and the right-hand 
+slave is operated from a different 3.3 V supply and SMBus/I2C-bus, or even a different bus 
+voltage other than 3.3 V.
+Depending upon the timing from the system master, clock toggle rates can vary from 
+10 kHz for the SMBus (or less for SMBus/I2C-bus protocol) up to 100 kHz (Standard 
+mode), 400 kHz (Fast mode), or up to 1 MHz (Fast-mode Plus).
+The bus path is bidirectional. Assume that the left side SMBus/I2C-bus becomes active. A 
+START condition (SDA goes LOW while SDA is HIGH) is sent. This upsets the idle 
+condition on the dI2C-bus section of the bus, because D+ was more positive than D and 
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 11 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+11 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+now they are reversed. The right side bus buffer sees the differential lines change polarity 
+and in turn pulls SDA LOW on the SMBus/I2C-bus side of the bus buffer, transmitting the 
+START condition to the slave on that section of the SMBus/I2C-bus.
+If the data clocked out by the left side master contains a valid address of the right side 
+slave, that slave responds by pulling SDA LOW on the ninth clock. This condition is 
+transmitted across the dI2C-bus section that has now changed flow direction, and 
+received by the left side bus buffer (again, D+ was more positive than D and now they 
+are reversed).
+This sequence continues until the master sends the STOP condition (SCL HIGH while 
+SDA goes HIGH), placing the active slave (on the right side) back to idle. When idle, the 
+normal SMBus/I2C-bus (both left and right sections) are pulled up by their respective 
+pull-ups. In turn, the dI2C-bus section of the bus rests with D+ more positive than D.
+The idle condition can be changed by any node on either SMBus/I2C-bus section or an 
+additional dI2C-bus node, if present, on the dI2C-bus section of the system. This allows 
+the existing SMBus/I2C-bus protocol to operate transparently over a mix of SMBus/I2C 
+and dI2C bus segments.
+Due to the SMBus/I2C-bus handshake protocol (ACK/NACK on the ninth clock pulse), the 
+direction of the SMBus/I2C-bus is reversed often. The ‘time of flight’ for the signals to pass 
+through each bus buffer and for the target slave to respond defines the maximum speed of 
+the bus, regardless of how fast the clock toggles. The dI2C-bus section of the bus requires 
+two additional PCA9616 bus buffers, further delaying the SMBus/I2C-bus traffic. If the 
+dI2C-bus transmission line section is made longer, the bus will operate much slower, 
+regardless of the clock toggle speed.
+It is not necessary to have a ground connection between each end of the dI2C section of 
+the bus. The dI2C-bus receiver responds to reversal of the polarity of the D+ and D 
+signals, and ignores the common-mode voltage that may be present.
+Ideally, the common-mode voltage is the same at each end of the twisted pairs, and no 
+current flows along the twisted pair when the bus is idle, because the D+ and D dI2C-bus 
+drivers are both high-impedance, the bus is biased by R1-R2-R1 at each end. If the 
+common-mode voltage is not 0 V, current will flow along the twisted pair, returning through 
+the common ground or common power supply connection if present.
+If both ends of the twisted pair are powered by the same VDD(B) supply and one end is 
+remote, there will be a common-mode offset between them. This is ignored by the 
+dI2C-bus receivers, which only respond to the difference between D+ and D.
+However, a large common-mode offset voltage will force the D+ and D signals out of the 
+range of the receiver, and data will be lost. The PCA9616 bus buffers use standard ESD 
+protection networks to protect the external pins, and therefore should not be biased above 
+or below the VDD(B) and VSS pins respectively. This limits the common-mode range to 
+approximately 0.5 VDD(B).
+DC resistance of the transmission line will attenuate the signals, more so over longer 
+distances. The loss of signal amplitude is made up by the gain of the dI2C-bus receiver. 
+There is a limit to how long the dI2C-bus section can be made, as it is necessary for the 
+driver to overcome the bias on the transmission line, in order to signal a polarity change 
+(D+ and D reversal) at the receiver end.
+ 
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 12 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+12 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+Remark: For clarity, DSDAP and DSDAM are flipped from actual device pinout.
+Fig 7.
+Typical application for PCA9616
+VDD(B)1
+PCA9616
+R1
+R2
+R1
+R1
+R2
+R1
+SCL
+SDA
+SLAVE
+MASTER
+DSCLP
+DSCLM
+DSDAP
+DSDAM
+VSS1
+R1
+R2
+R1
+R1
+R2
+R1
+SCL
+SDA
+MASTER
+SLAVE
+R1
+R2
+R1
+INT
+DINTP
+DINTM
+R1
+R2
+R1
+PCA9616
+002aag411
+CARD
+CARD
+INT
+VDD(A)1
+VDD(A)2
+(optional)
+(optional)
+VSS2
+VDD(B)2
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 13 / 32
+────────────────────────────────────────────────────────────────────────
+xxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxx x x x xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxx xx xx xxxxx 
+xxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxx xxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxx x x 
+xxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxx 
+xxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx xxx
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+13 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+Remark: For clarity, DSDAP and DSDAM are flipped from actual device pinout.
+Fig 8.
+PCA9616 application diagram; VDD and VSS are routed through the cable
+VDD(B)
+PCA9616
+R1
+R2
+R1
+R1
+R2
+R1
+SCL
+SDA
+SLAVE
+MASTER
+DSCLP
+DSCLM
+DSDAP
+DSDAM
+VSS
+R1
+R2
+R1
+INT
+DINTP
+DINTM
+002aag412
+CARD
+PCA9616
+SLAVE
+MASTER
+CARD
+VDD(B)
+VDD(B)
+termination
+VDD(B)
+PCA9616
+SLAVE
+MASTER
+CARD
+VSS
+VDD
+PCA9616
+CARD
+VSS
+VDD
+VDD(B)
+optional
+SLAVE
+MASTER
+R1
+R2
+R1
+R1
+R2
+R1
+R1
+R2
+R1
+VDD(A)
+VDD(A)
+VDD(A)
+VDD(A)
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 14 / 32
+────────────────────────────────────────────────────────────────────────
+xxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxx x x x xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxx xx xx xxxxx 
+xxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxx xxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxx x x 
+xxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxx 
+xxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx xxx
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+14 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+ 
+Remark: For clarity, DSDAP and DSDAM are flipped from actual device pinout.
+Fig 9.
+PCA9616 application diagram; VDD and VSS are not routed through the cable
+VDD(B)
+PCA9616
+SCL
+SDA
+SLAVE
+MASTER
+DSCLP
+DSCLM
+DSDAP
+DSDAM
+VSS
+INT
+DINTP
+DINTM
+CARD
+PCA9616
+SLAVE
+MASTER
+CARD
+PCA9616
+SLAVE
+MASTER
+CARD
+VDD(B)
+PCA9616
+SLAVE
+MASTER
+CARD
+PCA9616
+SLAVE
+MASTER
+CARD
+PCA9616
+SLAVE
+MASTER
+CARD
+002aag413
+VDD(A)
+VDD(A)
+VDD(A)
+VDD(A)
+VDD(A)
+VDD(A)
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 15 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+15 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+Fig 10.
+Hot swap application
+002aah590
+VDD(A)
+VDD(B)
+DSCL
+DSDA
+VSS
+PIDET
+EN
+READY
+SCL
+SDA
+MASTER
+Card with master. 
+The master can issue the EN after PIDET goes LOW.
+VDD(A)
+VDD(B)
+DSCL
+DSDA
+VSS
+PIDET
+EN
+READY
+SCL
+SDA
+SLAVE
+Card without master. 
+Backplane connector
+Differential terminations
+are always on backplane.
+3.3 V
+5 V
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 16 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+16 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+ 
+ 
+Fig 11.
+Differential bus waveform
+aaa-009538
+Fig 12.
+Single-ended bus waveform (master side of bus)
+002aah616
+9th clock pulse
+acknowledge
+SCL
+SDA
+VOL of master
+VOL of PCA9616 (from slave)
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 17 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+17 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+9. Limiting values
+ 
+Table 4.
+Limiting values
+In accordance with the Absolute Maximum Rating System (IEC 60134).
+Symbol
+Parameter
+Conditions
+Min
+Max
+Unit
+VDD(B)
+supply voltage port B
+differential bus; 3.0 V to 5.5 V
+0.5
++6
+V
+VDD(A)
+supply voltage port A
+single-ended bus; 0.8 V to 5.5 V
+0.5
++6
+V
+VO(dif)
+differential output voltage
+0.5
++6
+V
+Vbus
+bus voltage
+voltage on I2C-bus A side, or enable (EN)
+0.5
++6
+V
+II/O
+input/output current
+SDA, SCL, INT, Dxxxx pins
+-
+80
+mA
+PIDET, READY pins
+-
+20
+mA
+IDD(B)
+supply current port B
+-
+160
+mA
+Ptot
+total power dissipation
+-
+100
+mW
+Tstg
+storage temperature
+55
++125
+C
+Tamb
+ambient temperature
+operating in free air
+40
++85
+C
+Tj
+junction temperature
+-
+125
+C
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 18 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+18 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+10. Static characteristics
+ 
+Table 5.
+Static characteristics
+VDD(B) = 3.0 V to 5.5 V; VSS = 0 V; Tamb = 40 C to +85 C; unless otherwise specified.
+Symbol
+Parameter
+Conditions
+Min
+Typ
+Max
+Unit
+Supplies
+VDD(B)
+supply voltage port B
+differential bus
+3.0
+-
+5.5
+V
+VDD(A)
+supply voltage port A
+single-ended bus
+[1] 0.8
+-
+5.5
+V
+IDD(VDDA)
+supply current on 
+pin VDD(A)
+-
+-
+16
+A
+IDDH(B)
+port B HIGH-level supply 
+current
+3-channel; both channels HIGH; 
+VDD(B) = 5.5 V; 
+INT = SDAn = SCLn = VDD(A) = 5.5 V
+-
+1.2
+2.0
+mA
+IDDL(B)
+port B LOW-level supply 
+current
+3-channel; both channels LOW; 
+VDD(B) = 5.5 V; SDA and SCL = VSS; 
+differential I/Os open
+-
+1.2
+2.0
+mA
+driving termination; 3 channels
+-
+95
+136
+mA
+Input and output SDA and SCL and INT
+VIH
+HIGH-level input voltage
+0.7VDD(A)
+-
+5.5
+V
+VIL
+LOW-level input voltage
+VDDA_SEL = 1 and VDD(A) > 2.2 V
+0.5
+-
++0.4
+V
+VDDA_SEL = 0 and VDD(A) < 2.4 V
+0.5
+-
++0.1VDD(A)
+V
+VIK
+input clamping voltage
+II = 18 mA
+1.5
+-
+0
+V
+ILI
+input leakage current
+VI = VDD(A)
+-
+-
+2
+A
+IIL
+LOW-level input current
+VI = 0.2 V for VDD(A) > 1.8 V; 
+VI = 0.1 V for VDD(A) < 1.8 V
+-
+-
+12
+A
+VOL
+LOW-level output voltage
+IOL = 200 A or 30 mA 
+(VDD(A) > 2.2 V and VDDA_SEL = 1)
+0.47
+0.52
+0.6
+V
+IOL = 200 A or 3 mA 
+(VDD(A) < 2.4 V and VDDA_SEL = 0)
+-
+0.2VDD(A)
+0.3VDD(A)
+VOLVIL
+difference between 
+LOW-level output and 
+LOW-level input voltage
+guaranteed by design
+IOL = 200 A or 30 mA 
+(VDD(A) > 2.2 V and 
+VDDA_SEL = 1)
+-
+-
+90
+mV
+IOL = 200 A or 3 mA 
+(VDD(A) < 2.4 V and 
+VDDA_SEL = 0)
+-
+0.05VDD(A)
+0.1VDD(A)
+ILOH
+HIGH-level output leakage 
+current
+VO = VDD(A)
+-
+-
+±2
+A
+Cio
+input/output capacitance
+VI = VDD(A) or 0 V; 
+disabled or VDD(A) = 0 V
+-
+7
+10
+pF
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 19 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+19 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+[1]
+Single-ended bus supply voltage. Recommend VDDA_SEL = 0 for VDD(A) = 0.8 V to 2.4 V, and VDDA_SEL = 1 for VDD(A) = 2.2 V to 
+5.5 V. If left floating, the best selection is automatically picked based on magnitude of VDD(A).
+Input and output DSDAP/DSDAM and DSCLP/DSCLM and DINTP/DINTM
+Vcm
+common-mode voltage
+0
+-
+VDD(B)
+V
+ILI
+input leakage current
+VI = VDD(B)
+DSCLP, DSCLM, DSDAP, DSDAM 
+pins
+-
+-
+40
+A
+DINTP, DINTM pins
+-
+-
+1
+A
+IIL
+LOW-level input current
+VI = 0.2 V
+DSCLP, DSCLM, DSDAP, DSDAM 
+pins
+-
+-
+40
+A
+DINTP, DINTM pins
+-
+-
+1
+A
+RPU
+pull-up resistance
+internal pull-up resistor on DSCLM 
+and DSDAM connected to VDD(B) rail
+-
+200
+-
+k
+Rpd
+pull-down resistance
+internal pull-down resistor on DSCLP 
+and DSDAP connected to VSS rail
+-
+200
+-
+k
+Vth(dif)
+differential receiver 
+threshold voltage
+0 V Vcm VDD(B)
+200
+-
++200
+mV
+VI(hys)
+hysteresis of input voltage
+receiver; 0 V Vcm VDD(B)
+-
+30
+-
+mV
+Vo(dif)(p-p)
+peak-to-peak differential 
+output voltage
+single-ended input LOW
+no load
+VDD(B)
+-
+-
+V
+RL = 54  at VDD(B) = 5 V
+5.0
+1.5
+1.0
+V
+Cio
+input/output capacitance
+VI = VDD(B) or 0 V; 
+disabled or VDD(B) = 0 V
+-
+7
+10
+pF
+Input EN
+VIH
+HIGH-level input voltage
+0.7VDD(A)
+-
+5.5
+V
+VIL
+LOW-level input voltage
+0.5
+-
++0.3VDD(A)
+V
+ILI
+input leakage current
+VI = VDD(B)
+1
+-
++1
+A
+IIL(EN)
+LOW-level input current on 
+pin EN
+VI = 0.2 V, EN; VDD(A) = 5.5 V
+-
+20
+54
+A
+Ci
+input capacitance
+VI = VDD(A)
+-
+6
+10
+pF
+RPU
+pull-up resistance
+internal pull-up resistor connected to 
+VDD(A) rail
+-
+300
+-
+k
+Output PIDET and READY
+VOL
+LOW-level output voltage
+IOL = 3 mA; VDD(B) = 3.0 V
+0.5
+-
++0.4
+V
+IL
+leakage current
+READY and PIDET OFF; 
+VDD(A) = VPIDET/VREADY = 5.5 V
+-
+-
+2
+A
+Input VDDA_SEL
+VIH
+HIGH-level input voltage
+0.7VDD(B)
+-
+5.5
+V
+VIL
+LOW-level input voltage
+0.5
+-
++0.3VDD(B)
+V
+ILI
+input leakage current
+VDD(B) = 5.5 V; 
+VI = 0 V for VDD(A) = 1.8 V, or 
+VI = VDD(B) for VDD(A) = 5.5 V
+-
+-
+1
+A
+Table 5.
+Static characteristics …continued
+VDD(B) = 3.0 V to 5.5 V; VSS = 0 V; Tamb = 40 C to +85 C; unless otherwise specified.
+Symbol
+Parameter
+Conditions
+Min
+Typ
+Max
+Unit
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 20 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+20 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+11. Dynamic characteristics
+ 
+[1]
+Times are specified with loads of 1.35 k pull-up resistance and 50 pF load capacitance on the A side, and 50  termination network 
+resistance and 50 pF load capacitance on the B side. Different load resistance and capacitance will alter the RC time constant, thereby 
+changing the propagation delay and transition times.
+[2]
+Pull-up voltages are VDD(A) on the A side and termination network on the B side.
+[3]
+Typical values were measured with VDD(A) = 3.3 V at Tamb = 25 C, unless otherwise noted.
+[4]
+The tPLH delay data from B side to A side is measured at 0 V differential on the B side to 0.5VDD(A) on the A side.
+[5]
+Typical value measured with VDD(A) = 3.3 V at Tamb = 25 C.
+[6]
+The proportional delay data from A side to B side is measured at 0.5VDD(A) on the A side to 0 V on the B side.
+[7]
+The enable pin (EN) should only change state when the global bus and the repeater port are in an idle state.
+Table 6.
+Dynamic characteristics
+VDD = 2.7 V to 5.5 V; VSS = 0 V; Tamb = 40 C to +85 C; unless otherwise specified.[1][2]
+Symbol
+Parameter
+Conditions
+Min
+Typ[3]
+Max
+Unit
+tPLH
+LOW to HIGH propagation delay
+single-ended side to differential side; 
+Figure 15
+[4] 140
+120
+-
+ns
+tPLH2
+LOW to HIGH propagation delay 2
+single-ended side to differential side; 
+Figure 15
+-
+-
+100
+ns
+tPHL
+HIGH to LOW propagation delay
+single-ended side to differential side; 
+Figure 13
+[5] -
+-
+120
+ns
+SRr
+rising slew rate
+differential side; Figure 13
+-
+-
+1
+V/ns
+SRf
+falling slew rate
+differential side; Figure 13
+[5] -
+-
+1
+V/ns
+tPLH
+LOW to HIGH propagation delay
+differential side to single-ended side; 
+Figure 14
+[6] -
+-
+150
+ns
+tPHL
+HIGH to LOW propagation delay
+differential side to single-ended side; 
+Figure 14
+[6] -
+-
+150
+ns
+SRf
+falling slew rate
+single-ended side; Figure 14
+-
+-
+0.1
+V/ns
+tdis
+disable time
+EN LOW to disable
+[7] -
+-
+200
+ns
+tidle
+idle time
+READY active after bus idle
+-
+100
+-
+s
+tstop
+stop time
+READY active after bus stop
+-
+-
+1
+s
+tdeb(bus)
+bus debounce time
+5
+-
+15
+ms
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 21 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+21 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+11.1
+AC waveforms
+ 
+VDD(A) = 3.0 V.
+SRf = 0.6 (Vhigh Vlow) / tTHL
+SRr = 0.6 (Vhigh Vlow) / tTLH
+VDD(A) = 3.0 V.
+SRf = 0.6 ´ VDD(A) / tTHL
+Fig 13.
+Propagation delay and transition times; 
+single-ended side to differential side
+Fig 14.
+Propagation delay and transition times; 
+differential side to single-ended side
+Fig 15.
+Propagation delay
+002aag416
+VDD(A)
+0.3 V
+tPLH
+tTHL
+0.5VDD(A)
+0.5VDD(A)
+input
+output
+20 %
+0 V
+0 V
+80 %
+20 %
+80 %
+tPHL
+tTLH
+−2.5 V
+0.1 V
+differential
+voltage
+input
+output
+80 %
+80 %
+0.5VDD(A) 0.5VDD(A)
+20 %
+20 %
+0 V
+0 V
+tPHL
+tPLH
+0.3 V
+−0.3 V
+VDD(A)
+tTHL
+tTLH
+002aag417
+differential
+voltage
+0.5 V
+input
+SDA, SCL
+output
+DSCLP/DSCLM,
+DSDAP/DSDAM
+tPLH2
+0 V
+002aag418
+0.3 V
+−2.5 V
+0.5VDD(A)
+tPLH
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 22 / 32
+────────────────────────────────────────────────────────────────────────
+PCA9616
+All information provided in this document is subject to legal disclaimers.
+© NXP Semiconductors N.V. 2014. All rights reserved.
+Product data sheet
+Rev. 2 — 10 March 2014 
+22 of 32
+NXP Semiconductors
+PCA9616
+3-channel multipoint Fm+ dI2C-bus buffer with hot-swap logic
+12. Test information
+ 
+ 
+RL = load resistor; 1.35 k on single-ended side.
+RT = termination resistance should be equal to Zo of pulse generators.
+Fig 16.
+Test circuit for differential outputs
+RL = load resistor; 1.35 k on single-ended side.
+CL = load capacitance includes jig and probe capacitance; 50 pF.
+RT = termination resistance should be equal to Zo of pulse generators.
+Fig 17.
+Test circuit for open-drain output
+I2C-BUS 
+LEVEL SHIFTER
+VO
+60 Ω
+002aag419
+RT
+VI
+VDD(B)
+DUT
+VDD(A)
+PULSE
+GENERATOR
+300 Ω
+VDD(A)
+P
+M
+300 Ω
+VDD(B)
+DIFFERENTIAL
+PROBE
+DIFFERENTIAL
+VO
+CL
+RL
+002aag420
+RT
+VDD(A)
+VDD(A)
+DUT
+VDD(B)
+P
+M

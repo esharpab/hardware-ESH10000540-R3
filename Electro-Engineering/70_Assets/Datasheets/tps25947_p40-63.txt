@@ -1,0 +1,1308 @@
+========================================================================
+  FILE:      tps25947.pdf
+  PATH:      70_Assets/Datasheets/tps25947.pdf
+  PAGES:     72 total  |  extracted: 40–63
+  SIZE:      6.1 MB
+  EXTRACTED: 2026-04-30 09:38
+========================================================================
+
+USAGE NOTE: Feed to AI using the extraction prompt in
+  30_Workflows/component-data-workflow.md
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 40 / 72
+────────────────────────────────────────────────────────────────────────
+9 Application and Implementation
+Note
+Information in the following applications sections is not part of the TI component specification, 
+and TI does not warrant its accuracy or completeness. TI’s customers are responsible for 
+determining suitability of components for their purposes, as well as validating and testing their design 
+implementation to confirm system functionality.
+9.1 Application Information
+The TPS25947xx is a 2.7-V to 23-V, 5.5-A eFuse that is typically used for power rail protection applications. 
+The device operates from 2.7 V to 23 V with adjustable overvoltage and undervoltage protection. The device 
+provides ability to control inrush current and protection against input reverse polarity as well as reverse current 
+conditions. The device can be used in a variety of systems such as adapter input protection, USB PD port 
+protection, server/PC motherboard/add-on cards, enterprise storage – RAID/HBA/SAN/eSSD, monitors, docks. 
+The design procedure explained in the subsequent sections can be used to select the supporting component 
+values based on the application requirement. Additionally, a spreadsheet design tool, TPS25947xx Design 
+Calculator, is available in the web product folder.
+9.2 Single Device, Self-Controlled
+TPS259470x 
+IN
+OUT
+EN/UVLO
+ILM
+dVdt
+GND
+VIN = 2.7 to 23 V
+VOUT
+COUT
+OVLO
+AUXOFF
+FLT
+ITIMER
+VLOGIC
+TPS259472x 
+IN
+OUT
+EN/UVLO
+ILM
+dVdt
+GND
+VIN = 2.7 to 23 V
+VOUT
+COUT
+OVCSEL
+PGTH
+PG
+ITIMER
+TPS259474x 
+IN
+OUT
+EN/UVLO
+ILM
+dVdt
+GND
+VIN = 2.7 to 23 V
+VOUT
+COUT
+OVLO
+PGTH
+PG
+ITIMER
+VLOGIC
+VLOGIC
+Figure 9-1. Single Device, Self-Controlled
+Other variations:
+In a Host MCU controlled system, EN/UVLO or OVLO can also be driven from the host GPIO to control the 
+device.
+ILM pin can be connected to the MCU ADC input for current monitoring purpose.
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+40
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 41 / 72
+────────────────────────────────────────────────────────────────────────
+Note
+TI recommends to keep parasitic capacitance on ILM pin below 50 pF to ensure stable operation.
+For the TPS259472x/4x variants, either VIN or VOUT can be used to drive the PGTH resistor divider depending 
+on which supply must be monitored for power good indication.
+9.3 Typical Application
+TPS259474x can be used for PCIe card input power protection. A full-sized ×16 graphics card can draw up to 
+5.5 A at +12 V (66 W). A typical PCIe slot has the capacity of providing current up to 6 A. During overcurrent 
+or short-circuit event at load side, TPS259474x can quickly respond to this fault event by turning off the device 
+and thus protect the load from damage as well as prevent input supply from drooping. The ITIMER feature 
+allows short duration peak currents to pass through without tripping the eFuse, thereby meeting the transient 
+load current profile of graphics cards.
+TPS259474L 
+IN
+OUT
+EN/UVLO
+ILM
+dVdt
+GND
+VIN = 12 V
+RILM
+VOUT
+COUT
+OVLO
+PGTH
+PG
+ITIMER
+CdVdt
+CITIMER
+R1
+R2
+R3
+CIN
+D1*
+D2*
+F
+
+3300 pF
+2.2 nF
+F
+470 k
+11 k
+47 k
+R4
+R5
+47 k
+5.6 k
+3.3 V
+47 k
+* Optional circuit components needed for transient protection depending on input and output inductance. Please 
+refer to Transient Protection section for details.
+Figure 9-2. PCIe Card Input Power Protection
+9.3.1 Design Requirements
+Table 9-1. Design Parameters
+PARAMETER
+VALUE
+Input supply voltage (VIN)
+12 V
+Undervoltage threshold (VIN(UV))
+10.8 V
+Overvoltage threshold (VIN(OV))
+13.2 V
+Output power good threshold (VPG)
+11.4 V
+Max continuous current
+5.5 A
+Load transient blanking interval (tITIMER)
+2 ms
+Output capacitance (COUT)
+470 μF
+Output rise time (tR)
+20 ms
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+41
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 42 / 72
+────────────────────────────────────────────────────────────────────────
+Table 9-1. Design Parameters (continued)
+PARAMETER
+VALUE
+Overcurrent threshold (ILIM)
+6 A
+Overcurrent response
+Circuit breaker
+Fault response
+Latch-off
+9.3.2 Detailed Design Procedure
+9.3.2.1 Device Selection
+Because the application requires circuit-breaker response to overcurrent with latch-off response after a fault, the 
+TPS259474L variant is selected after refering to the Device Comparison Table.
+9.3.2.2 Setting Undervoltage and Overvoltage Thresholds
+The supply undervoltage and overvoltage thresholds are set using the resistors R1, R2 and R3 whose values 
+can be calculated using Equation 10 and Equation 11:
+VIN(UV) = VUVLO(R) × (R1 + R2 + R3)
+R2 + R3
+  
+(10)
+VIN(OV) = VOV(R) × (R1 + R2 + R3)
+R3
+  
+(11)
+Where VUVLO(R) is the UVLO rising threshold and VOV(R) is the OVLO rising threshold. Because R1, R2 and R3 
+leak the current from input supply VIN, these resistors must be selected based on the acceptable leakage current 
+from input power supply VIN. The current drawn by R1, R2 and R3 from the power supply is IR123 = VIN / (R1 + 
+R2 + R3). However, leakage currents due to external active components connected to the resistor string can add 
+error to these calculations. So, the resistor string current, IR123 must be chosen to be 20 times greater than the 
+leakage current expected on the EN/UVLO and OVLO pins.
+From the device electrical specifications, both the EN/UVLO and OVLO leakage currents are 0.1 μA (maximum), 
+VOV(R) = 1.2 V and VUVLO(R) = 1.2 V. From design requirements, VIN(OV) = 13.2 V and VIN(UV) = 10.8 V. To solve 
+the equation, first choose the value of R1 = 470 kΩ and use the above equations to solve for R2 = 10.7 kΩ and 
+R3 = 48 kΩ.
+Using the closest standard 1% resistor values, we get R1 = 470 kΩ, R2 = 11 kΩ, and R3 = 47 kΩ.
+9.3.2.3 Setting Output Voltage Rise Time (tR)
+For a successful design, the junction temperature of device must be kept below the absolute maximum rating 
+during both dynamic (start-up) and steady-state conditions. Dynamic power stresses often are an order of 
+magnitude greater than the static stresses, so it is important to determine the right start-up time and inrush 
+current limit required with system capacitance to avoid thermal shutdown during start-up.
+The slew rate (SR) needed to achieve the desired output rise time can be calculated as:
+SR (V/ms) =
+VIN (V)
+tR (ms)
+=
+12 V
+20 ms
+= 0.6 V/ms
+(12)
+The CdVdt needed to achieve this slew rate can be calculated as:
+CdVdt :pF; =
+2000
+SR :V/ms; = 2000
+0.6 = 3333 pF
+(13)
+Choose the nearest standard capacitor value as 3300 pF.
+For this slew rate, the inrush current can be calculated as:
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+42
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 43 / 72
+────────────────────────────────────────────────────────────────────────
+IINRUSH :mA; = SR (V/ms) × COUT :µF; = 0.6 × 470 = 282 mA  
+(14)
+The average power dissipation inside the part during inrush can be calculated as:
+PDINRUSH :W; = IINRUSH :A; × VIN :V;
+2
+= 0.282 × 12
+2
+= 1.69 W 
+(15)
+For the given power dissipation, the thermal shutdown time of the device must be greater than the ramp-up time 
+tR to avoid start-up failure. Figure 9-3 shows the thermal shutdown limit, for 1.69 W of power, the shutdown time 
+is more than 10 s which is very large as compared to tR = 20 ms. Therefore, it is safe to use 20 ms as the startup 
+time for this application.
+Figure 9-3. Thermal Shut-Down Plot During Inrush
+9.3.2.4 Setting Power Good Assertion Threshold
+The Power Good assertion threshold can be set using the resistors R4 and R5 connected to the PGTH pin 
+whose values can be calculated as:
+VPG = VPGTH(R) × (R4 + R5)
+R5
+  
+(16)
+Because R4 and R5 leak the current from the output rail VOUT, these resistors must be selected to minimize 
+the leakage current. The current drawn by R4 and R5 from the power supply is IR45 = VOUT / (R4 + R5). 
+However, leakage currents due to external active components connected to the resistor string can add error to 
+these calculations. So, the resistor string current, IR123 must be chosen to be 20 times greater than the PGTH 
+leakage current expected.
+From the device electrical specifications, PGTH leakage current is 1 μA (maximum), VPGTH(R) = 1.2 V and from 
+design requirements, VPG = 11.4 V. To solve the equation, first choose the value of R4 = 47 kΩ and calculate R5 
+= 5.52 kΩ. Choose nearest 1% standard resistor value as R5 = 5.6 kΩ.
+9.3.2.5 Setting Overcurrent Threshold (ILIM)
+The overcurrent protection (Circuit Breaker) threshold can be set using the RILM resistor whose value can be 
+calculated as:
+RILM :À; = 3334
+ILIM :A; = 3334
+6 A = 555.6 À
+(17)
+Choose nearest 1% standard resistor value as 549 Ω.
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+43
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 44 / 72
+────────────────────────────────────────────────────────────────────────
+9.3.2.6 Setting Overcurrent Blanking Interval (tITIMER)
+The overcurrent blanking timer interval can be set using the CITIMER capacitor whose value can be calculated as:
+CITIMER (nF) = tITIMER (ms) ×  IITIMER (µA) 
+¿VITIMER (V)
+= 2 × 1.8
+1.51  = 2.38 nF 
+(18)
+Choose nearest standard capacitor value as 2.2 nF.
+9.3.3 Application Curves
+Figure 9-4. Power Up
+Figure 9-5. Transient Overload
+Figure 9-6. Circuit Breaker Response
+9.4 Active ORing
+A typical redundant power supply configuration is shown in Figure 9-7 below. Schottky ORing diodes have been 
+popular for connecting parallel power supplies, such as parallel operation of wall adapter with a battery or a 
+hold-up storage capacitor. The disadvantage of using ORing diodes is high voltage drop and associated power 
+loss. The TPS259470x/4x with integrated, low-ohmic, back-to-back FETs provide a simple and efficient solution. 
+Figure 9-7 below shows the Active ORing implementation using TPS249474x devices.
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+44
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 45 / 72
+────────────────────────────────────────────────────────────────────────
+TPS259474x
+IN
+OUT
+EN/UVLO
+VIN1
+VOUT
+COUT
+OVLO
+PGTH
+PG
+TPS259474x
+IN
+OUT
+EN/UVLO
+VIN2
+OVLO
+PG
+VLOGIC
+VLOGIC
+PGTH
+PG_SYS
+Hotswap 
+protection
+VIN1
+VIN2
+ILM
+dVdt
+GND
+ITIMER
+ILM
+dVdt
+GND
+ITIMER
+Figure 9-7. Two Devices, Active ORing Configuration
+The linear ORing mechanism in TPS25947xx ensures that there's no reverse current flowing from one power 
+source to the other during fast or slow ramp of either supply.
+The following waveform illustrates the active ORing behavior when the supply rails are being ramped up 
+sequentially.
+VIN1
+VOUT
+IOUT
+VIN2
+Figure 9-8. Active ORing Response
+VIN1
+VOUT
+PG1
+VIN2
+Figure 9-9. Active ORing Response
+When the bus voltages (IN1 and IN2) are matched, device in each path sees a forward voltage drop and is 
+ON delivering the load current. During this period, current is shared between the rails in the ratio of differential 
+voltage drop across each device.
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+45
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 46 / 72
+────────────────────────────────────────────────────────────────────────
+In addition to supply ORing, the devices protect the system from overvoltage, excessive inrush current, overload 
+and short-circuit faults at all times.
+Note
+1.
+The TPS259472x (OVC variants) are not recommended for use in ORing applications. While the 
+device is in clamping state, if the output is forced to a higher voltage by the other channel, the 
+device can get damaged.
+2.
+ORing can be done either between two similar rails or between dissimilar rails. For ORing 
+cases with skewed voltage combinations, care must be taken to design circuit components on 
+PGTH/EN/OVLO pins for the lower voltage channel devices such that the Absolute maximum 
+ratings on those pins are not exceeded when higher voltage is present on the other channel. Also, 
+the dVdt pin capacitor rating must be chosen based on the highest of the 2 supplies. Refer to 
+Recommended Operating Conditions table for more details.
+9.5 Priority Power MUXing
+Applications having two energy sources such as PCIe cards, Tablets and Portable battery powered equipment 
+require preference of one source to another. For example, mains power (wall-adapter) has the priority over the 
+internal battery back-up power. These applications demand for switchover from mains power to backup power 
+only when main input voltage falls below a user defined threshold. The TPS25947xx devices provide a simple 
+solution for priority power multiplexing needs.
+Figure 9-10 below shows a typical priority power multiplexing implementation using TPS259470x devices. When 
+primary (priority) power source (IN1) is present and within the valid range (not in UV/OV condition), the primary 
+path device path powers the OUT bus irrespective of whether auxiliary supply voltage (VIN2) is greater than, 
+equal to or less than primary supply voltage (VIN1). The device in auxiliary path is held in off condition by forcing 
+its OVLO pin to high using the AUXOFF signal from the primary path device.
+After the primary supply voltage falls outside the user-defined valid operating range (UV/OV condition), the 
+primary path device de-asserts the AUXOFF which signals the auxiliary path device to turn on and the system 
+starts operating from the auxiliary supply. During this transition, the auxiliary path device bypasses its dVdt 
+limited startup and performs a fast recovery to start delivering power within tSWOV.
+When the primary supply is restored, the primary path device turns on fully at a defined slew rate and then 
+asserts its AUXOFF pin high to turn the auxiliary path device off, allowing a seamless transition from auxiliary to 
+the primary supply with minimal output voltage droop and with no shoot-through current.
+A key consideration in power MUXing applications is the minimum voltage the output bus droops to during the 
+switchover from one supply to another. This in turn depends on multiple factors including the output load current 
+(ILOAD), output bus hold-up capacitance (COUT) and switchover time (tSW).
+While switching from primary supply (VIN1) to auxiliary supply (VIN2), the minimum bus voltage can be calculated 
+using Equation 19. Here, the switchover time (tSW) is equal to the fast OVLO recovery time (tSWOV) taken by the 
+TPS259470x variants to turn on fully and start delivering current to the load.
+
+  
+
+
+
+
+ 
+
+
+SW
+LOAD
+IN1
+IN2
+OUT min
+OUT
+t
+V
+,
+$
+V
+V
+min V
+,V
+C
+)
+u
+ 
+
+(19)
+While switching from auxiliary supply (VIN2) to primary supply (VIN1), the minimum bus voltage can be calculated 
+using Equation 20. Here the maximum switchover time is equal to the RCB recovery time (tSWRCB), depending 
+on whether VIN1 is equal to or lower than VIN2 to start with.
+
+  
+
+
+ 
+
+
+ 
+
+
+SWRCB
+LOAD
+IN1
+IN2
+FWDTH
+OUT min
+OUT
+t
+V
+,
+$
+V
+V
+min V
+,V
+V
+V
+C
+)
+u
+ 
+
+
+(20)
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+46
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 47 / 72
+────────────────────────────────────────────────────────────────────────
+The AUXOFF pins of the devices can be used as a digital indication to identify which of the 2 supplies is active 
+and delivering power to the load.
+TPS259470x 
+IN
+OUT
+EN/UVLO
+VIN1
+VOUT
+COUT
+OVLO
+AUXOFF
+VLOGIC
+TPS259470x
+IN
+OUT
+EN/UVLO
+VIN2
+OVLO
+AUXOFF
+VLOGIC
+FLT
+FLT
+IN1 supply active
+IN2 supply active
+ILM
+dVdt
+GND
+ITIMER
+ILM
+dVdt
+GND
+ITIMER
+Figure 9-10. Priority Power MUXing with 2 × TPS259470x - Option 1
+This configuration provides the most compact priority power MUXing solution with multiple benefits, including 
+active current limit protection on both channels as well as overvoltage protection on primary channel. It also 
+provides the fastest switchover time from primary to auxiliary, but at the cost of a slightly increased quiescent 
+current on the auxiliary path while primary path is active. Also, it uses the fewest external components, but at the 
+cost of bypassing overvoltage protection on auxiliary channel.
+The following waveforms illustrate the TPS259470x performance in a priority power MUXing configuration.
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+47
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 48 / 72
+────────────────────────────────────────────────────────────────────────
+VIN1
+VIN2
+VOUT
+IOUT
+Figure 9-11. TPS259470x Power MUX - Switchover from Primary to Auxiliary Supply
+VIN1
+VIN2
+VOUT
+IOUT
+Figure 9-12. TPS259470x Power MUX - Switchover from Auxiliary to Primary Supply
+There's a possible variation to the above configuration in case overvoltage protection is needed on both 
+channels. This needs an additional signal N-FET to drive the OVLO pin of the auxiliary path device as shown in 
+Figure 9-13 below. The switchover times are similar to the previous configuration.
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+48
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 49 / 72
+────────────────────────────────────────────────────────────────────────
+TPS259470x 
+IN
+OUT
+EN/UVLO
+VIN1
+VOUT
+COUT
+OVLO
+AUXOFF
+VLOGIC
+TPS259470x
+IN
+OUT
+EN/UVLO
+VIN2
+OVLO
+AUXOFF
+VLOGIC
+FLT
+FLT
+IN1 supply active
+IN2 supply active
+ILM
+dVdt
+GND
+ITIMER
+ILM
+dVdt
+GND
+ITIMER
+Figure 9-13. Priority Power MUXing with 2 × TPS259470x - Option 2
+Another variation of the previous configuration ensures minimum quiescent current on the auxiliary chanel while 
+primary channel is active, but at the cost of additional N-FET to drive the EN/UVLO pin of auxiliary path device 
+as shown in Figure 9-14 below. At the same time, it has a higher switchover delay from primary to auxiliary 
+supply as compared to the previous configuration.
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+49
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 50 / 72
+────────────────────────────────────────────────────────────────────────
+TPS259470x
+IN
+OUT
+EN/UVLO
+VIN1
+VOUT
+COUT
+OVLO
+AUXOFF
+VLOGIC
+TPS259470x
+IN
+OUT
+EN/UVLO
+VIN2
+OVLO
+AUXOFF
+VLOGIC
+FLT
+FLT
+IN1 supply active
+IN2 supply active
+ILM
+dVdt
+GND
+ITIMER
+ILM
+dVdt
+GND
+ITIMER
+Figure 9-14. Priority Power MUXing with 2 × TPS259470x - Option 3
+While switching from a higher supply rail to lower supply rail, the minimum bus voltage can be calculated using 
+Equation 21. Here, the switchover time is equal to the time taken by the device to come out of reverse current 
+blocking state (tSWRCB).
+
+  
+
+
+ 
+
+
+ 
+
+
+SWRCB
+LOAD
+IN1
+IN2
+FWDTH
+OUT min
+OUT
+t
+V
+,
+$
+V
+V
+min V
+,V
+V
+V
+C
+)
+u
+ 
+
+
+(21)
+While switching from a lower supply rail to higher supply rail, the minimum bus voltage can be calculated using 
+Equation 22. Here, the switchover time (tSW) is the time taken by the device to turn on fully and start delivering 
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+50
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 51 / 72
+────────────────────────────────────────────────────────────────────────
+current to the load, which is equal to the device turn-on time (tON), which in turn includes the turn-on delay (tD,ON) 
+and rise time (tR) determined by the dVdt capacitor (CdVdt) and bus voltage.
+
+  
+
+
+
+
+ 
+
+
+SW
+LOAD
+IN1
+IN2
+OUT min
+OUT
+t
+V
+,
+$
+V
+V
+min V
+,V
+C
+)
+u
+ 
+
+(22)
+All the preceding configurations provide a priority power MUXing solution with active current limit protection 
+response. In case circuit breaker response is prefered, it is possible to implement a solution using TPS259474x 
+devices as shown in Figure 9-15 below. Here, the EN/UVLO signal of the primary path device is used to control 
+the OVLO of the auxiliary path device. This ensures that auxiliary path device is turned on only when the primary 
+supply falls below a user-defined undervoltage (UVLO) threshold. In this configuration, supply overvoltage 
+protection is not available on both channels. The PG pins of the devices can be used as a digital indication to 
+identify which of the 2 supplies is active and delivering power to the load.
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+51
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 52 / 72
+────────────────────────────────────────────────────────────────────────
+TPS259474x 
+IN
+OUT
+EN/UVLO
+VIN1
+VOUT
+COUT
+OVLO
+PGTH
+PG
+VLOGIC
+TPS259474x
+IN
+OUT
+EN/UVLO
+VIN2
+OVLO
+PG
+VLOGIC
+PGTH
+IN1 supply active
+IN2 supply active
+ILM
+dVdt
+GND
+ITIMER
+ILM
+dVdt
+GND
+ITIMER
+Figure 9-15. Priority power MUXing with 2 × TPS259474x
+While switching from one supply rail to the other, the minimum bus voltage can be calculated using Equation 23. 
+Here, the maximum switchover time (tSW) is the time taken by the device to turn on and start delivering power to 
+the load, which is equal to the device turn-on time (tON), which in turn includes the turn-on delay (tD,ON) and rise 
+time (tR) determined by the dVdt capacitor (CdVdt) and bus voltage.
+
+  
+
+
+
+
+ 
+
+
+SW
+LOAD
+IN1
+IN2
+OUT min
+OUT
+t
+V
+,
+$
+V
+V
+min V
+,V
+C
+)
+u
+ 
+
+(23)
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+52
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 53 / 72
+────────────────────────────────────────────────────────────────────────
+Note
+1.
+The TPS259472x (OVC variants) are not recommended for use in power MUXing or ORing 
+applications. While the device is in clamping state, if the output is forced to a higher voltage by the 
+other channel, the device can get damaged.
+2.
+Power MUXing can be done either between two similar rails (such as 12-V Primary and 12-V Aux, 
+3.3-V Primary and 3.3-V Aux) or between dissimilar rails (such as 12-V Primary and 5-V Aux or 
+vice versa).
+3.
+For power MUXing cases with skewed voltage combinations, care must be taken to design 
+circuit components on PGTH/EN/OVLO pins for the lower voltage channel devices such that the 
+Absolute maximum ratings on those pins are not exceeded when higher voltage is present on the 
+other channel. Also, the dVdt pin capacitor rating must be chosen based on the highest of the 2 
+supplies. Refer to Recommended Operating Conditions table for more details.
+9.6 USB PD Port Protection
+End equipments like PC, Notebooks, Docking Stations, Monitors etc.. have USB PD ports which can be 
+configured as DFP (Source), UFP (Sink) or DRP (Source+Sink). TPS259470x can be used independently or 
+in conjunction with LM73100 to handle the power path protection requirements of USB PD ports as shown in 
+Figure 9-16 below.
+TPS259470x provides Overcurrent and Short-Circuit protection in the source path, while blocking any reverse 
+current from the port to the internal source power rail. The fast recovery (tSWRCB) from reverse current blocking 
+ensures minimum supply droop during Fast Role Swap (FRS) events. The PD controller can also use the OVLO 
+pin as an active low enable signal to control the power path. Holding the OVLO pin high keeps the device in 
+OFF state in sink mode and blocks current in both directions. After the PD controller determines the need to 
+start sourcing power, it can pull the OVLO pin low to trigger a fast recovery from OFF to ON state within tSWOV, 
+meeting the FRS timing requirements.
+The LM73100 provides overvoltage protection on the sink path, while blocking reverse current from internal sink 
+rail to the port.
+The linear ORing mechanism in TPS259470x and LM73100 ensures that there's no reverse current flowing from 
+one power source to the other during fast or slow ramp of either supply.
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+53
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 54 / 72
+────────────────────────────────────────────────────────────────────────
+LM73100
+OUT
+IN
+EN/UVLO
+IMON
+dVdt
+GND
+VBUS = 5 V to 20V
+OVLO
+PGTH
+PG
+CDVDT
+TPS259470L 
+IN
+OUT
+EN/UVLO
+ILM
+dVdt
+GND
+RILM
+OVLO
+AUXOFF
+ITIMER
+CITIMER
+VOUT = 5 V to 20 V
+CDVDT
+VIN = 5 V to 20 V
+FLT
+FLT
+PD Controller
+Figure 9-16. USB PD Port Protection
+The waveform below shows the TPS259470x behavior when a 20-V source connected at the USB bus is 
+suddenly disconnected. The TPS259470x is initially in reverse current blocking condition. As the bus voltage 
+starts drooping, the TPS259470x exits the condition and performs a fast charge to restore the bus voltage above 
+vSafe5V(min) within tSWRCB, thereby meeting the USB FRS (Fast Role Swap) requirements.
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+54
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 55 / 72
+────────────────────────────────────────────────────────────────────────
+VIN
+VOUT
+IIN
+VIN = 5 V, COUT = 10 μF, ROUT = 8 Ω, VOUT = 20 V initially and then disconnected
+Figure 9-17. TPS259470x 5-V Source Path - USB Fast Role Swap Response
+9.7 Parallel Operation
+Applications which need higher steady current can use 2 TPS25947xx devices connected in parallel as shown in 
+Figure 9-18 below. In this configuration, the first device turns on initially to provide the inrush current limiting. The 
+second device is held in an OFF state by driving its EN/UVLO pin low using the AUXOFF/PG signal of the first 
+device. After the inrush sequence is complete, the first device asserts its AUXOFF/PG pin high and turns on the 
+second device. The second device asserts its AUXOFF/PG signal to indicate when it has turned on fully, thereby 
+indicating to the system that the parallel combination is ready to deliver the full steady state current.
+After in steady state, both devices share current nearly equally. There can be a slight skew in the currents 
+depending on the part-to-part variation in the RON as well as the PCB trace resistance mismatch.
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+55
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 56 / 72
+────────────────────────────────────────────────────────────────────────
+TPS259470x 
+IN
+OUT
+EN/UVLO
+ILM
+dVdt
+GND
+VIN = 2.7 to 23 V
+VOUT
+COUT
+OVLO
+AUXOFF
+ITIMER
+VLOGIC
+TPS259470x 
+IN
+OUT
+EN/UVLO
+ILM
+dVdt
+GND
+OVLO
+AUXOFF
+ITIMER
+To 
+downstream 
+enable
+FLT
+FLT
+Figure 9-18. Two Devices Connected in Parallel for Higher Steady State Current Capability
+The waveforms below illustrate the behavior of the parallel configuration during start-up as well as during steady 
+state.
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+56
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 57 / 72
+────────────────────────────────────────────────────────────────────────
+VIN
+VOUT
+AUXOFF1
+AUXOFF2
+Figure 9-19. Parallel Devices Sequencing During Start-Up
+VIN
+VOUT
+IIN1
+IIN2
+Figure 9-20. Parallel Devices Load Current During Steady State
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+57
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 58 / 72
+────────────────────────────────────────────────────────────────────────
+10 Power Supply Recommendations
+The TPS25947xx devices are designed for a supply voltage range of 2.7 V ≤ VIN ≤ 23 V. TI recommends an 
+input ceramic bypass capacitor higher than 0.1 μF if the input supply is located more than a few inches from 
+the device. The power supply must be rated higher than the set current limit to avoid voltage droops during 
+overcurrent and short-circuit conditions.
+The lowest negative voltage the device can handle at the input is limited to –15 V or VOUT –21 V, whichever 
+is higher. Any low voltage signals (for example. EN/UVLO, OVLO, PGTH) derived from the input supply must 
+have a sufficiently large pull-up resistor to limit the current through those pins to < 10 μA during reverse polarity 
+conditions. Please refer to Absolute Maximum Ratings table for more details.
+10.1 Transient Protection
+In the case of a short-circuit and overload current limit when the device interrupts current flow, the input 
+inductance generates a positive voltage spike on the input, and the output inductance generates a negative 
+voltage spike on the output. The peak amplitude of voltage spikes (transients) is dependent on the value of 
+inductance in series to the input or output of the device. Such transients can exceed the absolute maximum 
+ratings of the device if steps are not taken to address the issue. Typical methods for addressing transients 
+include:
+•
+Minimize lead length and inductance into and out of the device.
+•
+Use a large PCB GND plane.
+•
+Connect a Schottky diode from the OUT pin ground to absorb negative spikes.
+•
+Connect a low ESR capacitor larger than 1 μF at the OUT pin very close to the device.
+•
+Use a low-value ceramic capacitor CIN = 1 μF to absorb the energy and dampen the transients. The capacitor 
+voltage rating must be atleast twice the input supply voltage to be able to withstand the positive voltage 
+excursion during inductive ringing.
+The approximate value of input capacitance can be estimated with Equation 24:
+VSPIKE(Absolute) = VIN + ILOAD × ¨LIN
+CIN 
+(24)
+where
+–
+VIN is the nominal supply voltage.
+–
+• ILOAD is the load current.
+–
+LIN equals the effective inductance seen looking into the source.
+–
+CIN is the capacitance present at the input.
+•
+Some applications can require the addition of a Transient Voltage Suppressor (TVS) to prevent transients 
+from exceeding the absolute maximum ratings of the device. In some cases, even if the maximum amplitude 
+of the transients is below the absolute maximum rating of the device, a TVS can help to absorb the excessive 
+energy dump and prevent it from creating very fast transient voltages on the input supply pin of the IC, which 
+can couple to the internal control circuits and cause unexpected behavior.
+Note
+If there is a likelihood of input reverse polarity in the system, TI recommends to use a bi-directional 
+TVS, or a reverse blocking diode in series with the TVS.
+•
+For applications such as USB-C ports where a powered cable can be plugged to the output of the device, 
+there can be excess voltage stress from OUT to IN which exceeds the absolute maximum rating of the 
+device. TI recommends to add a TVS diode from OUT to IN to clamp the voltage to a safe level.
+The circuit implementation with optional protection components is shown in Figure 10-1.
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+58
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 59 / 72
+────────────────────────────────────────────────────────────────────────
+TPS259470x 
+IN
+OUT
+EN/UVLO
+ILM
+dVdt
+GND
+VIN = 2.7 to 23 V
+RILM
+VOUT
+COUT
+OVLO
+AUXOFF
+FLT
+ITIMER
+CDVDT
+CITIMER
+R1
+R2
+R3
+CIN
+D1
+D2
+D3
+D4
+Figure 10-1. Circuit Implementation with Optional Protection Components
+10.2 Output Short-Circuit Measurements
+It is difficult to obtain repeatable and similar short-circuit testing results. The following contribute to variation in 
+results:
+•
+Source bypassing
+•
+Input leads
+•
+Circuit layout
+•
+Component selection
+•
+Output shorting method
+•
+Relative location of the short
+•
+Instrumentation
+The actual short exhibits a certain degree of randomness because it microscopically bounces and arcs. Ensure 
+that configuration and methods are used to obtain realistic results. Do not expect to see waveforms exactly like 
+those in this data sheet because every setup is different.
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+59
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 60 / 72
+────────────────────────────────────────────────────────────────────────
+11 Layout
+11.1 Layout Guidelines
+•
+For all applications, TI recommends a ceramic decoupling capacitor of 0.1 μF or greater between the IN 
+terminal and GND terminal.
+•
+The optimal placement of the decoupling capacitor is closest to the IN and GND terminals of the device. Care 
+must be taken to minimize the loop area formed by the bypass-capacitor connection, the IN terminal, and the 
+GND terminal of the IC.
+•
+High current-carrying power-path connections must be as short as possible and must be sized to carry at 
+least twice the full-load current.
+•
+The GND terminal must be tied to the PCB ground plane at the terminal of the IC with the shortest possible 
+trace. The PCB ground must be a copper plane or island on the board. TI recommends to have a separate 
+ground plane island for the eFuse. This plane doesn't carry any high currents and serves as a quiet ground 
+reference for all the critical analog signals of the eFuse. The device ground plane must be connected to the 
+system power ground plane using a star connection.
+•
+The IN and OUT pins are used for heat dissipation. Connect to as much copper area on top and bottom 
+PCB layers using as possible with thermal vias. The vias under the device also help to minimize the voltage 
+gradient accross the IN and OUT pads and distribute current unformly through the device, which is essential 
+to achieve the best on-resistance and current sense accuracy.
+•
+Locate the following support components close to their connection pins:
+–
+RILM
+–
+CdVdT
+–
+CITIMER
+–
+Resistors for the EN/UVLO, OVLO/OVCSEL and PGTH pins
+•
+Connect the other end of the component to the GND pin of the device with shortest trace length. The trace 
+routing for the RILM, CITIMER and CdVdt components to the device must be as short as possible to reduce 
+parasitic effects on the current limit , overcurrent blanking interval and soft start timing. TI recommends to 
+keep parasitic capacitance on ILM pin below 50 pF to ensure stable operation. These traces must not have 
+any coupling to switching signals on the board.
+•
+Because the bias current on ILM pin directly controls the overcurrent protection behavior of the device, the 
+PCB routing of this node must be kept away from any noisy (switching) signals.
+•
+Protection devices such as TVS, snubbers, capacitors, or diodes must be placed physically close to the 
+device they are intended to protect. These protection devices must be routed with short traces to reduce 
+inductance. For example, TI recommends a protection Schottky diode to address negative transients due 
+to switching of inductive loads. TI recommends to add a ceramic decoupling capacitor of 1 μF or greater 
+between OUT and GND. These components must be physically close to the OUT pins. Care must be taken to 
+minimize the loop area formed by the Schottky diode/bypass-capacitor connection, the OUT pin and the GND 
+terminal of the IC.
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+60
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 61 / 72
+────────────────────────────────────────────────────────────────────────
+11.2 Layout Example
+6
+5
+1
+2
+3
+4
+10
+9
+8
+7
+Inner GND layer
+Power layer
+Top layer
+IN
+OUT
+Figure 11-1. Layout Example - Single TPS259474x with PGTH Referred to OUT
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+61
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 62 / 72
+────────────────────────────────────────────────────────────────────────
+Inner GND layer
+Power layer
+Top layer
+1
+2
+3
+6
+5
+1
+2
+3
+4
+10
+9
+8
+7
+IN1
+OUT
+IN2
+3
+Figure 11-2. Layout Example - 2 × TPS259470x in PowerMUX Configuration
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+62
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 63 / 72
+────────────────────────────────────────────────────────────────────────
+12 Device and Documentation Support
+TI offers an extensive line of development tools. Tools and software to evaluate the performance of the device, 
+generate code, and develop solutions are listed below.
+12.1 Documentation Support
+12.1.1 Related Documentation
+For related documentation see the following:
+•
+Texas Instruments, TPS25947EVM eFuse Evaluation Board user's guide
+•
+Texas Instruments, TPS25947xx Design Calculator
+•
+Texas Instruments, Fast Role Swap, Linear ORing with TPS25947 and LM73100 in USB Type-C Systems 
+application brief
+•
+Texas Instruments, eFuses in Smart Electricity Meters application brief
+12.2 Receiving Notification of Documentation Updates
+To receive notification of documentation updates, navigate to the device product folder on ti.com. Click on 
+Subscribe to updates to register and receive a weekly digest of any product information that has changed. For 
+change details, review the revision history included in any revised document.
+12.3 Support Resources
+TI E2E™ support forums are an engineer's go-to source for fast, verified answers and design help — straight 
+from the experts. Search existing answers or ask your own question to get the quick design help you need.
+Linked content is provided "AS IS" by the respective contributors. They do not constitute TI specifications and do 
+not necessarily reflect TI's views; see TI's Terms of Use.
+12.4 Trademarks
+TI E2E™ is a trademark of Texas Instruments.
+All trademarks are the property of their respective owners.
+12.5 Electrostatic Discharge Caution
+This integrated circuit can be damaged by ESD. Texas Instruments recommends that all integrated circuits be handled 
+with appropriate precautions. Failure to observe proper handling and installation procedures can cause damage.
+ESD damage can range from subtle performance degradation to complete device failure. Precision integrated circuits may 
+be more susceptible to damage because very small parametric changes could cause the device not to meet its published 
+specifications.
+12.6 Glossary
+TI Glossary 
+This glossary lists and explains terms, acronyms, and definitions.
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+63
+Product Folder Links: TPS25947

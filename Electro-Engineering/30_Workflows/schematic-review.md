@@ -122,16 +122,141 @@ Perform each check below when reviewing a schematic or netlist. Mark each as ✅
 | ERC-C05 | Duplicate net names | ⚠️ Warning | Different nets assigned the same name (possible unintended short). Context-dependent. |
 | ERC-C06 | All-GND connector | ⚠️ Warning | Connector with every pin tied to GND. Likely a shield/mechanical connector or placeholder. Flag for engineer confirmation. |
 | ERC-C07 | `<NO NET>` audit | ❌ Error | (KiCad) Pins on the `<NO NET>` net have no net assignment — they are floating/unconnected. **Every pin on `<NO NET>` is an error**, regardless of expected function (GND, signal, RF). If a pin should be grounded, the GND connection is missing in the schematic. |
+| ERC-C08 | Unconnected pin — datasheet validation | ❌ Error / ⚠️ Warning | For every unconnected pin (PADS: `# begin un-connected pins list`; KiCad: no-connect markers or `unconnected-*` nets), look up the pin in COMPONENT_DATA.md and verify it is correctly left unconnected. Reverse: for every pin the datasheet requires to be connected (tie to GND/VCC, bypass capacitor, "do not leave floating"), verify it appears on a net in the netlist. Requires COMPONENT_DATA.md to be populated (step 4). See procedure below. |
+
+### Unconnected pin validation (ERC-C08)
+
+Verify that each unconnected pin is intentionally NC per the datasheet, and that no pin with a required connection has been left floating.
+
+**Severity table:**
+
+| Pin state in netlist | Datasheet requirement | Severity | Action |
+|----------------------|-----------------------|----------|--------|
+| Unconnected | Marked NC / no-connect | ✅ OK | Record as confirmed NC |
+| Unconnected | Must tie to GND or VCC | ❌ Error | Missing required connection |
+| Unconnected | "Do not leave floating" / "must be connected" | ❌ Error | Missing required connection |
+| Unconnected | Not specified (non-trivial pin function) | ⚠️ Warning | Flag for engineer — unused but valid, or missing connection |
+| Connected | Datasheet marks as strict NC (connecting may damage device) | ❌ Error | Remove net connection |
+
+**Procedure:**
+
+1. Extract all unconnected pins from the netlist (PADS: `# begin un-connected pins list`; KiCad: explicit no-connect markers and `unconnected-*` nets).
+2. For each unconnected pin, look up the pin in COMPONENT_DATA.md and classify using the severity table above. Record the result for every pin.
+3. Reverse check: scan COMPONENT_DATA.md application notes and pin descriptions for any "tie to GND", "tie to VCC", "must be connected", or "do not leave floating" requirements, and verify those pins appear on a net in the netlist.
+4. Report a combined table: one row per unconnected pin, showing ref-des, pin number, pin name, datasheet requirement, and result.
+5. Passives (R, C, L) and GND pins already covered by ERC-P03 are excluded.
+
+**Notes:**
+- Requires COMPONENT_DATA.md entries to be populated (step 4 prerequisite). If an entry is missing for a device, classify all its unconnected pins as ⚠️ Warning — datasheet requirement unknown.
+- Check all instances of identical component types consistently — if one instance has a "tie to GND" requirement, every instance must satisfy it.
 
 ### Power net checks
 
 | ID | Check | Severity | Description |
 |----|-------|----------|-------------|
-| ERC-P01 | Power net without source | ❌ Error | A power net (VCC, 3V3, etc.) with consumer pins but no power source (regulator output, power flag, supply symbol). |
+| ERC-P01 | Power net without source | ❌ Error | A power net (VCC, 3V3, etc.) with consumer pins but no power source (regulator output, power flag, supply symbol). **Disposition requires netlist + BOM cross-check:** confirm the claimed source component (a) exists in the BOM and (b) appears on the net in the netlist (output pin on net, or output inductor pin for buck converters). Document the source component reference in the disposition note. |
 | ERC-P02 | Shorted power rails | ❌ Error | Two distinct power nets (e.g. 3V3 and 5V) directly connected. May indicate a wiring error. |
 | ERC-P03 | Missing ground connection | ❌ Error | Component with a ground pin (GND, VSS, AGND) that is not connected to any ground net. |
 | ERC-P04 | Multiple ground domains | ⚠️ Warning | Design has multiple ground net names (GND, AGND, DGND, etc.). Flag for the engineer to confirm intentional separation. |
 | ERC-P05 | Power pin conflict | ❌ Error | Two output-type power pins driving the same net (e.g. two regulator outputs shorted). |
+| ERC-P06 | Power pin — datasheet validation | ❌ Error / ⚠️ Warning | For every IC power pin (VCC, VDD, AVCC, DVCC, VREF, AGND, DGND, etc.), look up the pin in COMPONENT_DATA.md and verify it is connected to the correct rail at the correct voltage. Check that separate analog/digital supplies and grounds are handled per datasheet. Requires COMPONENT_DATA.md to be populated (step 4). See procedure below. |
+
+### Power pin datasheet validation (ERC-P06)
+
+Verify that every IC power and ground pin is connected to the correct supply rail and ground domain as specified by the datasheet.
+
+**Severity table:**
+
+| Condition | Severity | Action |
+|-----------|----------|--------|
+| VCC/VDD pin on correct rail and voltage | ✅ OK | Record as verified |
+| VCC/VDD pin on wrong voltage rail (e.g. 3.3 V device on 5 V net) | ❌ Error | Wrong supply rail — risk of device damage |
+| Separate AVCC/DVCC required but pins share the same net without filtering | ❌ Error | Missing supply separation — analog performance risk |
+| VREF pin unconnected or on wrong reference voltage | ❌ Error | ADC/DAC will produce incorrect results |
+| AGND pin connected to digital GND when datasheet requires separate analog ground | ⚠️ Warning | Flag for engineer — may be intentional or a layout concern |
+| Power pin not listed in COMPONENT_DATA.md | ⚠️ Warning | Entry incomplete — engineer to verify manually |
+
+**Procedure:**
+
+1. For each IC in the BOM, retrieve all power and ground pins from COMPONENT_DATA.md (pin type: Power or GND).
+2. For each power pin, look up the net it is connected to in the netlist.
+3. Cross-check the net name and known supply voltages:
+   - Compare the net voltage (from net name convention or ERC-P01 disposition) against the device's rated supply range in COMPONENT_DATA.md.
+   - Flag any mismatch as ❌ Error.
+4. Check for separate analog/digital supply requirements:
+   - If the datasheet specifies both AVCC and DVCC (or AVDD/DVDD), verify they are on separate nets or that any shared net includes the required filtering.
+   - If the datasheet specifies AGND separate from GND/DGND, verify the pin is on the correct ground domain.
+5. Check VREF pins: verify the connected net matches the intended reference voltage (from BOM value or net name).
+6. Check all instances of identical component types consistently.
+7. Report a table: one row per power pin checked, showing ref-des, pin number, pin name, connected net, expected supply, and result.
+
+**Notes:**
+- Requires COMPONENT_DATA.md entries to be populated (step 4 prerequisite). If an entry is missing, mark all power pin checks for that device as ⚠️ Warning.
+- Supply voltage verification relies on net naming conventions (e.g. `3V3`, `5V`, `VDD_1V8`) and ERC-P01 dispositions. If net names are ambiguous, flag for engineer confirmation.
+- Decoupling capacitor presence at power pins is a layout concern and is out of scope for netlist ERC — note if the datasheet has a bypass requirement but do not fail on this.
+
+### Bus signal integrity checks
+
+Verify that serial bus signals (I2C, SPI, UART/RS-485) land on the correct pins for each device. Cross-reference the netlist against device datasheets. Run after ERC checks.
+
+**Procedure:**
+1. Identify all bus nets by name (e.g. `SDA`, `SCL`, `MOSI`, `MISO`, `SCLK`, `TX`, `RX`, `RS485_TX+`, etc.)
+2. For each bus net, extract which component pins are connected
+3. For each component, look up the correct pin function in **COMPONENT_DATA.md** (root of `Electro-Engineering/`)
+4. Check that the connected pin matches the expected function (SDA → SDA pin, not SCL pin, etc.)
+5. Check consistency across identical component types — same part must use same pin numbers on all instances
+6. Record verified pin numbers, datasheet reference, and result in the review
+
+| ID | Check | Severity | Description |
+|----|-------|----------|-------------|
+| ERC-B01 | I2C pin function | ❌ Error | SDA or SCL net connected to wrong pin on an I2C device (e.g. SDA on SCL pin). Also check: differential pairs (SDAP/SDAN, SCLP/SCLN) correctly assigned; any unused pins (e.g. INT on PCA9616) handled per datasheet. |
+| ERC-B02 | SPI pin function | ❌ Error | MOSI, MISO, SCLK, or CS net connected to wrong pin. Check for MOSI/MISO swap (common error). Verify CS polarity (active-low CS on active-high pin or vice versa). |
+| ERC-B03 | UART/RS-485 pin function | ❌ Error | TX/RX nets swapped, or RS-485 differential pair (A/B or +/−) reversed. Verify DE/RE enable polarity for RS-485 transceivers. |
+
+**Notes:**
+- Requires an entry in **COMPONENT_DATA.md** for each device. If an entry is missing, flag the check as ⏳ Pending — see step 4 of the review procedure.
+- Consistency check (same pin numbers across identical parts) can be done from the netlist alone without datasheets.
+- For buck converters and devices with output inductors: the output pin is identified via the inductor node, not the IC output pin directly (see ERC-P01 rule).
+
+### Device pin constraint checks
+
+Verify per-datasheet pin constraints that cannot be detected from connectivity alone. All checks in this section require COMPONENT_DATA.md to be populated (step 4 prerequisite).
+
+| ID | Check | Severity | Description |
+|----|-------|----------|-------------|
+| ERC-D01 | Pull-up / pull-down requirement | ❌ Error | A pin that the datasheet requires to be pulled up or pulled down has no pull resistor on its net. Detected by checking for a resistor between the pin's net and a power rail (pull-up) or GND (pull-down). Common cases: open-drain outputs, address/config pins, enable pins, reset pins. |
+| ERC-D02 | Required capacitor missing | ❌ Error | A pin that the datasheet requires a capacitor on has no capacitor on its net. Detected by checking for a capacitor between the pin's net and GND (or between the two specified pins). Common cases: VREF bypass, charge-pump caps (C1±/C2±), crystal load caps, BOOT pin caps for switchers. |
+| ERC-D03 | Other pin constraints | ⚠️ Warning | Any other per-datasheet pin constraint not covered by ERC-D01/D02. Examples: series resistor on a clock or crystal pin, voltage clamp on a sensitive input, termination resistor, specific load impedance, or a pin that must be connected to a specific potential other than VCC or GND. |
+
+**Procedure:**
+
+1. For each IC in the BOM, scan the COMPONENT_DATA.md entry — pin description table, application notes, and layout notes — for constraint keywords: *pull-up*, *pull-down*, *resistor*, *capacitor*, *bypass*, *decouple*, *filter*, *load cap*, *series resistor*, *clamp*, *terminate*, *boot*, *must be connected*.
+2. Build a constraint list: one row per constraint, recording device, pin, constraint type, and required value or range where stated.
+3. For each constraint, inspect the netlist:
+   - **Pull-up:** Resistor present on the pin's net with its other terminal on a power rail net.
+   - **Pull-down:** Resistor present on the pin's net with its other terminal on a GND net.
+   - **Capacitor:** Capacitor present on the pin's net (or between the two specified pins) with its other terminal on GND or the specified net.
+   - **Other:** The specified passive or connection is present on the net.
+4. Flag missing constraints using the severity table below.
+5. Check all instances of identical component types consistently — the same constraint applies to every instance.
+6. Report a table: one row per constraint checked, showing device, ref-des, pin, constraint type, required value (if stated), found in netlist (✅ / ❌), and result.
+
+**Severity table:**
+
+| Condition | Severity |
+|-----------|----------|
+| Required pull-up/pull-down resistor present | ✅ OK |
+| Required pull-up/pull-down resistor absent | ❌ Error |
+| Required capacitor present | ✅ OK |
+| Required capacitor absent | ❌ Error |
+| Passive present but BOM value missing or ambiguous — cannot verify value | ⚠️ Warning |
+| Other datasheet constraint not satisfied | ⚠️ Warning |
+| COMPONENT_DATA.md entry missing — constraint cannot be checked | ⏳ Pending |
+
+**Notes:**
+- Value verification (e.g. pull-up is 10 kΩ, not 100 kΩ) requires the BOM value field to be populated. If the value is missing, report the passive as present but value unverified (⚠️ Warning).
+- Crystal load capacitor values must match the crystal's specified load capacitance; both the IC and crystal entries in COMPONENT_DATA.md are required.
+- This check confirms the presence of required passives from the netlist. Physical placement proximity is a layout concern and is out of scope for netlist ERC.
 
 ### Structural checks
 
@@ -166,13 +291,34 @@ Build an internal model:
 - **Power nets:** Identify nets that are power rails by name convention (VCC, VDD, 3V3, 5V, GND, VSS, AGND, etc.) or by symbol type
 - **No-connect markers:** Pins explicitly marked NC
 
-### 4. Run ERC checks
+### 4. Check component data coverage
+
+Before running ERC checks, verify that every unique IC and module in the BOM has an entry in **COMPONENT_DATA.md** (root of `Electro-Engineering/`). Passives (R, C, L) and discrete diodes can be skipped unless they have relevant pin constraints.
+
+**Procedure:**
+
+1. Extract all unique ICs and modules from the BOM.
+2. For each, check whether an entry exists in COMPONENT_DATA.md.
+3. Present a coverage table to the engineer:
+
+| Device | Ref Des | Part Number | COMPONENT_DATA.md |
+|--------|---------|-------------|-------------------|
+| ... | ... | ... | ✅ Found / ❌ Missing |
+
+4. **Stop and wait for engineer response:**
+   - All covered → confirm and proceed to step 5.
+   - Any missing → list them and ask the engineer to either:
+     - Provide the datasheet so the entry can be extracted and added per `30_Workflows/component-data-workflow.md`, or
+     - Confirm the device can be skipped for this review (e.g. it has no bus or complex pin constraints).
+5. Do not run bus signal integrity checks (ERC-B01/B02/B03) for any device still missing from COMPONENT_DATA.md — mark those as ⏳ Pending.
+
+### 5. Run ERC checks
 Execute each check from the table above. For each finding:
 - Record the check ID
 - State the specific net(s) / component(s) / pin(s) involved
 - Classify severity
 
-### 5. Report findings
+### 6. Report findings
 
 Use this output format:
 
@@ -203,11 +349,16 @@ Use this output format:
 - [ ] ...
 ```
 
-### 6. Engineer disposition
+### 7. Engineer disposition
 The engineer reviews findings and dispositions each:
 - **Fix** — update the design
 - **Accept** — intentional, no change needed (engineer notes reason)
 - **False positive** — check doesn't apply in this context
+
+**ERC-P01 "Accept" rule:** An ERC-P01 finding may only be closed as Accepted after the following are confirmed from the netlist and BOM:
+1. The claimed source component exists in the BOM (correct reference designator and part type)
+2. The source component's output pin (or output inductor pin for switchers) appears on the flagged net in the netlist
+3. The disposition note records the source component reference (e.g. "Source is U19 (AMS1117-ADJ), U19-2 on net")
 
 ---
 

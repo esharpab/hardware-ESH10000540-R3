@@ -1,0 +1,1740 @@
+========================================================================
+  FILE:      ref3425-ep.pdf
+  PATH:      70_Assets/Datasheets/ref3425-ep.pdf
+  PAGES:     28 total  |  extracted: 1–22
+  SIZE:      1.7 MB
+  EXTRACTED: 2026-04-30 09:37
+========================================================================
+
+USAGE NOTE: Feed to AI using the extraction prompt in
+  30_Workflows/component-data-workflow.md
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 1 / 28
+────────────────────────────────────────────────────────────────────────
+Load Current (mA)
+Dropout Voltage (V)
+0
+0.04
+0.08
+0.12
+0.16
+0.2
+0.24
+0.28
+0.32
+0.36
+0.4
+5
+10
+0
++25°C
+-40°C
++125°C
+D001
+10 
+10 
+Input Signal 
+124 
+1 nF
+ADS1287
+VIN
+REF
+CIN
+1 µF
+COUT
+10 µF
+±
++
+REF34xx-EP
+Copyright © 2017, Texas Instruments Incorporated
+Product
+Folder
+Order
+Now
+Technical
+Documents
+Tools &
+Software
+Support &
+Community
+An IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,
+intellectual property matters and other important disclaimers. PRODUCTION DATA.
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+REF34xx-EP Low-Drift, Low-Power, Small-Footprint Series Voltage Reference
+1
+1
+Features
+1•
+Initial accuracy: ±0.05% (maximum)
+•
+Temperature coefficient: 10 ppm/°C (maximum)
+•
+Output current: ±10 mA
+•
+Low quiescent current: 95 µA (maximum)
+•
+Wide input voltage: 12 V
+•
+Output 1/f noise (0.1 Hz to 10 Hz): 3.8 µVPP/V
+•
+Small footprint 6-pin SOT-23 package
+•
+Excellent long-term stability 25 ppm/1000 hrs
+•
+Supports defense, aerospace, and medical
+applications:
+–
+Controlled baseline
+–
+One assembly/test site
+–
+One fabrication site
+–
+Available extended (–55°C to 125°C)
+temperature range
+–
+Extended product life cycle
+–
+Extended product-change notification
+–
+Product traceability
+2
+Applications
+•
+Precision data acquisition systems
+•
+PLC analog I/O modules
+•
+Field transmitters
+•
+Industrial instrumentation
+•
+Test equipment
+•
+Power monitoring
+3
+Description
+The REF34xx-EP device is a low temperature drift
+(10
+ppm/°C),
+low-power,
+high-precision
+CMOS
+voltage reference, featuring ±0.05% initial accuracy,
+low operating current with power consumption less
+than 95 µA. This device also offers very low output
+noise of 3.8 µVp-p/V, which enables its ability to
+maintain high signal integrity with high-resolution data
+converters in noise critical systems. With a small
+SOT-23
+package,
+REF34xx-EP
+offers
+enhanced
+specifications
+and
+pin-to-pin
+replacement
+for
+MAX607x and ADR34xx. The REF34xx-EP family is
+compatible to most ADC and DAC.
+Stability and system reliability are further improved by
+the low output-voltage hysteresis of the device and
+low long-term output voltage drift. The small size and
+low operating current of the devices (95 µA) can
+benefit portable and battery-powered applications.
+REF34xx-EP is specified for the wide temperature
+range of –55°C to 125°C. Contact the TI sales
+representative for additional voltage options.
+Device Information(1)
+PART NAME
+PACKAGE
+BODY SIZE (NOM)
+REF3425-EP
+SOT-23 (6)
+2.90 mm × 1.60 mm
+REF3430-EP
+REF3433-EP
+REF3440-EP
+(1) For all available packages, see the orderable addendum at
+the end of the data sheet.
+Simplified Schematic
+Dropout vs Current Load Over Temperature
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 2 / 28
+────────────────────────────────────────────────────────────────────────
+2
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+www.ti.com
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+Table of Contents
+1
+Features.................................................................. 1
+2
+Applications ........................................................... 1
+3
+Description ............................................................. 1
+4
+Revision History..................................................... 2
+5
+Device Comparison Table..................................... 3
+6
+Pin Configuration and Functions......................... 3
+7
+Specifications......................................................... 4
+7.1
+Absolute Maximum Ratings ...................................... 4
+7.2
+ESD Ratings.............................................................. 4
+7.3
+Recommended Operating Conditions....................... 4
+7.4
+Thermal Information.................................................. 4
+7.5
+Electrical Characteristics........................................... 5
+7.6
+Typical Characteristics.............................................. 7
+8
+Parameter Measurement Information ................ 10
+8.1
+Solder Heat Shift..................................................... 10
+8.2
+Long-Term Stability................................................. 11
+8.3
+Power Dissipation ................................................... 11
+8.4
+Noise Performance ................................................. 12
+9
+Detailed Description ............................................ 13
+9.1
+Overview ................................................................. 13
+9.2
+Functional Block Diagram ....................................... 13
+9.3
+Feature Description................................................. 13
+9.4
+Device Functional Modes........................................ 14
+10
+Application and Implementation........................ 15
+10.1
+Application Information.......................................... 15
+10.2
+Typical Application: Basic Voltage Reference
+Connection............................................................... 15
+11
+Power Supply Recommendations ..................... 17
+12
+Layout................................................................... 18
+12.1
+Layout Guidelines ................................................. 18
+12.2
+Layout Example .................................................... 18
+13
+Device and Documentation Support ................. 19
+13.1
+Documentation Support ........................................ 19
+13.2
+Related Links ........................................................ 19
+13.3
+Receiving Notification of Documentation Updates 19
+13.4
+Community Resources.......................................... 19
+13.5
+Trademarks........................................................... 19
+13.6
+Electrostatic Discharge Caution............................ 19
+13.7
+Glossary................................................................ 19
+14
+Mechanical, Packaging, and Orderable
+Information ........................................................... 20
+4
+Revision History
+NOTE: Page numbers for previous revisions may differ from page numbers in the current version.
+Changes from Revision A (March 2019) to Revision B
+Page
+•
+Added information about long-term stability throughout the data sheet................................................................................. 1
+•
+Added long-term stability in Electrical Characteristics table................................................................................................... 5
+•
+Added Long-Term Stability section in Parameter Measurement Information section .......................................................... 11
+Changes from Original (December 2018) to Revision A
+Page
+•
+Added new devices to the data sheet .................................................................................................................................... 1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 3 / 28
+────────────────────────────────────────────────────────────────────────
+1
+GND_F
+3
+ENABLE
+2
+GND_S
+6
+OUT_F
+4
+IN
+5
+OUT_S
+Not to scale
+3
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+www.ti.com
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+5
+Device Comparison Table
+PRODUCT
+VOUT
+REF3425-EP
+2.5 V
+REF3430-EP
+3 V
+REF3433-EP
+3.3 V
+REF3440-EP
+4.096 V
+6
+Pin Configuration and Functions
+DBV Package
+6-Pin SOT-23
+Top View
+Pin Functions
+PIN
+TYPE
+DESCRIPTION
+NO.
+NAME
+1
+GND_F
+Ground
+Ground force connection.
+2
+GND_S
+Ground
+Ground sense connection.
+3
+ENABLE
+Input
+Enable connection. Enables or disables the device.
+4
+IN
+Power
+Input supply voltage connection.
+5
+OUT_S
+Output
+Reference voltage output sense connection.
+6
+OUT_F
+Output
+Reference voltage output force connection.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 4 / 28
+────────────────────────────────────────────────────────────────────────
+4
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+www.ti.com
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+(1)
+Stresses beyond those listed under Absolute Maximum Ratings may cause permanent damage to the device. These are stress ratings
+only, which do not imply functional operation of the device at these or any other conditions beyond those indicated under Recommended
+Operating Conditions. Exposure to absolute-maximum-rated conditions for extended periods may affect device reliability.
+(2)
+By design, the device is specified functional over the operating temperature of –55°C to 150°C.
+7
+Specifications
+7.1
+Absolute Maximum Ratings
+over operating free-air temperature range (unless otherwise noted)(1)
+MIN
+MAX
+UNIT
+Input voltage
+IN
+VREF + 0.05
+13
+V
+EN
+–0.3
+IN + 0.3
+Output voltage
+VREF
+–0.3
+5.5
+V
+Output short circuit current
+20
+mA
+Temperature
+Operating, Tj(2)
+–55
+150
+°C
+Storage, Tstg
+–65
+170
+(1)
+JEDEC document JEP155 states that 500-V HBM allows safe manufacturing with a standard ESD control process.
+(2)
+JEDEC document JEP157 states that 250-V CDM allows safe manufacturing with a standard ESD control process.
+7.2
+ESD Ratings
+VALUE
+UNIT
+V(ESD)
+Electrostatic discharge
+Human-body model (HBM), per ANSI/ESDA/JEDEC JS-001(1)
+±2500
+V
+Charged-device model (CDM), per JEDEC specification JESD22-C101(2)
+±1500
+(1)
+Dropout voltage.
+7.3
+Recommended Operating Conditions
+over operating free-air temperature range (unless otherwise noted)
+MIN
+NOM
+MAX
+UNIT
+IN
+Supply input voltage (IL = 0 mA, TA = 25°C)
+VREF + VDO(1)
+12
+V
+EN
+Enable voltage
+0
+IN
+V
+IL
+Output current
+–10
+10
+mA
+Tj
+Operating temperature
+–55
+25
+125
+°C
+(1)
+For more information about traditional and new thermal metrics, see the Semiconductor and IC Package Thermal Metrics application
+report.
+7.4
+Thermal Information
+THERMAL METRIC(1)
+REF34xx-EP
+UNIT
+DBV (SOT-23)
+6 PINS
+RθJA
+Junction-to-ambient thermal resistance
+185
+°C/W
+RθJC(top)
+Junction-to-case (top) thermal resistance
+156
+°C/W
+RθJB
+Junction-to-board thermal resistance
+29.6
+°C/W
+ψJT
+Junction-to-top characterization parameter
+33.8
+°C/W
+ψJB
+Junction-to-board characterization parameter
+29.1
+°C/W
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 5 / 28
+────────────────────────────────────────────────────────────────────────
+5
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+www.ti.com
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+(1)
+Temperature drift is specified according to the box method. See the Feature Description section for more details.
+(2)
+The ppm/V and ppm/mA in line and load regulation can be also expressed as µV/V and µV/mA.
+(3)
+The peak-to-peak noise measurement procedure is explained in more detail in the Noise Performance section.
+(4)
+Long-term stability measurement procedure is explained in more in detail in the Long-Term Stability section.
+7.5
+Electrical Characteristics
+At TA = 25°C unless otherwise noted.
+PARAMETER
+TEST CONDITIONS
+MIN
+TYP
+MAX
+UNIT
+ACCURACY AND DRIFT
+Output voltage
+accuracy
+TA = 25°C
+–0.05%
+0.05%
+Output voltage
+temperature
+coefficient(1)
+–55°C ≤TA ≤125°C
+2.5
+10
+ppm/°C
+LINE AND LOAD REGULATION
+ΔV(OΔVIN)
+Line regulation(2)
+VIN = 2.55 V to 12 V, TA = 25°C
+2
+ppm/V
+VIN = VREF + VDO to 12 V, –55°C ≤TA ≤125°C
+15
+ΔV(OΔIL)
+Load regulation(2)
+IL = 0 mA to 10 mA, VIN = 3
+V, TA = 25°C
+Sourcing
+20
+ppm/mA
+IL = 0 mA to 10 mA, VIN = 3
+V, –55°C ≤TA ≤125°C
+Sourcing
+30
+IL = 0 mA to –10 mA, VIN =
+VREF + VDO, TA = 25°C
+Sinking
+REF3425-EP
+40
+REF3430-EP
+43
+REF3440-EP
+48
+REF3440-EP
+60
+IL = 0 mA to –10 mA, VIN =
+VREF + VDO, –55°C ≤TA ≤
+125°C
+Sinking
+REF3425-EP
+70
+REF3430-EP
+75
+REF3433-EP
+84
+REF3440-EP
+98
+ISC
+Short-circuit
+current (output
+shorted to ground)
+VREF = 0, TA = 25°C
+18
+22
+mA
+NOISE
+en p-p
+Output voltage
+noise(3)
+ƒ = 0.1 Hz to 10 Hz
+5
+µV p-p/V
+ƒ = 0.1 Hz to 10 Hz (REF3440-EP)
+3.8
+ƒ = 10 Hz to 10 kHz
+24
+µV rms
+en
+Output voltage
+noise density
+ƒ = 1 kHz
+0.25
+ppm/√Hz
+ƒ = 1 kHz (REF3440-EP)
+0.2
+LONG-TERM STABILITY
+Long-term
+stability(4)
+0 - 1000 hours at 35°C
+25
+ppm
+1000 - 2000 hours at 35°C
+10
+TURNON
+tON
+Turnon time
+0.1% of output voltage settling, CL = 10 µF
+2.5
+ms
+CAPACITIVE LOAD
+CL
+Stable output
+capacitor value
+–55°C ≤TA ≤125°C
+0.1
+10
+µF
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 6 / 28
+────────────────────────────────────────────────────────────────────────
+6
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+www.ti.com
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+Electrical Characteristics (continued)
+At TA = 25°C unless otherwise noted.
+PARAMETER
+TEST CONDITIONS
+MIN
+TYP
+MAX
+UNIT
+OUTPUT VOLTAGE
+VREF
+Output voltage
+REF3425-EP
+2.5
+V
+REF3430-EP
+3
+REF3433-EP
+3.3
+REF3440-EP
+4.096
+POWER SUPPLY
+VIN
+Input voltage
+VREF + VDO
+12
+V
+IL
+Output current
+capacity
+VIN = VREF + VDO to 12 V
+Sourcing
+10
+mA
+VIN = VREF + VDO to 12 V
+Sinking
+–10
+IQ
+Quiescent current
+–55°C ≤TA ≤125°C
+Active mode
+72
+95
+µA
+–55°C ≤TA ≤125°C
+Shutdown mode
+2.5
+3
+VDO
+Dropout voltage
+IL = 0 mA, TA = 25°C
+50
+mV
+IL = 0 mA, –55°C ≤TA ≤125°C
+100
+IL = 10 mA, –55°C ≤TA ≤125°C
+500
+VEN
+ENABLE pin
+voltage
+Voltage reference in active mode (EN = 1)
+1.6
+V
+Voltage reference in shutdown mode (EN = 0)
+0.5
+IEN
+ENABLE pin
+leakage current
+VEN = VIN = 12 V, –55°C ≤TA ≤125°C
+1
+2
+µA
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 7 / 28
+────────────────────────────────────────────────────────────────────────
+250µs/div
+1mA/div
+4mV/div
+ILOAD
+VOUT
++1mA
++1mA
+-1mA
+(CL = 1µF, IOUT = 1mA)
+D010
+250µs/div
+1mA/div
+4mV/div
+ILOAD
+VOUT
++1mA
++1mA
+-1mA
+(CL = 10µF, IOUT = 1mA)
+D010
+Frequency (Hz)
+Power Supply Rejection Ratio (dB)
+-120
+-100
+-80
+-60
+-40
+-20
+10
+100
+1k
+10k
+100k
+D005
+CL = 1uF
+CL = 10uF
+Frequency(Hz)
+Noise (nV/vHz)
+0
+80
+160
+240
+320
+400
+480
+560
+640
+720
+800
+10
+100
+1k
+10k
+100k
+D009
+Temperature (qC)
+Quiescent Current (PA)
+-55
+-35
+-15
+5
+25
+45
+65
+85
+105
+125
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+D003
+2.6 V
+3.3 V
+5 V
+12 V
+Temperature (qC)
+Quiescent Current (PA)
+-55
+-35
+-15
+5
+25
+45
+65
+85
+105
+125
+76
+76.5
+77
+77.5
+78
+78.5
+79
+79.5
+D004
+7
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+www.ti.com
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+7.6
+Typical Characteristics
+at TA = 25°C, VIN = VEN = 12 V, IL = 0 mA, CL = 10 µF, CIN = 0.1 µF (unless otherwise noted)
+Figure 1. VIN vs IQ Over Temperature
+Figure 2. Quiescent Current vs Temperature
+Figure 3. Power-Supply Rejection Ratio vs Frequency
+Figure 4. Noise Performance 10 Hz to 10 kHz
+Figure 5. Load Transient
+Figure 6. Load Transient
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 8 / 28
+────────────────────────────────────────────────────────────────────────
+Solder Heat Shift (%)
+Population (%)
+-0.02
+-0.01
+0
+0.01
+0.02
+0
+10%
+20%
+30%
+40%
+50%
+D017
+Temperature (qC)
+Quiescent Current Shutdown Mode (PA)
+-55
+-35
+-15
+5
+25
+45
+65
+85
+105
+125
+2.1
+2.15
+2.2
+2.25
+2.3
+2.35
+2.4
+2.45
+2.5
+2.55
+D013
+250µs/div
+4V/div
+15mV/div
+VIN
+VOUT
+(CL = 1µF)
+D011
+250µs/div
+4V/div
+5mV/div
+VIN
+VOUT
+(CL = 10µF)
+D011
+250µs/div
+10mA/div
+100mV/div
+ILOAD
+VOUT
++10mA
++10mA
+-10mA
+(CL = 1µF, IOUT = 10mA)
+D010
+250µs/div
+10mA/div
+20mV/div
+ILOAD
+VOUT
++10mA
+-10mA
++10mA
+(CL = 10µF, IOUT = 10mA)
+D010
+8
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+www.ti.com
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+Typical Characteristics (continued)
+at TA = 25°C, VIN = VEN = 12 V, IL = 0 mA, CL = 10 µF, CIN = 0.1 µF (unless otherwise noted)
+Figure 7. Load Transient
+Figure 8. Load Transient
+Figure 9. Line Transient
+Figure 10. Line Transient
+Figure 11. Quiescent Current Shutdown Mode
+Refer to Solder Heat Shift for more information
+Figure 12. Solder Heat Shift Distribution
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 9 / 28
+────────────────────────────────────────────────────────────────────────
+0.5ms/div
+1V/div
+En
+VOUT
+D018
+Time 1s/div
+2µV/div
+D08_
+9
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+www.ti.com
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+Typical Characteristics (continued)
+at TA = 25°C, VIN = VEN = 12 V, IL = 0 mA, CL = 10 µF, CIN = 0.1 µF (unless otherwise noted)
+Figure 13. Turnon Time (Enable)
+Figure 14. 0.1-Hz to 10-Hz Noise (VREF)
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 10 / 28
+────────────────────────────────────────────────────────────────────────
+Solder Heat Shift (%)
+Population (%)
+-0.02
+-0.01
+0
+0.01
+0.02
+0
+10%
+20%
+30%
+40%
+50%
+D017
+0 
+50 
+100 
+150 
+200 
+250 
+300 
+0 
+50 
+100 
+150 
+200 
+250 
+300 
+350 
+400 
+Temperature (ƒC) 
+Time (seconds) 
+C01
+10
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+www.ti.com
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+8
+Parameter Measurement Information
+8.1
+Solder Heat Shift
+The materials used in the manufacture of the REF34xx-EP have differing coefficients of thermal expansion,
+resulting in stress on the device die when the part is heated. Mechanical and thermal stress on the device die
+can cause the output voltages to shift, degrading the initial accuracy specifications of the product. Reflow
+soldering is a common cause of this error.
+In order to illustrate this effect, a total of 32 devices were soldered on four printed circuit boards [16 devices on
+each printed circuit board (PCB)] using lead-free solder paste and the paste manufacturer suggested reflow
+profile. The reflow profile is as shown in Figure 15. The printed circuit board is comprised of FR4 material. The
+board thickness is 1.65 mm and the area is 114 mm × 152 mm.
+Figure 15. Reflow Profile
+The reference output voltage is measured before and after the reflow process; the typical shift is displayed in
+Figure 16. Although all tested units exhibit very low shifts (< 0.01%), higher shifts are also possible depending on
+the size, thickness, and material of the printed circuit board. An important note is that the histograms display the
+typical shift for exposure to a single reflow profile. Exposure to multiple reflows, as is common on PCBs with
+surface-mount components on both sides, causes additional shifts in the output bias voltage. If the PCB is
+exposed to multiple reflows, the device must be soldered in the second pass to minimize its exposure to thermal
+stress.
+Figure 16. Solder Heat Shift Distribution, VREF (%)
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 11 / 28
+────────────────────────────────────────────────────────────────────────
+J
+A
+D
+JA
+T
+T
+P  
+ RT
+ 
+
+u
+Hours
+Output Voltage Stability (ppm)
+0
+100
+200
+300
+400
+500
+600
+700
+800
+900 1000
+-40
+-35
+-30
+-25
+-20
+-15
+-10
+-5
+0
+5
+10
+D022
+11
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+www.ti.com
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+8.2
+Long-Term Stability
+One of the key parameters of the REF34xx-EP references is long-term stability. Figure 17 shows the typical drift
+value for the REF34xx-EP is 25 ppm from 0 to 1000 hours. This parameter is characterized by measuring 32
+units at regular intervals for a period of 1000 hours. It is important to understand that long-term stability is not
+ensured by design and that the output from the device may shift beyond the typical 25 ppm specification at any
+time. For systems that require highly stable output voltages over long periods of time, the designer should
+consider burning in the devices prior to use to minimize the amount of output drift exhibited by the reference over
+time.
+Figure 17. Long Term Stability - 1000 hours (VREF)
+8.3
+Power Dissipation
+The REF34xx-EP voltage references are capable of source and sink up to 10 mA of load current across the rated
+input voltage range. However, when used in applications subject to high ambient temperatures, the input voltage
+and load current must be carefully monitored to ensure that the device does not exceeded its maximum power
+dissipation rating. The maximum power dissipation of the device can be calculated with Equation 1:
+where
+•
+PD is the device power dissipation
+•
+TJ is the device junction temperature
+•
+TA is the ambient temperature
+•
+RθJA is the package (junction-to-air) thermal resistance
+(1)
+Because of this relationship, acceptable load current in high temperature conditions may be less than the
+maximum current-sourcing capability of the device. In no case should the device be operated outside of its
+maximum power rating because doing so can result in premature failure or permanent damage to the device.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 12 / 28
+────────────────────────────────────────────────────────────────────────
+Time 1s/div
+2µV/div
+D08_
+12
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+www.ti.com
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+8.4
+Noise Performance
+Typical 0.1-Hz to 10-Hz voltage noise can be seen in Figure 18. Device noise increases with output voltage and
+operating temperature. Additional filtering can be used to improve output noise levels, although care must be
+taken to ensure the output impedance does not degrade ac performance. Peak-to-peak noise measurement
+setup is shown in Figure 18.
+Figure 18. 0.1-Hz to 10-Hz Noise (VREF)
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 13 / 28
+────────────────────────────────────────────────────────────────────────
+J
+A
+D
+JA
+T
+T
+P  
+ RT
+ 
+
+u
+REF(MAX)
+REF(MIN)
+6
+REF
+V
+V
+Drift = 
+ 
+ 10
+V
+ 
+ Temperature Range
+
+·
+§
+u
+¸
+¨
+u
+©
+¹
+Bandgap
+core
+Buffer
+Digital
+Enable
+Blocks
+Inrush
+EN
+IN
+GNDF
+OUTS
+Current
+Vdd
+GNDS
+OUTF
+Limit
+13
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+www.ti.com
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+9
+Detailed Description
+9.1
+Overview
+The REF34xx-EP is family of low-noise, precision bandgap voltage references that are specifically designed for
+excellent initial voltage accuracy and drift. The Functional Block Diagram is a simplified block diagram of the
+REF34xx-EP showing basic band-gap topology.
+9.2
+Functional Block Diagram
+9.3
+Feature Description
+9.3.1
+Supply Voltage
+The REF34xx-EP family of references features an extremely low dropout voltage. For loaded conditions, a typical
+dropout voltage versus load is shown on the front page. The REF34xx-EP features a low quiescent current that
+is extremely stable over changes in both temperature and supply. The typical room temperature quiescent
+current is 72 µA, and the maximum quiescent current over temperature is just 95 µA. Supply voltages below the
+specified levels can cause the REF34xx-EP to momentarily draw currents greater than the typical quiescent
+current. Use a power supply with a fast rising edge and low output impedance to easily prevent this issue.
+9.3.2
+Low Temperature Drift
+The REF34xx-EP is designed for minimal drift error, which is defined as the change in output voltage over
+temperature. The drift is calculated using the box method, as described by Equation 2:
+(2)
+9.3.3
+Load Current
+The REF34xx-EP family is specified to deliver a current load of ±10 mA per output. The VREF output of the device
+are protected from short circuits by limiting the output short-circuit current to 18 mA. The device temperature
+increases according to Equation 3:
+where
+•
+TJ = junction temperature (°C),
+•
+TA = ambient temperature (°C),
+•
+PD = power dissipated (W), and
+•
+RθJA = junction-to-ambient thermal resistance (°C/W)
+(3)
+The REF34xx-EP maximum junction temperature must not exceed the absolute maximum rating of 150°C.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 14 / 28
+────────────────────────────────────────────────────────────────────────
+–2.5 V
++2.5 V
++5 V
+1
+2
+5
+6
+3
+4
+R1
+10 kΩ
+R2
+10 kΩ
+–5 V
++5 V
+OPA735
+REF3425-EP
+Copyright © 2017, Texas Instruments Incorporated
+14
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+www.ti.com
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+9.4
+Device Functional Modes
+9.4.1
+EN Pin
+When the EN pin of the REF34xx-EP is pulled high, the device is in active mode. The device must be in active
+mode for normal operation. The REF34xx-EP can be placed in a low-power mode by pulling the ENABLE pin
+low. When in shutdown mode, the output of the device becomes high impedance and the quiescent current of
+the device reduces to 2 µA in shutdown mode. The EN pin must not be pulled higher than VIN supply voltage.
+See the Thermal Information for logic high and logic low voltage levels.
+9.4.2
+Negative Reference Voltage
+For applications requiring a negative and positive reference voltage, the REF34xx-EP and OPA735 can be used
+to provide a dual-supply reference from a 5-V supply. Figure 19 shows the REF3425-EP used to provide a 2.5-V
+supply reference voltage. The low drift performance of the REF34xx-EP complements the low offset voltage and
+zero drift of the OPA735 to provide an accurate solution for split-supply applications. Take care to match the
+temperature coefficients of R1 and R2.
+Figure 19. REF3425-EP and OPA735 Create Positive and Negative Reference Voltages
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 15 / 28
+────────────────────────────────────────────────────────────────────────
+10 
+10 
+Input Signal 
+124 
+1 nF
+ADS1287
+VIN
+REF
+CIN
+1 µF
+COUT
+10 µF
+±
++
+REF34xx-EP
+Copyright © 2017, Texas Instruments Incorporated
+15
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+www.ti.com
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+10
+Application and Implementation
+NOTE
+Information in the following applications sections is not part of the TI component
+specification, and TI does not warrant its accuracy or completeness. TI’s customers are
+responsible for determining suitability of components for their purposes. Customers should
+validate and test their design implementation to confirm system functionality.
+10.1
+Application Information
+As this device has many applications and setups, there are many situations that this data sheet can not
+characterize in detail. Basic applications includes positive/negative voltage reference and data acquisition
+systems. The table below shows the typical application of REF34xx-EP and its companion ADC/DAC.
+Table 1. Typical Applications and Companion ADC/DAC
+Applications
+ADC/DAC
+PLC - DCS
+DAC8881, ADS8332, ADS8568, ADS8317,
+ADS8588S, ADS1287
+Display Test Equipment
+ADS8332
+Field Transmitters - Pressure
+ADUCM360
+Video Surveillance - Thermal Cameras
+ADS7279
+Medical Blood Glucose Meter
+ADS1112
+10.2
+Typical Application: Basic Voltage Reference Connection
+The circuit shown in Figure 20 shows the basic configuration for the REF34xx-EP references. Connect bypass
+capacitors according to the guidelines in Input and Output Capacitors section.
+Figure 20. Basic Reference Connection
+10.2.1
+Design Requirements
+A detailed design procedure is described based on a design example. For this design example, use the
+parameters listed in Table 2 as the input parameters.
+Table 2. Design Example Parameters
+DESIGN PARAMETER
+VALUE
+Input voltage VIN
+5 V
+Output voltage VOUT
+2.5 V
+REF34xx-EP input capacitor
+1 µF
+REF34xx-EP output capacitor
+10 µF
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 16 / 28
+────────────────────────────────────────────────────────────────────────
+16
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+www.ti.com
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+10.2.2
+Detailed Design Procedure
+10.2.2.1
+Input and Output Capacitors
+A 1-µF to 10-µF electrolytic or ceramic capacitor can be connected to the input to improve transient response in
+applications where the supply voltage may fluctuate. Connect an additional 0.1-µF ceramic capacitor in parallel to
+reduce high frequency supply noise.
+A ceramic capacitor of at least a 0.1 µF must be connected to the output to improve stability and help filter out
+high frequency noise. An additional 1-µF to 10-µF electrolytic or ceramic capacitor can be added in parallel to
+improve transient performance in response to sudden changes in load current; however, keep in mind that doing
+so increases the turnon time of the device.
+Best performance and stability is attained with low-ESR, low-inductance ceramic chip-type output capacitors
+(X5R, X7R, or similar). If using an electrolytic capacitor on the output, place a 0.1-µF ceramic capacitor in parallel
+to reduce overall ESR on the output.
+10.2.2.2
+4-Wire Kelvin Connections
+Current flowing through a PCB trace produces an IR voltage drop, and with longer traces, this drop can reach
+several millivolts or more, introducing a considerable error into the output voltage of the reference. A 1-in long, 5-
+mm wide trace of 1-oz copper has a resistance of approximately 100 mΩ at room temperature; at a load current
+of 10 mA, this can introduce a full millivolt of error. In an ideal board layout, the reference must be mounted as
+close as possible to the load to minimize the length of the output traces, and, therefore, the error introduced by
+voltage drop. However, in applications where this is not possible or convenient, force and sense connections
+(sometimes referred to as Kelvin sensing connections) are provided as a means of minimizing the IR drop and
+improving accuracy.
+Kelvin connections work by providing a set of high impedance voltage-sensing lines to the output and ground
+nodes. Because very little current flows through these connections, the IR drop across their traces is negligible,
+and the output and ground voltage information can be obtain with minimum IR drop error.
+It is always advantageous to use Kelvin connections whenever possible. However, in applications where the IR
+drop is negligible or an extra set of traces cannot be routed to the load, the force and sense pins for both VOUT
+and GND can simply be tied together, and the device can be used in the same fashion as a normal 3-terminal
+reference (as shown in Figure 19).
+10.2.2.3
+VIN Slew Rate Considerations
+In applications with slow-rising input voltage signals, the reference exhibits overshoot or other transient
+anomalies that appear on the output. These phenomena also appear during shutdown as the internal circuitry
+loses power.
+To avoid such conditions, ensure that the input voltage waveform has both a rising and falling slew rate close to
+6 V/ms.
+10.2.2.4
+Shutdown/Enable Feature
+The REF34xx-EP references can be switched to a low power shutdown mode when a voltage of 0.5 V or lower is
+input to the ENABLE pin. Likewise, the reference becomes operational for ENABLE voltages of 1.6 V or higher.
+During shutdown, the supply current drops to less than 2 µA, useful in applications that are sensitive to power
+consumption.
+If using the shutdown feature, ensure that the ENABLE pin voltage does not fall between 0.5 V and 1.6 V
+because this causes a large increase in the supply current of the device and may keep the reference from
+starting up correctly. If not using the shutdown feature, however, the ENABLE pin can simply be tied to the IN
+pin, and the reference remains operational continuously.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 17 / 28
+────────────────────────────────────────────────────────────────────────
+Temperature (qC)
+Quiescent Current (PA)
+-55
+-35
+-15
+5
+25
+45
+65
+85
+105
+125
+76
+76.5
+77
+77.5
+78
+78.5
+79
+79.5
+D004
+Temperature (qC)
+Quiescent Current Shutdown Mode (PA)
+-55
+-35
+-15
+5
+25
+45
+65
+85
+105
+125
+2.1
+2.15
+2.2
+2.25
+2.3
+2.35
+2.4
+2.45
+2.5
+2.55
+D013
+17
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+www.ti.com
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+10.2.3
+Application Curves
+Figure 21. Quiescent Current vs Temperature
+Figure 22. Quiescent Current Shutdown Mode
+11
+Power Supply Recommendations
+The REF34xx-EP family of references feature an extremely low-dropout voltage. These references can be
+operated with a supply of only 50 mV above the output voltage. TI recommends a supply bypass capacitor
+ranging between 0.1 µF to 10 µF.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 18 / 28
+────────────────────────────────────────────────────────────────────────
+1
+6
+2
+3
+4
+GND_F
+GND_S
+EN
+OUT_F
+IN
+REF34xx-EP
+C
+5
+OUT_S
+18
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+www.ti.com
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+12
+Layout
+12.1
+Layout Guidelines
+Figure 23 illustrates an example of a PCB layout for a data acquisition system using the REF34xx-EP. Some key
+considerations are:
+•
+Connect low-ESR, 0.1-µF ceramic bypass capacitors at VIN, VREF of the REF34xx-EP.
+•
+Decouple other active devices in the system per the device specifications.
+•
+Using a solid ground plane helps distribute heat and reduces electromagnetic interference (EMI) noise pickup.
+•
+Place the external components as close to the device as possible. This configuration prevents parasitic errors
+(such as the Seebeck effect) from occurring.
+•
+Do not run sensitive analog traces in parallel with digital traces. Avoid crossing digital and analog traces if
+possible, and only make perpendicular crossings when absolutely necessary.
+12.2
+Layout Example
+Figure 23. Layout Example
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 19 / 28
+────────────────────────────────────────────────────────────────────────
+19
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+www.ti.com
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+13
+Device and Documentation Support
+13.1
+Documentation Support
+13.1.1
+Related Documentation
+For related documentation see the following:
+•
+INA21x Voltage Output, Low- or High-Side Measurement, Bidirectional, Zero-Drift Series, Current-Shunt
+Monitors, SBOS437
+•
+Low-Drift Bidirectional Single-Supply Low-Side Current Sensing Reference Design, TIDU357
+13.2
+Related Links
+The table below lists quick access links. Categories include technical documents, support and community
+resources, tools and software, and quick access to order now.
+Table 3. Related Links
+PARTS
+PRODUCT FOLDER
+ORDER NOW
+TECHNICAL
+DOCUMENTS
+TOOLS &
+SOFTWARE
+SUPPORT &
+COMMUNITY
+REF3425-EP
+Click here
+Click here
+Click here
+Click here
+Click here
+REF3430-EP
+Click here
+Click here
+Click here
+Click here
+Click here
+REF3433-EP
+Click here
+Click here
+Click here
+Click here
+Click here
+REF3440-EP
+Click here
+Click here
+Click here
+Click here
+Click here
+13.3
+Receiving Notification of Documentation Updates
+To receive notification of documentation updates, navigate to the device product folder on ti.com. In the upper
+right corner, click on Alert me to register and receive a weekly digest of any product information that has
+changed. For change details, review the revision history included in any revised document.
+13.4
+Community Resources
+The following links connect to TI community resources. Linked contents are provided "AS IS" by the respective
+contributors. They do not constitute TI specifications and do not necessarily reflect TI's views; see TI's Terms of
+Use.
+TI E2E™Online Community TI's Engineer-to-Engineer (E2E) Community. Created to foster collaboration
+among engineers. At e2e.ti.com, you can ask questions, share knowledge, explore ideas and help
+solve problems with fellow engineers.
+Design Support TI's Design Support Quickly find helpful E2E forums along with design support tools and
+contact information for technical support.
+13.5
+Trademarks
+E2E is a trademark of Texas Instruments.
+All other trademarks are the property of their respective owners.
+13.6
+Electrostatic Discharge Caution
+This integrated circuit can be damaged by ESD. Texas Instruments recommends that all integrated circuits be handled with
+appropriate precautions. Failure to observe proper handling and installation procedures can cause damage.
+ESD damage can range from subtle performance degradation to complete device failure. Precision integrated circuits may be more
+susceptible to damage because very small parametric changes could cause the device not to meet its published specifications.
+13.7
+Glossary
+SLYZ022 — TI Glossary.
+This glossary lists and explains terms, acronyms, and definitions.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 20 / 28
+────────────────────────────────────────────────────────────────────────
+20
+REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP
+SBAS942B –DECEMBER 2018–REVISED APRIL 2019
+www.ti.com
+Product Folder Links: REF3425-EP REF3430-EP REF3433-EP REF3440-EP
+Submit Documentation Feedback
+Copyright © 2018–2019, Texas Instruments Incorporated
+14
+Mechanical, Packaging, and Orderable Information
+The following pages include mechanical, packaging, and orderable information. This information is the most
+current data available for the designated devices. This data is subject to change without notice and revision of
+this document. For browser-based versions of this data sheet, refer to the left-hand navigation.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 21 / 28
+────────────────────────────────────────────────────────────────────────
+PACKAGE OPTION ADDENDUM
+www.ti.com
+10-Nov-2025
+PACKAGING INFORMATION
+Orderable part number
+Status
+(1)
+Material type
+(2)
+Package | Pins
+Package qty | Carrier
+RoHS
+(3)
+Lead finish/
+Ball material
+(4)
+MSL rating/
+Peak reflow
+(5)
+Op temp (°C)
+Part marking
+(6)
+REF3425MDBVTEP
+Active
+Production
+SOT-23 (DBV) | 6
+250 | SMALL T&R
+Yes
+NIPDAUAG
+Level-2-260C-1 YEAR
+-55 to 125
+1RWC
+REF3430MDBVTEP
+Active
+Production
+SOT-23 (DBV) | 6
+250 | SMALL T&R
+Yes
+NIPDAUAG
+Level-2-260C-1 YEAR
+-55 to 125
+1SVC
+REF3433MDBVTEP
+Active
+Production
+SOT-23 (DBV) | 6
+250 | SMALL T&R
+Yes
+NIPDAUAG
+Level-2-260C-1 YEAR
+-55 to 125
+1SWC
+REF3440MDBVTEP
+Active
+Production
+SOT-23 (DBV) | 6
+250 | SMALL T&R
+Yes
+NIPDAUAG
+Level-2-260C-1 YEAR
+-55 to 125
+1SXC
+V62/18622-01XE
+Active
+Production
+SOT-23 (DBV) | 6
+250 | SMALL T&R
+Yes
+NIPDAUAG
+Level-2-260C-1 YEAR
+-55 to 125
+1RWC
+V62/18622-02XE
+Active
+Production
+SOT-23 (DBV) | 6
+250 | SMALL T&R
+Yes
+NIPDAUAG
+Level-2-260C-1 YEAR
+-55 to 125
+1SXC
+V62/18622-03XE
+Active
+Production
+SOT-23 (DBV) | 6
+250 | SMALL T&R
+Yes
+NIPDAUAG
+Level-2-260C-1 YEAR
+-55 to 125
+1SVC
+V62/18622-04XE
+Active
+Production
+SOT-23 (DBV) | 6
+250 | SMALL T&R
+Yes
+NIPDAUAG
+Level-2-260C-1 YEAR
+-55 to 125
+1SWC
+ 
+(1) Status:  For more details on status, see our product life cycle.
+ 
+(2) Material type:  When designated, preproduction parts are prototypes/experimental devices, and are not yet approved or released for full production. Testing and final process, including without limitation quality assurance,
+reliability performance testing, and/or process qualification, may not yet be complete, and this item is subject to further changes or possible discontinuation. If available for ordering, purchases will be subject to an additional
+waiver at checkout, and are intended for early internal evaluation purposes only. These items are sold without warranties of any kind.
+ 
+(3) RoHS values:  Yes, No, RoHS Exempt. See the TI RoHS Statement for additional information and value definition.
+ 
+(4) Lead finish/Ball material:  Parts may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two lines if the finish value exceeds the maximum
+column width.
+ 
+(5) MSL rating/Peak reflow:  The moisture sensitivity level ratings and peak solder (reflow) temperatures. In the event that a part has multiple moisture sensitivity ratings, only the lowest level per JEDEC standards is shown.
+Refer to the shipping label for the actual reflow temperature that will be used to mount the part to the printed circuit board.
+ 
+(6) Part marking:  There may be an additional marking, which relates to the logo, the lot trace code information, or the environmental category of the part.
+ 
+Multiple part markings will be inside parentheses. Only one part marking contained in parentheses and separated by a "~" will appear on a part. If a line is indented then it is a continuation of the previous line and the two
+combined represent the entire part marking for that device.
+ 
+Important Information and Disclaimer:The information provided on this page represents TI's knowledge and belief as of the date that it is provided. TI bases its knowledge and belief on information provided by third parties, and
+makes no representation or warranty as to the accuracy of such information. Efforts are underway to better integrate information from third parties. TI has taken and continues to take reasonable steps to provide representative
+and accurate information but may not have conducted destructive testing or chemical analysis on incoming materials and chemicals. TI and TI suppliers consider certain information to be proprietary, and thus CAS numbers
+and other limited information may not be available for release.
+Addendum-Page 1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 22 / 28
+────────────────────────────────────────────────────────────────────────
+PACKAGE OPTION ADDENDUM
+www.ti.com
+10-Nov-2025
+ 
+In no event shall TI's liability arising out of such information exceed the total purchase price of the TI part(s) at issue in this document sold by TI to Customer on an annual basis.
+ 
+ OTHER QUALIFIED VERSIONS OF REF3425-EP, REF3430-EP, REF3433-EP, REF3440-EP :
+• Catalog : REF3425, REF3430, REF3433, REF3440
+ NOTE: Qualified Version Definitions:
+• Catalog - TI's standard catalog product
+Addendum-Page 2

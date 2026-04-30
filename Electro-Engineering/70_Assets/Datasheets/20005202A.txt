@@ -1,0 +1,1870 @@
+========================================================================
+  FILE:      20005202A.pdf
+  PATH:      70_Assets/Datasheets/20005202A.pdf
+  PAGES:     30 total  |  extracted: 1–22
+  SIZE:      612 KB
+  EXTRACTED: 2026-04-30 09:37
+========================================================================
+
+USAGE NOTE: Feed to AI using the extraction prompt in
+  30_Workflows/component-data-workflow.md
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 1 / 30
+────────────────────────────────────────────────────────────────────────
+ 2013 Microchip Technology Inc.
+DS20005202A-page 1
+24AA02UID/24AA025UID
+Device Selection Table
+Features:
+• Preprogrammed 32-Bit Serial Number:
+- Unique across all UID-family EEPROMs
+- Scalable to 48-bit, 64-bit, 128-bit, 256-bit, 
+and other lengths
+• Single Supply with Operation Down to 1.7V
+• Low-Power CMOS Technology:
+- Read current 1 mA, max.
+- Standby current 1 A, max.
+• 2-Wire Serial Interface, I2C™ Compatible
+• Schmitt Trigger Inputs for Noise Suppression
+• Output Slope Control to Eliminate Ground Bounce
+• 100 kHz and 400 kHz Clock Compatibility
+• Page Write Time 3 ms, typical
+• Self-Timed Erase/Write Cycle
+• Page Write Buffer:
+- 8-byte page (24AA02UID)
+- 16-byte page (24AA025UID)
+• ESD Protection >4,000V
+• More than 1 Million Erase/Write Cycles
+• Data Retention >200 Years
+• Factory Programming Available
+• Available Packages:
+- 8-lead PDIP, 8-lead SOIC, and 5-lead 
+SOT-23 (24AA02UID)
+- 8-lead PDIP, 8-lead SOIC, and 6-lead 
+SOT-23 (24AA025UID)
+• RoHS Compliant
+• Temperature Ranges:
+- Industrial (I): 
+-40°C to +85°C
+Description:
+The 
+Microchip 
+Technology 
+Inc. 
+24AA02UID/
+24AA025UID (24AA02XUID*) is a 2 Kbit Electrically
+Erasable PROM with a preprogrammed, 32-bit
+unique ID. The device is organized as two blocks of
+128 x 8-bit memory with a 2-wire serial interface.
+Low-voltage design permits operation down to 1.7V,
+with maximum standby and active currents of only
+1 A and 1 mA, respectively. The 24AA02XUID also
+has a page write capability for up to eight bytes of
+data 
+(16 
+bytes 
+on 
+the 
+24AA025UID). 
+The
+24AA02XUID is available in the standard 8-pin PDIP,
+8-pin SOIC, 5-lead SOT-23, and 6-lead SOT-23
+packages.
+Package Types (24AA02UID)
+Package Types (24AA025UID)
+Part Number
+VCC 
+Range
+Max. Clock 
+Frequency
+Temp. 
+Ranges
+Cascadable
+Page Size
+Unique ID 
+Length
+24AA02UID
+1.7-5.5V
+400 kHz(1)
+I
+No
+8-Byte
+32-Bit
+24AA025UID
+1.7-5.5V
+400 kHz(1)
+I
+Yes
+16-Byte
+32-Bit
+Note 1:
+100 kHz for VCC <2.5V
+PDIP/SOIC
+NC
+NC
+NC
+VSS
+1
+2
+3
+4
+8
+7
+6
+5
+VCC
+NC
+SCL
+SDA
+SOT-23 
+1
+5
+4
+3
+SCL
+Vss
+SDA
+NC
+Vcc
+2
+PDIP/SOIC
+A0
+A1
+A2
+VSS
+1
+2
+3
+4
+8
+7
+6
+5
+VCC
+NC
+SCL
+SDA
+SOT-23 
+VCC
+SCL
+SDA
+VSS
+A0
+A1
+1
+2
+3
+4
+5
+6
+2K I2C™ Serial EEPROMs with Unique 32-bit Serial Number
+*24AA02XUID is used in this document as a generic
+part number for the 24AA02UID/24AA025UID devices.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 2 / 30
+────────────────────────────────────────────────────────────────────────
+24AA02UID/24AA025UID
+DS20005202A-page 2
+ 2013 Microchip Technology Inc.
+Block Diagram
+   I/O
+Control
+ Logic
+Memory
+Control 
+Logic
+XDEC
+HV Generator
+EEPROM 
+   Array
+Write-Protect
+    Circuitry
+YDEC
+VCC
+VSS
+SDA SCL
+Note 1: Pins A0, A1 and A2 are not available on
+the 24AA02UID.
+A0(1) A1(1)A2(1)
+Sense Amp.
+R/W Control
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 3 / 30
+────────────────────────────────────────────────────────────────────────
+ 2013 Microchip Technology Inc.
+DS20005202A-page 3
+24AA02UID/24AA025UID
+1.0
+ELECTRICAL CHARACTERISTICS
+Absolute Maximum Ratings (†)
+VCC.............................................................................................................................................................................6.5V
+All inputs and outputs w.r.t. VSS ..........................................................................................................-0.3V to VCC +1.0V
+Storage temperature ...............................................................................................................................-65°C to +150°C
+Ambient temperature with power applied..................................................................................................-40°C to +85°C
+ESD protection on all pins  4 kV
+TABLE 1-1:
+DC CHARACTERISTICS
+† NOTICE: Stresses above those listed under “Absolute Maximum Ratings” may cause permanent damage to the
+device. This is a stress rating only and functional operation of the device at those or any other conditions above those
+indicated in the operational listings of this specification is not implied. Exposure to maximum rating conditions for
+extended periods may affect device reliability.
+DC CHARACTERISTICS
+Industrial (I): 
+TA = -40°C to +85°C, VCC = +1.7V to +5.5V
+Param.
+No.
+Sym.
+Characteristic
+Min.
+Typ.
+Max.
+Units
+Conditions
+—
+SCL, SDA, A0, A1, and 
+A2 pins
+—
+—
+—
+—
+—
+D1
+VIH
+High-level Input Voltage
+0.7 VCC
+—
+—
+V
+—
+D2
+VIL
+Low-level Input Voltage
+—
+—
+0.3 VCC
+V
+—
+D3
+VHYS
+Hysteresis of Schmitt
+Trigger inputs
+0.05 VCC
+—
+—
+V
+(Note)
+D4
+VOL
+Low-level Output Voltage
+—
+—
+0.40
+V
+IOL = 3.0 mA, VCC = 2.5V
+D5
+ILI
+Input Leakage Current
+—
+—
+±1
+A
+VIN = VSS or VCC
+D6
+ILO
+Output Leakage Current
+—
+—
+±1
+A
+VOUT = VSS or VCC
+D7
+CIN, 
+COUT
+Pin Capacitance
+(all inputs/outputs)
+—
+—
+10
+pF
+VCC = 5.0V (Note)
+TA = 25°C, FCLK = 1 MHz
+D8
+ICC write Operating Current
+—
+0.1
+3
+mA
+VCC = 5.5V, SCL = 400 kHz
+D9
+ICC read
+—
+0.05
+1
+mA
+—
+D10
+ICCS
+Standby Current
+—
+0.01
+1
+
+Industrial
+SDA = SCL = VCC
+A0, A1, A2 = VSS
+Note:
+This parameter is periodically sampled and not 100% tested.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 4 / 30
+────────────────────────────────────────────────────────────────────────
+24AA02UID/24AA025UID
+DS20005202A-page 4
+ 2013 Microchip Technology Inc.
+TABLE 1-2:
+AC CHARACTERISTICS
+AC CHARACTERISTICS
+Industrial (I): 
+TA = -40°C to +85°C, VCC = +1.7V to +5.5V
+Param.
+No.
+Sym.
+Characteristic
+Min.
+Typ.
+Max.
+Units
+Conditions
+1
+FCLK
+Clock frequency
+—
+—
+—
+—
+400
+100
+kHz
+2.5V  VCC  5.5V
+1.7V  VCC  2.5V
+2
+THIGH
+Clock high time
+600
+4000
+—
+—
+—
+—
+ns
+2.5V  VCC  5.5V
+1.7V  VCC  2.5V
+3
+TLOW
+Clock low time
+1300
+4700
+—
+—
+—
+—
+ns
+2.5V  VCC  5.5V
+1.7V  VCC  2.5V
+4
+TR
+SDA and SCL rise time 
+(Note 1)
+—
+—
+—
+—
+300
+1000
+ns
+2.5V  VCC  5.5V (Note 1)
+1.7V  VCC  2.5V (Note 1)
+5
+TF
+SDA and SCL fall time
+—
+—
+—
+300
+ns
+(Note 1)
+6
+THD:STA
+Start condition hold time
+600
+4000
+—
+—
+—
+—
+ns
+2.5V  VCC  5.5V
+1.7V  VCC  2.5V
+7
+TSU:STA
+Start condition setup 
+time
+600
+4700
+—
+—
+—
+—
+ns
+2.5V  VCC  5.5V
+1.7V  VCC  2.5V
+8
+THD:DAT
+Data input hold time
+0
+—
+—
+—
+ns
+(Note 2)
+9
+TSU:DAT
+Data input setup time
+100
+250
+—
+—
+—
+—
+ns
+2.5V  VCC  5.5V
+1.7V  VCC  2.5V
+10
+TSU:STO
+Stop condition setup 
+time
+600
+4000
+—
+—
+—
+—
+ns
+2.5V  VCC  5.5V
+1.7V  VCC  2.5V
+11
+TAA
+Output valid from clock 
+(Note 2)
+—
+—
+—
+—
+900
+3500
+ns
+2.5V  VCC  5.5V
+1.7V  VCC  2.5V
+12
+TBUF
+Bus free time: Time the 
+bus must be free before 
+a new transmission can 
+start
+1300
+4700
+—
+—
+—
+—
+ns
+2.5V  VCC  5.5V
+1.7V  VCC  2.5V
+13
+TOF
+Output fall time from VIH 
+minimum to VIL 
+maximum
+—
+—
+—
+—
+250
+250
+ns
+2.5V  VCC  5.5V
+1.7V  VCC  2.5V
+14
+TSP
+Input filter spike 
+suppression
+(SDA and SCL pins)
+—
+—
+50
+ns
+(Notes 1 and 3)
+15
+TWC
+Write cycle time (byte or 
+page)
+—
+—
+5
+ms
+—
+16
+—
+Endurance
+1M
+—
+—
+cycles
+25°C (Note 4)
+Note 1:
+Not 100% tested. CB = total capacitance of one bus line in pF.
+2:
+As a transmitter, the device must provide an internal minimum delay time to bridge the undefined region 
+(minimum 300 ns) of the falling edge of SCL to avoid unintended generation of Start or Stop conditions.
+3:
+The combined TSP and VHYS specifications are due to new Schmitt Trigger inputs which provide improved 
+noise spike suppression. This eliminates the need for a TI specification for standard operation.
+4:
+This parameter is not tested but ensured by characterization. For endurance estimates in a specific 
+application, please consult the Total Endurance™ Model which can be obtained from Microchip’s web site 
+at www.microchip.com.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 5 / 30
+────────────────────────────────────────────────────────────────────────
+ 2013 Microchip Technology Inc.
+DS20005202A-page 5
+24AA02UID/24AA025UID
+FIGURE 1-1:
+BUS TIMING DATA
+FIGURE 1-2:
+BUS TIMING START/STOP
+7
+5
+2
+4
+8
+9
+10
+12
+11
+14
+6
+SCL
+SDA
+IN
+SDA
+OUT
+3
+7
+6
+D3
+10
+Start
+Stop
+SCL
+SDA
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 6 / 30
+────────────────────────────────────────────────────────────────────────
+24AA02UID/24AA025UID
+DS20005202A-page 6
+ 2013 Microchip Technology Inc.
+2.0
+PIN DESCRIPTIONS
+The descriptions of the pins are listed in Table 2-1.
+TABLE 2-1:
+PIN FUNCTION TABLE
+2.1
+Serial Address/Data Input/Output 
+(SDA)
+SDA is a bidirectional pin used to transfer addresses
+and data into and out of the device. Since it is an open-
+drain terminal, the SDA bus requires a pull-up resistor
+to VCC (typical 10 k for 100 kHz, 2 k for 400 kHz).
+For normal data transfer, SDA is allowed to change
+only during SCL low. Changes during SCL high are
+reserved for indicating Start and Stop conditions.
+2.2
+Serial Clock (SCL)
+The SCL input is used to synchronize the data transfer
+to and from the device.
+2.3
+A0, A1, A2 Chip Address Inputs
+The A0, A1 and A2 pins are not used by the
+24AA02UID. They may be left floating or tied to either
+VSS or VCC.
+For the 24AA025UID, the levels on the A0, A1 and A2
+inputs are compared with the corresponding bits in the
+slave address. The chip is selected if the compare is
+true. For the 6-lead SOT-23 package, pin A2 is not con-
+nected and its corresponding bit in the slave address
+should always be set to ‘0’.
+Up to eight 24AA025UID devices (four for the SOT-23
+package) may be connected to the same bus by using
+different Chip Select bit combinations. These inputs
+must be connected to either VSS or VCC.
+Name
+PDIP
+SOIC
+5-Pin SOT-23
+6-Pin SOT-23
+Description
+A0
+1
+1
+—
+5
+Chip Address Input(1)
+A1
+2
+2
+—
+4
+Chip Address Input(1)
+A2
+3
+3
+—
+—
+Chip Address Input(1)
+VSS
+4
+4
+2
+2
+Ground
+SDA
+5
+5
+3
+3
+Serial Address/Data I/O
+SCL
+6
+6
+1
+1
+Serial Clock
+NC
+7
+7
+5
+—
+Not Connected
+VCC
+8
+8
+4
+6
++1.7V to 5.5V Power Supply
+Note 1:
+Chip address inputs A0, A1 and A2 are not connected on the 24AA02UID.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 7 / 30
+────────────────────────────────────────────────────────────────────────
+ 2013 Microchip Technology Inc.
+DS20005202A-page 7
+24AA02UID/24AA025UID
+3.0
+FUNCTIONAL DESCRIPTION
+The 24AA02XUID supports a bidirectional, 2-wire bus
+and data transmission protocol. A device that sends
+data onto the bus is defined as transmitter, while a
+device receiving data is defined as a receiver. The bus
+has to be controlled by a master device which gener-
+ates the Serial Clock (SCL), controls the bus access
+and generates the Start and Stop conditions, while the
+24AA02XUID works as slave. Both master and slave
+can operate as transmitter or receiver, but the master
+device determines which mode is activated.
+4.0
+BUS CHARACTERISTICS
+The following bus protocol has been defined:
+• Data transfer may be initiated only when the bus 
+is not busy.
+• During data transfer, the data line must remain 
+stable whenever the clock line is high. Changes in 
+the data line while the clock line is high will be 
+interpreted as a Start or Stop condition.
+Accordingly, the following bus conditions have been
+defined (Figure 4-1).
+4.1
+Bus Not Busy (A)
+Both data and clock lines remain high.
+4.2
+Start Data Transfer (B)
+A high-to-low transition of the SDA line while the clock
+(SCL) is high determines a Start condition. All
+commands must be preceded by a Start condition.
+4.3
+Stop Data Transfer (C)
+A low-to-high transition of the SDA line while the clock
+(SCL) is high determines a Stop condition. All
+operations must be ended with a Stop condition.
+4.4
+Data Valid (D)
+The state of the data line represents valid data when,
+after a Start condition, the data line is stable for the
+duration of the high period of the clock signal.
+The data on the line must be changed during the low
+period of the clock signal. There is one clock pulse per
+bit of data.
+Each data transfer is initiated with a Start condition and
+terminated with a Stop condition. The number of data
+bytes transferred between Start and Stop conditions is
+determined by the master device and is, theoretically,
+unlimited (although only the last sixteen will be stored
+when doing a write operation). When an overwrite does
+occur, it will replace data in a first-in first-out (FIFO)
+fashion.
+4.5
+Acknowledge
+Each receiving device, when addressed, is obliged to
+generate an acknowledge after the reception of each
+byte. The master device must generate an extra clock
+pulse which is associated with this Acknowledge bit.
+The device that acknowledges has to pull down the
+SDA line during the acknowledge clock pulse in such a
+way that the SDA line is stable-low during the high
+period of the acknowledge related clock pulse. Of
+course, setup and hold times must be taken into
+account. During reads, a master must signal an end of
+data to the slave by not generating an Acknowledge bit
+on the last byte that has been clocked out of the slave.
+In this case, the slave (24AA02XUID) will leave the
+data line high to enable the master to generate the Stop
+condition.
+FIGURE 4-1:
+DATA TRANSFER SEQUENCE ON THE SERIAL BUS
+Note:
+The 24AA02XUID does not generate any
+Acknowledge 
+bits 
+if 
+an 
+internal
+programming cycle is in progress.
+SCL
+SDA
+(A)
+(B)
+(D)
+(D)
+(A)
+(C)
+Start
+Condition
+Address or
+Acknowledge
+Valid
+Data
+Allowed
+to Change
+Stop
+Condition
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 8 / 30
+────────────────────────────────────────────────────────────────────────
+24AA02UID/24AA025UID
+DS20005202A-page 8
+ 2013 Microchip Technology Inc.
+5.0
+DEVICE ADDRESSING
+A control byte is the first byte received following the
+Start condition from the master device. The control byte
+consists of a 4-bit control code. For the 24AA02XUID,
+this is set as ‘1010’ binary for read and write
+operations. For the 24AA02UID the next three bits of
+the control byte are “don’t cares”.
+For the 24AA025UID, the next three bits of the control
+byte are the Chip Select bits (A2, A1, A0). The Chip
+Select bits allow the use of up to eight 24AA025UID
+devices on the same bus and are used to select which
+device is accessed. The Chip Select bits in the control
+byte must correspond to the logic levels on the corre-
+sponding A2, A1 and A0 pins for the device to respond.
+These bits are in effect the three Most Significant bits of
+the word address.
+For the 6-pin SOT-23 package, the A2 address pin is
+not available. During device addressing, the A2 Chip
+Select bit should be set to ‘0’.
+The last bit of the control byte defines the operation to
+be performed. When set to ‘1’, a read operation is
+selected. When set to ‘0’, a write operation is selected.
+Following the Start condition, the 24AA02XUID moni-
+tors the SDA bus, checking the device type identifier
+being transmitted and, upon a ‘1010’ code, the slave
+device outputs an Acknowledge signal on the SDA line.
+Depending on the state of the R/W bit, the
+24AA02XUID will select a read or write operation.
+FIGURE 5-1:
+CONTROL BYTE 
+ALLOCATION
+5.1
+Contiguous Addressing Across 
+Multiple Devices
+The Chip Select bits A2, A1 and A0 can be used to
+expand the contiguous address space for up to 16K bits
+by adding up to eight 24AA025UID devices on the
+same bus. In this case, software can use A0 of the con-
+trol byte as address bit A8, A1 as address bit A9 and
+A2 as address bit A10. It is not possible to sequentially
+read across device boundaries.
+For the SOT-23 package, up to four 24AA025UID
+devices can be added for up to 8K bits of address
+space. In this case, software can use A0 of the control
+byte as address bit A8, and A1 as address bit A9. It is
+not possible to sequentially read across device
+boundaries.
+FIGURE 5-2:
+ADDRESS SEQUENCE BIT ASSIGNMENTS
+Operation
+Control 
+Code
+Chip Select
+R/W
+Read
+1010
+Chip Address
+1
+Write
+1010
+Chip Address
+0
+1
+0
+1
+0
+A2* A1* A0*R/W ACK
+Start Bit
+Read/Write Bit
+S
+Slave Address
+Acknowledge Bit
+Control Code
+Chip
+Select 
+Bits
+Note:
+* Bits A0, A1 and A2 are “don’t cares” for
+the 24AA02UID.
+1
+0
+1
+0
+R/W
+A
+7
+A
+0
+•
+•
+•
+•
+•
+•
+Control Byte
+Address Low Byte
+Control
+Code
+Chip
+Select
+bits
+Note:
+* Bits A0, A1 and A2 are “don’t cares” for the 24AA02UID.
+A2* A1* A0*
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 9 / 30
+────────────────────────────────────────────────────────────────────────
+ 2013 Microchip Technology Inc.
+DS20005202A-page 9
+24AA02UID/24AA025UID
+6.0
+WRITE OPERATION
+6.1
+Byte Write
+Following the Start condition from the master, the
+device code (4 bits), the chip address (3 bits) and the
+R/W bit which is a logic-low, is placed onto the bus by
+the master transmitter. This indicates to the addressed
+slave receiver that a byte with a word address will
+follow once it has generated an Acknowledge bit during
+the ninth clock cycle. Therefore, the next byte transmit-
+ted by the master is the word address and will be
+written into the Address Pointer of the 24AA02XUID.
+After receiving another Acknowledge signal from the
+24AA02XUID, the master device will transmit the data
+word to be written into the addressed memory location.
+The 24AA02XUID acknowledges again and the master
+generates a Stop condition. This initiates the internal
+write cycle and, during this time, the 24AA02XUID will
+not generate Acknowledge signals (Figure 6-1).
+6.2
+Page Write 
+The write-control byte, word address and the first data
+byte are transmitted to the 24AA02XUID in the same
+way as in a byte write. However, instead of generating
+a Stop condition, the master transmits up to eight data
+bytes to the 24AA02XUID, which are temporarily stored
+in the on-chip page buffer and will be written into mem-
+ory once the master has transmitted a Stop condition.
+Upon receipt of each word, the three lower-order
+Address Pointer bits (four for the 24AA025UID) are
+internally incremented by ‘1’. The higher-order five bits
+(four for the 24AA025UID) of the word address remain
+constant. If the master should transmit more than eight
+words (16 for the 24AA025UID) prior to generating the
+Stop condition, the address counter will roll over and the
+previously received data will be overwritten. As with the
+byte write operation, once the Stop condition is received
+an internal write cycle will begin (Figure 6-2).
+6.3
+Write Protection
+The upper half of the array (80h-FFh) is permanently
+write-protected. Write operations to this address range
+are inhibited. Read operations are not affected.
+The remaining half of the array (00h-7Fh) can be
+written to and read from normally.
+FIGURE 6-1:
+BYTE WRITE  
+FIGURE 6-2:
+PAGE WRITE  
+Note:
+Page write operations are limited to writ-
+ing bytes within a single physical page
+regardless of the number of bytes
+actually being written. Physical page
+boundaries start at addresses that are
+integer multiples of the page buffer size
+(or ‘page size’) and end at addresses that
+are integer multiples of [page size – 1]. If
+a page Write command attempts to write
+across a physical page boundary, the
+result is that the data wraps around to the
+beginning of the current page (overwriting
+data previously stored there), instead of
+being written to the next page, as might be
+expected. It is therefore necessary for the
+application software to prevent page write
+operations that would attempt to cross a
+page boundary.
+S
+P
+Bus Activity
+Master
+SDA Line
+Bus Activity
+S
+T
+A
+R
+T
+S
+T
+O
+P
+Control
+Byte
+Word
+Address
+Data
+A
+C
+K
+A
+C
+K
+A
+C
+K
+1
+0
+1
+0 A2*A1*A0* 0
+Chip
+Select
+Bits
+Note:
+* Bits A0, A1 and A2 are “don’t cares” for the 24AA02UID.
+S
+P
+Bus Activity
+Master
+SDA Line
+Bus Activity
+S
+T
+A
+R
+T
+Control
+Byte
+Word
+Address (n)
+Data (n)
+Data (n + 7)
+S
+T
+O
+P
+A
+C
+K
+A
+C
+K
+A
+C
+K
+A
+C
+K
+A
+C
+K
+Data (n + 1)
+Chip
+Select
+Bits
+1 0 1 0
+0
+Note:
+* Bits A0, A1 and A2 are “don’t cares” for the 24AA02UID.
+A2 A1 A0
+*
+*
+*
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 10 / 30
+────────────────────────────────────────────────────────────────────────
+24AA02UID/24AA025UID
+DS20005202A-page 10
+ 2013 Microchip Technology Inc.
+7.0
+ACKNOWLEDGE POLLING
+Since the device will not acknowledge during a write
+cycle, this can be used to determine when the cycle is
+complete (this feature can be used to maximize bus
+throughput). Once the Stop condition for a Write
+command has been issued from the master, the device
+initiates the internally-timed write cycle and ACK polling
+can then be initiated immediately. This involves the
+master sending a Start condition followed by the control
+byte for a Write command (R/W = 0). If the device is still
+busy with the write cycle, no ACK will be returned. If the
+cycle is complete, the device will return the ACK and
+the master can then proceed with the next Read or
+Write command. See Figure 7-1 for a flow diagram of
+this operation.
+FIGURE 7-1:
+ACKNOWLEDGE POLLING 
+FLOW
+Send
+Write Command
+Send Stop
+Condition to
+Initiate Write Cycle
+Send Start
+Send Control Byte
+with R/W = 0
+Did Device
+Acknowledge
+(ACK = 0)?
+Next
+Operation
+No
+Yes
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 11 / 30
+────────────────────────────────────────────────────────────────────────
+ 2013 Microchip Technology Inc.
+DS20005202A-page 11
+24AA02UID/24AA025UID
+8.0
+READ OPERATION
+Read operations are initiated in the same way as write
+operations, with the exception that the R/W bit of the
+slave address is set to ‘1’. There are three basic types
+of read operations: current address read, random read
+and sequential read.
+8.1
+Current Address Read
+The 24AA02XUID contains an address counter that
+maintains the address of the last word accessed, inter-
+nally incremented by ‘1’. Therefore, if the previous
+access (either a read or write operation) was to address
+n, the next current address read operation would
+access data from address n + 1. Upon receipt of the
+slave address with R/W bit set to ‘1’, the 24AA02XUID
+issues an acknowledge and transmits the 8-bit data
+word. The master will not acknowledge the transfer, but
+does generate a Stop condition, and the 24AA02XUID
+discontinues transmission (Figure 8-1).
+8.2
+Random Read
+Random read operations allow the master to access
+any memory location in a random manner. To perform
+this type of read operation, the word address must first
+be set. This is accomplished by sending the word
+address to the 24AA02XUID as part of a write
+operation. Once the word address is sent, the master
+generates a Start condition following the acknowledge.
+This terminates the write operation, but not before the
+internal Address Pointer is set. The master then issues
+the control byte again, but with the R/W bit set to a ‘1’.
+The 24AA02XUID will then issue an acknowledge and
+transmit the 8-bit data word. The master will not
+acknowledge the transfer, but does generate a Stop
+condition, and the 24AA02XUID will discontinue
+transmission (Figure 8-2).
+8.3
+Sequential Read
+Sequential reads are initiated in the same way as a
+random read, except that once the 24AA02XUID
+transmits the first data byte, the master issues an
+acknowledge as opposed to a Stop condition in a ran-
+dom read. This directs the 24AA02XUID to transmit the
+next sequentially-addressed 8-bit word (Figure 8-3).
+To provide sequential reads, the 24AA02XUID contains
+an internal Address Pointer that is incremented by one
+upon completion of each operation. This Address
+Pointer allows the entire memory contents to be serially
+read during one operation.
+8.4
+Noise Protection
+The 24AA02XUID employs a VCC threshold detector
+circuit which disables the internal erase/write logic if the
+VCC is below 1.5V at nominal conditions.
+The SCL and SDA inputs have Schmitt Trigger and
+filter circuits which suppress noise spikes to assure
+proper device operation, even on a noisy bus.
+FIGURE 8-1:
+CURRENT ADDRESS READ  
+S
+P
+Bus Activity
+Master
+SDA Line
+Bus Activity
+S
+T
+O
+P
+Control
+Byte
+Data (n)
+A
+C
+K
+N
+o
+ 
+A
+C
+K
+S
+T
+A
+R
+T
+1
+0
+1
+0 A2* A1*A0* 1
+Chip
+Select
+Bits
+Note:
+* Bits A0, A1 and A2 are “don’t cares” for the 24AA02UID.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 12 / 30
+────────────────────────────────────────────────────────────────────────
+24AA02UID/24AA025UID
+DS20005202A-page 12
+ 2013 Microchip Technology Inc.
+FIGURE 8-2:
+RANDOM READ  
+FIGURE 8-3:
+SEQUENTIAL READ  
+S
+P
+S
+Bus Activity
+Master
+SDA Line
+Bus Activity
+S
+T
+A
+R
+T
+S
+T
+O
+P
+Control
+Byte
+A
+C
+K
+Word
+Address (n)
+Control
+Byte
+S
+T
+A
+R
+T
+Data (n)
+A
+C
+K
+A
+C
+K
+N
+o
+A
+C
+K
+1 0 1 0A2A1A0 0
+1 0 1 0
+1
+Chip
+Select
+Bits
+Chip
+Select
+Bits
+Note:
+* Bits A0, A1 and A2 are “don’t cares” for the 24AA02UID.
+* * *
+* * *
+A2A1A0
+P
+Bus Activity
+Master
+SDA Line
+Bus Activity
+S
+T
+O
+P
+Control
+Byte
+A
+C
+K
+N
+o
+ 
+A
+C
+K
+Data (n)
+Data (n + 1)
+Data (n + 2)
+Data (n + x)
+A
+C
+K
+A
+C
+K
+A
+C
+K
+1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 13 / 30
+────────────────────────────────────────────────────────────────────────
+ 2013 Microchip Technology Inc.
+DS20005202A-page 13
+24AA02UID/24AA025UID
+9.0
+PREPROGRAMMED UNIQUE 
+32-BIT SERIAL NUMBER
+The 24AA02XUID is programmed at the factory with a
+unique 32-bit serial number stored in the upper half of
+the array and permanently write-protected. The
+remaining 1,024 bits are available for application use.
+FIGURE 9-1:
+MEMORY ORGANIZATION
+The 4-byte serial number is stored in array locations
+0xFC through 0xFF, as shown in Figure 9-2.
+9.1
+Manufacturer and Device Codes
+In addition to the serial number, a manufacturer code is
+stored at location 0xFA and a device identifier is stored
+at 0xFB. The manufacturer code is fixed as 0x29. For
+the 24AA02XUID, the device identifier is 0x41. The ‘4’
+indicates the I2C™ family and the ‘1’ indicates a 2 Kbit
+memory density.
+9.2
+Extending the 32-bit Serial 
+Number
+For applications that require serial numbers larger than
+32 bits, additional data bytes can be used to pad the
+provided serial number to meet the required length.
+Any data byte values can be used for padding as the
+32-bit serial number ensures the extended serial num-
+ber remains unique.
+The padding can be performed in two ways. The first
+method is to pad the data in software by combining the
+32-bit serial number from the 24AA02XUID with fixed
+data. The second method is to extend the number of
+bytes read from the 24AA02XUID to meet the required
+length. Table 9-1 shows example address ranges and
+their corresponding serial number lengths.
+TABLE 9-1:
+EXTENDED READ EXAMPLES
+FIGURE 9-2:
+SERIAL NUMBER PHYSICAL MEMORY MAP EXAMPLE
+Note:
+The 32-bit serial number is unique across
+all Microchip UID-family serial EEPROM
+devices.
+00h
+80h
+FFh
+Write-Protected
+Serial Number Block
+Standard
+EEPROM
+Start Address
+End Address
+Serial Number 
+Length
+0xFC
+0xFF
+32 bits
+0xFA
+0xFF
+48 bits
+0xF8
+0xFF
+64 bits
+0xF0
+0xFF
+128 bits
+0xE0
+0xFF
+256 bits
+FAh
+FFh
+Manufacturer
+Code
+32-bit Serial Number
+29h
+Description
+Data
+Array
+Address
+41h
+12h
+34h
+56h
+78h
+Device
+Code
+Serialized
+Fixed
+Type
+FBh
+FCh
+FDh
+FEh
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 14 / 30
+────────────────────────────────────────────────────────────────────────
+24AA02UID/24AA025UID
+DS20005202A-page 14
+ 2013 Microchip Technology Inc.
+10.0
+PACKAGING INFORMATION
+10.1
+Package Marking Information
+Part Number
+1st Line Marking Code
+SOT-23
+SOIC
+PDIP
+I Temp.
+I Temp.
+I Temp.
+24AA02UID
+AAAFY
+24A2UIDT
+24AA02ID
+24AA025UID
+AAAEY
+4A25UIDT
+24A25UID
+Note:
+NN = Alphanumeric traceability code
+8-Lead SOIC (3.90 mm)
+Example:
+XXXXXXXT
+XXXXYYWW
+NNN
+24A2UIDI
+SN     1327
+1L7
+3
+e
+5-Lead SOT-23
+XXXXY
+Example:
+AAAF3
+WWNNN
+271L7
+6-Lead SOT-23
+XXXXY
+Example:
+AAAE3
+WWNNN
+271L7
+XXXXXXXX
+TXXXXNNN
+YYWW
+8-Lead PDIP (300 mil)
+Example:
+I/P      1L7
+1327
+3
+e
+24AA02ID
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 15 / 30
+────────────────────────────────────────────────────────────────────────
+ 2013 Microchip Technology Inc.
+DS20005202A-page 15
+24AA02UID/24AA025UID
+Legend:
+XX...X
+Part number or part number code
+T
+Temperature (I, E)
+Y
+Year code (last digit of calendar year)
+YY
+Year code (last 2 digits of calendar year)
+WW
+Week code (week of January 1 is week ‘01’)
+NNN
+Alphanumeric traceability code (2 characters for small packages)
+  
+Pb-free JEDEC designator for Matte Tin (Sn)
+Note:
+For very small packages with no room for the Pb-free JEDEC designator
+     , the marking will only appear on the outer carton or reel label.
+Note:
+In the event the full Microchip part number cannot be marked on one line, it will
+be carried over to the next line, thus limiting the number of available
+characters for customer-specific information.
+3
+e
+3
+e
+*Standard OTP marking consists of Microchip part number, year code, week code, and traceability code. 
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 16 / 30
+────────────────────────────────────────────────────────────────────────
+24AA02UID/24AA025UID
+DS20005202A-page 16
+ 2013 Microchip Technology Inc.
+Note:
+For the most current package drawings, please see the Microchip Packaging Specification located at 
+http://www.microchip.com/packaging
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 17 / 30
+────────────────────────────────────────────────────────────────────────
+ 2013 Microchip Technology Inc.
+DS20005202A-page 17
+24AA02UID/24AA025UID
+Note:
+For the most current package drawings, please see the Microchip Packaging Specification located at 
+http://www.microchip.com/packaging
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 18 / 30
+────────────────────────────────────────────────────────────────────────
+24AA02UID/24AA025UID
+DS20005202A-page 18
+ 2013 Microchip Technology Inc.
+	
+
+
+
+ !"#$%
+&
+
+	!
+"#		$%	&"'""	
+($)
+
+%
+*++&&&!	
+
+!+$
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 19 / 30
+────────────────────────────────────────────────────────────────────────
+ 2013 Microchip Technology Inc.
+DS20005202A-page 19
+24AA02UID/24AA025UID
+'	
+
+
+
+(("()%
+&
+3 !"
+"%63%
+
+#%!
+%)"
+		
+	#"
+"
+%)"
+		
+	#"
+""
+7%3!!	"%
+ !"
+%
+		683;
+<=* <"!"
+
+	7>#"
+&&
+#
+	"
+&
+
+	!
+"#		$%	&"'""	
+($)
+
+%
+*++&&&!	
+
+!+$
+?"
+@@66
+!"
+@!"
+A
+AE
+G
+A#!H	
+)("
+A
+;
+@%(
+
+;<=
+E#"%@%(
+3
+3<=
+E>	J
+
+
+K
+3;
+
+%%($$""
+
+
+K
+31
+%
+))
+3
+
+K
+3;
+E>	L%
+6
+
+K
+1
+
+%%($L%
+63
+31
+K
+3
+E>	@
+
+
+K
+13
+
+
+@
+@
+3
+K
+N
+
+
+	
+@3
+1;
+K
+
+
+
+
+
+O
+K
+1O
+@%$""
+
+
+K
+N
+@%L%
+H
+
+K
+;3
+φ
+N
+b
+E
+E1
+D
+1
+2
+3
+e
+e1
+A
+A1
+A2
+c
+L
+L1
+	
+ 
+
+ 	& =3<
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 20 / 30
+────────────────────────────────────────────────────────────────────────
+24AA02UID/24AA025UID
+DS20005202A-page 20
+ 2013 Microchip Technology Inc.
+Note:
+For the most current package drawings, please see the Microchip Packaging Specification located at 
+http://www.microchip.com/packaging
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 21 / 30
+────────────────────────────────────────────────────────────────────────
+ 2013 Microchip Technology Inc.
+DS20005202A-page 21
+24AA02UID/24AA025UID
+*	
+
+
+
+(("()%
+&
+3 !"
+"%63%
+
+#%!
+%)"
+		
+	#"
+"
+%)"
+		
+	#"
+""
+7%3!!	"%
+ !"
+%
+		683;
+<=* <"!"
+
+	7>#"
+&&
+#
+	"
+&
+
+	!
+"#		$%	&"'""	
+($)
+
+%
+*++&&&!	
+
+!+$
+?"
+@@66
+!"
+@!"
+A
+AE
+G
+A#!H	
+)("
+A
+N
+(
+
+;<=
+E#"%@%(
+3
+3<=
+E>	J
+
+
+K
+3;
+
+%%($$""
+
+
+K
+31
+%
+))
+3
+
+K
+3;
+E>	L%
+6
+
+K
+1
+
+%%($L%
+63
+31
+K
+3
+E>	@
+
+
+K
+13
+
+
+@
+@
+3
+K
+N
+
+
+	
+@3
+1;
+K
+
+
+
+
+
+O
+K
+1O
+@%$""
+
+
+K
+N
+@%L%
+H
+
+K
+;3
+b
+E
+4
+N
+E1
+PIN 1 ID BY
+LASER MARK
+D
+1
+2
+3
+e
+e1
+A
+A1
+A2
+c
+L
+L1
+φ
+	
+ 
+
+ 	& =<
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 22 / 30
+────────────────────────────────────────────────────────────────────────
+24AA02UID/24AA025UID
+DS20005202A-page 22
+ 2013 Microchip Technology Inc.
+Note:
+For the most current package drawings, please see the Microchip Packaging Specification located at 
+http://www.microchip.com/packaging

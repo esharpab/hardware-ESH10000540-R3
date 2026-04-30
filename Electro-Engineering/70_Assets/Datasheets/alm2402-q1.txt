@@ -1,0 +1,2198 @@
+========================================================================
+  FILE:      alm2402-q1.pdf
+  PATH:      70_Assets/Datasheets/alm2402-q1.pdf
+  PAGES:     31 total  |  extracted: 1–20
+  SIZE:      2.2 MB
+  EXTRACTED: 2026-04-30 09:38
+========================================================================
+
+USAGE NOTE: Feed to AI using the extraction prompt in
+  30_Workflows/component-data-workflow.md
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 1 / 31
+────────────────────────────────────────────────────────────────────────
+TA(qC)
+Allowable Power Dissipation (W)
+-40
+-20
+0
+20
+40
+60
+80
+100
+120
+140
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+4.5
+5
++
+VCC
+VCC_OUT
++
+VCC
+GND
+IN1+
+IN1-
+OUT1
+OTF1
+VCC_ O1
+½
+ALM2402
+OPAMP
+Product
+Folder
+Sample &
+Buy
+Technical
+Documents
+Tools &
+Software
+Support &
+Community
+ALM2402-Q1
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+ALM2402-Q1 Dual Op-amp with High Current Output
+1
+Features
+3
+Description
+The ALM2402-Q1 is a dual high voltage, high current
+1•
+High Output Current Drive: 400 mA Continuous
+op-amp with protection features that are optimal for
+(Per Channel)
+driving low impedances and/or high ESR capacitive
+–
+Op-amp With Discrete Power Boost Buffer
+loads. ALM2402-Q1 operates with single or split
+Replacement
+power supplies from 5.0 V to 16 V and can output up
+to 400 mA DC.
+•
+Wide Supply Range for Both Supplies (up to 16 V)
+•
+Over Temperature Shutdown
+Each op-amp includes over-temperature flag/shut-
+down. It also includes separate supply pins for each
+•
+Current Limit
+output stage that allow the user to apply a lower
+•
+Shutdown Pin for Low Iq Applications
+voltage on the output to limit the Voh and henceforth
+•
+Stable with Large Capacitive Loads (up to 3 µF)
+the on-chip power dissipation.
+•
+Zero Crossover Distortion
+The ALM2402 is packaged in a 12 pin leadless DRR
+•
+Qualified for Automotive Applications
+package and 14 pin leaded HTSSOP (preview). Both
+include
+a
+thermally
+conductive
+power
+pad
+that
+•
+AEC-Q100 Qualified With the Following Results:
+facilitates
+heat
+sinking.
+The
+very
+low
+thermal
+–
+Device Temperature Grade 1: –40°C to 125°C
+impedance of these packages enable optimal current
+Ambient Operating Temperature Range
+drive
+with
+minimal
+die
+temperature
+increase.
+–
+Device HBM Classification Level H2 (DRR)
+Providing customers with the ability to drive high
+currents in harsh temperature conditions. Maximum
+–
+Device CDM Classification Level C5 (DRR)
+power dissipation can be determined in the figure
+•
+Low Offset Voltage: 1 mV (typ)
+below.
+•
+Internal RF/EMI Filter
+•
+Available in 3.00 mm x 3.00 mm 12 Pin WSON
+Device Information(1)
+(DRR) With Thermal Pad
+PART NUMBER
+PACKAGE
+BODY SIZE (NOM)
+SON (12)
+3.00 mm x 3.00 mm
+ALM2402-Q1
+2
+Applications
+HTSSOP (14)
+5.00 mm x 4.40 mm
+•
+Large Capacitive Loads
+(1) For all available packages, see the orderable addendum at
+the end of the data sheet.
+–
+Cable Shields
+–
+Reference Buffers
+–
+Power-FET/IGBT Gates
+–
+Super Caps
+•
+Tracking LDO
+•
+Inductive Loads
+–
+Resolvers
+–
+Bipolar DC & Servo Motors
+–
+Solenoids & Valves
+4
+Simplified Schematic
+Maximum Power Dissipation vs Temperature
+1
+An IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,
+intellectual property matters and other important disclaimers. PRODUCTION DATA.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 2 / 31
+────────────────────────────────────────────────────────────────────────
+ALM2402-Q1
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+www.ti.com
+Table of Contents
+8.2
+Functional Block Diagram ....................................... 10
+1
+Features.................................................................. 1
+8.3
+Feature Description................................................. 11
+2
+Applications ........................................................... 1
+8.4
+Device Functional Modes........................................ 13
+3
+Description ............................................................. 1
+9
+Applications and Implementation ...................... 13
+4
+Simplified Schematic............................................. 1
+9.1
+Application Information............................................ 13
+5
+Revision History..................................................... 2
+9.2
+Typical Application .................................................. 15
+6
+Pin Configuration and Functions......................... 3
+10
+Power Supply Recommendations ..................... 20
+7
+Specifications......................................................... 4
+11
+Layout................................................................... 21
+7.1
+Absolute Maximum Ratings ..................................... 4
+11.1
+Layout Guidelines ................................................. 21
+7.2
+Thermal Information.................................................. 4
+11.2
+Layout Example .................................................... 21
+7.3
+ESD Ratings ............................................................ 4
+12
+Device and Documentation Support ................. 22
+7.4
+Recommended Operating Conditions....................... 5
+12.1
+Community Resources.......................................... 22
+7.5
+Electrical Characteristics........................................... 5
+12.2
+Trademarks........................................................... 22
+7.6
+AC Characteristics .................................................... 5
+12.3
+Electrostatic Discharge Caution............................ 22
+7.7
+Typical Characteristics.............................................. 6
+12.4
+Glossary................................................................ 22
+8
+Detailed Description ............................................ 10
+13
+Mechanical, Packaging, and Orderable
+8.1
+Overview ................................................................. 10
+Information ........................................................... 22
+5
+Revision History
+NOTE: Page numbers for previous revisions may differ from page numbers in the current version.
+Changes from Revision C (June 2015) to Revision D
+Page
+•
+Added package corresponding to ESD level.......................................................................................................................... 1
+•
+Removed HTSSOP preview status ........................................................................................................................................ 3
+•
+Added thermal metrics for PWP ............................................................................................................................................ 4
+•
+Added CDM value for PWP ................................................................................................................................................... 4
+Changes from Revision B (May 2015) to Revision C
+Page
+•
+Changed DRR to industry standard SON. ............................................................................................................................. 1
+•
+Changed document wording to remove the word "guarantee." ........................................................................................... 11
+•
+Updated Resolver Application Graphic. ............................................................................................................................... 15
+Changes from Revision A (April 2015) to Revision B
+Page
+•
+Fixed HBM Classification typo from "Level 2" to "Level H2" .................................................................................................. 1
+Changes from Original (February 2015) to Revision A
+Page
+•
+Initial release of full version document. .................................................................................................................................. 1
+2
+Submit Documentation Feedback
+Copyright © 2015, Texas Instruments Incorporated
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 3 / 31
+────────────────────────────────────────────────────────────────────────
+DRR
+Exposed
+Thermal Pad
+1
+2
+3
+4
+5
+6
+12
+11
+10
+9
+8
+7
+IN1-
+IN1+
+OTF/SH_DN
+IN2+
+IN2-
+GND
+GND
+OUT1
+VCC_O1
+VCC
+VCC_O2
+OUT2
+HTSSOP
+Exposed
+Thermal Pad
+1
+2
+3
+4
+5
+6
+12
+11
+10
+9
+8
+7
+IN1-
+IN1+
+OTF/SH_DN
+IN2+
+IN2-
+GND
+GND
+OUT1
+VCC_O1
+VCC
+VCC_O2
+OUT2
+NC
+14
+13
+NC
+ALM2402-Q1
+www.ti.com
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+6
+Pin Configuration and Functions
+It is recommended to connect the Exposed Pad to ground for best thermal performance. Must not be connected to
+any other pin than ground. However, it can be left floating.
+Pin Functions
+PIN
+DDR
+PWP
+I/O
+DESCRIPTION
+NAME
+NO.
+NO.
+IN(X)+
+2, 4
+2, 4
+Input
+non-inverting op amp input terminal
+IN(X)-
+1, 5
+1, 5
+Input
+inverting op amp input terminal
+OUT(X)
+11, 7
+13, 9
+Output
+Op amp output
+OTF/SH_DN
+3
+3
+Input/output
+Over temperature flag and Shutdown (see Table 1 for truth table)
+VCC_O(X)
+8, 10
+10, 12
+Input
+Output stage supply pin
+VCC
+9
+11
+Input
+Gain stage supply pin
+Ground pin (Both ground pins must be used and connected
+GND
+6, 12
+14
+Input
+together on board)
+NC
+N/A
+7, 8
+N/A
+No Internal Connection (do no connect)
+Copyright © 2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+3
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 4 / 31
+────────────────────────────────────────────────────────────────────────
+ALM2402-Q1
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+www.ti.com
+7
+Specifications
+7.1
+Absolute Maximum Ratings(1)
+at 25°C free-air temperature (unless otherwise noted)
+MIN
+MAX
+UNIT
+VCC
+Supply Voltage
+-0.3
+18
+V
+VCC_(OX)
+Output supply voltage(2)
+-0.3
+18
+V
+VOUT(X)
+Opamp voltage(2)
+-0.3
+18
+V
+VIN(X)
+Positive and negative input to GND voltage (2)
+-0.3
+18
+V
+IOTF
+Over Temperature Flag pin maximum Current
+20
+mA
+VOTF
+Over Temperature Flag pin maximum Voltage
+0
+7
+V
+ISC
+Continuous output short current per opamp
+Internally
+mA
+Limited
+Figure 6
+TA
+Operating free-air temperature range
+–40
+125
+°C
+TJ
+Operating virtual junction temperature(3)
+-40
+150
+°C
+Tstg
+Storage temperature range
+–65
+150
+°C
+(1)
+Stresses beyond those listed under "absolute maximum ratings" may cause permanent damage to the device. These are stress ratings
+only, and functional operation of the device at these or any other conditions beyond those indicated under "recommended operating
+conditions" is not implied. Exposure to absolute-maximum-rated conditions for extended periods may affect device reliability.
+(2)
+All voltage values are with respect to the GND/substrate terminal, unless otherwise noted.
+(3)
+Maximum power dissipation is a function of TJ(max), θJA, and TA. The maximum allowable power dissipation at any allowable ambient
+temperature is PD = (TJ(max) – TA)/θJA. Operating at the absolute maximum TJ of 150°C can affect reliability.
+7.2
+Thermal Information
+ALM2402Q1
+THERMAL METRIC(1)
+DRR (SON)
+PWP (HTSSOP)
+UNIT
+12 Pins
+14 Pins
+θJA
+Junction-to-ambient thermal resistance
+39.2
+46.5
+°C/W
+θJCtop
+Junction-to-case (top) thermal resistance
+34.5
+33.0
+°C/W
+θJB
+Junction-to-board thermal resistance
+15.0
+27.6
+°C/W
+ψJT
+Junction-to-top characterization parameter
+0.3
+1.5
+°C/W
+ψJB
+Junction-to-board characterization parameter
+15.2
+27.4
+°C/W
+θJCbot
+Junction-to-case (bottom) thermal resistance
+4.2
+2.2
+°C/W
+(1)
+For more information about traditional and new thermal metrics, see the IC Package Thermal Metrics application report, SPRA953.
+7.3
+ESD Ratings
+VALUE
+UNIT
+Human-body model (HBM), per ANSI/ESDA/JEDEC JS-001(1)
+±2000
+V(ESD)
+Electrostatic discharge
+DRR
+±750
+V
+Charged-device model (CDM), per JEDEC specification JESD22-
+C101(2)
+PWP
+±250
+(1)
+JEDEC document JEP155 states that 500-V HBM allows safe manufacturing with a standard ESD control process. Manufacturing with
+less than 500-V HBM is possible with the necessary precautions.
+(2)
+JEDEC document JEP157 states that 250-V CDM allows safe manufacturing with a standard ESD control process. Manufacturing with
+less than 250-V CDM is possible with the necessary precautions.
+4
+Submit Documentation Feedback
+Copyright © 2015, Texas Instruments Incorporated
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 5 / 31
+────────────────────────────────────────────────────────────────────────
+ALM2402-Q1
+www.ti.com
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+7.4
+Recommended Operating Conditions
+TA= 25°C
+MIN
+MAX
+UNIT
+TJ
+Junction Temperature
+-40
+150
+°C
+TA
+Ambient Temperature
+-40
+125
+Continuous output current (sourcing)
+400
+IOUT
+(1)
+mA
+Continuous output current (sinking)
+400
+VIH_OTF
+OTF input high voltage (Opamp "On" or full operation state)
+1.0
+VIL_OTF
+OTF input low voltage (Opamp "Off" or shutdown state)
+0.35
+VIN(X)
+Positive and negative input to GND voltage
+0
+7
+V
+VOTF
+Over Temperature Flag pin maximum Voltage
+2
+5
+VCC
+Input Vcc
+4.5
+16
+VCC_O(X)
+Output Vcc
+3
+16
+(1)
+Current Limit must taken into consideration when choosing maximum output current
+7.5
+Electrical Characteristics
+VOTF = 5 V, VCC = VCC_O1 = VCC_O2 = 5 V and 12 V; TA = –40°C to 125°C; Typical Values at TA = 25°C, unless otherwise noted
+PARAMETER
+TEST CONDITIONS
+MIN
+TYP
+MAX
+UNIT
+VIO
+Input Offset Voltage (1)
+VICM = Vcc/2, RL = 10 kΩ
+1
+15
+mV
+IIB
+Input Bias Current (1)
+VICM = Vcc/2
+1.5
+100
+nA
+IIOS
+Input Offset Current (1)
+VICM = Vcc/2
+30
+nA
+Input Common Mode Range (1)
+VCC = 5.0
+0.2
+Vcc-1.2
+V
+VICM
+VCC = 12.0 V
+0.2
+7
+Total Supply Current (both
+IO = 0 A
+5
+15
+mA
+ICC
+amplifiers)(1)
+VOTF = 0V
+0.5(2)
+Positive Output Swing
+VCC = VCC_O(X) = 5.0 V; VICM = Vcc/2;
+ISINK = 200 mA
+4.7
+4.87
+V
+VID = 100 mV
+ISINK = 100 mA
+4.85
+4.94
+Vo
+Negative Output Swing
+VCC = VCC_O(X) = 5.0 V; VICM = Vcc/2;
+ISOURCE = 200 mA
+200
+425
+mV
+VID = 100 mV
+ISOURCE = 100 mA
+100
+200
+Over Temp. Fault and
+157
+165
+175
+°C
+OTF
+Shutdown(3)
+VOL_OTF
+Over Temp. Fault low voltage
+Rpullup = 2.5 kΩ, Vpullup = 5.0 V
+450
+mV
+Short to Supply Limit (low-side
+550
+mA
+limit)(4)
+ILIMIT
+Short to Ground Limit (high-side
+750
+limit)(1)(4)
+PSRR
+Power Supply Rejection Ratio(1)
+VCC = 5.0 V to 12 V, RL = 10 kΩ, VICM = Vcc/2, VO = Vcc/2
+65
+90
+dB
+Common Mode Rejection
+45
+90
+CMRR
+VICM = VICM(min) to VICM(max), RL = 10 kΩ, VO = Vcc/2
+dB
+Ratio(1)
+AVD
+DC Voltage Gain(1)
+RL = 10 kΩ, VICM = Vcc/2, VO = 0.3 V to Vcc-1.5
+70
+90
+dB
+(1)
+Tested and verified in closed loop negative feedback configuration.
+(2)
+Verified by design.
+(3)
+Please see refer to Absolute Maximum Ratings table for maximum junction temperature recommendations.
+(4)
+This is the static current limit. It can be temporarily higher in applications due to internal propagation delay.
+7.6
+AC Characteristics
+TJ= –40°C to 125°C; Typical Values at TA = TJ = 25°C; VCC = VCC_O1 = VCC_O2 = 5.0 V and 12 V; VICM=VCC/2
+PARAMETER
+TEST CONDITIONS
+MIN
+TYP
+MAX
+UNIT
+GBW
+Gain Bandwidth
+CL=15 pF RL=10 kΩ
+600
+KHz
+PM
+Phase Margin
+CL=200 nF RL= 50 Ω
+50
+°
+GM
+Gain Margin
+CL=200 nF RL= 50 Ω
+17
+dB
+SR
+Slew Rate
+G = +1; CL=50 pF; 3 V step
+0.17
+V/us
+AV = 2 V/V, RL = 100 Ω, Vo = 8 Vpp, Vcc = 12
+-80
+dB
+THD + N
+Total Harmonic Distortion + Noise
+V, F = 1 kHz, VICM = Vcc/2
+en
+Input Voltage Noise Density
+Vcc = 5 V, F = 1kHz, VICM = Vcc/2
+110
+nV/√HZ
+Copyright © 2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+5
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 6 / 31
+────────────────────────────────────────────────────────────────────────
+TA(qC)
+Current (mA)
+-40
+-20
+0
+20
+40
+60
+80
+100
+120
+140
+0.35
+0.4
+0.45
+0.5
+0.55
+0.6
+0.65
+0.7
+0.75
+VCC=5V
+VCC=12V
+TA(qC)
+Current (mA)
+-40
+-20
+0
+20
+40
+60
+80
+100
+120
+140
+0.55
+0.6
+0.65
+0.7
+0.75
+0.8
+0.85
+0.9
+0.95
+VCC=5V
+VCC=12V
+Iout (mA)
+Vout (mV)
+-0.35
+-0.3
+-0.25
+-0.2
+-0.15
+-0.1
+-0.05
+0
+3
+3.05
+3.1
+3.15
+3.2
+3.25
+3.3
+TA=-40°C
+TA=125°C
+TA=0°C
+TA=85°C
+TA=25°C
+Iout (mA)
+Vout (V)
+0
+50
+100
+150
+200
+250
+300
+350
+0
+0.05
+0.1
+0.15
+0.2
+0.25
+0.3
+0.35
+0.4
+0.45
+0.5
+0.55
+0.6
+0.65
+TA=-40°C
+TA=0°C
+TA=25°C
+TA=85°C
+TA=105°C
+TA=125°C
+Iout (mA)
+Vout (V)
+-350
+-300
+-250
+-200
+-150
+-100
+-50
+0
+4.77
+4.8
+4.83
+4.86
+4.89
+4.92
+4.95
+4.98
+5.01
+TA=-40°C
+TA=0°C
+TA=25°C
+TA=85°C
+TA=105°C
+TA=125°C
+Iout (mA)
+Vout (V)
+0
+50
+100
+150
+200
+250
+300
+350
+0
+0.05
+0.1
+0.15
+0.2
+0.25
+0.3
+0.35
+0.4
+0.45
+0.5
+0.55
+0.6
+0.65
+TA=-40°C
+TA=0°C
+TA=25°C
+TA=85°C
+TA=105°C
+TA=125°C
+ALM2402-Q1
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+www.ti.com
+7.7
+Typical Characteristics
+TA= 25°C and VCC = VCC_O(X)
+Figure 1. VOH at VCC = 5 V
+Figure 2. VOL at VCC = 5 V
+Figure 3. VOH at VCC = 3.3 V
+Figure 4. VOL at VCC = 3.3 V
+Figure 5. Short to Supply Current Limit vs. Temperature
+Figure 6. Short to Groung Current Limit vs. Temperature
+6
+Submit Documentation Feedback
+Copyright © 2015, Texas Instruments Incorporated
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 7 / 31
+────────────────────────────────────────────────────────────────────────
+Freq (kHz)
+CMRR (dB)
+0.01
+0.1
+0.5
+2 3 5 10 20
+100
+1000
+10000
+0
+20
+40
+60
+80
+100
+120
+140
+VCC=5V
+VCC=12V
+Freq (kHz)
+PSRR (dB)
+0.01
+0.1
+0.5
+2 3 5 10 20
+100
+1000
+10000
+0
+20
+40
+60
+80
+100
+PSRR- Vcc=12V
+PSRR+ Vcc=12V
+PSRR+ Vcc=5V
+PSRR- Vcc=5V
+Freq (kHz)
+Gain (dB) & Phase (q)
+1
+2 3 45 7 10
+2030 50 100 200
+5001000
+10000
+-60
+-30
+0
+30
+60
+90
+120
+150
+Gain
+Phase
+Freq (kHz)
+Output Impedance (:)
+0.01
+0.1
+1
+10
+100
+1000
+10000
+0.05
+0.1
+1
+10
+100
+Vcc = 5V
+Vcc = 12V
+Forward Voltage
+Forward Current (mA)
+200
+300
+400
+500
+600
+700 800
+1000
+0
+50
+100
+150
+200
+250
+300
+350
+400
+Vcc_o(x) Diode (high side)
+GND Diode (low side)
+Freq (kHz)
+Gain (dB) & Phase (q)
+1
+2 3 45 7 10
+2030 50 100 200
+5001000
+10000
+-60
+-30
+0
+30
+60
+90
+120
+Gain
+Phase
+ALM2402-Q1
+www.ti.com
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+Typical Characteristics (continued)
+TA= 25°C and VCC = VCC_O(X)
+VCC = 5.0 V
+Figure 7. PMOS (High Side) and NMOS (Low Side) Output
+Figure 8. Gain and Phase (CL = 200 nF and RL = 50 Ω)
+Diode Forward Voltage
+VCC = 5.0 V
+Figure 9. Gain and Phase (CL = 50 pF and RL = 10 kΩ)
+Figure 10. Output Impedance vs. Frequency
+Figure 11. CMRR vs. Frequency
+Figure 12. PSRR vs. Frequency
+Copyright © 2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+7
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 8 / 31
+────────────────────────────────────────────────────────────────────────
+Frequency (Hz)
+THD+N (dB)
+20 30
+50 70100
+200
+500
+1000 2000
+5000 1000020000
+-100
+-80
+-60
+-40
+-20
+RL=100:
+RL=10k:
+Frequency (Hz)
+THD+N (dB)
+20 30
+50 70100
+200
+500
+1000 2000
+5000 1000020000
+-90
+-85
+-80
+-75
+-70
+-65
+RL=100:
+RL=10k:
+t(Ps)
+Volts (V)
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+100
+0.9
+1.2
+1.5
+1.8
+2.1
+2.4
+2.7
+3
+3.3
+3.6
+3.9
+4.2
+CL=0pF, RL=10k:
+CL=0pF, RL=50:
+CL=200nF, RL=10k:
+CL=200nF, RL=50:
+TA(qC)
+SR (V/Ps)
+-60
+-40
+-20
+0
+20
+40
+60
+80
+100
+120
+140
+0.12
+0.14
+0.16
+0.18
+0.2
+0.22
+0.24
+0.26
+0.28
+0.3
+VCC=5V Positive Transition
+VCC=12V Positive Transition
+VCC=5V Negative Transition
+VCC=12V Negative Transition
+TA(qC)
+ICC (mA)
+-60
+-40
+-20
+0
+20
+40
+60
+80
+100
+120
+140
+3.9
+4.2
+4.5
+4.8
+5.1
+5.4
+5.7
+6
+6.3
+6.6
+6.9
+7.2
+VCC=5V
+VCC=12V
+TA(qC)
+IIB (nA)
+-60
+-40
+-20
+0
+20
+40
+60
+80
+100
+120
+140
+160
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+4.5
+5
+VCC=5V
+VCC=12V
+ALM2402-Q1
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+www.ti.com
+Typical Characteristics (continued)
+TA= 25°C and VCC = VCC_O(X)
+Figure 13. ICC vs. Temperature
+Figure 14. Input Bias Current vs. Temperature
+VCC = 5.0 V
+VCC =5.0 V
+Figure 15. Slew Rate
+Figure 16. Slew Rate vs. Temperature
+Av = 2V/V
+Vo = 8Vpp
+Av = 1V/V
+Vo = 1Vpp
+Figure 17. THD + Noise (Vcc = 12 V)
+Figure 18. THD + Noise (Vcc = 5 V)
+8
+Submit Documentation Feedback
+Copyright © 2015, Texas Instruments Incorporated
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 9 / 31
+────────────────────────────────────────────────────────────────────────
+Frequency (Hz)
+Voltage noise (nV/Hz)
+10
+100
+1000
+10000
+100000
+20
+100
+1000
+RF Input Peak Voltage (dBVp)
+EMIRRV_PEAK(dB)
+-30
+-25
+-20
+-15
+-10
+-5
+0
+5
+20
+25
+30
+35
+40
+45
+50
+55
+60
+65
+70
+75
+80
+10MHz
+33MHz
+100MHz
+300MHz
+600MHz
+1GHz
+TA(qC)
+VIOS (mV)
+-60
+-40
+-20
+0
+20
+40
+60
+80
+100
+120
+140
+-1.4
+-1.2
+-1
+-0.8
+-0.6
+-0.4
+-0.2
+0
+0.2
+0.4
+VCC=5V
+VCC=12V
+Offset Voltage (mV)
+Percent of Amplifiers (%)
+0
+5%
+10%
+15%
+20%
+-3.2
+-2.8
+-2.4
+-2
+-1.6
+-1.2
+-0.8
+-0.4
+0
+0.4
+0.8
+1.2
+1.6
+2
+2.4
+2.8
+3.2
+3.6
+ALM2402-Q1
+www.ti.com
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+Typical Characteristics (continued)
+TA= 25°C and VCC = VCC_O(X)
+Vcc =12 V and 5 V
+Vcm = Vcc/2
+Vcm = Vcc/2
+Figure 20. Offset Voltage Production Distribution
+Figure 19. Input Offset vs. Temperature
+Figure 21. . Input Voltage Noise Spectral Density vs.
+Figure 22. EMIRR vs. Power
+Frequency
+Copyright © 2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+9
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 10 / 31
+────────────────────────────────────────────────────────────────────────
+Vcc
+EN
+Internal
+Thermal Detection
+Circuitry
+OTA
+EMI
+Rejection
+PMOS Current
+Limiting and
+Biasing
+NMOS Current
+Limiting and
+Biasing
++
+-
+EN
+Vcc
+EN
+OTA
+PMOS Current
+Limiting and
+Biasing
+NMOS Current
+Limiting and
+Biasing
++
+-
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+Vcc
+12
+EMI
+Rejection
+ALM2402-Q1
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+www.ti.com
+8
+Detailed Description
+8.1
+Overview
+ALM2402Q1 is a dual power opamp with features and performance that makes it preferable in many
+applications. Its high voltage tolerance, low offset and drift are ideal in sensing applications. While its current
+limiting and over temperature detection allows it to be very robust in applications that drive analog signal off of
+the PCB and on to wires that are susceptible to faults from the outside world.
+This device is optimal for applications that require high amounts of power. Its rail to rail output, enabled by the
+low Rdson PMOS and NMOS transistors, keeps the power dissipation low. The small 3.00 mm x 3.00 mm DRR
+package with its thermal pad and low θJA also allows users to deliver high currents to loads.
+Other key features this device offers is its separate output driver supply (for external high-side current limit
+adjustability), wide stability range (with good phase margin up to 1 µF) and shutdown capability (for applications
+that need low Icc).
+8.2
+Functional Block Diagram
+Figure 23. Functional Block Diagram
+10
+Submit Documentation Feedback
+Copyright © 2015, Texas Instruments Incorporated
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 11 / 31
+────────────────────────────────────────────────────────────────────────
+ALM2402-Q1
+www.ti.com
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+8.3
+Feature Description
+8.3.1
+OTF/SH_DN
+The OTF/SH_DN pin is a bidirectional pin that will allow the user to put both opamps in to a low Iq state (< 500
+µA) when forced low or below VIL_OTF. Due to this pin being bidirectional and it's Enable/Disable functionality, it
+must be pulled high or above VIH_OTF through a pull-up resistor in order for the opamp to function properly or
+within the specifications, see Electrical Characteristics.
+When the junction temperature of ALM2402Q1 crosses the limits specified in Electrical Characteristics, the
+OTF/SH_DN pin will go low to alert the application that the both output have turned off due to an over
+temperature event. Also, the OTF pin will go low if VCC_O1 and VCC_O2 are 0 V.
+When OTF/SH_DN is pulled low and the opamps are shutdown, the opamps will be in open-loop even when
+there is negative feedback applied. This is due to the loss of open loop gain in the opamps when the biasing is
+disabled. Please see Open Loop and Closed Loop for more detail on open and close loop considerations.
+8.3.2
+Supply Voltage
+ALM2402Q1 uses three power rails. VCC powers the opamp signal path (OTA) and protection circuitry and
+VCC_O1 and VCC_O2 power the output high side driver. Each supply can operate at separate voltages levels
+(higher or lower). The min and max values listed in Electrical Characteristics table are voltages that will enable
+ALM2402Q1 to properly function at or near the specification listed in Electrical Characteristics table. The
+specifications listed in this table are verified by design for 5 V and 12 V.
+8.3.3
+Current Limit and Short Circuit Protection
+Each opamp in ALM2402Q1 has seperate internal current limiting for the PMOS (high-side) and NMOS (low-
+side) output transistors. If the output is shorted to ground then the PMOS (high-side) current limit is activated and
+will limit the current to 750 mA nominally (see Electrical Characteristics) or to values shown in Figure 6 over
+temperature. If the output is shorted to supply then the NMOS (low-side) current limit is activated and will limit the
+current to 550 mA nominally (see Electrical Characteristics) or to values shown in Figure 5 over temperature. The
+current limit value decreases with increasing temperature due to the temperature coefficient of a base-emitter
+junction voltage. Similarly, the current limit value increases at low temperatures.
+A programmable current limit for short to ground scenarios can be achieved by adding resistance between
+VCC_O(X) and the supply (or battery).
+When current is limited, the safe limits for the die temperature (see Recommended Operating Conditions and
+Absolute Maximum Ratings) must be taken in to account. With too much power dissipation, the die temperature
+can surpass the thermal shutdown limits and the opamp will shutdown and reactivate once the die has fallen
+below thermal limits. However, it is not recommended to continuously operate the device in thermal hysteresis for
+long periods of time (see Absolute Maximum Ratings).
+8.3.4
+Input Common Mode Range and Overvoltage Clamps
+ALM2402Q1's input common mode range is between 0.2 V and VCC-1.2 V (see Electrical Characteristics).
+Staying withing this range will allow the opamps to perform and operate within the specification listed in Electrical
+Characteristics. Operating beyond these limits can cause distortion and non-linearities.
+In order for the inputs to tolerate high voltages in the event of a short to supply, zener diodes have been added
+(see Figure 24). The current into this zener is limited via internal resistors. When operating near or above the
+zener voltage (7 V), the additional voltage gain error caused by the mismatch in internal resistors must be taken
+in to account. In unity gain, the opamp will force both gate voltages to be equal to the zener voltage on the
+positive input pin and ideally both zeners will sink the same amount of current and force the output voltage to be
+equal to Vin. In reality, RN and RP and VZ between both zener diodes do not perfectly match and have some %
+difference between their values. This leads to the output being Vo = Vin × (ΔR + ΔVZ) .
+Copyright © 2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+11
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 12 / 31
+────────────────────────────────────────────────────────────────────────
++
++
+–
+RP
+RN
+VIN
+½
+ALM2402
+ALM2402-Q1
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+www.ti.com
+Feature Description (continued)
+Figure 24. Schematic Including Input Clamps
+8.3.5
+Thermal Shutdown
+If the die temperature exceeds safe limits, all outputs will be disabled, and the OTF/SH_DN pin will be driven low.
+Once the die temperature has fallen to a safe level, operation will automatically resume. The OTF/SH_DN pin will
+be released after operation has resumed.
+When operating the die at a high temperature, the opamp will toggle on and off between the thermal shutdown
+hysteresis. In this event the safe limits for the die temperature (see Recommended Operating Conditions and
+Thermal Information) must be taken in to account. It is not recommended to continuously operate the device in
+thermal hysteresis for long periods of time (see Recommended Operating Conditions).
+8.3.6
+Output Stage
+Designed as a high voltage, high current operational amplifier, the ALM2402Q1 device delivers a robust output
+drive capability. A class AB output stage with common-source transistors is used to achieve full rail-to-rail output
+swing capability. For resistive loads up to 10 kΩ, the output swings typically to within 5 mV of either supply rail
+regardless of the power-supply voltage applied. Different load conditions change the ability of the amplifier to
+swing close to the rails; refer to the graphs in Typical Characteristics section.
+Each output transistor has internal reverse diodes between drain and source that will conduct if the output is
+forced higher than the supply or lower than ground (reverse current flow). Users may choose to use these as fly-
+back protection in inductive load driving applications. Figure 7 show I-V characteristics of both diodes. It is
+recommended to limit the use of these diodes to pulsed operation to minimize junction temperature overheating
+due to (VF × IF). Internal current limiting circuitry will not operate when current is flown in the reverse direction
+and the reverse diodes are active.
+12
+Submit Documentation Feedback
+Copyright © 2015, Texas Instruments Incorporated
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 13 / 31
+────────────────────────────────────────────────────────────────────────
+ALM2402-Q1
+www.ti.com
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+Feature Description (continued)
+8.3.7
+EMI Susceptibility and Input Filtering
+Op-amps vary with regard to the susceptibility of the device to electromagnetic interference (EMI). If conducted
+EMI enters the op-amp, the dc offset observed at the amplifier output may shift from the nominal value while EMI
+is present. This shift is a result of signal rectification associated with the internal semiconductor junctions. While
+all op-amp pin functions can be affected by EMI, the signal input pins are likely to be the most susceptible. The
+ALM2402Q1 device incorporates an internal input low-pass filter that reduces the amplifiers response to EMI.
+Both common-mode and differential mode filtering are provided by this filter.
+Texas Instruments has developed the ability to accurately measure and quantify the immunity of an operational
+amplifier over a broad frequency spectrum extending from 10 MHz to 990 MHz. The EMI rejection ratio (EMIRR)
+metric allows op-amps to be directly compared by the EMI immunity. Figure 22 shows the results of this testing
+on the ALM2402Q1 device. Detailed information can also be found in the application report, EMI Rejection Ratio
+of Operational Amplifiers (SBOA128), available for download from www.ti.com.
+8.4
+Device Functional Modes
+8.4.1
+Open Loop and Closed Loop
+Due to its very high open loop DC gain, the ALM2402Q1 will function as a comparator in open loop for most
+applications. As noted in Electrical Characteristics table, the majority of electrical characteristics are verified in
+negative feedback, closed loop configurations. Certain DC electrical characteristics, like offset, may have a
+higher drift across temperature and lifetime when continuously operated in open loop over the lifetime of the
+device.
+8.4.2
+Shutdown
+When the OTF/SH_DN pin is left floating or is grounded, the op amp will shutdown to a low Iq state and will not
+operate. The op amp outputs will go to a high impedance state. See the OTF/SH_DN section for more detailed
+information on OTF/SH_DN pin.
+Table 1. Shutdown Truth Table
+Logic State
+Opamp State
+High ( > VIH_OTF see Recommended Operating Conditions)
+Operating
+OTF/SH_DN
+Low ( < VIL_OTF see Recommended Operating Conditions)
+Shutdown (low Iq state)
+9
+Applications and Implementation
+NOTE
+Information in the following applications sections is not part of the TI component
+specification, and TI does not warrant its accuracy or completeness. TI’s customers are
+responsible for determining suitability of components for their purposes. Customers should
+validate and test their design implementation to confirm system functionality.
+9.1
+Application Information
+ALM2402Q1 is a dual power op amp with performance and protection features that are optimal for many
+applications. As it is an op amp, there are many general design consideration that must taken into account.
+Below will describe what to consider for most closed loop applications and gives a specific example of
+ALM2402Q1 being used in a motor drive application.
+9.1.1
+Capacitive Load and Stability
+The ALM2402Q1 device is designed to be used in applications where driving a capacitive load is required. As
+with all op-amps, specific instances can occur where the ALM2402Q1 device can become unstable. The
+particular op-amp circuit configuration, layout, gain, and output loading are some of the factors to consider when
+establishing whether or not an amplifier is stable in operation. An op-amp in the unity-gain (1 V/V) buffer
+configuration that drives a capacitive load exhibits a greater tendency to be unstable than an amplifier operated
+Copyright © 2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+13
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 14 / 31
+────────────────────────────────────────────────────────────────────────
+t (Ps)
+Vout (V)
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+2.2
+2.4
+2.6
+2.8
+3
+3.2
+3.4
+3.6
+3.8
+t (s)
+Vout (V)
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+2.2
+2.4
+2.6
+2.8
+3
+3.2
+3.4
+3.6
+3.8
++
++
+–
+VIN
+RS
+RL
+CL
+VOUT
+V+
+ALM2402-Q1
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+www.ti.com
+Application Information (continued)
+at a higher noise gain. The capacitive load, in conjunction with the op-amp output resistance, creates a pole
+within the feedback loop that degrades the phase margin. The degradation of the phase margin increases as the
+capacitive loading increases. When operating in the unity-gain configuration, the ALM2402Q1 device remains
+stable with a pure capacitive load up to approximately 3 µF. The equivalent series resistance (ESR) of some very
+large capacitors (CL greater than 1 μF) is sufficient to alter the phase characteristics in the feedback loop such
+that the amplifier remains stable. Increasing the amplifier closed-loop gain allows the amplifier to drive
+increasingly larger capacitance. This increased capability is evident when observing the overshoot response of
+the amplifier at higher voltage gains.
+One technique for increasing the capacitive load drive capability of the amplifier operating in a unity-gain
+configuration is to insert a small resistor, typically 100 mΩ to 10 Ω, in series with the output (RS), as shown in
+Figure 25. This resistor significantly reduces the overshoot and ringing associated with large capacitive loads.
+Figure 25. Capacitive Load Drive
+Below are application curves displaying the step response of the above configuration with CL = 2.2 µF, RL = 10
+MΩ and RL = 100 Ω. Displaying the ALM2402Q1's good stability performance with big capacitive loads.
+Figure 26. Output Pulse Response (CL = 2.2 µF and RL =
+Figure 27. Output Pulse Response (CL = 2.2 µF and RL =
+10 MΩ)
+100 Ω)
+14
+Submit Documentation Feedback
+Copyright © 2015, Texas Instruments Incorporated
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 15 / 31
+────────────────────────────────────────────────────────────────────────
+Rotor
+Excitation Coil
+SINE
+Sensing
+Coil
+COSINE
+Sensing
+Coil
+Resolver to Digital
+Converter
+excite +
+excite -
+SIN +
+SIN -
+COS +
+COS -
++
++
+ALM2402Q1
+Vbias
+ADC
+ADC
+V+
+V-
+V+
+V-
+Resolver
+DAC
+R1
+R2
+R4
+R3
+CBL
+CBL
+ALM2402-Q1
+www.ti.com
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+9.2
+Typical Application
+Figure 28. ALM2402Q1 in Resolver Application
+High power AC and BLDC motor drive applications need angular and position feedback in order to efficiently and
+accurately drive the motor. Position feedback can be achieved by using optical encoders, hall sensors or
+resolvers. Resolvers are the go to choice when environmental or longevity requirements are challenging and
+extensive.
+A resolver acts like a transformer with one primary coil and two secondary coils. The primary coil, or excitation
+coil, is located on the rotor of the resolver. As the rotor of the resolver spins, the excitation coil induces a current
+into the sine and cosine sensing coils. These coils are oriented 90 degrees from one another and produce a
+vector position read by the resolver to digital converter chip.
+Resolver excitation coils can have a very low DC resistance (< 100 Ω), causing need for a sink and a source of
+up to 200 mA from the excitation driver. The ALM2402Q1 can source and sink this current while providing
+current limiting and thermal shutdown protection. Incorporating these protections in a resolver design can
+increase the life of the end product.
+The fundamental design steps and ALM2402Q1 benefits shown in this application example can be applied to
+other inductive load applications like DC and servo motors. For more information on other applications that
+ALM2402Q1 offers a solution for, see (SLVA696), which is available for download from www.ti.com.
+Copyright © 2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+15
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 16 / 31
+────────────────────────────────────────────────────────────────────────
+ALM2402-Q1
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+www.ti.com
+Typical Application (continued)
+9.2.1
+Design Requirements
+For this design example, use the parameters listed in Table 2 as the input parameters.
+Table 2. Design Parameters
+DESIGN PARAMETER
+EXAMPLE VALUE
+Ambient Temperature Range
+–40°C to 125°C
+Available Supply Voltages
+12 V, 5 V, 3.3 V
+EMC Capacitance (CL)
+100 nF
+Excitation Input Voltage Range
+2 Vrms - 7 Vrms
+Excitation Frequency
+10 kHz
+9.2.2
+Detailed Design Procedure
+When using ALM2402Q1 in a resolver application, determine:
+•
+Resolver Excitation Input Impedance or Resistance and Inductance: ZO= 50 + j188; (R = 50 Ω and L = 3 mH)
+•
+Resolver Transformation Ration (VEXC/VSINCOS): 0.5 V/V at 10 kHz
+•
+Package and θJA : DRR, 39.2°C/W
+•
+Opamp Maximum Junction Temperature: 150ºC
+•
+Opamp Bandwidth: 600 kHz
+9.2.2.1
+Resolver Excitation Input (Opamp Output)
+Like a transformer, a resolver needs an alternating current input to function properly. The resolver recieves
+alternating current from the primary coil (excitation input) and creates a multiple of it on the secondary sides
+(SIN, COS ports). When determining how to generate this alternating current, it is important to understand an
+opamp's ability or limitations. For the excitation input, the resolver input impedance, stability RMS voltage and
+desired frequency must be taken in to account.
+9.2.2.1.1
+Excitation Voltage
+For this example, the resolver impedance is specified between 2 Vrms and 7 Vrms up 20 kHz maximum
+frequency. Since the resolver attenuation is ~0.5 V/V and most data acquisition microelectronics run off of 5 V
+supply voltages, An excitation input of 6 Vpp (or 2.12 Vrms) will be chosen to give the output readout circuitry
+enough headroom to measure the secondary side outputs (~3 Vpp).
+The excitation coil can be driven by a single-ended op amp output with the other side of the coil grounded or
+differentially as shown in Figure 28. Differential drive offers higher peak to peak voltage (double) on to the
+excitation coil, while not using up as much output voltage headroom from the op amp. Leading to lower distortion
+on the output signal.
+Another consideration for excitation is op amp power dissipation. As described in Power Dissipation and Thermal
+Reliability, power dissipation from the op amp can be lowered by driving the output peak voltages close to the
+supply and ground voltages. With ALM2402Q1's very low VOH/VOL, this can be easily accomplished. See
+Figure 1 for VOH/VOL values with respect to output current and the Output Stage section for further description of
+the rail-rail output stage.
+9.2.2.1.2
+Excitation Frequency
+The excitation frequency is chosen based on the desired secondary side output signal resolution. As shown in
+Figure 34, the excitation signal is similar to a sampling pulse in ADCs, with the real information being in the
+envelope created by the rotor. With a GBW of 600 kHz, ALM2402Q1 has more than enough open loop gain at 10
+kHz to create negligible closed loop gain error.
+Along with GBW, ALM2402Q1 has optimal THD and SR performance (see Typical Characteristics) to achieve 6
+Vpp (or 3 Vpp from each op amp). The signal integrity can also be observed in the Typical Characteristics
+section.
+16
+Submit Documentation Feedback
+Copyright © 2015, Texas Instruments Incorporated
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 17 / 31
+────────────────────────────────────────────────────────────────────────
+Excitation Coil
+Model
++
++
+ALM2402Q1
+Vbias
+R1
+R2
+R3
+R4
+LEXC
+RL
+RCRS
+CCRS
+CEMC
+CEMC
+PP
+OUT
+EXC
+V
+I
+=R
+ALM2402-Q1
+www.ti.com
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+9.2.2.1.3
+Excitation Impedance
+Knowledge of the primary side impedance is very important when choosing an op amp for this application. As
+shown below in Figure 29, the excitation coil looks like an inductance in series with a resistance. Many time
+these values aren't given and must by calculated from the Cartesian or polar form, as it is given as a function of
+frequency or phase angle. This calculation is a trivial task.
+Once the coil resistance is determined, the maximum or peak-peak current needed from ALM2402Q1 can be
+determined by below:
+(1)
+In this example the peak-peak output current equates to ~120 mA. Each op amp will handle the peak current,
+with one sinking max and the other sourcing. Knowledge of the op amp current is very important when
+determining ALM2402Q1's power dissipation. Which is discussed in the Power Dissipation and Thermal
+Reliability section.
+Figure 29. Excitation Coil Implementation
+The primary side of a resolver is inductive, but that typically is not all the op amps driving the coils. As shown in
+Figure 29, many times designers will add a resistor in series with a capacitor to eliminate crossover distortion.
+Which happens due to the biasing of BJTs in the discrete implementation. With ALM2402Q1's rail-rail output, this
+is rarely needed. This can be seen in the waveforms shown in the Typical Characteristics section.
+It is also common practice to add EMC capacitors to the op amp outputs to help shield other devices on the PCB
+from the radiation created by the motor and resolver. When choosing CEMC, it is important to take the op amp's
+stability in to account. Since the ALM2402Q1 has a phase margin at and above 200 nF, no stability issues will be
+present for many typical CEMC values.
+Copyright © 2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+17
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 18 / 31
+────────────────────────────────────────────────────────────────────────
+D
+3 V
+60 mA
+P
+12 V
+5 mA
+12 V
+480 mW
+2
+2
+æ
+ö
+=
+´
++
+-
+´
+=
+ç
+÷
+è
+ø
+(
+)
+D
+CC
+CC
+CCO(X)
+OUT
+OUT
+P
+V
+I
+V
+V
+(RMS)
+I
+(RMS)
+=
+´
++
+-
+´
+(
+)
+D
+SS
+SSO
+L
+P
+P
+P
+P
+=
++
+-
+Input
+Supply
+Power
+Output
+Supply
+Power
+Load
+Power
+(
+)
+COS
+R
+PP
+V
+T
+V
+sin 2π
+cos(θ)
+ft
+=
+´
+´
+´
+(
+)
+SIN
+R
+PP
+V
+T
+V
+sin 2π
+sin(θ)
+ft
+=
+´
+´
+´
+(
+)
+EXC
+PP
+V
+V
+sin 2πft
+=
+´
+ALM2402-Q1
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+www.ti.com
+9.2.2.2
+Resolver Output
+As mentioned in the Excitation Frequency section, the excitation signal is similar to a sampling pulse in ADCs,
+with the real information being in the envelope created by the rotor. The equations below show the behavior of
+the sin and cos outputs. Whereby the excitation signal is attenuated and enveloped by the voltage created from
+the electromagnetic response of the rotating rotor. The resolver analog output to digital converter will filter out the
+excitation signal and process the sine and cosine angles produced by the rotor. Hence, signal integrity or the
+sine and cosine envelope is most important in resolver design and some trade-offs in signal integrity of the
+excitation signal can be made for cost or convenience. Many times users can use a square wave or sawtooth
+signal to accomplish excitation, as opposed to a sine wave.
+(2)
+(3)
+(4)
+9.2.2.3
+Power Dissipation and Thermal Reliability
+Very critical aspects to many industrial and automotive applications are operating temperature and power
+dissipation. Resolvers are typically chosen over other position feedback techniques due to their sustainability and
+accuracy in harsh conditions and very high temperatures.
+Along with the resolver, the electronics used in this system must be able to withstand these conditions.
+ALM2402Q1 is Q100 qualified and is able to operate at temperatures up to 125°C. To ensure that this device can
+withstand these temperatures, the internal power dissipation must be determined.
+The total power dissipation from ALM2402Q1 in this application is the sum of the power from the input supply
+and output supplies.
+(5)
+As shown in the equation below. PSS is a function of the internal supply and operating current of both op amps
+(ICC). With this op amp being CMOS, the ICC will not increase proportionally to the load like a BJT based design.
+It will stay close to the average value listed in Electrical Characteristics.
+For more information on this and calculating and measuring power dissipation with complex loads, please refer
+to (SBOA022), available for download from www.ti.com
+(6)
+(7)
+As shown inFigure 30, the load current will flow out of one op amp, through the load and in to the other. Each
+opamp shares the same load at 180° phase difference. The PMOS and NMOS output transistors are resistive
+when driven near supply and ground. Operating the output voltage at a high percentage of the supply voltage will
+greatly limit the chip power dissipation. The Typical Characteristics section gives more information on the
+expected voltage drop, that can be used to determine the limits of VOUT.
+18
+Submit Documentation Feedback
+Copyright © 2015, Texas Instruments Incorporated
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 19 / 31
+────────────────────────────────────────────────────────────────────────
+TA(qC)
+Allowable Power Dissipation (W)
+-40
+-20
+0
+20
+40
+60
+80
+100
+120
+140
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+4.5
+5
+(
+)
+J MAX
+°C
+T
+480 mW
+39.2
+125°C
+143.8 C
+W
+=
+´
++
+=
+°
+(
+)
+(
+)
+θ
+D
+JA
+A MAX
+J MAX
+T
+P
+T
+=
+´
++
+Vcc
+EN
+Internal
+Thermal Detection
+Circuitry
+OTA
+EMI
+Rejection
+PMOS Current
+Limiting and
+Biasing
+NMOS Current
+Limiting and
+Biasing
++
+-
+EN
+Vcc
+EN
+OTA
+PMOS Current
+Limiting and
+Biasing
+NMOS Current
+Limiting and
+Biasing
++
+-
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+Vcc
+12
+EMI
+Rejection
+Vcco1
+Vcco2
+IL*sin(ωt+180° )
+VO1
+VO2
+IL*sin(ωt)
+ALM2402-Q1
+www.ti.com
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+Figure 30. ALM2402Q1 Current Flow
+After the total power dissipation is determined, the junction temperature at the worst expected ampient
+temperature case must be determined. This can be determined by Equation 9 below or from Figure 31.
+(8)
+Where:
+TJ(MAX) is the target maximum junction temperature. →150°C
+TA is the operating ambient temperature. →125°C
+θJA is the package junction to ambient thermal resistance. →39.2°C/W
+(9)
+For this example, the maximum junction temperature equates to ~144ºC which is in the safe operating region,
+below the maximum junction temperature of 150°C. It is required to limit ALM2402Q1's die junction temperature
+to less than 150°C. Please see Absolute Maximum Ratings table for further detail.
+Maximum power dissipation is a function of TJ(max), θJA, and TA. The maximum allowable power dissipation at any
+allowable ambient temperature is PD = (TJ(max) – TA)/θJA. Operating at the absolute maximum TJ of 150°C can affect
+reliability.
+Figure 31. Maximum Power Dissipation vs Temperature (DRR)
+9.2.2.3.1
+Improving Package Thermal Performance
+θJA value depends on the PC board layout. An external heat sink and/or a cooling mechanism, like a cold air fan,
+can help reduce θJA and thus improve device thermal capabilities. Refer to TI’s design support web page at
+www.ti.com/thermal for a general guidance on improving device thermal performance.
+Copyright © 2015, Texas Instruments Incorporated
+Submit Documentation Feedback
+19
+Product Folder Links: ALM2402-Q1
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 20 / 31
+────────────────────────────────────────────────────────────────────────
+ALM2402-Q1
+SLOS912D –FEBRUARY 2015–REVISED JULY 2015
+www.ti.com
+9.2.3
+Application Curves
+Below is test data with ALM2402Q1 exciting TE Connectivity (V23401-D1001-B102) Hollow Shaft Resolver.
+Table 3. Waveform Legend
+Waveform Color
+Description
+Green
+SINE output
+Blue
+COSINE output
+Red
+Excitation positive terminal inputs (referenced to ground)
+Purple
+Excitation negative terminal inputs (referenced to ground)
+The peak-peak excitation voltage is the difference between the
+The peak-peak excitation voltage is the difference between the
+green and blue voltages
+green and blue voltages
+Figure 33. Resolver Excitation VEXC ≈6 Vpp at 10 kHz
+Figure 32. Resolver Excitation VEXC ≈6 Vpp 10 kHz
+(ZOOM)
+The peak-peak excitation voltage is the difference between the green and blue voltages
+Figure 34. Resolver Excitation VEXC ≈4 Vpp at 20 kHz
+10
+Power Supply Recommendations
+The ALM2402Q1 device is recommended for continuous operation from 4.5 V to 16 V (±2.25 V to ±8.0 V) for Vcc
+and 3.0 V to 16V (±1.5 V to ±8.0 V) for Vcc_o(x); many specifications apply from –40°C to 125°C. The Typical
+Characteristics presents parameters that can exhibit significant variance with regard to operating voltage or
+temperature.
+CAUTION
+Supply voltages larger than 18 V can permanently damage the device (see Absolute
+maximum Ratings).
+Place 0.1-μF bypass capacitors close to the power-supply pins to reduce errors coupling in from noisy or high
+impedance power supplies. For more detailed information on bypass capacitor placement, refer to the Layout
+Guidelines section.
+20
+Submit Documentation Feedback
+Copyright © 2015, Texas Instruments Incorporated
+Product Folder Links: ALM2402-Q1

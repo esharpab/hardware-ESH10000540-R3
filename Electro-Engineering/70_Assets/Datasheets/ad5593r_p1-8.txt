@@ -1,0 +1,950 @@
+========================================================================
+  FILE:      ad5593r.pdf
+  PATH:      70_Assets/Datasheets/ad5593r.pdf
+  PAGES:     47 total  |  extracted: 1–8
+  SIZE:      2.8 MB
+  EXTRACTED: 2026-04-30 09:38
+========================================================================
+
+USAGE NOTE: Feed to AI using the extraction prompt in
+  30_Workflows/component-data-workflow.md
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 1 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+8-Channel, 12-Bit, Configurable ADC/DAC with On-Chip Reference, I2C Interface
+Rev. H
+DOCUMENT FEEDBACK
+ 
+TECHNICAL SUPPORT
+Information furnished by Analog Devices is believed to be accurate and reliable "as is". However, no responsibility is assumed by Analog
+Devices for its use, nor for any infringements of patents or other rights of third parties that may result from its use. Specifications subject to
+change without notice. No license is granted by implication or otherwise under any patent or patent rights of Analog Devices. Trademarks and
+registered trademarks are the property of their respective owners.
+FEATURES
+►8-channel, configurable ADC/DAC/GPIO
+►Configurable as any combination of
+►8 12-bit DAC channels
+►8 12-bit ADC channels
+►8 general-purpose I/O pins
+►Integrated temperature sensor
+►16-lead TSSOP and LFCSP and 16-ball WLCSP packages
+►I2C interface
+APPLICATIONS
+►Control and monitoring
+►General-purpose analog and digital I/O
+GENERAL DESCRIPTION
+The AD5593R has eight input/output (I/O) pins, which can be inde-
+pendently configured as digital-to-analog converter (DAC) outputs,
+analog-to-digital converter (ADC) inputs, digital outputs, or digital
+inputs. When an I/O pin is configured as an analog output, it is
+driven by a 12-bit DAC. The output range of the DAC is 0 V to VREF
+or 0 V to 2 × VREF. When an I/O pin is configured as an analog
+input, it is connected to a 12-bit ADC via an analog multiplexer.
+The input range of the ADC is 0 V to VREF or 0 V to 2 × VREF.
+The I/O pins can also be configured to be general-purpose, digital
+input or output (GPIO) pins. The state of the GPIO pins can be set
+or read back by accessing the GPIO write data register and GPIO
+read configuration registers, respectively, via an I2C write or read
+operation.
+The AD5593R has an integrated 2.5 V, 20 ppm/°C reference that
+is turned off by default and an integrated temperature indicator that
+gives an indication of the die temperature. The temperature value is
+read back as part of an ADC read sequence.
+The AD5593R is available in 16-lead TSSOP and LFCSP, as well
+as a 16-ball WLCSP, and operates over a temperature range of
+−40°C to +105°C.
+Table 1. Related Products
+Product
+Description
+AD5592R
+AD5593R equivalent with SPI interface
+AD5592R-1
+AD5593R equivalent with SPI interface and VLOGIC pin
+FUNCTIONAL BLOCK DIAGRAM
+Figure 1.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 2 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+TABLE OF CONTENTS
+analog.com
+Rev. H | 2 of 47
+Features................................................................ 1
+Applications........................................................... 1
+General Description...............................................1
+Functional Block Diagram......................................1
+Specifications........................................................ 3
+Timing Characteristics........................................6
+Absolute Maximum Ratings...................................7
+Thermal Resistance........................................... 7
+Electrostatic Discharge (ESD) Ratings...............7
+ESD Caution.......................................................7
+Pin Configuration and Function Descriptions........ 8
+Typical Performance Characteristics.....................9
+Terminology......................................................... 14
+Theory of Operation.............................................17
+DAC Section.....................................................17
+ADC Section.....................................................18
+GPIO Section................................................... 19
+Internal Reference............................................19
+Reset Function................................................. 19
+Temperature Indicator...................................... 19
+Serial Interface.................................................... 20
+Write Operation................................................ 20
+Read Operation................................................21
+Pointer Byte......................................................22
+Control Registers..............................................22
+General-Purpose Control Register...................22
+Configuring the AD5593R................................ 22
+DAC Write Operation........................................24
+DAC Readback.................................................24
+ADC Operation ................................................25
+GPIO Operation................................................26
+Three-State Pins.............................................. 26
+85 kΩ Pull-Down Pins...................................... 26
+Power-Down/Reference Control.......................26
+Reset Function................................................. 26
+Applications Information...................................... 27
+Microprocessor Interfacing...............................27
+AD5593R to ADSP-BF537 Interface................ 27
+Layout Guidelines.............................................27
+Register Map....................................................... 28
+Register Summary: AD5593R Pointer Byte
+Map ............................................................... 28
+Register Summary (Bit-Wise): AD5593R
+Pointer Byte Map ...........................................28
+Register Summary: AD5593R Control
+Register Map..................................................28
+Register Details: AD5593R Pointer Byte Map..29
+Register Details: AD5593R Control Register
+Map................................................................ 31
+Register Details: AD5593R ADC and DAC
+Readback ...................................................... 44
+Outline Dimensions............................................. 46
+Ordering Guide.................................................47
+Evaluation Boards............................................ 47
+REVISION HISTORY
+8/2023—Rev. G to Rev. H
+Changes to Table 3..........................................................................................................................................6
+Change to Figure 36...................................................................................................................................... 20
+Changes to Figure 37 and Figure 38............................................................................................................. 21
+Changes to Figure 39.................................................................................................................................... 22
+Changes to Figure 41.................................................................................................................................... 24
+Changes to Figure 42.................................................................................................................................... 25
+Change to Reset Function Section................................................................................................................ 26
+Changes to Table 8........................................................................................................................................28
+Changes to Table 9........................................................................................................................................28
+1/2023—Rev. F to Rev. G
+Changes to Figure 42.................................................................................................................................... 25
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 3 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+SPECIFICATIONS
+analog.com
+Rev. H | 3 of 47
+VDD = 2.7 V to 5.5 V, VLOGIC = 2.7 V to 5.5 V, VREF = 2.5 V (internal), Temperature Range TA = TMIN to TMAX, unless otherwise noted. Typical
+specs are verified by characterization, not production tested.
+Table 2.
+Parameter
+Min
+Typ
+Max
+Unit
+Test Conditions/Comments
+TEMPERATURE RANGE (TA)
+Specified Performance
+−40
++105
+°C
+ADC PERFORMANCE
+fIN = 10 kHz sine wave
+Resolution
+12
+Bits
+Input Range1
+0
+VREF
+V
+ADC range select bit = 0
+0
+2 × VREF
+V
+ADC range select bit = 1
+Integral Nonlinearity (INL)
+−2
++2
+LSB
+Differential Nonlinearity (DNL)
+−1
++1
+LSB
+Offset Error
+±5
+mV
+Gain Error
+0.3
+% FSR
+Track Time (tTRACK)2
+500
+ns
+Conversion Time (tCONV)2
+2
+µs
+Signal to Noise Ratio (SNR)3
+69
+dB
+VDD = 2.7 V, input range = 0 V to VREF
+67
+dB
+VDD = 5.5 V, input range = 0 V to VREF
+61
+dB
+VDD = 5.5 V, input range = 0 V to 2 × VREF
+Signal-to-Noise + Distortion (SINAD) Ratio
+69
+dB
+VDD = 2.7 V, input range = 0 V to VREF
+67
+dB
+VDD = 3.3 V, input range = 0 V to VREF
+60
+dB
+VDD = 5.5 V, input range = 0 V to 2 × VREF
+Total Harmonic Distortion (THD)
+−91
+dB
+VDD = 2.7 V, input range = 0 V to VREF
+−89
+dB
+VDD = 3.3 V, input range = 0 V to VREF
+−72
+dB
+VDD = 5.5 V, input range = 0 V to 2 × VREF
+Spurious Free Dynamic Range (SFDR)
+91
+dB
+VDD = 2.7 V, input range = 0 V to VREF
+91
+dB
+VDD = 3.3 V, input range = 0 V to VREF
+72
+dB
+VDD = 5.5 V, input range = 0 V to 2 × VREF
+Aperture Delay2
+15
+ns
+VDD = 3 V
+12
+ns
+VDD = 5 V
+Aperture Jitter2
+50
+ps
+Channel-to-Channel Isolation
+−95
+dB
+fIN = 5 kHz
+Full Power Bandwidth
+8.2
+MHz
+At 3 dB
+1.6
+MHz
+At 0.1 dB
+DAC PERFORMANCE4
+Resolution
+12
+Bits
+Output Range
+0
+VREF
+V
+DAC range select bit = 0
+0
+2 × VREF
+V
+DAC range select bit = 1
+INL
+−1
++1
+LSB
+DNL
+−1
++1
+LSB
+Offset Error
+−3
++3
+mV
+Offset Error Drift2
+8
+µV/°C
+Gain Error
+±0.2
+% FSR
+Output range = 0 V to VREF
+±0.1
+% FSR
+Output range = 0 V to 2 × VREF
+Zero Code Error
+0.65
+2
+mV
+Total Unadjusted Error (TUE)
+±0.03
+±0.25
+% FSR
+Output range = 0 V to VREF
+±0.015
+±0.1
+% FSR
+Output range = 0 V to 2 × VREF
+Capacitive Load Stability
+2
+nF
+RLOAD = ∞
+10
+nF
+RLOAD = 1 kΩ
+Resistive Load
+1
+kΩ
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 4 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+SPECIFICATIONS
+analog.com
+Rev. H | 4 of 47
+Table 2. (Continued)
+Parameter
+Min
+Typ
+Max
+Unit
+Test Conditions/Comments
+Short-Circuit Current
+25
+mA
+DC Crosstalk2
+−4
++4
+µV
+Single channel, full-scale output change
+DC Output Impedance
+0.2
+Ω
+DC Power Supply Rejection Ratio (PSRR)2
+0.15
+mV/V
+DAC code = midscale, VDD = 3 V ± 10% or 5 V ± 10%
+Load Impedance at Rails5
+25
+Ω
+Load Regulation
+200
+µV/mA
+VDD = 5 V ± 10%, DAC code = midscale, −10 mA ≤ IOUT ≤ +10 mA
+200
+µV/mA
+VDD = 3 V ± 10%, DAC code = midscale, −10 mA ≤ IOUT ≤ +10 mA
+Power-Up Time
+7
+µs
+Exiting power-down mode, VDD = 5 V
+DAC AC SPECIFICATIONS
+Slew Rate
+1.25
+V/µs
+Settling Time
+6
+µs
+DAC Glitch Impulse
+2
+nV-sec
+DAC to DAC Crosstalk
+1
+nV-sec
+Digital Crosstalk
+0.1
+nV-sec
+Analog Crosstalk
+1
+nV-sec
+Digital Feedthrough
+0.1
+nV-sec
+Multiplying Bandwidth
+240
+kHz
+DAC code = full scale, output range = 0 V to 2 × VREF
+Output Voltage Noise Spectral Density
+200
+nV/√Hz
+DAC code = midscale, output range = 0 V to 2 × VREF, measured
+at 10 kHz
+SNR
+81
+dB
+SFDR
+77
+dB
+SINAD
+74
+dB
+Total Harmonic Distortion
+−76
+dB
+REFERENCE INPUT
+VREF Input Voltage
+1
+VDD
+V
+DC Leakage Current
+−1
++1
+µA
+No I/Ox pins configured as DACs
+VREF Input Impedance
+12
+kΩ
+DAC output range = 0 V to 2 × VREF
+24
+kΩ
+DAC output range = 0 V to VREF
+REFERENCE OUTPUT
+VREF Output Voltage
+2.495
+2.5
+2.505
+V
+VREF Temperature Coefficient
+20
+ppm/°C
+Capacitive Load Stability
+5
+μF
+RLOAD = 2 kΩ
+Output Impedance
+0.15
+Ω
+VDD = 2.7 V
+0.7
+Ω
+VDD = 5 V
+Output Voltage Noise
+10
+µV p-p
+0.1 Hz to 10 Hz
+Output Voltage Noise Density
+240
+nV/√Hz
+At ambient, f = 1 kHz, CL = 10 nF
+Line Regulation
+20
+µV/V
+At ambient, sweeping VDD from 2.7 V to 5.5 V
+10
+µV/V
+At ambient, sweeping VDD from 2.7 V to 3.3 V
+Load Regulation
+Sourcing
+210
+µV/mA
+At ambient, −5 mA ≤ load current ≤ +5 mA
+Sinking
+120
+µV/mA
+At ambient, −5 mA ≤ load current ≤ +5 mA
+Output Current Load Capability
+±5
+mA
+VDD ≥ 3 V
+GPIO OUTPUT
+ISOURCE and ISINK
+1.6
+mA
+Output Voltage
+High, VOH
+VDD − 0.2
+V
+ISOURCE = 1 mA
+Low, VOL
+0.4
+V
+ISINK = 1 mA
+GPIO INPUT
+Input Voltage
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 5 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+SPECIFICATIONS
+analog.com
+Rev. H | 5 of 47
+Table 2. (Continued)
+Parameter
+Min
+Typ
+Max
+Unit
+Test Conditions/Comments
+High, VIH
+VDD × 0.7
+V
+Low, VIL
+VDD × 0.3
+V
+Input Capacitance
+20
+pF
+Hysteresis
+0.2
+V
+Input Current
+±1
+µA
+LOGIC INPUTS
+Input Voltage
+High, VINH
+0.7 × VLOGIC
+V
+Low, VINL
+0.3 × VLOGIC
+V
+Input Current, IIN
+−1
++0.01
++1
+µA
+Input Capacitance, CIN
+10
+pF
+LOGIC OUTPUT (SDA)
+Output High Voltage, VOH
+VLOGIC − 0.2
+V
+ISOURCE = 200 µA; VLOGIC = 2.7 V to 5.5 V
+Output Low Voltage, VOL
+0.4
+V
+ISINK = 200 µA
+Floating-State Output Capacitance
+10
+pF
+TEMPERATURE SENSOR2
+Resolution
+12
+Bits
+Operating Range
+−40
++105
+°C
+Accuracy
+±3
+°C
+Track Time
+5
+µs
+ADC buffer enabled
+20
+µs
+ADC buffer disabled
+POWER REQUIREMENTS
+VDD
+2.7
+5.5
+V
+IDD
+Digital inputs = 0 V or VLOGIC
+Power-Down Mode
+3.5
+µA
+Normal Mode
+VDD = 5 V
+1.6
+mA
+I/O0 to I/O7 are DACs, internal reference, gain = 2
+1
+mA
+I/O0 to I/O7 are DACs, external reference, gain = 2
+2.4
+mA
+I/O0 to I/O7 are DACs and sampled by the ADC, internal
+reference, gain = 2
+1.1
+mA
+I/O0 to I/O7 are DACs and sampled by the ADC, external
+reference, gain = 2
+1
+mA
+I/O0 to I/O7 are ADCs, internal reference, gain = 2
+0.75
+mA
+I/O0 to I/O7 are ADCs, external reference, gain = 2
+0.5
+mA
+I/O0 to I/O7 are general-purpose outputs
+0.5
+mA
+I/O0 to I/O7 are general-purpose inputs
+VDD = 3 V
+1.1
+mA
+I/O0 to I/O7 are DACs, internal reference, gain = 1
+1
+mA
+I/O0 to I/O7 are DACs, external reference, gain = 1
+1.1
+mA
+I/O0 to I/O7 are DACs and sampled by the ADC, internal
+reference, gain = 1
+0.78
+mA
+I/O0 to I/O7 are DACs and sampled by the ADC, external
+reference, gain = 1
+0.75
+mA
+I/O0 to I/O7 are ADCs, internal reference, gain = 1
+0.5
+mA
+I/O0 to I/O7 are ADCs, external reference, gain = 1
+0.45
+mA
+I/O0 to I/O7 are general-purpose outputs
+0.45
+mA
+I/O0 to I/O7 are general-purpose inputs
+VLOGIC
+1.8
+VDD
+V
+ILOGIC
+3.5
+μA
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 6 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+SPECIFICATIONS
+analog.com
+Rev. H | 6 of 47
+1 When using the internal ADC buffer, there is a dead band of 0 V to 5 mV.
+2 Guaranteed by design and characterization; not production tested.
+3 All specifications expressed in decibels are referred to full-scale input, FSR, and tested with an input signal at 0.5 dB below full scale, unless otherwise specified.
+4 DC specifications tested with the outputs unloaded, unless otherwise noted. Linearity calculated using a reduced code range of 8 to 4085. An upper dead band of 10 mV
+exists when VREF = VDD.
+5 When drawing a load current at either rail, the output voltage headroom with respect to that rail is limited by the 25 Ω typical channel resistance of the output devices. For
+example, when sinking 1 mA, the minimum output voltage = 25 Ω × 1 mA = 25 mV (see Figure 26 and Figure 27).
+TIMING CHARACTERISTICS
+All input signals are specified with tR = tF = 1 ns/V (10% to 90% of VDD) and timed from a voltage level of (VIL + VIH)/2; VDD = 2.7 V to 5.5 V, 1.8
+V ≤ VLOGIC ≤ VDD; 2.5 V ≤ VREF ≤ VDD; all specifications TMIN to TMAX, unless otherwise noted.
+Table 3.
+Parameter1
+Min
+Typ
+Max
+Unit
+Conditions/Comments
+t1
+2.5
+µs
+SCL cycle time
+t2
+0.6
+µs
+tHIGH, SCL high time
+t3
+1.3
+µs
+tLOW, SCL low time
+t4
+0.6
+µs
+tHD,STA, start/repeated start condition hold time
+t5
+100
+ns
+tSU,DAT, data setup time
+t6
+2
+0.9
+µs
+tHD,DAT, data hold time
+t7
+0.6
+µs
+tSU,STA, setup time for repeated start
+t8
+0.6
+µs
+tSU,STO, stop condition setup time
+t9
+1.3
+µs
+tBUF, bus free time between a stop and a start condition
+t10
+300
+ns
+tR, rise time of SCL and SDA when receiving
+0
+ns
+tR, rise time of SCL and SDA when receiving (CMOS compatible)
+t11
+250
+ns
+tF, fall time of SDA when transmitting
+0
+ns
+tF, fall time of SDA when receiving (CMOS compatible)
+300
+ns
+tF, fall time of SCL and SDA when receiving
+20 + 0.1 × CB
+3
+ns
+tF, fall time of SCL and SDA when transmitting
+tRESETL_PW
+250
+ns
+RESET low pulse width
+CB
+3
+400
+pF
+Capacitive load for each bus line
+1 Guaranteed by design and characterization; not production tested.
+2 A master device must provide a hold time of at least 300 ns for the SDA signal (referred to the VIH min of the SCL signal) to bridge the undefined region of the falling edge
+of SCL.
+3 CB is the total capacitance of one bus line in pF. tR and tF are measured between 0.3 VLOGIC and 0.7 VLOGIC.
+Timing Diagram
+Figure 2. 2-Wire Serial Interface Timing Diagram
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 7 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+ABSOLUTE MAXIMUM RATINGS
+analog.com
+Rev. H | 7 of 47
+TA = 25°C, unless otherwise noted. Transient currents of up to 100
+mA do not cause SCR latch-up.
+Table 4.
+Parameter
+Rating
+VDD to GND
+−0.3 V to +7 V
+VLOGIC to GND
+−0.3 V to +7 V
+I/Ox to GND
+−0.3 V to VDD + 0.3 V
+Digital Inputs to GND
+−0.3 V to VLOGIC + 0.3 V
+Digital Outputs to GND
+−0.3 V to VLOGIC +0.3 V
+VREF to GND
+−0.3 V to VDD +0.3 V
+Operating Temperature Range
+−40°C to +105°C
+Storage Temperature Range
+−65°C to +150°C
+Junction Temperature (TJ max)
++150°C
+Lead Temperature
+JEDEC industry-standard
+Soldering
+J-STD-020
+Stresses at or above those listed under Absolute Maximum Ratings
+may cause permanent damage to the product. This is a stress
+rating only; functional operation of the product at these or any other
+conditions above those indicated in the operational section of this
+specification is not implied. Operation beyond the maximum operat-
+ing conditions for extended periods may affect product reliability.
+THERMAL RESISTANCE
+Thermal performance is directly linked to printed circuit board
+(PCB) design and operating environment. Careful attention to PCB
+thermal design is required.
+Thermal characteristics are specified for the worst-case conditions,
+that is, a device soldered in a circuit board for surface-mount pack-
+ages. Thermal resistance values specified in Table 5 are simulated
+based on JEDEC specifications using a 2S2P thermal test board
+(see JEDEC JESD51), except for θJC-TOP, which uses a JEDEC 1S
+test board.
+θJA is the junction to ambient thermal resistance, measured in a
+JEDEC natural convection environment.
+θJC is the junction to case thermal resistance, measured at the cen-
+ter of the package top surface, with an infinite heat sink attached to
+the package surface.
+θJB is the junction to board thermal resistance, measured at a point
+on the board 1mm from the package edge, along the package
+centerline, measured in a JEDEC θJB environment.
+ΨJB is the junction to board thermal characterization parameter,
+measured in a JEDEC natural convection environment.
+ΨJT is the junction to package top thermal characterization parame-
+ter, measured in a JEDEC natural convection environment.
+Do not use θJA, θJC, and θJB thermal resistances to perform direct
+calculation/measurement of the die temperature because doing so
+results in incorrect values. The thermal resistances assume 100%
+of the power that is dissipated along the specified path between the
+measurement points. The thermal resistances are directly depend-
+ent on the PCB design and environment.
+If direct measurement of the package is required, the ΨJT and ΨJB
+values must be used because they more accurately reflect the true
+thermal dissipation paths.
+θJC must only be used where an external heat sink is attached
+directly to the package.
+System level thermal simulation is highly recommended.
+For more details about the thermal resistances, refer to JE-
+DEC51-12: Guidelines for Reporting and Using Electronic Package
+Thermal Information.
+Table 5. Thermal Resistance
+Package Type
+θJA
+θJB
+θJC-TOP
+ΨJT
+ΨJB
+Unit
+CP-16-32
+92.4
+39.6
+48.2
+0.9
+37.4
+°C/W
+RU-16
+127
+60.2
+42.2
+2.6
+59.1
+°C/W
+CB-16-3
+103.2
+64
+0
+0
+78
+°C/W
+ELECTROSTATIC DISCHARGE (ESD) RATINGS
+The following ESD information is provided for handling of ESD-sen-
+sitive devices in an ESD protected area only.
+Human body model (HBM) per ANSI/ESDA/JEDEC JS-001.
+Field induced charged device model (FICDM) and charged device
+model (CDM) per ANSI/ESDA/JEDEC JS-002.
+ESD Ratings for AD5593R
+Table 6. AD5593R, 16-Ball WLCSP, 16-Ball LFCSP, and 16-Lead TSSOP
+ESD Model
+Withstand Voltage (V)
+Class
+HBM
+500
+1B
+FICDM
+1250
+C3
+ESD CAUTION
+ESD (electrostatic discharge) sensitive device. Charged devi-
+ces and circuit boards can discharge without detection. Although
+this product features patented or proprietary protection circuitry,
+damage may occur on devices subjected to high energy ESD.
+Therefore, proper ESD precautions should be taken to avoid
+performance degradation or loss of functionality.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 8 / 47
+────────────────────────────────────────────────────────────────────────
+Data Sheet
+AD5593R
+PIN CONFIGURATION AND FUNCTION DESCRIPTIONS
+analog.com
+Rev. H | 8 of 47
+Figure 3. 16-Lead TSSOP Pin Configuration
+Figure 4. 16-Lead LFCSP Pin Configuration
+Figure 5. 16-Ball WLCSP Pin Configuration
+Table 7. Pin Function Descriptions
+Pin No.
+Mnemonic
+Description
+TSSOP
+LFCSP
+WLCSP
+1
+15
+A3
+RESET
+Asynchronous Reset Pin. Tie this pin high for normal operation. When this pin is brought low, the AD5593R is reset to its
+default configuration.
+2
+16
+A4
+A0
+Address Input. Sets the LSB of the 7-bit slave address.
+3
+1
+B4
+VDD
+Power Supply Input. The AD5593R can operate from 2.7 V to 5.5 V. Decouple the supply with a 0.1 µF capacitor to GND.
+4 to 7,
+10 to 13
+2 to 5,
+8 to 11
+B3, C4, C3,
+C2, D1, D4,
+C1, B2
+I/O0 to I/O7
+Input/Output 0 Through Input/Output 7. These pins can be independently configured as DACs, ADCs, or general-purpose
+digital inputs or outputs. The function of each pin is determined by programming the appropriate bits in the configuration
+registers.
+8
+6
+D3
+VREF
+Reference Input/Output. When the internal reference is enabled, the 2.5 V reference voltage is available on the VREF pin.
+A 0.1 µF capacitor connected from the VREF pin to GND is recommended to achieve the specified performance from the
+AD5593R. When the internal reference is disabled, an external reference must be applied to this pin. The voltage range for
+the external reference is 1 V to VDD.
+9
+7
+D2
+VLOGIC
+Interface Power Supply. The voltage on this pin ranges from 1.8 V to 5.5 V.
+14
+12
+B1
+GND
+Ground Reference Point for All Circuitry.
+15
+13
+A1
+SDA
+Serial Data Input. This pin is used with the SCL line to clock data in to or out of the input shift register. SDA is a
+bidirectional, open-drain line that must be pulled to the VLOGIC supply with an external pull-up resistor.
+16
+14
+A2
+SCL
+Serial Clock Line. This pin is used with the SDA line to clock data in to or out of the 16-bit input register.

@@ -1,0 +1,1279 @@
+========================================================================
+  FILE:      tps25947.pdf
+  PATH:      70_Assets/Datasheets/tps25947.pdf
+  PAGES:     72 total  |  extracted: 1–11
+  SIZE:      6.1 MB
+  EXTRACTED: 2026-04-30 09:38
+========================================================================
+
+USAGE NOTE: Feed to AI using the extraction prompt in
+  30_Workflows/component-data-workflow.md
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 1 / 72
+────────────────────────────────────────────────────────────────────────
+TPS25947xx, 2.7-V–23-V, 5.5-A, 28-mΩ True Reverse Current Blocking eFuse with 
+Input Reverse Polarity Protection
+1 Features
+•
+Wide operating input voltage range: 2.7 V to 23 V
+–
+28-V absolute maximum
+–
+Withstands negative voltages up to –15 V
+•
+Integrated back-to-back FETs with low on-
+resistance: RON = 28.3 mΩ (typ.)
+•
+Ideal diode operation with true reverse current 
+blocking
+•
+Fast overvoltage protection
+–
+Overvoltage clamp (OVC) with pin-selectable 
+threshold (3.8 V, 5.7 V, 13.8 V) and 5-μs (typ.) 
+response time OR
+–
+Adjustable overvoltage lockout (OVLO) with 
+1.2-μs (typ.) response time
+•
+Overcurrent protection with load current monitor 
+output (ILM)
+–
+Active current limit OR circuit-breaker options
+–
+Adjustable threshold (ILIM) 0.5 A–6 A
+•
+±10% accuracy for ILIM > 1 A
+–
+Adjustable transient blanking timer (ITIMER) to 
+allow peak currents up to 2 × ILIM
+–
+Output load current monitor accuracy: ±6% 
+(IOUT ≥ 1 A)
+•
+Fast-trip response for short-circuit protection
+–
+500-ns (typ.) response time
+–
+Adjustable (2 × ILIM) and fixed thresholds
+•
+Active high enable input with adjustable 
+undervoltage lockout threshold (UVLO)
+•
+Adjustable output slew rate control (dVdt)
+•
+Overtemperature protection
+•
+Digital outputs
+–
+Priority power MUX control (AUXOFF) and fault 
+indication (FLT) or
+–
+Power Good indication (PG) with adjustable 
+threshold (PGTH)
+•
+UL 2367 recognition
+–
+File No. E339631
+–
+RILM ≥ 750 Ω
+•
+IEC 62368-1 CB certified
+•
+Small footprint: QFN 2 mm × 2 mm, 0.45-mm pitch
+2 Applications
+•
+Power MUX/ORing
+•
+Adapter input protection
+•
+USB PD protection – PC, notebook, monitors, 
+docks
+•
+Server, PC motherboard, and add-on cards
+•
+Enterprise storage – RAID/HBA/SAN/eSSD
+•
+Patient monitors
+3 Description
+The TPS25947xx family of eFuses is a highly 
+integrated circuit protection and power management 
+solution in a small package. The devices provide 
+multiple protection modes using very few external 
+components and are a robust defense against 
+overloads, short-circuits, voltage surges, reverse 
+polarity and excessive inrush current. With integrated 
+back-to-back FETs, reverse current flow from output 
+to input is blocked at all times, making the devices 
+well suited for power MUX/ORing applications as 
+well as systems which need load side energy hold 
+up storage in case input power supply fails. The 
+devices use linear ORing based scheme to ensure 
+almost zero DC reverse current and emulate ideal 
+diode behavior with minimum forward voltage drop 
+and power dissipation.
+Output slew rate and inrush current can be adjusted 
+using a single external capacitor. Loads are protected 
+from input overvoltage conditions either by clamping 
+the output to a safe fixed maximum voltage (pin 
+selectable), or by cutting off the output if input 
+exceeds an adjustable overvoltage threshold. The 
+devices respond to output overload by actively limiting 
+the current or breaking the circuit. The output current 
+limit threshold as well as the transient overcurrent 
+blanking timer are user adjustable. The current limit 
+control pin also functions as an analog load current 
+monitor.
+The devices are available in a 2-mm × 2-mm, 
+10-pin HotRod QFN package for improved thermal 
+performance and reduced system footprint.
+The devices are characterized for operation over a 
+junction temperature range of –40°C to +125°C.
+Device Information
+PART NUMBER
+PACKAGE(1)
+BODY SIZE (NOM)
+TPS25947xxRPW
+QFN (10)
+2 mm × 2 mm
+(1)
+For all available packages, see the orderable addendum at 
+the end of the data sheet.
+TPS259470x 
+IN
+OUT
+EN/UVLO
+ILM
+dVdt
+GND
+VIN = 2.7 to 23 V
+RILM
+VOUT
+COUT
+OVLO
+AUXOFF
+FLT
+ITIMER
+CDVDT
+CITIMER
+VLOGIC
+Simplified Schematic
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+An IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications, 
+intellectual property matters and other important disclaimers. PRODUCTION DATA.
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 2 / 72
+────────────────────────────────────────────────────────────────────────
+Table of Contents
+1 Features............................................................................1
+2 Applications.....................................................................1
+3 Description.......................................................................1
+4 Revision History.............................................................. 2
+5 Device Comparison Table...............................................3
+6 Pin Configuration and Functions...................................4
+7 Specifications.................................................................. 6
+7.1 Absolute Maximum Ratings........................................ 6
+7.2 ESD Ratings............................................................... 6
+7.3 Recommended Operating Conditions.........................7
+7.4 Thermal Information....................................................7
+7.5 Electrical Characteristics.............................................8
+7.6 Timing Requirements................................................10
+7.7 Switching Characteristics..........................................11
+7.8 Typical Characteristics..............................................12
+8 Detailed Description......................................................21
+8.1 Overview...................................................................21
+8.2 Functional Block Diagram.........................................22
+8.3 Feature Description...................................................25
+8.4 Device Functional Modes..........................................39
+9 Application and Implementation..................................40
+9.1 Application Information............................................. 40
+9.2 Single Device, Self-Controlled.................................. 40
+9.3 Typical Application.................................................... 41
+9.4 Active ORing.............................................................44
+9.5 Priority Power MUXing..............................................46
+9.6 USB PD Port Protection............................................53
+9.7 Parallel Operation..................................................... 55
+10 Power Supply Recommendations..............................58
+10.1 Transient Protection................................................58
+10.2 Output Short-Circuit Measurements....................... 59
+11 Layout...........................................................................60
+11.1 Layout Guidelines................................................... 60
+11.2 Layout Example...................................................... 61
+12 Device and Documentation Support..........................63
+12.1 Documentation Support.......................................... 63
+12.2 Receiving Notification of Documentation Updates..63
+12.3 Support Resources................................................. 63
+12.4 Trademarks.............................................................63
+12.5 Electrostatic Discharge Caution..............................63
+12.6 Glossary..................................................................63
+13 Mechanical, Packaging, and Orderable 
+Information.................................................................... 64
+4 Revision History
+NOTE: Page numbers for previous revisions may differ from page numbers in the current version.
+Changes from Revision A (March 2021) to Revision B (March 2022)
+Page
+•
+Updated the UIL/IEC certification status.............................................................................................................1
+•
+Corrected the ESD Ratings to show CDM testing was per JS-002.................................................................... 6
+•
+Updated image formatting................................................................................................................................ 12
+•
+Updated Table 8-5 ........................................................................................................................................... 37
+Changes from Revision * (October 2020) to Revision A (March 2021)
+Page
+•
+Changed status from "Advance Information" to "Production Data".....................................................................1
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+2
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 3 / 72
+────────────────────────────────────────────────────────────────────────
+5 Device Comparison Table
+Part Number
+Overvoltage 
+Response
+Overcurrent 
+Response
+AUXOFF or PG
+FLT or PGTH
+Response to Fault
+TPS259470ARPW
+Adjustable OVLO
+Active Current Limit
+AUXOFF
+FLT
+Auto-Retry
+TPS259470LRPW
+Latch-Off
+TPS259472ARPW
+Pin Selectable OVC 
+(3.8 V/5.7 V/13.8 V)
+PG
+PGTH
+Auto-Retry
+TPS259472LRPW
+Latch-Off
+TPS259474ARPW
+Adjustable OVLO
+Circuit Breaker
+Auto-Retry
+TPS259474LRPW
+Latch-Off
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+3
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 4 / 72
+────────────────────────────────────────────────────────────────────────
+6 Pin Configuration and Functions
+IN
+OUT
+EN/UVLO
+OVLO/
+OVCSEL
+PG/
+AUXOFF
+PGTH/
+FLT
+ITIMER
+ILM
+GND
+DVDT
+1
+2
+3
+4
+10
+9
+8
+7
+5
+6
+Figure 6-1. TPS25947xx RPW Package 10-Pin QFN Top View
+Table 6-1. Pin Functions 
+PIN
+TYPE
+DESCRIPTION
+NAME
+NO.
+EN/UVLO
+1
+Analog 
+Input
+Active High Enable for the device. A Resistor Divider on this pin from input supply to GND 
+can be used to adjust the Undervoltage Lockout threshold. Do not leave floating. Refer to 
+Section 8.3.2 for details.
+OVLO
+2
+Analog 
+Input
+TPS259470x, TPS259474x: A Resistor Divider on this pin from supply to GND can be 
+used to adjust the Overvoltage Lockout threshold. This pin can also be used as an Active 
+Low Enable for the device. Do not leave floating. Refer to Section 8.3.3 for details.
+OVCSEL
+Analog 
+Input
+TPS259472x: Overvoltage Clamp Threshold Select Pin. Refer to Section 8.3.4 for details.
+PG
+3
+Digital 
+Output
+TPS259472x, TPS259474x: Power Good indication. This pin is an Open Drain signal 
+which is asserted High when the internal powerpath is fully turned ON and PGTH input 
+exceeds a certain threshold. Refer to Section 8.3.11 for more details.
+AUXOFF
+Digital 
+Output
+TPS259470x: Auxiliary channel control signal. This pin is an Open Drain signal which 
+is asserted High when the input supply is valid and channel has completed inrush 
+sequence. This can be used to enable/disable the auxiliary supply eFuse to facilitate 
+smooth switchover in a Priority power MUXing configuration. Refer to Section 8.3.10 for 
+more details.
+FLT
+4
+Digital 
+Output
+TPS259470x: Active low Fault event indicator. This pin is an Open Drain signal which will 
+be pulled low when a fault is detected. Refer to Section 8.3.9 for more details.
+PGTH
+Analog 
+Input
+TPS259472x, TPS259474x: Power Good Threshold. Refer to Section 8.3.11 for more 
+details.
+IN
+5
+Power
+Power input
+OUT
+6
+Power
+Power output
+DVDT
+7
+Analog 
+Output
+A capacitor from this pin to GND sets the output turn on slew rate. Leave this pin floating 
+for the fastest turn on slew rate. Refer to Section 8.3.5.1 for details.
+GND
+8
+Ground
+This pin is the ground reference for all internal circuits and must be connected to system 
+GND.
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+4
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 5 / 72
+────────────────────────────────────────────────────────────────────────
+Table 6-1. Pin Functions (continued)
+PIN
+TYPE
+DESCRIPTION
+NAME
+NO.
+ILM
+9
+Analog 
+Output
+This pin is a dual function pin used to limit and monitor the output current. An external 
+resistor from this pin to GND sets the output current limit threshold during start-up as well 
+as steady state. The pin voltage can also be used as analog output load current monitor 
+signal. Do not leave floating. Refer to Section 8.3.5.2 or Section 8.3.5.3 for more details.
+ITIMER
+10
+Analog 
+Output
+A capacitor from this pin to GND sets the overcurrent blanking interval during which the 
+output current can temporarily exceed set current limit (but lower than fast-trip threshold) 
+before the device overcurrent response takes action. Leave this pin open for fastest 
+response to overcurrent events. Refer to Section 8.3.5.2 or Section 8.3.5.3 for more 
+details.
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+5
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 6 / 72
+────────────────────────────────────────────────────────────────────────
+7 Specifications
+7.1 Absolute Maximum Ratings
+over operating free-air temperature range (unless otherwise noted)(1)
+Parameter
+Pin
+MIN
+MAX
+UNIT
+VIN
+Maximum Input Voltage Range, –40℃ ≤ TJ ≤ 125℃
+IN
+max(–15, VOUT – 
+21)
+28
+V
+Maximum Input Voltage Range, –10℃ ≤ TJ ≤ 125℃
+max(–15, VOUT – 
+22)
+28
+V
+VOUT
+Maximum Output Voltage Range, –40℃ ≤ TJ ≤ 125℃
+OUT
+–0.3
+min (28, VIN + 21)
+Maximum Output Voltage Range, –10℃ ≤ TJ ≤ 125℃
+–0.3
+min (28, VIN + 22)
+VOUT,PLS
+Minimum Output Voltage Pulse (< 1 µs)
+OUT
+–0.8
+VEN/UVLO
+Maximum Enable Pin Voltage Range (2)
+EN/UVLO
+–0.3
+6.5
+V
+VOVLO
+Maximum OVLO Pin Voltage Range (TPS259470x/4x) 
+(2)
+OVLO
+–0.3
+6.5
+V
+VOVCSEL
+Maximum OVCSEL Pin Voltage Range (TPS259472x)
+OVCSEL
+Internally Limited
+V
+VdVdT
+Maximum dVdT Pin Voltage Range
+dVdt
+Internally Limited
+V
+VITIMER
+Maximum ITIMER Pin Voltage Range
+ITIMER
+Internally Limited
+V
+VPGTH
+Maximum PGTH Pin Voltage Range (TPS259472x/4x) 
+(2)
+PGTH
+–0.3
+6.5
+V
+VAUXOFF
+Maximum AUXOFF Pin Voltage Range (TPS259470x)
+AUXOFF
+–0.3
+6.5
+V
+VPG
+Maximum PG Pin Voltage Range (TPS259472x/4x)
+PG
+–0.3
+6.5
+V
+VFLTB
+Maximum FLT Pin Voltage Range (TPS259470x) (2)
+FLT
+–0.3
+6.5
+V
+VILM
+Maximum ILM Pin Voltage Range
+ILM
+Internally Limited
+V
+IMAX
+Maximum Continuous Switch Current
+IN to OUT
+Internally Limited
+A
+TJ
+Junction temperature
+Internally Limited
+°C
+TLEAD
+Maximum Lead Temperature
+300
+°C
+TSTG
+Storage temperature
+–65
+150
+°C
+(1)
+Operation outside the Absolute Maximum Ratings may cause permanent device damage. Absolute Maximum Ratings do not imply 
+functional operation of the device at these or any other conditions beyond those listed under Recommended Operating Conditions. 
+If used outside the Recommended Operating Conditions but within the Absolute Maximum Ratings, the device may not be fully 
+functional, and this may affect device reliability, functionality, performance, and shorten the device lifetime.
+(2)
+If this pin has a pull-up up to VIN, it is recommended to use a resistance of 350 kΩ or higher to limit the current under conditions where 
+IN can be exposed to reverse polarity.
+7.2 ESD Ratings
+VALUE
+UNIT
+V(ESD)
+Electrostatic discharge
+Human body model (HBM), per ANSI/ESDA/JEDEC 
+JS-001(1)
+±2000
+V
+Charged device model (CDM), ANSI/ESDA/JEDEC JS-002(2)
+±500
+(1)
+JEDEC document JEP155 states that 500-V HBM allows safe manufacturing with a standard ESD control process.
+(2)
+JEDEC document JEP157 states that 250-V CDM allows safe manufacturing with a standard ESD control process.
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+6
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 7 / 72
+────────────────────────────────────────────────────────────────────────
+7.3 Recommended Operating Conditions
+over operating free-air temperature range (unless otherwise noted)
+Parameter
+Pin
+MIN
+MAX
+UNIT
+VIN
+Input Voltage Range
+IN
+2.7
+23 (1)
+V
+VOUT
+Output Voltage Range
+OUT
+min (23, VIN + 20)
+V
+VEN/UVLO
+Enable Pin Voltage Range
+EN/UVLO
+5 (2)
+V
+VOVLO
+OVLO Pin Voltage Range (TPS259470x/4x)
+OVLO
+0.5
+1.5
+V
+VdVdT
+dVdt Capacitor Voltage Rating
+dVdt
+VIN + 5 V (3)
+V
+VFLTB
+FLT Pin Voltage Range (TPS259470x)
+FLT
+5 (4)
+V
+VPGTH
+PGTH Pin Voltage Range (TPS259472x/4x)
+PGTH
+5 (4)
+V
+VAUXOFF
+AUXOFF Pin Voltage Range (TPS259470x)
+AUXOFF
+5 (4)
+V
+VPG
+PG Pin Voltage Range (TPS259472x/4x)
+PG
+5 (4)
+V
+VITIMER
+ITIMER Pin Capacitor Voltage Rating
+ITIMER
+4
+V
+RILM
+ILM Pin Resistance
+ILM
+549
+6650
+Ω
+IMAX
+Continuous Switch Current, TJ ≤ 125℃
+IN to OUT
+5.5
+A
+TJ
+Junction temperature
+–40
+125
+°C
+(1)
+For TPS259472x variants, the input operating voltage should be limited to the selected Output Voltage Clamp threshold as listed in the 
+Electrical Characteristics section
+(2)
+For supply voltages below 5V, it is okay to pull up the EN pin to IN directly. For supply voltages greater than 5V or systems which can 
+be exposed to reverse polarity on input supply, it is recommended to use a pull-up resistor with a minimum value of 350 kΩ.
+(3)
+In a PowerMUX/ORing scenario with unequal supplies, the dVdt capacitor rating for each device should be chosen based on the 
+highest of the 2 rails.
+(4)
+For systems which can be exposed to reverse polarity on input supply, if this pin is referred to input supply, it is recommended to use a 
+pull-up resistor with a minimum value of 350 kΩ to limit the current through the pin.
+7.4 Thermal Information
+THERMAL METRIC (1)
+TPS25947xx
+UNIT
+RPW (QFN)
+10 PINS
+RθJA 
+Junction-to-ambient thermal resistance
+41.7 (2)
+°C/W
+74.5 (3)
+°C/W
+ΨJT
+Junction-to-top characterization parameter
+1
+°C/W
+ΨJB
+Junction-to-board characterization parameter
+20 (2)
+°C/W
+27.6 (3)
+°C/W
+(1)
+For more information about traditional and new thermal metrics, see the Semiconductor and IC Package Thermal Metrics application 
+report.
+(2)
+Based on simulations conducted with the device mounted on a custom 4-layer PCB (2s2p) with 8 thermal vias under device
+(3)
+Based on simulations conducted with the device mounted on a JEDEC 4-layer PCB (2s2p) with no thermal vias under device 
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+7
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 8 / 72
+────────────────────────────────────────────────────────────────────────
+7.5 Electrical Characteristics
+(Test conditions unless otherwise noted) –40°C ≤ TJ ≤ 125°C, VIN = 12 V, OUT = Open, VEN/UVLO = 2 V, VOVLO = 0 V for 
+TPS259470x/4x, OVCSEL = 390 kΩ to GND for TPS259472x, RILM = 549 Ω , dVdT = Open, ITIMER = Open, AUXOFF = 
+Open for TPS259470x, FLT = Open for TPS259470x, PGTH = Open for TPS259472x/4x, PG = Open for TPS259472x/4x. All 
+voltages referenced to GND.
+Test 
+Parameter
+Description
+MIN
+TYP
+MAX
+UNITS
+INPUT SUPPLY (IN)
+VUVP(R)
+IN Supply UVP Rising threshold
+2.44
+2.53
+2.64
+V
+VUVP(F)
+IN Supply UVP Falling threshold
+2.35
+2.42
+2.55
+V
+IQ(ON)
+IN Supply Quiescent Current (TPS259470x)
+428
+610
+µA
+IN Supply Quiescent Current (TPS259472x)
+426
+610
+µA
+IN Supply Quiescent Current  (TPS259474x)
+428
+610
+µA
+IN Supply Quiescent Current during RCB, VOUT = VIN + 1 V
+193
+µA
+IN Supply Current during OVC (TPS259472x)
+445
+625
+µA
+IQ(OFF)
+IN Supply disabled State Current (VSD(F) < VEN < VUVLO(F))
+73
+130
+µA
+ISD
+IN Supply Shutdown Current (VEN < VSD(F))
+4.4
+28.7
+µA
+IQ(OVLO)
+IN Supply OFF Current (OVLO condition), VOUT = VIN + 1 V
+190
+267
+µA
+IINLKG(IRPP)
+IN Supply Leakage Current (VIN = –14 V, VOUT = 0 V)
+–3.7
+µA
+IOUTLKG(OVLO)
+OUT Leakage Current (OVLO condition), VOUT > VIN
+319
+443
+µA
+ON RESISTANCE (IN - OUT)
+RON
+VIN = 12 V, IOUT = 3 A, TJ = 25℃
+28.2
+mΩ
+2.7 ≤ VIN ≤ 23 V, IOUT = 3 A, –40℃ ≤ TJ ≤ 125℃
+45
+mΩ
+ENABLE/UNDERVOLTAGE LOCKOUT (EN/UVLO)
+VUVLO(R)
+UVLO Rising threshold
+1.183
+1.20
+1.223
+V
+VUVLO(F)
+UVLO Falling threshold
+1.076
+1.09
+1.116
+V
+VSD(F)
+EN/UVLO Falling Threshold for lowest shutdown current
+0.45
+0.74
+V
+IENLKG
+EN/UVLO leakage current
+–0.1
+0.1
+µA
+OVERVOLTAGE LOCKOUT (OVLO) - TPS259470x/4x
+VOV(R)
+OVLO Rising threshold
+1.183
+1.20
+1.223
+V
+VOV(F)
+OVLO Falling threshold
+1.076
+1.09
+1.116
+V
+IOVLKG
+OVLO pin leakage current, 0.5 V < VOVLO  < 1.5 V
+–0.1
+0.1
+µA
+OUTPUT VOLTAGE CLAMP (OUT) - TPS259472x
+VOVC
+Overvoltage Clamp Threshold, OVCSEL = Shorted to GND
+3.65
+3.88
+4.1
+V
+Overvoltage Clamp Threshold, OVCSEL = Open
+5.25
+5.74
+6.2
+V
+Overvoltage Clamp Threshold, OVCSEL = 390 kΩ to GND
+13.2
+13.85
+14.5
+V
+VCLAMP
+Output Voltage During Clamping, OVCSEL = Shorted to 
+GND, IOUT = 10 mA
+3.2
+3.82
+4.2
+V
+Output Voltage During Clamping, OVCSEL = Open, IOUT = 
+10 mA
+5.0
+5.68
+6.12
+V
+Output Voltage During Clamping, OVCSEL = 390 kΩ to 
+GND, IOUT = 10 mA
+13.0
+13.79
+14.6
+V
+OVERCURRENT PROTECTION (OUT)
+ILIM
+Overcurrent Threshold, RILM = 6.65 kΩ
+0.425
+0.500
+0.575
+A
+Overcurrent Threshold, RILM = 3.32 kΩ
+0.850
+1.007
+1.150
+A
+Overcurrent Threshold, RILM = 1.65 kΩ
+1.800
+2.028
+2.200
+A
+Overcurrent Threshold, RILM = 750 Ω
+3.960
+4.452
+4.840
+A
+Overcurrent Threshold, RILM = 549 Ω
+5.400
+6.068
+6.600
+A
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+8
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 9 / 72
+────────────────────────────────────────────────────────────────────────
+7.5 Electrical Characteristics (continued)
+(Test conditions unless otherwise noted) –40°C ≤ TJ ≤ 125°C, VIN = 12 V, OUT = Open, VEN/UVLO = 2 V, VOVLO = 0 V for 
+TPS259470x/4x, OVCSEL = 390 kΩ to GND for TPS259472x, RILM = 549 Ω , dVdT = Open, ITIMER = Open, AUXOFF = 
+Open for TPS259470x, FLT = Open for TPS259470x, PGTH = Open for TPS259472x/4x, PG = Open for TPS259472x/4x. All 
+voltages referenced to GND.
+Test 
+Parameter
+Description
+MIN
+TYP
+MAX
+UNITS
+IFLT
+Circuit Breaker Threshold, ILM Pin Open (Single point 
+failure)
+0.1
+A
+Circuit Breaker Threshold, ILM Pin Shorted to GND (Single 
+point failure)
+1.1
+2.1
+A
+ISCGain
+Scalable Fast Trip Threshold (ISC) : ILIM Ratio
+201
+%
+IFT
+Fixed Fast-trip current threshold
+22.2
+A
+VFB
+VOUT threshold to exit Current Limit Foldback
+1.9
+V
+OVERCURRENT FAULT TIMER (ITIMER)
+VINT
+ITIMER pin internal pull-up voltage
+2.3
+2.57
+2.72
+V
+RITIMER
+ITIMER pin internal pull-up resistance
+15
+kΩ
+IITIMER
+ITIMER pin internal discharge current, IOUT > ILIM
+1.2
+1.8
+2.5
+µA
+ΔVITIMER
+ITIMER discharge differential voltage threshold
+1.286
+1.51
+1.741
+V
+OUTPUT LOAD CURRENT MONITOR (ILM)
+GIMON
+Analog Load Current Monitor Gain (IMON : IOUT), IOUT = 0.5 A 
+to 1 A, IOUT < ILIM
+165
+182
+200
+µA/A
+Analog Load Current Monitor Gain (IMON : IOUT), IOUT = 1 A to 
+5.5 A, IOUT < ILIM
+165
+182
+200
+µA/A
+REVERSE CURRENT BLOCKING (IN - OUT)
+VFWD
+VIN – VOUT Forward regulation voltage, IOUT = 10 mA
+4.7
+16.9
+mV
+VREVTH
+VIN – VOUT threshold for fast BFET turn off (enter reverse 
+current blocking)
+–36.45
+–29.3
+–22.3
+mV
+VFWDTH
+VIN – VOUT threshold for fast BFET turn on (exit reverse 
+current blocking)
+83
+104.1
+125
+mV
+IREVLKG(OFF)
+OUT Leakage Current during unpowered condition (VOUT  = 
+12 V, VIN = 0 V)
+4.86
+µA
+IREVLKG
+Reverse leakage current, (VOUT – VIN) = 21.5 V
+10.1
+µA
+IOUTLKG(RCB)
+OUT Leakage Current during ON state with RCB, VOUT = 
+VIN + 1 V
+234
+µA
+POWER GOOD INDICATION (PG) - TPS259472x/4x or AUXILIARY CHANNEL CONTROL  (AUXOFF) - TPS259470x
+VPGD
+PG/AUXOFF pin voltage while de-asserted. VIN < VUVP(F), 
+VEN < VSD(F), Weak pull-up (IPG = 26 μA)
+0.67
+1
+V
+PG/AUXOFF pin voltage while de-asserted, VIN < VUVP(F), 
+VEN < VSD(F), Strong pull-up (IPG = 242 μA)
+0.79
+1
+V
+PG/AUXOFF pin voltage while de-asserted, VIN > VUVP(R)
+0
+V
+IPGLKG
+PG/AUXOFF Pin leakage current, PG/AUXOFF asserted
+0.9
+3
+µA
+POWERGOOD THRESHOLD (PGTH) - TPS259472x/4x
+VPGTH(R)
+PGTH Rising threshold
+1.183
+1.20
+1.223
+V
+VPGTH(F)
+PGTH Falling threshold
+1.076
+1.09
+1.116
+V
+IPGTHLKG
+PGTH leakage current
+–0.1
+0.3
+µA
+FAULT INDICATION (FLT) - TPS259470x
+IFLTLKG
+FLT leakage current
+–1
+1
+µA
+RFLT
+FLT Internal Pull down resistance 
+12.3
+Ω
+OVERTEMPERATURE PROTECTION (OTP)
+TSD
+Thermal Shutdown Rising Threshold, TJ↑
+154
+°C
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+9
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 10 / 72
+────────────────────────────────────────────────────────────────────────
+7.5 Electrical Characteristics (continued)
+(Test conditions unless otherwise noted) –40°C ≤ TJ ≤ 125°C, VIN = 12 V, OUT = Open, VEN/UVLO = 2 V, VOVLO = 0 V for 
+TPS259470x/4x, OVCSEL = 390 kΩ to GND for TPS259472x, RILM = 549 Ω , dVdT = Open, ITIMER = Open, AUXOFF = 
+Open for TPS259470x, FLT = Open for TPS259470x, PGTH = Open for TPS259472x/4x, PG = Open for TPS259472x/4x. All 
+voltages referenced to GND.
+Test 
+Parameter
+Description
+MIN
+TYP
+MAX
+UNITS
+TSDHYS
+Thermal Shutdown Hysteresis, TJ↓
+10
+°C
+DVDT
+IdVdt
+dVdt Pin Charging Current
+0.81
+2.21
+3.82
+µA
+7.6 Timing Requirements
+PARAMETER
+TEST CONDITIONS
+MIN
+TYP
+MAX
+UNIT
+tOVLO
+Overvoltage lock-out response time 
+(TPS259470x/4x)
+VOVLO > VOV(R) to VOUT↓
+1.2
+µs
+tOVC
+Overvoltage clamp response time 
+(TPS259472x)
+VIN > VOVC to VOUT↓
+5
+µs
+tCB
+Circuit-Breaker response time (TPS259474x)
+IOUT > 1.2 × ILIM & ITIMER expired to IOUT↓
+2
+µs
+tLIM
+Current limit response time (TPS259470x/2x) IOUT > 1.2 × ILIM & ITIMER expired to IOUT 
+settling to within 5 % of ILIM
+400
+µs
+tSC
+Scalable fast-trip response time
+IOUT > 3 × ILIM to IOUT↓
+500
+ns
+tFT
+Fixed fast-trip response time
+IOUT > IFT to IOUT↓
+500
+ns
+tRST
+Auto-Retry Interval after fault (TPS25947xA)
+110
+ms
+tSWOV
+OVLO fast recovery response 
+time (TPS259470x)
+VOVLO < VOV(F) to VOUT↑ 
+90
+µs
+tSWRCB
+Reverse Current Blocking recovery time
+(VIN – VOUT) > VFWDTH to VOUT ↑
+50
+µs
+tRCB
+Reverse Current Blocking comparator 
+response time
+(VOUT – VIN) > 1.3 × VREVTH to BFET OFF
+1
+µs
+tPGA
+PG Assertion de-glitch (TPS259472x/4x)
+12
+µs
+tPGD
+PG De-assertion de-glitch (TPS259472x/4x)
+12
+µs
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+www.ti.com
+10
+Submit Document Feedback
+Copyright © 2022 Texas Instruments Incorporated
+Product Folder Links: TPS25947
+
+
+────────────────────────────────────────────────────────────────────────
+  PAGE 11 / 72
+────────────────────────────────────────────────────────────────────────
+7.7 Switching Characteristics
+The output rising slew rate is internally controlled and constant across the entire operating voltage range to ensure the 
+turn on timing is not affected by the load conditions. The rising slew rate can be adjusted by adding capacitance from 
+the dVdt pin to ground. As CdVdt is increased it will slow the rising slew rate (SR). See Slew Rate and Inrush Current 
+Control (dVdt) section for more details. The Turn-Off Delay and Fall Time, however, are dependent on the RC time constant 
+of the load capacitance (COUT) and Load Resistance (RL). The Switching Characteristics are only valid for the power-up 
+sequence where the supply is available in steady state condition and the load voltage is completely discharged before the 
+device is enabled.Typical Values are taken at TJ = 25°C unless specifically noted otherwise. RL = 100 Ω, COUT = 1 µF 
+PARAMETER
+VIN
+CdVdt = Open
+CdVdt = 1800 pF
+CdVdt = 
+3300 pF
+UNIT
+SRON
+Output Rising slew rate
+2.7 V
+12.14
+0.87
+0.5
+V/ms
+12 V
+28.1
+1.09
+0.61
+23 V
+44.78
+1.25
+0.71
+tD,ON 
+Turn on delay
+2.7 V
+0.09
+0.6
+0.97
+ms
+12 V
+0.1
+1.32
+2.35
+23 V
+0.11
+1.99
+3.69
+tR
+Rise time
+2.7 V
+0.17
+2.51
+4.33
+ms
+12 V
+0.35
+8.1
+15.37
+23 V
+0.40
+14.4
+25.89
+tON
+Turn on time
+2.7 V
+0.27
+3.11
+5.31
+ms
+12 V
+0.45
+10.08
+17.72
+23 V
+0.50
+16.41
+29.57
+tD,OFF
+Turn off delay
+2.7 V
+64.44
+64.44
+64.44
+µs
+12 V
+25.32
+25.32
+25.32
+23 V
+23.02
+23.02
+23.02
+EN/UVLO
+VEN/UVLO
+0
+Time
+VUVLO(R)
+OUT
+VIN
+0V
+10%
+90%
+tD,OFF
+tR
+tON
+SRON
+tF
+tD,ON
+VUVLO(F)
+Figure 7-1. TPS25947xx Switching Times
+www.ti.com
+TPS25947
+SLVSFC9B – OCTOBER 2020 – REVISED MARCH 2022
+Copyright © 2022 Texas Instruments Incorporated
+Submit Document Feedback
+11
+Product Folder Links: TPS25947
