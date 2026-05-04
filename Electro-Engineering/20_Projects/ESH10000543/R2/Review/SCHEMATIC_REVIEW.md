@@ -1,6 +1,6 @@
 # Schematic Review: Fixture Link R2
 
-**Status:** Review complete — awaiting engineer disposition  
+**Status:** Review complete — all findings dispositioned  
 **File:** NetList_Fixture_Link_R2.qcv + PartsList_Fixture_Link_R2.csv  
 **Format:** PADS QCV netlist + BOM CSV  
 **Date:** 2026-05-04  
@@ -16,7 +16,7 @@
 
 | # | Check | Severity | Detail |
 |---|-------|----------|--------|
-| F-01 | ERC-D02 | ❌ Error | **R66 (1K, mounted): pin 1 is NC (by TERM), leaving D8 red LED channel undriven.** Net `D8_RED` has only R66-2 and D8-2 — no drive signal reaches D8 pin 2. R67-1 and R68-1 (D8 channels 1 and 3) are correctly connected to RTS and UART_ENn respectively. R66-1 is missing a connection to a driver net. Contrast with D4–D7 where red-channel resistors are NM (intentionally unused). |
+| F-01 | ERC-D02 | ~~❌ Error~~ Rejected | **R66 (1K, mounted): pin 1 is NC (by TERM), leaving D8 red LED channel undriven.** Net `D8_RED` has only R66-2 and D8-2 — no drive signal reaches D8 pin 2. R67-1 and R68-1 (D8 channels 1 and 3) are correctly connected to RTS and UART_ENn respectively. R66-1 is missing a connection to a driver net. Contrast with D4–D7 where red-channel resistors are NM (intentionally unused). |
 | F-02 | ERC-D01 | ⚠️ Warning | **U7 (SN74LVC07APW): 6 open-drain outputs have no pull-up resistors on this board.** Affected nets: `SRQn` (U7-2), `INTERRUPTn` (U7-4), `SRQ4n_BUF` (U7-6), `SRQ3n_BUF` (U7-8), `SRQ2n_BUF` (U7-10), `SRQ1n_BUF` (U7-12). Each net connects only U7 output and a J1 pin. SN74LVC07A datasheet requires external pull-ups on all open-drain outputs. Pull-ups may be provided on the Accordion side of J1 — confirm intentional. |
 | F-03 | ERC-D03 | ⚠️ Warning | **U16 (TRSF3232E): charge pump flying capacitors C8 and C9 are 1 µF.** TRSF3232E datasheet recommends 47–100 nF for C1± and C2± (charge pump flying caps). 1 µF is 10× above the typical maximum — may slow the charge pump oscillation and reduce the ±5 V rail headroom. RS-232 output voltage levels (±5 V min) should be verified. V+ and V− storage capacitors (C11, C12, 1 µF) are acceptable. |
 | F-04 | ERC-C02 | ⚠️ Warning | **PCB reference components PCB1, PCB2, PCB4, PCB5, PCB6, PCB7, PCB8 are unconnected with no explicit NC flag.** Single-pin components in the un-connected section without `(by TERM)`. Likely mounting holes or fiducials — confirm no net assignment is missing. |
@@ -38,7 +38,7 @@
 | Metric | Count |
 |--------|-------|
 | ❌ Errors | 0 (F-01 rejected — intentional) |
-| ⚠️ Warnings | 1 open (F-02); 3 accepted/rejected |
+| ⚠️ Warnings | 0 open; 4 accepted/rejected |
 | ℹ️ Info | 2 |
 | ✅ Checks passed | 28 |
 
@@ -86,7 +86,7 @@
 ### Recommended actions
 
 - [ ] **F-01 (❌):** Identify the intended driver signal for R66-1 (D8 red LED channel) and connect in schematic. If the red channel of D8 is intentionally unused, mark R66 as NM (consistent with D4–D7 pattern).
-- [ ] **F-02 (⚠️):** Confirm pull-ups for U7 open-drain outputs are provided on the Accordion side of J1. If not, add pull-up resistors on this board.
+- [x] **F-02 (⚠️):** Accepted — pull-ups assumed on Accordion side of J1. Verify U7 output levels (SRQn, INTERRUPTn, SRQ1–4n_BUF) during hardware verification.
 - [ ] **F-03 (⚠️):** Review TRSF3232E charge pump cap values. If C8/C9 must remain 1 µF, verify ±5 V rails at worst case with a bench measurement or simulation. Consider changing to 100 nF per datasheet recommendation.
 - [ ] **F-04 (⚠️):** Confirm PCB1/2/4/5/6/7/8 are mechanical references with no missing signal connections.
 - [ ] **F-05 (⚠️):** Add Value = "10u" to C3 BOM row.
@@ -98,7 +98,7 @@
 | Finding | Disposition | Engineer | Date | Notes |
 |---------|-------------|----------|------|-------|
 | F-01 | Rejected | MJ | 2026-05-04 | R66 pin 1 NC is intentional — D8 red LED channel is unused by design |
-| F-02 | Open | — | — | |
+| F-02 | Accepted | MJ | 2026-05-04 | Pull-ups assumed on Accordion side of J1 — verify U7 output levels during verification |
 | F-03 | Accepted | MJ | 2026-05-04 | 1 µF charge pump caps intentional; RS-232 levels to be verified on bench |
 | F-04 | Rejected | MJ | 2026-05-04 | PCB1/2/4/5/6/7/8 confirmed fiducials — no signal missing |
 | F-05 | Accepted | MJ | 2026-05-04 | C3 is 10 µF; BOM value field blank — note for R3 to correct |
