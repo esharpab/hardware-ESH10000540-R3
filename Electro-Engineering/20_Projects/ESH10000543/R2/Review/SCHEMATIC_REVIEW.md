@@ -86,7 +86,7 @@
 ### Recommended actions
 
 - [ ] **F-01 (❌):** Identify the intended driver signal for R66-1 (D8 red LED channel) and connect in schematic. If the red channel of D8 is intentionally unused, mark R66 as NM (consistent with D4–D7 pattern).
-- [x] **F-02 (⚠️):** Accepted — pull-ups assumed on Accordion side of J1. Verify U7 output levels (SRQn, INTERRUPTn, SRQ1–4n_BUF) during hardware verification.
+- [x] **F-02 (⚠️):** Accepted — pull-ups confirmed on Accordion CM32 module (MJ, 2026-05-04). Verify U7 output levels (SRQn, INTERRUPTn, SRQ1–4n_BUF) during hardware verification (C.05).
 - [ ] **F-03 (⚠️):** Review TRSF3232E charge pump cap values. If C8/C9 must remain 1 µF, verify ±5 V rails at worst case with a bench measurement or simulation. Consider changing to 100 nF per datasheet recommendation.
 - [ ] **F-04 (⚠️):** Confirm PCB1/2/4/5/6/7/8 are mechanical references with no missing signal connections.
 - [ ] **F-05 (⚠️):** Add Value = "10u" to C3 BOM row.
@@ -98,7 +98,7 @@
 | Finding | Disposition | Engineer | Date | Notes |
 |---------|-------------|----------|------|-------|
 | F-01 | Rejected | MJ | 2026-05-04 | R66 pin 1 NC is intentional — D8 red LED channel is unused by design |
-| F-02 | Accepted | MJ | 2026-05-04 | Pull-ups assumed on Accordion side of J1 — verify U7 output levels during verification |
+| F-02 | Accepted | MJ | 2026-05-04 | Pull-ups confirmed on Accordion CM32 module (MJ, 2026-05-04). Bench test C.05 still required to verify valid logic levels. |
 | F-03 | Accepted | MJ | 2026-05-04 | 1 µF charge pump caps intentional; RS-232 levels to be verified on bench |
 | F-04 | Rejected | MJ | 2026-05-04 | PCB1/2/4/5/6/7/8 confirmed fiducials — no signal missing |
 | F-05 | Accepted | MJ | 2026-05-04 | C3 is 10 µF; BOM value field blank — note for R3 to correct |
