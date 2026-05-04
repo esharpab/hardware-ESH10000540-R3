@@ -20,49 +20,49 @@ target_deadline: 2026-07-13 (10 weeks from 2026-05-04)
 ```
 ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 │
-├── ESH10000631 R1 — Sparrow Accordion A2 (Manufacturing)          ×1/unit
-│   ├── ESH10000182 R0 — Accordion A2 Bare (Prototype)             ×1
-│   │   ├── ESH10000158    — Accordion A2 Base PCBA                ×1
-│   │   ├── ESH10000183    — Accordion A2 Top PCBA                 ×1
-│   │   ├── ESH10000539    — Control Module 32ch A2                ×1
-│   │   ├── ESH10000031    — Raspberry Pi 4B 8GB                   ×1
-│   │   ├── ESH10000538    — M2base loopback                       ×1
-│   │   ├── ESH10000062    — PCIe16 riser for AGENT base           ×2
-│   │   ├── EPN1000012     — Agent Fan 25×10mm 5V                  ×1
-│   │   ├── EPN1000068     — RPI Fan 30×10mm 5V                    ×1
-│   │   ├── EPN1000072     — SD card 32GB                          ×1
+├── ESH10000631 R1 — Sparrow Accordion A2 (Manufacturing)                    ×1/unit
+│   ├── ESH10000182 R0 — Accordion A2 Bare (Prototype) ⚠️                   ×1
+│   │   ├── ESH10000158 R5 — Accordion A2 Base PCBA (Manufacturing)          ×1
+│   │   ├── ESH10000183 R6 — Accordion A2 Top PCBA (Manufacturing)           ×1
+│   │   ├── ESH10000539 R1 — Control Module 32ch A2 (Manufacturing)          ×1
+│   │   ├── ESH10000031 R0 — Raspberry Pi 4B 8GB (Manufacturing)             ×1
+│   │   ├── ESH10000538 R0 — M2base loopback (NotApproved) 🔴                ×1
+│   │   ├── ESH10000062 R0 — PCIe16 riser for AGENT base (NotApproved) 🔴   ×2
+│   │   ├── EPN1000012     — Agent Fan 25×10mm 5V (purchased)                ×1
+│   │   ├── EPN1000068     — RPI Fan 30×10mm 5V (purchased)                  ×1
+│   │   ├── EPN1000072     — SD card 32GB (purchased)                        ×1
 │   │   └── (fasteners, Hammond enclosure, misc)
-│   ├── ESH10000535 R3 — Sparrow N-Top (Prototype)                 ×1
-│   ├── ESH10000543 R2 — Fixture Link (Prototype)                  ×1
-│   ├── ESH10000534 R4 — M2Top PoE (Prototype)                     ×1
-│   ├── ESH10000544 R0 — A2 Front Panel DSub Fixturelink (NotApproved) ×1
-│   ├── ESH10000522 R0 — A2 Back Panel (Prototype)                 ×1
-│   ├── ESH10000572 R0 — Accordion Sparrow Top (NotApproved)       ×1
-│   ├── ESH10000024 R0 — Accordion Loopback R2 (Manufacturing)     ×5
+│   ├── ESH10000535 R3 — Sparrow N-Top (Prototype) ⚠️                        ×1
+│   ├── ESH10000543 R2 — Fixture Link (Prototype) ⚠️                         ×1
+│   ├── ESH10000534 R4 — M2Top PoE (Prototype) ⚠️                            ×1
+│   ├── ESH10000544 R0 — A2 Front Panel DSub Fixturelink (NotApproved) 🔴    ×1
+│   ├── ESH10000522 R0 — A2 Back Panel (Prototype) ⚠️                        ×1
+│   ├── ESH10000572 R0 — Accordion Sparrow Top (NotApproved) 🔴               ×1
+│   ├── ESH10000024 R0 — Accordion Loopback R2 (Manufacturing)               ×5
 │   └── (fasteners, LED fibres, misc)
 │
-├── ESH10000636 R1 — Sparrow ASSY FE with Active Load (Manufacturing) ×1/unit
-│   ├── ESH10000540 R3 — Sparrow Fixture Electronics (Prototype)   ×1
-│   ├── ESH10000634 R? — Sparrow IDC N-Top (Manufacturing)         ×1  ⚠️ revision not specified in BOM
-│   ├── ESH10000536 R2 — M2Top Active Load (Prototype)             ×1
+├── ESH10000636 R1 — Sparrow ASSY FE with Active Load (Manufacturing)         ×1/unit
+│   ├── ESH10000540 R3 — Sparrow Fixture Electronics (Prototype) ⚠️           ×1
+│   ├── ESH10000634 R1/R2 — Sparrow IDC N-Top (Manufacturing) ⚠️ rev not pinned ×1
+│   ├── ESH10000536 R2 — M2Top Active Load (Prototype) ⚠️                     ×1
 │   └── (connector, fasteners)
 │
-├── ESH10000582 R0.1 — USB PD 100W PSU (Manufacturing)             ×1/unit
-│   ├── ESH10000579    — USB PD 100W PSU PCBA                      ×1
-│   ├── ESH10000580    — USB PD 100W PSU Front Panel               ×1
-│   └── ESH10000581    — USB PD 100W Rear Panel                    ×1
+├── ESH10000582 R0.1 — USB PD 100W PSU (Manufacturing)                        ×1/unit
+│   ├── ESH10000579 R0.2 — USB PD 100W PSU PCBA (NotApproved) 🔴              ×1
+│   ├── ESH10000580 R0.1 — USB PD 100W PSU Front Panel (NotApproved) 🔴       ×1
+│   └── ESH10000581 R0.1 — USB PD 100W Rear Panel (NotApproved) 🔴            ×1
 │
-├── ESH10000614 R0 — Sleeved Coax Cable HLCD-20-40.00 (Prototype)  ×1/unit
-│   ├── EPN1000718     — CABLE HLCD-20-40.00-TRS-TLS-4             ×1
-│   ├── ESH10000615    — Kontakthuvud HLCD-20-40.00                ×2
+├── ESH10000614 R0 — Sleeved Coax Cable HLCD-20-40.00 (Prototype) ⚠️          ×1/unit
+│   ├── EPN1000718     — CABLE HLCD-20-40.00-TRS-TLS-4 (purchased)           ×1
+│   ├── ESH10000615 R0 — Kontakthuvud HLCD-20-40.00 (Prototype) ⚠️            ×2
 │   └── (fasteners)
 │
-├── ESH10000637 R0 — Sparrow PSU Power Cable 1m (Manufacturing)    ×1/unit
-│   ├── EPN1000249     — Terminal block plug 2pos 5.08mm           ×1
-│   └── EPN1000703     — 15EDGK-3.81-02P connector                 ×1
+├── ESH10000637 R0 — Sparrow PSU Power Cable 1m (Manufacturing)               ×1/unit
+│   ├── EPN1000249     — Terminal block plug 2pos 5.08mm (purchased)          ×1
+│   └── EPN1000703     — 15EDGK-3.81-02P connector (purchased)               ×1
 │
-├── EPN1000677    — 5-port USB wall charger 1.5m                   ×1/unit
-├── EPN1000678    — 100W USB-C charging cable 1m                   ×1/unit
+├── EPN1000677    — 5-port USB wall charger 1.5m (purchased)                  ×1/unit
+├── EPN1000678    — 100W USB-C charging cable 1m (purchased)                  ×1/unit
 ├── EPN1000786    — D-Sub cable 1m                                 ×1/unit
 └── EPN1000752    — M3 standoffs 8.6mm (3D-printed)                ×5/unit
 ```
@@ -233,3 +233,4 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 | Rev | Date | Author | Change |
 |-----|------|--------|--------|
 | R1 | 2026-05-04 | Martin Johansson | Initial document; BOM and inventory extracted from MES 2026-05-04 |
+| R1 | 2026-05-04 | Martin Johansson | BOM hierarchy updated with full revision numbers from MES; additional NotApproved sub-components flagged (ESH10000538, 062, 579, 580, 581) |
