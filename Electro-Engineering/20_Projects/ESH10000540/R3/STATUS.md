@@ -1,14 +1,14 @@
 ---
 project: ESH10000540
 revision: R3
-updated: 2026-04-30
+updated: 2026-05-04
 ---
 
 # Status: Sparrow Fixture Electronics PCBA R3
 
 ## Current Phase
 
-**Review — Schematic ERC** (R3) — Near-complete
+**Review — Layout Review** (R3) — Complete; 5 Info items pending engineer disposition
 
 ---
 
@@ -17,14 +17,13 @@ updated: 2026-04-30
 - [x] Performed schematic ERC check (335 nets, 445 components)
 - [x] Disposition ERC findings (43 total: all 24 errors and 19 warnings dispositioned)
 - [x] Bus signal integrity checks (ERC-B01/B03) — I2C, UART/RS-485 verified
-- [x] Component data coverage — 15/17 IC types now in COMPONENT_DATA.md
-- [x] ERC-C08 (unconnected pins) — complete for 15/17 types; 2 types pending (no datasheet)
-- [x] ERC-P06 (power pins) — complete for 15/17 types; 4 conditional items require engineer confirmation
-- [x] ERC-D01/D02/D03 (device constraints) — complete for 15/17 types; 4 open items
-- [ ] Engineer confirmation of 4 open ERC-D03 items (see SCHEMATIC_REVIEW.md)
-- [ ] Obtain datasheets for 74HCS32PWR (U28) and KAQY214STLD (U30–U37)
-- [ ] Obtain design review sign-off
-- [ ] Plan and execute layout review (if applicable)
+- [x] Component data coverage — 17/17 IC types in COMPONENT_DATA.md
+- [x] ERC-C08/P06/D — complete for all 17 device types; all findings closed 2026-04-30
+- [x] Schematic ERC sign-off — ✅ Signed Martin Johansson 2026-04-30
+- [x] Layout review — 14 checks, 9 Pass, 5 Info, 0 Fail (2026-05-04)
+- [ ] Disposition 5 layout review Info items (see Review/LAYOUT_REVIEW.md)
+- [ ] Obtain Quality sign-off on schematic ERC
+- [ ] Layout sign-off once Info items dispositioned
 
 ---
 
@@ -32,41 +31,38 @@ updated: 2026-04-30
 
 - **Project created:** 2026-04-28
 - **Design:** Complete (schematic and layout produced)
-- **Schematic ERC review:** Near-complete
-  - Errors: 24 — all dispositioned (ERC-P01 power-symbol limitation, accepted)
-  - Warnings: 19 — all dispositioned (ground domains + BOM diode values, accepted)
-  - Clean checks: 12/20 checks passed
-  - Component data coverage: 15/17 — added 12 new entries to COMPONENT_DATA.md
-  - Component data coverage: 17/17 — all device types covered
-  - ERC-C08/P06/D: Complete for all 17 device types; all findings closed 2026-04-30
+- **Schematic ERC review:** ✅ Complete — all 43 findings dispositioned
 - **Schematic ERC sign-off:** ✅ Signed — Martin Johansson, 2026-04-30 (see Signoff/DESIGN_SIGNOFF.md)
 - **Quality sign-off:** ⏳ Pending
-- **Layout review:** Not yet started
+- **Layout review:** ✅ Complete — 2026-05-04 (see Review/LAYOUT_REVIEW.md)
+  - 9 Pass, 5 Info, 0 Fail
+  - All 485 nets routed; all power nets confirmed in routes
+  - 0 unrouted nets; 0 orphan pads
+  - 5 Info items open (fab spec, bottom assembly, annular ring)
+- **Layout sign-off:** ⏳ Pending — Info items must be dispositioned first
 
 ---
 
 ## Open Issues / Blockers
 
-1. ~~**U39 pin 11 (ADS7828) mode**~~ — ✅ Resolved: pin 11 = COM, tied to AGND via R180 (0Ω, mounted). Single-ended mode with analog ground reference. Closed 2026-04-30.
-2. ~~**VIO_EXT voltage range (PCA9616 U4)**~~ — ✅ Resolved: VDDA_SEL=1 mode; VDD(A) = 2.2–5.5 V. Accepted 2026-04-30.
-   ~~**VIO_EXT voltage range (24AA02UID U29)**~~ — ✅ Resolved: VIO_EXT = 1.8–3.3 V; min 1.8 V ≥ 1.7 V requirement. Closed 2026-04-30.
-3. ~~**TPS54302 VDD minimum**~~ — ✅ Resolved: VDD = 20 V; within 4.5–28 V range. Closed 2026-04-30.
-4. ~~**U6 pin 9 (AD5593R VLOGIC)**~~ — ✅ Resolved: confirmed 3V3 by engineer. Closed 2026-04-30.
-5. ~~**74HCS32PWR (U28), KAQY214STLD (U30–U37)**~~ — ✅ Resolved: datasheets found (SN74HCS32, KAQY214); entries added to COMPONENT_DATA.md; ERC checks completed. Closed 2026-04-30.
-6. **Power routing** — Verify all power nets have proper sources and routing in layout.
+1. ~~All schematic ERC open items~~ — ✅ Closed 2026-04-30
+2. **GBR-F03** — Min copper aperture 0.100 mm on all 8 layers; verify against fab spec
+3. **GBR-F04 / LR-P02** — 24 bottom-side components (D1–D17 TVS diodes, M1–M4 standoffs, J5 connector, PCB5–8 fiducials); confirm two-sided assembly is planned
+4. **LR-P01** — AIS 457 placements vs BOM 445; confirm Δ12 are all mechanical/fiducial items
+5. **LR-V01** — Via annular ring 0.10 mm (0.25 mm drill / 0.45 mm pad); verify against fab spec
 
 ---
 
 ## Next 3 Actions
 
-1. **Obtain Quality sign-off** on schematic ERC review — [Signoff/DESIGN_SIGNOFF.md](Signoff/DESIGN_SIGNOFF.md)
-2. **Plan and execute layout review** — DFM, clearance, signal return paths (required before PCB release)
-2. **Locate datasheets for 74HCS32PWR and KAQY214STLD** — Needed to close remaining ERC-C08/P06/D checks
-3. **Proceed to design review sign-off** ([Signoff/DESIGN_SIGNOFF.md](Signoff/DESIGN_SIGNOFF.md)) once open items resolved
+1. **Disposition 5 layout review Info items** — [Review/LAYOUT_REVIEW.md](Review/LAYOUT_REVIEW.md)
+2. **Obtain Quality sign-off** on schematic ERC — [Signoff/DESIGN_SIGNOFF.md](Signoff/DESIGN_SIGNOFF.md)
+3. **Layout sign-off** — once Info items closed — [Signoff/DESIGN_SIGNOFF.md](Signoff/DESIGN_SIGNOFF.md)
 
 ---
 
 ## Risks
 
-- *ERC open items* — None; all 17 device types fully verified and closed 2026-04-30
-- *Power routing* — Layout-level verification (DFM, clearance, return paths) not yet performed
+- *Layout Info items* — 5 items require engineer confirmation; low risk but block sign-off
+- *Trace width / clearance DRC* — not performed (requires EDA tool); run before PCB release
+- *Two-sided assembly* — bottom-side SMD population must be confirmed in assembly plan
