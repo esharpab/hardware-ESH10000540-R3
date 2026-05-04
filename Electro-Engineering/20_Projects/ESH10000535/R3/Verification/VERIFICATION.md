@@ -72,7 +72,7 @@ All acceptance criteria marked **[R2]** are carried from R2 and must be confirme
 
 | Test ID | Step | Description | Signals | Pass Criteria | R2 Notes |
 |---------|------|-------------|---------|---------------|----------|
-| M.00 | No Mounts | Verify all NM components absent; confirm R3-specific population | N/A | All NM designators absent; R3 BOM population correct | R2: R96 and R76 were missing — R96 caused wrong LED driver address; R76 caused missing UART to ATmega |
+| M.00 | No Mounts | Verify all NM components absent; confirm R3-specific population | N/A | All NM designators absent; R3 BOM population correct | R96 and R76 confirmed mounted in R3 (2026-05-04 MJ) |
 | M.01 | Spacers | Verify M1/M2 spacers fit mechanically | N/A | M1/M2 install without interference | — |
 | M.02 | LSHM | Verify LSHM connector and cable fit in top cover | N/A | LSHM + cable installs without interference | — |
 
@@ -93,14 +93,14 @@ Apply 12V supply. Measure all rails with DMM. Record to DUT_LOG.md.
 | P.04 | VID power | Measure VID rail | VID | 3.3 V | ±2.5% | 3.218–3.383 V | — |
 | P.05 | VREF power | Measure VREF_BUF rail | VREF_BUF | 2.5 V | ±0.14% | 2.497–2.504 V | — |
 | P.06 | LED power | Measure VCAP at LED driver | VCAP | 1.8 V | ±2.5% | 1.755–1.845 V | — |
-| P.07 | PWM_VCCO @1.5V | Set PWM_VCCO to 1.5V via DAC; measure with DMM | PWM_VCCO | 1.5 V | ±1% | 1.485–1.515 V | R2: 100pF feedback cap added to OP to suppress ripple |
-| P.08 | PWM_VCCO @1.8V | Set PWM_VCCO to 1.8V via DAC; measure with DMM | PWM_VCCO | 1.8 V | ±1% | 1.782–1.818 V | R2: 100pF feedback cap added |
-| P.09 | PWM_VCCO @2.5V | Set PWM_VCCO to 2.5V via DAC; measure with DMM | PWM_VCCO | 2.5 V | ±1% | 2.475–2.525 V | R2: 100pF feedback cap added |
-| P.10 | PWM_VCCO @3.3V | Set PWM_VCCO to 3.3V via DAC; measure with DMM | PWM_VCCO | 3.3 V | ±1% | 3.267–3.333 V | R2: 100pF feedback cap added |
-| P.11 | TACH_VCCO @1.5V | Set TACH_VCCO to 1.5V via DAC; measure with DMM | TACH_VCCO | 1.5 V | ±1% | 1.485–1.515 V | R2: 100pF feedback cap added |
-| P.12 | TACH_VCCO @1.8V | Set TACH_VCCO to 1.8V via DAC; measure with DMM | TACH_VCCO | 1.8 V | ±1% | 1.782–1.818 V | R2: 100pF feedback cap added |
-| P.13 | TACH_VCCO @2.5V | Set TACH_VCCO to 2.5V via DAC; measure with DMM | TACH_VCCO | 2.5 V | ±1% | 2.475–2.525 V | R2: 100pF feedback cap added |
-| P.14 | TACH_VCCO @3.3V | Set TACH_VCCO to 3.3V via DAC; measure with DMM | TACH_VCCO | 3.3 V | ±1% | 3.267–3.333 V | R2: 100pF feedback cap added |
+| P.07 | PWM_VCCO @1.5V | Set PWM_VCCO to 1.5V via DAC; measure with DMM | PWM_VCCO | 1.5 V | ±1% | 1.485–1.515 V | 100pF feedback cap confirmed incorporated in R3 (2026-05-04 MJ) |
+| P.08 | PWM_VCCO @1.8V | Set PWM_VCCO to 1.8V via DAC; measure with DMM | PWM_VCCO | 1.8 V | ±1% | 1.782–1.818 V | 100pF feedback cap confirmed in R3 |
+| P.09 | PWM_VCCO @2.5V | Set PWM_VCCO to 2.5V via DAC; measure with DMM | PWM_VCCO | 2.5 V | ±1% | 2.475–2.525 V | 100pF feedback cap confirmed in R3 |
+| P.10 | PWM_VCCO @3.3V | Set PWM_VCCO to 3.3V via DAC; measure with DMM | PWM_VCCO | 3.3 V | ±1% | 3.267–3.333 V | 100pF feedback cap confirmed in R3 |
+| P.11 | TACH_VCCO @1.5V | Set TACH_VCCO to 1.5V via DAC; measure with DMM | TACH_VCCO | 1.5 V | ±1% | 1.485–1.515 V | 100pF feedback cap confirmed in R3 |
+| P.12 | TACH_VCCO @1.8V | Set TACH_VCCO to 1.8V via DAC; measure with DMM | TACH_VCCO | 1.8 V | ±1% | 1.782–1.818 V | 100pF feedback cap confirmed in R3 |
+| P.13 | TACH_VCCO @2.5V | Set TACH_VCCO to 2.5V via DAC; measure with DMM | TACH_VCCO | 2.5 V | ±1% | 2.475–2.525 V | 100pF feedback cap confirmed in R3 |
+| P.14 | TACH_VCCO @3.3V | Set TACH_VCCO to 3.3V via DAC; measure with DMM | TACH_VCCO | 3.3 V | ±1% | 3.267–3.333 V | 100pF feedback cap confirmed in R3 |
 | P.15 | ADJ+ | Measure ADJ+ rail (LTC3265) | ADJ+ | 1.2 V | ±1% | 1.188–1.212 V | — |
 | P.16 | ADJ- | Measure ADJ- rail (LTC3265) | ADJ- | −1.2 V | ±1% | −1.188– −1.212 V | — |
 | P.17 | BYP+ | Measure BYP+ rail (LTC3265) | BYP+ | 1.2 V | ±1% | 1.188–1.212 V | — |
