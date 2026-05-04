@@ -47,9 +47,9 @@ None.
 
 ## Next 3 Actions
 
-1. **Proceed to layout review** — LAYOUT_REVIEW.md to be created
-2. **Functional verification planning** — define test cases per SPECIFICATION.md
-3. **Note for verification:** SPI_ENn (D26) — verify correct logic level before first SPI transaction
+1. **Assign R3 DUT serial numbers** — update DUT register in Verification/DUT_LOG.md
+2. **Approve SPECIFICATION.md** — confirm R3 acceptance criteria (all marked [R2])
+3. **Execute verification** — start with M (mechanical) and P (power) sections; record results in DUT_LOG.md
 
 ---
 
