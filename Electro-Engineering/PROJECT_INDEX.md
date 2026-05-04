@@ -8,8 +8,8 @@ Overview of all projects — active and otherwise.
 | ESH10000535 | Sparrow N-Top | R3 | Verification | 🟢 Active | Verification plan complete incl. R3-CHG tests — awaiting R3 DUT serials |
 | ESH10000543 | Fixture Link | R2 | Verification | 🟢 Active | Verification plan complete (24 tests); F-02 CM32 pull-ups confirmed — awaiting R2 DUT |
 | ESH10000536 | Active Load | R2 | — | 🔵 Planned | Project created — phase and requirements TBD; assembled with Fixture Electronics (ESH10000540) |
-| ESH10000654 | Sparrow Test Adapter | R0 | Design | 🟢 Active | Project created — requirements definition next |
-| ESH10000633 | Sparrow Complete Product | R1 | Production Test | 🟢 Active | SPECIFICATION.md populated (44 req); PT-AL/PT-POE added; open items 2–6 remain; TA design (ESH10000654) is next blocker |
+| ESH10000654 | Sparrow Test Adapter | R0 | Verification | 🟢 Active | SPECIFICATION.md populated (21 req); assembled in-house; schematic/layout review and verification pending; 4 open interface items |
+| ESH10000633 | Sparrow Complete Product | R1 | Production Test | 🟢 Active | SPECIFICATION.md populated (44 req); PT-AL/PT-POE added; open items 2–6 remain; TA assembled — resolve 4 interface items to unblock PT procedure |
 | ESH10000634 | Sparrow FE N-Top | R3 | Design | 🔵 Planned | Project created — requirements definition next |
 | ESH10000534 | PoE | R4 | Design | 🟢 Active | Project created — requirements definition next |
 
