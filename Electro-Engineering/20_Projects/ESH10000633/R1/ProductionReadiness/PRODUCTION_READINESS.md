@@ -133,7 +133,7 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 | Part | Name | Qty/Unit | Need ×20 | On Hand | Available | Gap | Status |
 |------|------|----------|----------|---------|-----------|-----|--------|
 | ESH10000540 | Sparrow Fixture Electronics R3 | 1 | 20 | 50 | 50 | +30 | ⚠️ In Testing — confirm cleared for production |
-| ESH10000634 | Sparrow IDC N-Top | 1 | 20 | 4 | 4 | **−16** | 🔴 Critical shortage |
+| ESH10000634 | Sparrow IDC N-Top R3 | 1 | 20 | 0 | 98 | +78 | ⏳ 98 pcs on order, ETA w/c 2026-05-11 |
 | ESH10000536 | M2Top Active Load R2 | 1 | 20 | 31 | 31 | +11 | ✅ |
 
 ---
@@ -143,7 +143,7 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 | # | Gap | Type | Impact | Action Required |
 |---|-----|------|--------|-----------------|
 | G-01 | ESH10000182 (Accordion A2 Bare): need 20, have 1 | Inventory | Blocks all 19 remaining units | Initiate build order immediately; check RPi4B stock |
-| G-02 | ESH10000634 R3 (Sparrow IDC N-Top): need 20, have 0 at R3 | Design + Inventory | Blocks all 20 units of ESH10000636 | ⏳ In progress — PCB ordered ETA w/c 2026-05-04; PCBA ETA w/c 2026-05-11; promote to Manufacturing and update ESH10000636 BOM on receipt |
+| G-02 | ESH10000634 R3 (Sparrow IDC N-Top): need 20, have 0 at R3 | Design + Inventory | Blocks all 20 units of ESH10000636 | ⏳ In progress — PCB ordered ETA w/c 2026-05-04; 98 pcs PCBA ordered ETA w/c 2026-05-11; promote to Manufacturing and update ESH10000636 BOM on receipt |
 | G-03 | ESH10000544 (A2 Front Panel DSub): need 20, have 6 | Inventory | Blocks 14 units of ESH10000631 | PCB order + assembly; currently NotApproved |
 | G-04 | ESH10000572 (Accordion Sparrow Top): need 20, have 7 | Inventory | Blocks 13 units of ESH10000631 | PCB order + assembly; currently NotApproved |
 | G-05 | ESH10000637 (PSU Power Cable): need 20, have 0 | Inventory | Blocks final assembly of all 20 units | Order cables |
@@ -197,7 +197,7 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 ### Gate 2 — Inventory Procurement *(target: Week 1–4)*
 
 - [ ] ESH10000182 (Accordion A2 Bare) build order placed (qty ≥ 19); confirm RPi4B 8GB stock for 20 units
-- [x] ESH10000634 R3 (Sparrow IDC N-Top) PCB ordered (ETA w/c 2026-05-04); PCBA ETA w/c 2026-05-11
+- [x] ESH10000634 R3 (Sparrow IDC N-Top) PCB ordered (ETA w/c 2026-05-04); 98 pcs PCBA ordered, ETA w/c 2026-05-11
 - [ ] ESH10000544 (A2 Front Panel DSub Fixturelink) PCB order placed (qty ≥ 14) — pending design approval
 - [ ] ESH10000572 (Accordion Sparrow Top) PCB order placed (qty ≥ 13) — pending design approval
 - [ ] ESH10000637 (Sparrow PSU Power Cable 1m) cable procurement order placed (qty ≥ 20)
