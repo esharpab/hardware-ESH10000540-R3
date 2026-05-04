@@ -1,55 +1,52 @@
 ---
 project: ESH10000535
 revision: R3
-updated: 2026-05-04 (session 4)
+updated: 2026-05-04 (session 5)
 ---
 
 # Status: Sparrow N-Top R3
 
 ## Current Phase
 
-**Review — Schematic ERC** (R3) — ✅ Complete & Signed Off 2026-05-04 (MJ)
+**Verification** (R3) — In progress
 
 ---
 
 ## Current Focus
 
-- [x] Import design artifacts (netlist, BOM, schematic PDF) into DOCS/
-- [x] Run structural ERC (C01–C07, P01–P06, S01–S04, B01–B03)
-- [x] Complete component data coverage — 19/19 types in COMPONENT_DATA.md
-- [x] Obtain missing datasheets — all resolved
-- [x] Complete ERC-C08 / ERC-P06 / ERC-D per-device checks — all 19 types done
-- [x] All 8 open items (OI-01–OI-08) dispositioned and closed
 - [x] Schematic ERC review signed off 2026-05-04 (MJ)
-- [ ] Proceed to layout review
+- [x] Layout review created — 6 pass, 4 info items pending disposition
+- [x] SPECIFICATION.md approved (v0.3) — 30 requirements, all Approved 2026-05-04 (MJ)
+- [x] VERIFICATION.md created — 43 tests across M / P / CIO / UIO / C sections
+- [x] R2 fixes confirmed in R3 (100pF PWM/TACH_VCCO cap; R96/R76 mounted)
+- [ ] Assign R3 DUT serial numbers
+- [ ] Execute verification tests; record in DUT_LOG.md
 
 ---
 
 ## Latest Confirmed State
 
-- **Project created:** 2026-04-30
-- **Design:** Complete (schematic, netlist, layout produced)
-- **Schematic ERC review:** ✅ Complete & Signed Off 2026-05-04 (MJ)
-  - Structural ERC: Complete — all C/P/S/B checks passed or accepted
-  - Component data coverage: 19/19 types in COMPONENT_DATA.md
-  - ERC-C08: Complete — all 20 checks passed or accepted
-  - ERC-P06: Complete — all 25 checks passed or accepted
-  - ERC-D: Complete — 30 checks; all flagged items dispositioned
-  - Open items: 8/8 closed
+- **Design:** Complete
+- **Schematic ERC:** ✅ Signed off 2026-05-04 (MJ) — 8/8 open items closed
+- **Layout review:** In progress — 6 pass, 4 info items open (LR-P01, LR-P02, LR-V01, LR-G01)
+- **Specification:** ✅ Approved v0.3 — 30 requirements
+- **Verification plan:** ✅ Created — 43 tests, 0 executed
+- **Verification results:** Not started — awaiting DUT serial numbers
 
 ---
 
 ## Open Issues / Blockers
 
-None.
+- Layout review info items (LR-P01, LR-P02, LR-V01, LR-G01) — pending engineer disposition
+- DUT serial numbers not yet assigned
 
 ---
 
 ## Next 3 Actions
 
 1. **Assign R3 DUT serial numbers** — update DUT register in Verification/DUT_LOG.md
-2. **Approve SPECIFICATION.md** — confirm R3 acceptance criteria (all marked [R2])
-3. **Execute verification** — start with M (mechanical) and P (power) sections; record results in DUT_LOG.md
+2. **Execute M and P tests** — mechanical and power rails first; record in DUT_LOG.md
+3. **Disposition layout review info items** (LR-P01/P02/V01/G01) when ready
 
 ---
 
