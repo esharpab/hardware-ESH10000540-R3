@@ -1,0 +1,160 @@
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Products\ESH10000543\P2\Prod\PCB\GerberPanel_Fixture_Link_R2\layer2.gb2' ----   Fri Dec 12 09:29:44 2025
+
+D13   --> D100
+D11   --> D101
+D10   --> D102
+D12   --> D103
+D14   --> D104
+D15   --> D105
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Products\ESH10000543\P2\Prod\PCB\GerberPanel_Fixture_Link_R2\layer3.gb3' ----   Fri Dec 12 09:29:45 2025
+
+D12   --> D106
+D10   --> D107
+D11   --> D108
+D13   --> D109
+D14   --> D110
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Products\ESH10000543\P2\Prod\PCB\GerberPanel_Fixture_Link_R2\layer4.gb4' ----   Fri Dec 12 09:29:45 2025
+
+D14   --> D111
+D11   --> D112
+D10   --> D113
+D12   --> D114
+D13   --> D115
+D15   --> D116
+D16   --> D117
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Products\ESH10000543\P2\Prod\PCB\GerberPanel_Fixture_Link_R2\layer5.gb5' ----   Fri Dec 12 09:29:45 2025
+
+D13   --> D118
+D11   --> D119
+D10   --> D120
+D12   --> D121
+D14   --> D122
+D15   --> D123
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Products\ESH10000543\P2\Prod\PCB\GerberPanel_Fixture_Link_R2\layer6.gbl' ----   Fri Dec 12 09:29:46 2025
+
+D18   --> D124
+D15   --> D125
+D16   --> D126
+D70   --> D127
+D71   --> D128
+D19   --> D129
+D20   --> D130
+D22   --> D131
+D17   --> D132
+D21   --> D133
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Products\ESH10000543\P2\Prod\PCB\GerberPanel_Fixture_Link_R2\Maskbottom.gbs' ----   Fri Dec 12 09:29:46 2025
+
+D13   --> D134
+D10   --> D135
+D15   --> D136
+D16   --> D137
+D14   --> D138
+D17   --> D139
+D19   --> D140
+D12   --> D141
+D18   --> D142
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Products\ESH10000543\P2\Prod\PCB\GerberPanel_Fixture_Link_R2\Masktop.gts' ----   Fri Dec 12 09:29:46 2025
+
+D16   --> D143
+D10   --> D144
+D19   --> D145
+D70   --> D146
+D20   --> D147
+D21   --> D148
+D15   --> D149
+D13   --> D150
+D12   --> D151
+D17   --> D152
+D72   --> D153
+D23   --> D154
+D14   --> D155
+D18   --> D156
+D24   --> D157
+D71   --> D158
+D22   --> D159
+D29   --> D160
+D28   --> D161
+D25   --> D162
+D26   --> D163
+D27   --> D164
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Products\ESH10000543\P2\Prod\PCB\GerberPanel_Fixture_Link_R2\outline.gko' ----   Fri Dec 12 09:29:47 2025
+
+D10   --> D165
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Products\ESH10000543\P2\Prod\PCB\GerberPanel_Fixture_Link_R2\panel.gko' ----   Fri Dec 12 09:29:47 2025
+
+D10   --> D166
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Products\ESH10000543\P2\Prod\PCB\GerberPanel_Fixture_Link_R2\Pastebottom.gbp' ----   Fri Dec 12 09:29:47 2025
+
+D10   --> D167
+D12   --> D168
+D14   --> D169
+D11   --> D170
+D13   --> D171
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Products\ESH10000543\P2\Prod\PCB\GerberPanel_Fixture_Link_R2\Pastetop.gtp' ----   Fri Dec 12 09:29:48 2025
+
+D10   --> D172
+D17   --> D173
+D12   --> D174
+D11   --> D175
+D14   --> D176
+D23   --> D177
+D19   --> D178
+D13   --> D179
+D15   --> D180
+D70   --> D181
+D16   --> D182
+D18   --> D183
+D22   --> D184
+D71   --> D185
+D20   --> D186
+D21   --> D187
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Products\ESH10000543\P2\Prod\PCB\GerberPanel_Fixture_Link_R2\Silkbottom.gbo' ----   Fri Dec 12 09:29:48 2025
+
+D10   --> D188
+D11   --> D189
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Products\ESH10000543\P2\Prod\PCB\GerberPanel_Fixture_Link_R2\Silktop.gto' ----   Fri Dec 12 09:29:49 2025
+
+D11   --> D190
+D12   --> D191
+D10   --> D192
+D14   --> D193
+D13   --> D194
+-----------------------------------------------------------------

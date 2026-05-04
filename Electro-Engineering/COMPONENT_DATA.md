@@ -25,6 +25,7 @@
 - [ESP32-S3](#esp32-s3) — Dual-Core LX7 SoC, Wi-Fi 4 + BT5, QFN56 (Espressif)
 - [WM8962B](#wm8962b) — Ultra-Low Power Stereo CODEC with Class D Speaker Amp (Cirrus Logic)
 - [TRSF3232E](#trsf3232e) — 3 V–5.5 V Dual RS-232 Transceiver with Charge Pump (Texas Instruments)
+- [24AA025UID](#24aa025uid) — 2 Kbit I2C EEPROM with Preprogrammed 32-bit Unique ID, Cascadable (Microchip)
 - [MAX491E / MAX491ESD](#max491e--max491esd) — ±15 kV ESD-Protected Full-Duplex RS-485/RS-422 Transceiver (Maxim)
 - [AMS1117](#ams1117) — 1 A Adjustable/Fixed Low Dropout Linear Regulator (Advanced Monolithic Systems)
 - [SN74LVC2G06](#sn74lvc2g06) — Dual Inverter Buffer with Open-Drain Outputs (Texas Instruments)
@@ -44,6 +45,7 @@
 - [PS509LEX](#ps509lex) — Differential 4:1 / Dual 4:1 Precision Analog Multiplexer (Diodes Inc.)
 - [SN74LVC126APW](#sn74lvc126apw) — Quad Bus Buffer with 3-State Outputs, Active-HIGH OE (Texas Instruments)
 - [SN74LVC125APW](#sn74lvc125apw) — Quad Bus Buffer with 3-State Outputs, Active-LOW OE (Texas Instruments)
+- [SN74LVC07APW](#sn74lvc07apw) — Hex Buffer and Driver with Open-Drain Outputs (Texas Instruments)
 - [LTC3265EDHC](#ltc3265edhc) — Dual Charge Pump + Dual LDO Bipolar Supply (Analog Devices / Linear Technology)
 - [AD5592R](#ad5592r) — 8-Channel 12-bit Configurable ADC/DAC/GPIO with SPI Interface (Analog Devices)
 - [PGA849](#pga849) — Low-Noise Wide-Bandwidth Precision Programmable Gain InAmp (Texas Instruments)
@@ -1441,6 +1443,59 @@ No project-specific notes yet.
 
 ---
 
+## 24AA025UID
+
+**Manufacturer:** Microchip Technology  
+**Mfr Part Number:** 24AA025UIDT-I/OT (6-lead SOT-23, industrial, tape and reel)  
+**Package:** SOT-23, 6-lead  
+**Category:** IC — Memory / I2C EEPROM with Unique ID  
+**Datasheet:** DS20005202A, Microchip Technology, 2013  
+**Added:** 2026-05-04  
+**Used in:** ESH10000543 R2
+
+2 Kbit I2C EEPROM organised as 2 × 128 × 8 bit, with a preprogrammed 32-bit unique serial number. Cascadable — up to 8 devices on one bus via A0/A1 address pins. VCC 1.7 V–5.5 V. SDA and SCL are open-drain; external pull-up resistors required on both lines.
+
+### Pin Description (6-lead SOT-23)
+
+| Pin | Name | Type | Description |
+|-----|------|------|-------------|
+| 1 | SCL | I | Serial clock input |
+| 2 | VSS | — | Ground |
+| 3 | SDA | I/O (OD) | Serial address/data, open-drain |
+| 4 | A1 | I | Chip address bit 1 — **must be tied to VSS or VCC** |
+| 5 | A0 | I | Chip address bit 0 — **must be tied to VSS or VCC** |
+| 6 | VCC | — | Supply voltage, 1.7 V–5.5 V |
+
+> Note: A2 is not bonded in the 6-lead SOT-23 package; the corresponding slave address bit must always be '0'.
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VCC | 1.7 | — | 5.5 | V | Operating |
+| VIH | 0.7×VCC | — | — | V | |
+| VIL | — | — | 0.3×VCC | V | |
+| VOL | — | — | 0.4 | V | IOL = 3.0 mA, VCC ≥ 2.5 V |
+| ICCS (standby) | — | 0.01 | 1 | µA | |
+| ICC (read) | — | 0.05 | 1 | mA | |
+| FCLK | — | — | 400 / 100 | kHz | VCC ≥ 2.5 V / VCC < 2.5 V |
+| TWC (write cycle) | — | — | 5 | ms | |
+| Operating temp | −40 | — | +85 | °C | Industrial |
+
+### Application Notes
+
+- **SDA requires pull-up to VCC** — open-drain output. Typical: 10 kΩ for 100 kHz, 2 kΩ for 400 kHz.
+- **SCL requires pull-up to VCC** — I2C bus requirement.
+- **A0 and A1 must be connected to VSS or VCC** — must not be left floating. Determines I2C slave address bits.
+- VCC bypass capacitor recommended.
+- Up to 8 devices cascadable on one bus (4 for SOT-23 package variant).
+
+### Project Usage Notes
+
+> **[ESH10000543 R2]:** U15 (24AA025UIDT-I/OT). I2C EEPROM for device identification. VCC on VID net; A0 and A1 tied to GND (address = 0b000).
+
+---
+
 ## TRSF3232E
 
 **Manufacturer:** Texas Instruments  
@@ -2816,6 +2871,62 @@ Quadruple bus buffer gate with 3-state outputs. Each channel has an independent 
 ### Project Usage Notes
 
 > **[ESH10000535 R3]:** U6, U7 (SN74LVC125APW). Used as bus buffers on U-SPI and UART external interfaces. OE\ driven LOW by MCU or IO expander to enable the buffer; HIGH disables (high-Z).
+
+---
+
+## SN74LVC07APW
+
+**Manufacturer:** Texas Instruments  
+**Mfr Part Number:** SN74LVC07APW (TSSOP-14)  
+**Package:** TSSOP-14 (PW)  
+**Category:** IC — Logic / Buffer (open-drain outputs)  
+**Datasheet:** SN74LVC07A, SCAS595W, Texas Instruments, October 1997 – Revised October 2016  
+**Added:** 2026-05-04  
+**Used in:** ESH10000543 R2
+
+Hex buffer and driver with open-drain outputs. No output-enable pin — outputs are always active. VCC 1.65 V–5.5 V; inputs and outputs accept up to 5.5 V. Requires external pull-up resistors on all output nets.
+
+### Pin Description (TSSOP-14, top view)
+
+| Pin | Name | Type | Description |
+|-----|------|------|-------------|
+| 1 | 1A | I | Input 1 |
+| 2 | 1Y | O (OD) | Open-drain output 1 |
+| 3 | 2A | I | Input 2 |
+| 4 | 2Y | O (OD) | Open-drain output 2 |
+| 5 | 3A | I | Input 3 |
+| 6 | 3Y | O (OD) | Open-drain output 3 |
+| 7 | GND | — | Ground |
+| 8 | 4Y | O (OD) | Open-drain output 4 |
+| 9 | 4A | I | Input 4 |
+| 10 | 5Y | O (OD) | Open-drain output 5 |
+| 11 | 5A | I | Input 5 |
+| 12 | 6Y | O (OD) | Open-drain output 6 |
+| 13 | 6A | I | Input 6 |
+| 14 | VCC | — | Supply voltage |
+
+**Function:** Non-inverting buffer. A=H → Y pulls to GND (LOW). A=L → Y is high-Z (open drain — output must be pulled up externally).
+
+### Key Electrical Parameters
+
+| Parameter | Min | Typ | Max | Unit | Notes |
+|-----------|-----|-----|-----|------|-------|
+| VCC | 1.65 | — | 5.5 | V | Operating |
+| VI (input) | — | — | 5.5 | V | 5.5 V tolerant |
+| IOL | — | 24 | — | mA | At VCC=3.3 V |
+| tpd (3.3 V) | — | — | 5.5 | ns | A→Y propagation |
+| Operating temp | −40 | — | +125 | °C | |
+
+### Application Notes
+
+- **Open-drain outputs require external pull-up resistors** on every output net that must be pulled HIGH. Omitting a pull-up leaves the net floating when the output is high-Z.
+- **Unused inputs must be tied to VCC or GND** — datasheet states: "All unused inputs of the device must be held at VCC or GND to ensure proper device operation." Do not leave any input pin floating.
+- VCC bypass capacitor required: 0.1 µF recommended.
+- Outputs are 5.5 V tolerant — pull-up rail may be higher than VCC, enabling level translation up to 5.5 V.
+
+### Project Usage Notes
+
+> **[ESH10000543 R2]:** U7 (SN74LVC07APW). Used as open-drain buffer/driver.
 
 ---
 

@@ -5,7 +5,8 @@ Overview of all projects — active and otherwise.
 | Project | Product / Document | Revision | Phase | Status | Notes |
 |---|---|---|---|---|---|
 | ESH10000540 | Sparrow Fixture Electronics PCBA | R3 | Schematic ERC Review | 🟢 Active | ERC signed off MJ 2026-04-30; layout review next |
-| ESH10000535 | Sparrow N-Top | R3 | Schematic ERC Review | 🟢 Active | Component data 19/19 complete — ERC-C08/P06/D next |
+| ESH10000535 | Sparrow N-Top | R3 | Schematic ERC Review | 🟢 Active | ERC-C08/P06/D complete — 6 open items (OI-03–OI-08) pending engineer confirmation |
+| ESH10000543 | Fixture Link | R2 | Schematic Review | 🟢 Active | Project scaffold created — schematic review not yet started |
 
 ---
 
