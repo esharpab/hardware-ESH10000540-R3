@@ -1,0 +1,596 @@
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\layer2.gb2' ----   Thu Mar  5 16:09:57 2026
+
+D11   --> D100
+D10   --> D101
+D12   --> D102
+D13   --> D103
+D14   --> D104
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\layer3.gb3' ----   Thu Mar  5 16:09:59 2026
+
+D10   --> D105
+D11   --> D106
+D12   --> D107
+D13   --> D108
+D14   --> D109
+D15   --> D110
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\layer4.gb4' ----   Thu Mar  5 16:10:01 2026
+
+D10   --> D111
+D11   --> D112
+D12   --> D113
+D13   --> D114
+D14   --> D115
+D15   --> D116
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\layer5.gb5' ----   Thu Mar  5 16:10:01 2026
+
+D11   --> D117
+D10   --> D118
+D12   --> D119
+D13   --> D120
+D14   --> D121
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\layer6.gbl' ----   Thu Mar  5 16:10:02 2026
+
+D20   --> D122
+D18   --> D123
+D71   --> D124
+D19   --> D125
+D70   --> D126
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Maskbottom.gbs' ----   Thu Mar  5 16:10:02 2026
+
+D10   --> D127
+D17   --> D128
+D28   --> D129
+D16   --> D130
+D70   --> D131
+D23   --> D132
+D21   --> D133
+D71   --> D134
+D22   --> D135
+D18   --> D136
+D15   --> D137
+D12   --> D138
+D72   --> D139
+D13   --> D140
+D20   --> D141
+D29   --> D142
+D14   --> D143
+D19   --> D144
+D24   --> D145
+D27   --> D146
+D26   --> D147
+D25   --> D148
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Masktop.gts' ----   Thu Mar  5 16:10:03 2026
+
+D10   --> D149
+D14   --> D150
+D13   --> D151
+D12   --> D152
+D15   --> D153
+D16   --> D154
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\panel.gko' ----   Thu Mar  5 16:10:03 2026
+
+D10   --> D155
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Pastebottom.gbp' ----   Thu Mar  5 16:10:04 2026
+
+D17   --> D156
+D14   --> D157
+D13   --> D158
+D18   --> D159
+D21   --> D160
+D71   --> D161
+D19   --> D162
+D20   --> D163
+D15   --> D164
+D10   --> D165
+D28   --> D166
+D11   --> D167
+D70   --> D168
+D27   --> D169
+D12   --> D170
+D16   --> D171
+D26   --> D172
+D22   --> D173
+D25   --> D174
+D24   --> D175
+D23   --> D176
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Pastetop.gtp' ----   Thu Mar  5 16:10:04 2026
+
+D11   --> D177
+D10   --> D178
+D12   --> D179
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Silkbottom.gbo' ----   Thu Mar  5 16:10:05 2026
+
+D10   --> D180
+D12   --> D181
+D11   --> D182
+D13   --> D183
+D14   --> D184
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Silktop.gto' ----   Thu Mar  5 16:10:05 2026
+
+D12   --> D185
+D11   --> D186
+D10   --> D187
+D13   --> D188
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\layer2.gb2' ----   Thu Mar  5 16:16:17 2026
+
+D11   --> D100
+D10   --> D101
+D12   --> D102
+D13   --> D103
+D14   --> D104
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\layer3.gb3' ----   Thu Mar  5 16:16:17 2026
+
+D10   --> D105
+D11   --> D106
+D12   --> D107
+D13   --> D108
+D14   --> D109
+D15   --> D110
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\layer4.gb4' ----   Thu Mar  5 16:16:18 2026
+
+D10   --> D111
+D11   --> D112
+D12   --> D113
+D13   --> D114
+D14   --> D115
+D15   --> D116
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\layer5.gb5' ----   Thu Mar  5 16:16:18 2026
+
+D11   --> D117
+D10   --> D118
+D12   --> D119
+D13   --> D120
+D14   --> D121
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\layer6.gbl' ----   Thu Mar  5 16:16:19 2026
+
+D20   --> D122
+D18   --> D123
+D71   --> D124
+D19   --> D125
+D70   --> D126
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Maskbottom.gbs' ----   Thu Mar  5 16:16:19 2026
+
+D10   --> D127
+D17   --> D128
+D28   --> D129
+D16   --> D130
+D70   --> D131
+D23   --> D132
+D21   --> D133
+D71   --> D134
+D22   --> D135
+D18   --> D136
+D15   --> D137
+D12   --> D138
+D72   --> D139
+D13   --> D140
+D20   --> D141
+D29   --> D142
+D14   --> D143
+D19   --> D144
+D24   --> D145
+D27   --> D146
+D26   --> D147
+D25   --> D148
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Masktop.gts' ----   Thu Mar  5 16:16:20 2026
+
+D10   --> D149
+D14   --> D150
+D13   --> D151
+D12   --> D152
+D15   --> D153
+D16   --> D154
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\panel.gko' ----   Thu Mar  5 16:16:21 2026
+
+D10   --> D155
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Pastebottom.gbp' ----   Thu Mar  5 16:16:21 2026
+
+D17   --> D156
+D14   --> D157
+D13   --> D158
+D18   --> D159
+D21   --> D160
+D71   --> D161
+D19   --> D162
+D20   --> D163
+D15   --> D164
+D10   --> D165
+D28   --> D166
+D11   --> D167
+D70   --> D168
+D27   --> D169
+D12   --> D170
+D16   --> D171
+D26   --> D172
+D22   --> D173
+D25   --> D174
+D24   --> D175
+D23   --> D176
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Pastetop.gtp' ----   Thu Mar  5 16:16:22 2026
+
+D11   --> D177
+D10   --> D178
+D12   --> D179
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Silkbottom.gbo' ----   Thu Mar  5 16:16:22 2026
+
+D10   --> D180
+D12   --> D181
+D11   --> D182
+D13   --> D183
+D14   --> D184
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Silktop.gto' ----   Thu Mar  5 16:16:23 2026
+
+D12   --> D185
+D11   --> D186
+D10   --> D187
+D13   --> D188
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\layer2.gb2' ----   Thu Mar  5 16:18:40 2026
+
+D11   --> D100
+D10   --> D101
+D12   --> D102
+D13   --> D103
+D14   --> D104
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\layer3.gb3' ----   Thu Mar  5 16:18:41 2026
+
+D10   --> D105
+D11   --> D106
+D12   --> D107
+D13   --> D108
+D14   --> D109
+D15   --> D110
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\layer4.gb4' ----   Thu Mar  5 16:18:41 2026
+
+D10   --> D111
+D11   --> D112
+D12   --> D113
+D13   --> D114
+D14   --> D115
+D15   --> D116
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\layer5.gb5' ----   Thu Mar  5 16:18:41 2026
+
+D11   --> D117
+D10   --> D118
+D12   --> D119
+D13   --> D120
+D14   --> D121
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\layer6.gbl' ----   Thu Mar  5 16:18:42 2026
+
+D20   --> D122
+D18   --> D123
+D71   --> D124
+D19   --> D125
+D70   --> D126
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Maskbottom.gbs' ----   Thu Mar  5 16:18:42 2026
+
+D10   --> D127
+D17   --> D128
+D28   --> D129
+D16   --> D130
+D70   --> D131
+D23   --> D132
+D21   --> D133
+D71   --> D134
+D22   --> D135
+D18   --> D136
+D15   --> D137
+D12   --> D138
+D72   --> D139
+D13   --> D140
+D20   --> D141
+D29   --> D142
+D14   --> D143
+D19   --> D144
+D24   --> D145
+D27   --> D146
+D26   --> D147
+D25   --> D148
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Masktop.gts' ----   Thu Mar  5 16:18:43 2026
+
+D10   --> D149
+D14   --> D150
+D13   --> D151
+D12   --> D152
+D15   --> D153
+D16   --> D154
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\panel.gko' ----   Thu Mar  5 16:18:43 2026
+
+D10   --> D155
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Pastebottom.gbp' ----   Thu Mar  5 16:18:43 2026
+
+D17   --> D156
+D14   --> D157
+D13   --> D158
+D18   --> D159
+D21   --> D160
+D71   --> D161
+D19   --> D162
+D20   --> D163
+D15   --> D164
+D10   --> D165
+D28   --> D166
+D11   --> D167
+D70   --> D168
+D27   --> D169
+D12   --> D170
+D16   --> D171
+D26   --> D172
+D22   --> D173
+D25   --> D174
+D24   --> D175
+D23   --> D176
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Pastetop.gtp' ----   Thu Mar  5 16:18:44 2026
+
+D11   --> D177
+D10   --> D178
+D12   --> D179
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Silkbottom.gbo' ----   Thu Mar  5 16:18:44 2026
+
+D10   --> D180
+D12   --> D181
+D11   --> D182
+D13   --> D183
+D14   --> D184
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R2\PCB\Panel\fe_n-top\Output\jlc\Silktop.gto' ----   Thu Mar  5 16:18:44 2026
+
+D12   --> D185
+D11   --> D186
+D10   --> D187
+D13   --> D188
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R3\PCB\Panel\fe_n-top\Output\jlc\layer2.gb2' ----   Fri Apr 17 11:48:29 2026
+
+D11   --> D100
+D10   --> D101
+D12   --> D102
+D13   --> D103
+D14   --> D104
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R3\PCB\Panel\fe_n-top\Output\jlc\layer3.gb3' ----   Fri Apr 17 11:48:29 2026
+
+D10   --> D105
+D11   --> D106
+D12   --> D107
+D13   --> D108
+D14   --> D109
+D15   --> D110
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R3\PCB\Panel\fe_n-top\Output\jlc\layer4.gb4' ----   Fri Apr 17 11:48:29 2026
+
+D10   --> D111
+D11   --> D112
+D12   --> D113
+D13   --> D114
+D14   --> D115
+D15   --> D116
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R3\PCB\Panel\fe_n-top\Output\jlc\layer5.gb5' ----   Fri Apr 17 11:48:30 2026
+
+D11   --> D117
+D10   --> D118
+D12   --> D119
+D13   --> D120
+D14   --> D121
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R3\PCB\Panel\fe_n-top\Output\jlc\layer6.gbl' ----   Fri Apr 17 11:48:30 2026
+
+D20   --> D122
+D18   --> D123
+D71   --> D124
+D19   --> D125
+D70   --> D126
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R3\PCB\Panel\fe_n-top\Output\jlc\Maskbottom.gbs' ----   Fri Apr 17 11:48:30 2026
+
+D10   --> D127
+D17   --> D128
+D28   --> D129
+D16   --> D130
+D70   --> D131
+D23   --> D132
+D21   --> D133
+D71   --> D134
+D22   --> D135
+D18   --> D136
+D15   --> D137
+D12   --> D138
+D72   --> D139
+D13   --> D140
+D20   --> D141
+D29   --> D142
+D14   --> D143
+D19   --> D144
+D24   --> D145
+D27   --> D146
+D26   --> D147
+D25   --> D148
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R3\PCB\Panel\fe_n-top\Output\jlc\Masktop.gts' ----   Fri Apr 17 11:48:31 2026
+
+D10   --> D149
+D14   --> D150
+D13   --> D151
+D12   --> D152
+D15   --> D153
+D16   --> D154
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R3\PCB\Panel\fe_n-top\Output\jlc\panel.gko' ----   Fri Apr 17 11:48:31 2026
+
+D10   --> D155
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R3\PCB\Panel\fe_n-top\Output\jlc\Pastebottom.gbp' ----   Fri Apr 17 11:48:32 2026
+
+D17   --> D156
+D14   --> D157
+D13   --> D158
+D18   --> D159
+D21   --> D160
+D71   --> D161
+D19   --> D162
+D20   --> D163
+D15   --> D164
+D10   --> D165
+D28   --> D166
+D11   --> D167
+D70   --> D168
+D27   --> D169
+D12   --> D170
+D16   --> D171
+D26   --> D172
+D22   --> D173
+D25   --> D174
+D24   --> D175
+D23   --> D176
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R3\PCB\Panel\fe_n-top\Output\jlc\Pastetop.gtp' ----   Fri Apr 17 11:48:32 2026
+
+D11   --> D177
+D10   --> D178
+D12   --> D179
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R3\PCB\Panel\fe_n-top\Output\jlc\Silkbottom.gbo' ----   Fri Apr 17 11:48:33 2026
+
+D10   --> D180
+D12   --> D181
+D11   --> D182
+D13   --> D183
+D14   --> D184
+-----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\MartinJohansson\OneDrive - E-Sharp AB\DesignLabs\PLM\Projects\ELECTRONICS\Sparrow_IDC_N-TOP\fe_n-top_R3\PCB\Panel\fe_n-top\Output\jlc\Silktop.gto' ----   Fri Apr 17 11:48:34 2026
+
+D12   --> D185
+D11   --> D186
+D10   --> D187
+D13   --> D188
+-----------------------------------------------------------------

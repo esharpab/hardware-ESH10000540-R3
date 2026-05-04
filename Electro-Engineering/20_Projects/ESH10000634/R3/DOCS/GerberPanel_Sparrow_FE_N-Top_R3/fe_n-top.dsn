@@ -1,0 +1,112 @@
+{Program	Expedition GerbTool(tm)
+	{Version	8.1.2 X1}
+	{Created	Fri Apr 17 11:27:40 2026}
+}
+{Environment
+	{ViewMetric	Yes}
+}
+{Layers
+	{Layer  1
+		{File		panel.gko}
+		{LyrName	panel}
+		{Visibility	On}
+		{Type		Other}
+		{Ftype		Gerber}
+	}
+	{Layer  2
+		{File		layer6.gbl}
+		{LyrName	layer6}
+		{Visibility	Off}
+		{Type		Bottom}
+		{Ftype		Gerber}
+	}
+	{Layer  3
+		{File		layer5.gb5}
+		{LyrName	layer5}
+		{Visibility	Off}
+		{Type		Plane}
+		{Ftype		Gerber}
+	}
+	{Layer  4
+		{File		layer4.gb4}
+		{LyrName	layer4}
+		{Visibility	Off}
+		{Type		Inner}
+		{Ftype		Gerber}
+	}
+	{Layer  5
+		{File		layer3.gb3}
+		{LyrName	layer3}
+		{Visibility	Off}
+		{Type		Inner}
+		{Ftype		Gerber}
+	}
+	{Layer  6
+		{File		layer2.gb2}
+		{LyrName	layer2}
+		{Visibility	Off}
+		{Type		Plane}
+		{Ftype		Gerber}
+	}
+	{Layer  7
+		{File		layer1.gtl}
+		{LyrName	layer1}
+		{Visibility	Off}
+		{Type		Top}
+		{Ftype		Gerber}
+	}
+	{Layer  8
+		{File		Silktop.gto}
+		{LyrName	Silktop}
+		{Visibility	Off}
+		{Type		Other}
+		{Ftype		Gerber}
+	}
+	{Layer  9
+		{File		Silkbottom.gbo}
+		{LyrName	Silkbottom}
+		{Visibility	Off}
+		{Type		Other}
+		{Ftype		Gerber}
+	}
+	{Layer 10
+		{File		Pastetop.gtp}
+		{LyrName	Pastetop}
+		{Visibility	Off}
+		{Type		Other}
+		{Ftype		Gerber}
+	}
+	{Layer 11
+		{File		Pastebottom.gbp}
+		{LyrName	Pastebottom}
+		{Visibility	Off}
+		{Type		Other}
+		{Ftype		Gerber}
+	}
+	{Layer 12
+		{File		Masktop.gts}
+		{LyrName	Masktop}
+		{Visibility	Off}
+		{Type		Other}
+		{Ftype		Gerber}
+	}
+	{Layer 13
+		{File		Maskbottom.gbs}
+		{LyrName	Maskbottom}
+		{Visibility	Off}
+		{Type		Other}
+		{Ftype		Gerber}
+	}
+}
+{Format Gerber
+	{Dialect		RS274X}
+	{m.n			2.4}
+	{Mode			Absolute}
+	{ZeroSuppression	Leading}
+	{Terminator		0x2a, 0xd, 0xa}
+	{Metric			Yes}
+	{Modal			Yes}
+	{CharSet		ASCII}
+	{Arcs360		No}
+	{ArcsModal		Yes}
+}
