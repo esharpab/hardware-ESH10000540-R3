@@ -263,3 +263,54 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 | R1 | 2026-05-04 | Martin Johansson | Sidetrack section added: ESH10000158 R6 and ESH10000539 new rev planned as parallel track; fallback to R5/R1 if not ready by Week 4 |
 | R1 | 2026-05-04 | Martin Johansson | ESH10000634 updated to R3 (hard requirement); R3 not yet in MES — added to critical path in Gate 1 and Gate 2 |
 | R1 | 2026-05-04 | Martin Johansson | ESH10000634 R3 status updated: PCB ordered ETA w/c 2026-05-04, PCBA ETA w/c 2026-05-11; risk downgraded to Low |
+| R1 | 2026-05-04 | Martin Johansson | Weekly check-in section added |
+
+---
+
+## 8. Weekly Project Check-Ins
+
+> One entry per week. Add a new `### Check-in — YYYY-MM-DD` block each week. Do not edit prior entries.
+
+**Project responsible:** Martin Johansson
+**Steering committee:** Daniel Rhodin, Daniel Hansson
+**Project:** ESH10000633 R1 — Sparrow Complete Product (20 units, deadline 2026-07-13)
+
+---
+
+### Delivery Plan
+
+| # | Milestone | Description | Deadline | Status |
+|---|-----------|-------------|----------|--------|
+| 1 | Project start | Production readiness analysis initiated | 2026-05-04 | DONE |
+| 2 | Gate 1 — Design Release | All sub-assemblies at Manufacturing in MES; ESH10000634 R3 approved | 2026-05-15 | IN PROGRESS |
+| 3 | Gate 2 — Inventory Procurement | All shortfalls resolved; ESH10000182 build order confirmed | 2026-06-05 | NOT STARTED |
+| 4 | Gate 3 — Test & Production Infrastructure | Test adapter (ESH10000654) built; test procedure complete; DUT serials defined | 2026-06-05 | NOT STARTED |
+| 5 | Gate 4 — First Article | S/N 001 assembled and passed production test | 2026-06-12 | NOT STARTED |
+| 6 | Gate 5 — Production Run | All 20 units assembled and tested | 2026-07-06 | NOT STARTED |
+| 7 | Gate 6 — Delivery | Final QC, packaging, and delivery documentation complete | 2026-07-13 | NOT STARTED |
+
+---
+
+### Check-in — 2026-05-04
+
+| Last Week | Next Week | Risks & Dependencies |
+|-----------|-----------|----------------------|
+| Production readiness analysis completed | ESH10000634 R3 PCBA expected (ETA w/c 2026-05-11) | **DEPENDENCY** ESH10000182 (Accordion A2 Bare) — only 1 in stock, need 20; build order not yet placed |
+| Full MES BOM extracted (all levels); inventory vs 20-unit need assessed | Verify current revision of ESH10000539 (Control Module 32ch A2) — should it be R1? | **DEPENDENCY** ESH10000654 (Sparrow Test Adapter) — design not started; blocks production test procedure |
+| ESH10000634 R3 PCB ordered (ETA this week) | Initiate Gate 1: promote Prototype sub-assemblies to Manufacturing in MES | **RISK** ESH10000544 / ESH10000572 at NotApproved with no BOM — blocks Accordion A2 build |
+| PRODUCTION_READINESS.md created with full BOM hierarchy, 6 production gates, and risk register | Confirm ESH10000535 / ESH10000540 units in Testing are cleared for production build | **RISK** I2C issue on PoE / FE N-Top — pending resolution (noted in check-in 2026-04-28) |
+
+**Jira:** *(link TBD)*
+**Clockify:** Time estimate: — h / Tracked: — h / Remaining: — h
+
+**Action points for steering committee:**
+
+| Description | Responsible | Deadline |
+|-------------|-------------|----------|
+| Approve build order for ESH10000182 (Accordion A2 Bare) — qty 19 minimum | Martin Johansson | 2026-05-08 |
+| Confirm ESH10000544 / ESH10000572 design approval path and ETA | Martin Johansson | 2026-05-08 |
+| Confirm ESH10000654 (Test Adapter) design resource and start date | Martin Johansson | 2026-05-11 |
+
+**General notes:**
+- Overall status: **IN PROGRESS** — production readiness analysis complete; Gate 1 design release actions to begin this week
+- I2C issue carried from previous check-in (2026-04-28) — needs resolution before production test can be finalised
