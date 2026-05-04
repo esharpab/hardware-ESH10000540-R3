@@ -6,7 +6,7 @@ Overview of all projects — active and otherwise.
 |---|---|---|---|---|---|
 | ESH10000540 | Sparrow Fixture Electronics PCBA | R3 | Layout Review | 🟢 Active | Layout review complete 2026-05-04 — 5 Info items pending engineer disposition |
 | ESH10000535 | Sparrow N-Top | R3 | Verification | 🟢 Active | Verification plan created — DUT serials and spec approval needed |
-| ESH10000543 | Fixture Link | R2 | Schematic Review | 🟢 Active | ERC complete — 1 open item (F-02: U7 pull-ups) |
+| ESH10000543 | Fixture Link | R2 | Verification | 🟢 Active | Schematic + layout review complete; verification plan ready — awaiting R2 DUT |
 
 ---
 
