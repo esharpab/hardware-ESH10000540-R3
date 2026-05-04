@@ -1,0 +1,30 @@
+; Version : LOCAL
+; Job     : C:\PADS_WDIR\PADSProVX.2.14.1\PCCD\207cd633-8e29-413e-93b2-d20470c3fcf6\PCB\Board1.pcb
+; User    : ESHARP-MTRO_1:MartinTrobäck
+; Date    : Fri Feb 20 18:07:45 2026
+; Format  : 3.3 / Absolute / MM / Leading
+; Contents: Thru / Drill / Non-Plated
+M48
+METRIC,TZ
+FMAT,2
+ICI,OFF
+T03C1.700
+%
+M71
+G90
+G93X0Y0
+T03
+X9190Y8450
+X29510
+X48490
+X68810
+Y26320
+X48490
+X29510
+X9190
+Y44200
+X29510
+X48490
+X68810
+T00
+M30
