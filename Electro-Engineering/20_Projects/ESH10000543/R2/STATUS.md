@@ -1,6 +1,6 @@
 # Status: Fixture Link R2
 
-**Last updated:** 2026-05-04
+**Last updated:** 2026-05-04 (Session 14)
 
 ---
 
@@ -14,7 +14,7 @@ Verification plan complete and augmented for R2 changes — awaiting R2 DUT assi
 - COMPONENT_DATA.md: SN74LVC07APW and 24AA025UID entries added (both new).
 - Schematic ERC review complete: 0 errors, 0 open warnings, 5 closed.
   - F-01 Rejected (R66 NC intentional)
-  - F-02 Accepted (pull-ups assumed on Accordion side of J1; verify during verification)
+  - F-02 Accepted (pull-ups confirmed on Accordion CM32 module — MJ, 2026-05-04; bench test C.05 still required)
   - F-03 Accepted (1 µF caps intentional; bench verification pending)
   - F-04 Rejected (PCB refs are fiducials)
   - F-05 Accepted (C3 = 10 µF; BOM to be corrected in next revision)
