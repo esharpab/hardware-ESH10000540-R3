@@ -176,6 +176,21 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 - [ ] ESH10000615 R0 (Kontakthuvud HLCD-20-40.00) promoted to Manufacturing in MES
 - [ ] ESH10000634 (Sparrow IDC N-Top): confirm R1 or R2 — pin revision in ESH10000636 BOM
 
+### Sidetrack — New Sub-Assembly Revisions *(parallel track, not on critical path)*
+
+> **Strategy:** New revisions of ESH10000158 and ESH10000539 are planned to run in parallel with the 10-week production programme. If the new revisions are ready in time, they will be incorporated into the ESH10000182 (Accordion A2 Bare) build. If not, the current approved revisions (ESH10000158 R5 / ESH10000539 R1 — **verify**) will be used. Do not hold production start or ESH10000182 build orders pending these revisions.
+
+- [ ] **⚠️ VERIFY:** Confirm current production revision of ESH10000539 (Control Module 32ch A2) — MES shows R1; is this correct?
+- [ ] ESH10000158 R6 (Accordion A2 Base PCBA): schematic/layout complete
+- [ ] ESH10000158 R6: PCB fab ordered
+- [ ] ESH10000158 R6: PCBA assembled and verified
+- [ ] ESH10000158 R6: promoted to Manufacturing in MES and BOM in ESH10000182 updated
+- [ ] ESH10000539 new rev (Accordion A2 Base PCBA — Control Module 32ch A2): revision confirmed and design started
+- [ ] ESH10000539 new rev: PCB fab ordered
+- [ ] ESH10000539 new rev: PCBA assembled and verified
+- [ ] ESH10000539 new rev: promoted to Manufacturing in MES and BOM in ESH10000182 updated
+- [ ] If either new revision is **not** ready by Week 4: decision recorded — fall back to ESH10000158 R5 and ESH10000539 R1 for this production run
+
 ### Gate 2 — Inventory Procurement *(target: Week 1–4)*
 
 - [ ] ESH10000182 (Accordion A2 Bare) build order placed (qty ≥ 19); confirm RPi4B 8GB stock for 20 units
@@ -231,6 +246,8 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 | Testing units ESH10000535 (Sparrow N-Top) / ESH10000540 (Sparrow Fixture Electronics) not released for production | Medium | Blocks sub-assembly supply | Confirm with test team; 4 N-Top spare margin is tight |
 | ESH10000654 (Sparrow Test Adapter) not ready in time | High | Blocks production test execution | Prioritise TA design; manual test as fallback for first article |
 | Multiple sub-assemblies at Prototype — late MES promotion delays WO creation | Medium | Delays work order release | Assign MES promotion as Week 1 priority |
+| ESH10000158 R6 / ESH10000539 new rev not ready in time | Low–Medium | Minor — fallback to R5/R1 is available; no production stop | Treat as sidetrack; decide at Week 4 gate; do not delay ESH10000182 build order pending these |
+| ESH10000539 revision unclear — may not be R1 | Medium | Wrong revision built into ESH10000182 if unverified | Verify immediately (Gate 1 sidetrack action) |
 
 ---
 
@@ -240,3 +257,4 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 |-----|------|--------|--------|
 | R1 | 2026-05-04 | Martin Johansson | Initial document; BOM and inventory extracted from MES 2026-05-04 |
 | R1 | 2026-05-04 | Martin Johansson | BOM hierarchy updated with full revision numbers from MES; additional NotApproved sub-components flagged (ESH10000538, 062, 579, 580, 581) |
+| R1 | 2026-05-04 | Martin Johansson | Sidetrack section added: ESH10000158 R6 and ESH10000539 new rev planned as parallel track; fallback to R5/R1 if not ready by Week 4 |
