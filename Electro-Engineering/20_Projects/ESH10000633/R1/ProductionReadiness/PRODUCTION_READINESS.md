@@ -209,7 +209,9 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 
 - [ ] Production test plan approved (PRODUCTION_TEST_PLAN.md)
 - [ ] PRODUCTION_TEST_PROCEDURE.md written and reviewed
-- [ ] ESH10000654 (Sparrow Test Adapter) designed and built
+- [x] ESH10000654 R0 (Sparrow Test Adapter) assembled and in-house
+- [ ] ESH10000654 R0: 4 open interface items resolved (PSU connector, PoE routing — see ESH10000654 R0 SPECIFICATION.md)
+- [ ] ESH10000654 R0: verification complete
 - [ ] Test software (Accordion automation scripts) ready
 - [ ] 20 V DC supply available for Fixture Link eFuse test
 - [ ] 56 V DC supply available for PoE test
@@ -247,7 +249,7 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 | ESH10000634 R3 (Sparrow IDC N-Top) PCBA delayed beyond w/c 2026-05-11 | Low | Blocks all 20 units of ESH10000636 | PCB already ordered; PCBA ETA w/c 2026-05-11 — monitor delivery |
 | ESH10000544 (A2 Front Panel DSub) / ESH10000572 (Accordion Sparrow Top) design not approved in time | Medium | Blocks Accordion A2 build | Expedite design review; check if existing stock can be reworked |
 | Testing units ESH10000535 (Sparrow N-Top) / ESH10000540 (Sparrow Fixture Electronics) not released for production | Medium | Blocks sub-assembly supply | Confirm with test team; 4 N-Top spare margin is tight |
-| ESH10000654 (Sparrow Test Adapter) not ready in time | High | Blocks production test execution | Prioritise TA design; manual test as fallback for first article |
+| ESH10000654 (Sparrow Test Adapter) verification not complete in time | Medium | Blocks production test execution | TA assembled and in-house; 4 open interface items remain (see ESH10000654 R0 SPECIFICATION.md); verification in progress — monitor weekly |
 | Multiple sub-assemblies at Prototype — late MES promotion delays WO creation | Medium | Delays work order release | Assign MES promotion as Week 1 priority |
 | ESH10000158 R6 / ESH10000539 new rev not ready in time | Low–Medium | Minor — fallback to R5/R1 is available; no production stop | Treat as sidetrack; decide at Week 4 gate; do not delay ESH10000182 build order pending these |
 | ESH10000539 revision unclear — may not be R1 | Medium | Wrong revision built into ESH10000182 if unverified | Verify immediately (Gate 1 sidetrack action) |
@@ -296,7 +298,7 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 | Last Week | Next Week | Risks & Dependencies |
 |-----------|-----------|----------------------|
 | Production readiness analysis completed | ESH10000634 R3 PCBA expected (ETA w/c 2026-05-11) | **DEPENDENCY** ESH10000182 (Accordion A2 Bare) — only 1 in stock, need 20; build order not yet placed |
-| Full MES BOM extracted (all levels); inventory vs 20-unit need assessed | Verify current revision of ESH10000539 (Control Module 32ch A2) — should it be R1? | **DEPENDENCY** ESH10000654 (Sparrow Test Adapter) — design not started; blocks production test procedure |
+| Full MES BOM extracted (all levels); inventory vs 20-unit need assessed | Verify current revision of ESH10000539 (Control Module 32ch A2) — should it be R1? | **DEPENDENCY** ESH10000654 (Sparrow Test Adapter) — assembled in-house; 4 open interface items remain; verification pending |
 | ESH10000634 R3 PCB ordered (ETA this week) | Initiate Gate 1: promote Prototype sub-assemblies to Manufacturing in MES | **RISK** ESH10000544 / ESH10000572 at NotApproved with no BOM — blocks Accordion A2 build |
 | PRODUCTION_READINESS.md created with full BOM hierarchy, 6 production gates, and risk register | Confirm ESH10000535 / ESH10000540 units in Testing are cleared for production build | **RISK** I2C issue on PoE / FE N-Top — pending resolution (noted in check-in 2026-04-28) |
 
@@ -309,7 +311,7 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 |-------------|-------------|----------|
 | Approve build order for ESH10000182 (Accordion A2 Bare) — qty 19 minimum | Martin Johansson | 2026-05-08 |
 | Confirm ESH10000544 / ESH10000572 design approval path and ETA | Martin Johansson | 2026-05-08 |
-| Confirm ESH10000654 (Test Adapter) design resource and start date | Martin Johansson | 2026-05-11 |
+| Resolve ESH10000654 R0 (Sparrow Test Adapter) open interface items (PSU connector, PoE routing) to unblock PT procedure | Martin Johansson | 2026-05-11 |
 
 **General notes:**
 - Overall status: **IN PROGRESS** — production readiness analysis complete; Gate 1 design release actions to begin this week
