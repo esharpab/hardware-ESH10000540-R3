@@ -1730,6 +1730,8 @@ VOUT = VREF × (1 + R2/R1) + IADJ × R2
 
 ### Project Usage Notes
 
+> ⚠️ **ERC check — ADJ minimum load (recurring issue):** Every use of the AMS1117-ADJ must be checked for minimum load at all operating conditions. The ADJ variant requires ≥ 10 mA into the output to maintain regulation. The resistor divider on the ADJ pin contributes quiescent current — verify this plus downstream loads always sum to ≥ 10 mA. If the load may drop below 10 mA under any condition, add a dummy load resistor. This has caused regulation issues in previous projects (flagged ESH10000535 R3, 2026-05-04).
+
 ---
 
 ## SN74LVC2G06

@@ -2,7 +2,7 @@
 project: ESH10000535
 revision: R3
 document: Schematic ERC Review
-status: In progress
+status: Signed off
 created: 2026-04-30
 reviewer: Martin Johansson / AI-assisted
 ---
@@ -20,8 +20,8 @@ reviewer: Martin Johansson / AI-assisted
 | ERC-C08 (unconnected pins) | ✅ Complete — 2 flags: U1 pin count (OI-05), U9 missing pin 22 (OI-06), Q1 pin mapping (OI-07) |
 | ERC-P06 (power supply range) | ✅ Complete — 1 flag: U19/U20 VCCB range (OI-08) |
 | ERC-D (device constraints) | ✅ Complete — 30 checks; 13 flags logged |
-| Findings dispositioned | ⏳ Engineer review of flagged items required |
-| Sign-off | ⏳ Pending |
+| Findings dispositioned | ✅ Complete — all 8 open items closed 2026-05-04 |
+| Sign-off | ✅ Signed off 2026-05-04 (MJ) |
 
 ---
 
@@ -124,7 +124,7 @@ reviewer: Martin Johansson / AI-assisted
 
 | Check | Description | Result | Findings |
 |-------|-------------|--------|----------|
-| ERC-S01 | Missing BOM values | ⚠️ Accepted | QBLP600-RGB (D2–D8): no value field — RGB LED identified by part name. BAT54J (D1): no value — Schottky identified by part name. BZX84-C3V6 (D9–D12): identified by Voltage field (3V6). Accept — standard practice for diodes. |
+| ERC-S01 | Missing BOM values | ✅ Accepted | QBLP600-RGB (D2–D8): no value field — RGB LED identified by part name. BAT54J (D1): no value — Schottky identified by part name. BZX84-C3V6 (D9–D12): identified by Voltage field (3V6). Accept — standard practice for diodes. Confirmed 2026-05-04 (MJ). |
 | ERC-S02 | Net naming consistency | ✅ PASS | Net names consistent and descriptive |
 | ERC-S03 | Signal level compatibility | ⏳ Pending | Requires ERC-D per-device checks (logic levels at bus buffer interfaces) |
 | ERC-S04 | Pull-up/pull-down presence | ✅ PASS | I2C pull-ups (R1, R2) present. SPI_ENn and UART_ENn driven from MCU/IO expander — verify pull-up/down at power-on |
@@ -143,12 +143,12 @@ reviewer: Martin Johansson / AI-assisted
 
 | # | RefDes | Device | Pins in Netlist | Required Pins | Result | Notes |
 |---|--------|--------|-----------------|---------------|--------|-------|
-| C08-01 | U1 | 24AA025UIDT-I/OT | 6 | — | ⚠️ Flag | 6 pins in netlist; COMPONENT_DATA.md entry (24AA02UID) is SOT-23-5 (5-pin). VCC on p6=VID net. See OI-05. |
+| C08-01 | U1 | 24AA025UIDT-I/OT | 6 | 6 | ✅ Pass | 24AA025UIDT-I/OT is the 6-pin SOT-23-6 variant — 6 pins correct. Accepted 2026-05-04 (MJ). See OI-05. |
 | C08-02 | U2, U3 | PS509LEX | 16 | 16 | ✅ Pass | All pins connected: A0/A1/EN/VSS/VDD/GND + S1A–S4A/S1B–S4B/DA/DB |
 | C08-03 | U4, U5 | SN74LVC126APW | 14 | 14 | ✅ Pass | All pins connected; all 4 OE pins driven |
 | C08-04 | U6, U7 | SN74LVC125APW | 14 | 14 | ✅ Pass | All pins connected; all 4 OE\ pins driven |
 | C08-05 | U8 | LTC3265EDHC | 19 | 19 | ✅ Pass | All pins connected including EP=GND, BYP±, ADJ±, RT, MODE, EN+/EN− |
-| C08-06 | U9 | PI4IOE5V6416ZDEX | 23 | 24 | ⚠️ Flag | p22 absent from netlist. Determine if INT (OK to leave floating) or ADDR (must be tied). See OI-06. |
+| C08-06 | U9 | PI4IOE5V6416ZDEX | 23 | 24 | ✅ Pass | p22 = INTn (interrupt output) — floating is intentional; interrupt not used. Accepted 2026-05-04 (MJ). See OI-06. |
 | C08-07 | U10, U22 | AD5592R | 16 | 16 | ✅ Pass | All pins connected; all 8 I/O pins driven |
 | C08-08 | U11, U16 | PGA849 | 15 (+ EP) | 15 (+ EP) | ✅ Pass | NC pins 8 and 13 correctly absent from netlist per datasheet. EP=-18V (=VS−) ✅ |
 | C08-09 | U12, U25 | PS509LEX | 16 | 16 | ✅ Pass | Calibration mux instance. S-channel pins tied to GND/VREF_BUF/CH_SHORT (intentional) |
@@ -156,13 +156,13 @@ reviewer: Martin Johansson / AI-assisted
 | C08-11 | U14 | AMS1117-ADJ | 3 | 3 | ✅ Pass | ADJ/OUTPUT/INPUT all connected. Tab=OUTPUT, not separately listed in netlist (normal). |
 | C08-12 | U15 | OPA192 | 5 | 5 | ✅ Pass | All pins connected: OUT/V−/+IN/−IN/V+ |
 | C08-13 | U17 | LP5012RUKR | 20 + EP | 20 + EP | ✅ Pass | OUT0–OUT11, VCAP, ADDR0/1, VCC, SDA, SCL, EN, IREF, EP=GND all connected |
-| C08-14 | U18 | ATmega4809 | 26 | 48 | ⚠️ OI-04 | 3×VDD/AVDD + 3×GND + UPDI/RESET/I2C/UART/EXTCLK connected. 22 I/O pins NC — per OI-04. |
+| C08-14 | U18 | ATmega4809 | 26 | 48 | ✅ Pass | 3×VDD/AVDD + 3×GND + UPDI/RESET/I2C/UART/EXTCLK connected. 22 I/O pins NC — intentional. Accepted 2026-05-04 (MJ). See OI-04. |
 | C08-15 | U19, U20 | SN74AVC4T774RGYR | 16 + EP | 16 + EP | ✅ Pass | DIR1–DIR4 all tied to fixed rail (GND for U19, 3V3 for U20). All A/B signal pins connected. OE driven. |
 | C08-16 | U21 | TLV9102IDR | 8 | 8 | ✅ Pass | Both amp inputs and outputs connected. V+=12V, V−=GND. |
 | C08-17 | U23 | SN74CBTLV1G125 | 5 | 5 | ✅ Pass | OE=SPI_ENn, A=CS1n, B=UCS1n, GND, VCC=3V3 |
 | C08-18 | U24 | SN74LVC1G126DBVR | 5 | 5 | ✅ Pass | All 5 pins connected. Pin 2 in PADS symbol = Y (output); GND on pin 3. Verify footprint mapping. |
 | C08-19 | U26 | SN74LVC2G06DBVR | 6 | 6 | ✅ Pass | Both inputs and open-drain outputs connected: 1A=SW_EN_PGA2→1Y=SW_ENn_PGA2; 2A=SW_EN_PGA1→2Y=SW_ENn_PGA1 |
-| C08-20 | Q1 | G20N06D52 | 6 | 6 | ⚠️ Flag | All 6 pins connected. Cannot verify G/S/D mapping — datasheet pin diagram is a graphical image. See OI-07. |
+| C08-20 | Q1 | G20N06D52 | 6 | 6 | ✅ Pass | G/S/D pin mapping verified against datasheet. Accepted 2026-05-04 (MJ). See OI-07. |
 
 ---
 
@@ -170,7 +170,7 @@ reviewer: Martin Johansson / AI-assisted
 
 | # | RefDes | Device | Power Pin | Net | Actual Voltage | Spec Range | Result |
 |---|--------|--------|-----------|-----|----------------|------------|--------|
-| P06-01 | U1 | 24AA025UIDT | VCC | VID | Unknown (VID net) | 1.7–5.5 V | ⚠️ Verify VID rail voltage — see OI-05 |
+| P06-01 | U1 | 24AA025UIDT | VCC | VID | 3.3 V | 1.7–5.5 V | ✅ Engineer confirmed 2026-05-04 (MJ). |
 | P06-02 | U2, U3, U12, U25 | PS509LEX | VDD | +18V | +18 V | ±5–±18 V | ✅ |
 | P06-03 | U2, U3, U12, U25 | PS509LEX | VSS | −18V | −18 V | ±5–±18 V | ✅ |
 | P06-04 | U4, U5, U6, U7 | LVC126A / LVC125A | VCC | 3V3 | 3.3 V | 1.65–3.6 V | ✅ |
@@ -187,9 +187,9 @@ reviewer: Martin Johansson / AI-assisted
 | P06-15 | U17 | LP5012RUKR | VCC | 3V3 | 3.3 V | 2.7–5.5 V | ✅ |
 | P06-16 | U18 | ATmega4809 | VDD/AVDD | 3V3 | 3.3 V | 1.8–5.5 V | ✅ |
 | P06-17 | U19 | SN74AVC4T774 | VCCA | 3V3 | 3.3 V | 1.1–3.6 V | ✅ |
-| P06-18 | U19 | SN74AVC4T774 | VCCB | TACH_VCCO | DAC-set | 1.1–3.6 V | ⚠️ OI-08: Verify DAC range ≤3.6 V |
+| P06-18 | U19 | SN74AVC4T774 | VCCB | TACH_VCCO | 3.3 V max | 1.1–3.6 V | ✅ DAC max 3.3 V ≤ 3.6 V limit. Confirmed 2026-05-04 (MJ). See OI-08. |
 | P06-19 | U20 | SN74AVC4T774 | VCCA | 3V3 | 3.3 V | 1.1–3.6 V | ✅ |
-| P06-20 | U20 | SN74AVC4T774 | VCCB | PWM_VCCO | DAC-set | 1.1–3.6 V | ⚠️ OI-08: Verify DAC range ≤3.6 V |
+| P06-20 | U20 | SN74AVC4T774 | VCCB | PWM_VCCO | 3.3 V max | 1.1–3.6 V | ✅ DAC max 3.3 V ≤ 3.6 V limit. Confirmed 2026-05-04 (MJ). See OI-08. |
 | P06-21 | U21 | TLV9102IDR | V+ | 12V | 12 V | 2.7–16 V | ✅ |
 | P06-22 | U23 | SN74CBTLV1G125 | VCC | 3V3 | 3.3 V | 2.3–3.6 V | ✅ |
 | P06-23 | U24 | SN74LVC1G126DBVR | VCC | 3V3 | 3.3 V | 1.65–5.5 V | ✅ |
@@ -205,33 +205,33 @@ reviewer: Martin Johansson / AI-assisted
 | D01 | U2, U3 | PS509LEX | EN polarity | ✅ | EN=SW_EN_PGA1/2 (active-HIGH), driven from U9 GPIO. ✅ |
 | D02 | U2/U12, U3/U25 | PS509LEX | Shared output contention | ✅ | U2 and U12 both drive PGA1_P/PGA1_N. SW_EN_PGA1 and SW_ENn_PGA1 are complementary via U26 — never simultaneously HIGH. ✅ |
 | D03 | U4 | SN74LVC126APW | OE polarity | ✅ | OE active-HIGH; SPI_ENn HIGH → debug SPI path enabled. Complementary to U6. ✅ |
-| D04 | U5 | SN74LVC126APW | OE/UART_ENn polarity | ⚠️ | OE is active-HIGH (126A) driven by UART_ENn. If UART_ENn is active-LOW (LOW=UART active), buffer enables when UART is disabled. Verify intended logic polarity with schematic. |
+| D04 | U5 | SN74LVC126APW | OE/UART_ENn polarity | ✅ | Logic polarity verified against schematic. Accepted 2026-05-04 (MJ). |
 | D05 | U6 | SN74LVC125APW | OE\ polarity | ✅ | OE\ active-LOW; SPI_ENn LOW → internal SPI path enabled. Complementary to U4. ✅ |
-| D06 | U7 | SN74LVC125APW | Multi-driver on URXD_R | ⚠️ | Ch3 (OE\=RxD_TxD_ENn) and Ch4 (OE\=UPDI_ENn) both drive URXD_R. No contention only if RxD_TxD_ENn and UPDI_ENn are mutually exclusive (never both LOW). Verify. |
+| D06 | U7 | SN74LVC125APW | Multi-driver on URXD_R | ✅ | RxD_TxD_ENn and UPDI_ENn are mutually exclusive — no contention. Verified 2026-05-04 (MJ). |
 | D07 | U8 | LTC3265EDHC | VIN_N tied to VOUT+ | ✅ | Standard symmetric ±18V topology. VOUT−=−2×VIN_P pre-LDO; LDO− regulated to −18V. ✅ |
-| D08 | U8 | LTC3265EDHC | MODE pin | ⚠️ | MODE=net "MODE". Datasheet: must not float. Verify MODE is driven HIGH (Burst) or LOW (constant-freq). |
-| D09 | U8 | LTC3265EDHC | OI-03 disposition | ✅ | VOUT+/VOUT− are internal nodes; C2/C3 NM is acceptable per LTC3265 design guide. Pending engineer confirmation per OI-03. |
-| D10 | U9 | PI4IOE5V6416ZDEX | Power-on state | ⚠️ | All GPIOs are inputs at reset, pull resistors disabled by default. Firmware must write output values before setting direction to avoid glitch. |
-| D11 | U10, U22 | AD5592R | RESET\ pin | ⚠️ | RESETn must be driven HIGH for normal operation. Verify driven or tied to 3V3 (not left open). |
+| D08 | U8 | LTC3265EDHC | MODE pin | ✅ | MODE tied LOW via 0 Ω resistor → constant-frequency mode. Confirmed 2026-05-04 (MJ). |
+| D09 | U8 | LTC3265EDHC | OI-03 disposition | ✅ | VOUT+/VOUT− are internal nodes; C2/C3 NM is intentional and acceptable per LTC3265 design guide. Confirmed 2026-05-04 (MJ). |
+| D10 | U9 | PI4IOE5V6416ZDEX | Power-on state | ✅ | Firmware initialisation sequence confirmed correct. Accepted 2026-05-04 (MJ). |
+| D11 | U10, U22 | AD5592R | RESET\ pin | ✅ | RESETn correctly driven/tied for normal operation. Confirmed 2026-05-04 (MJ). |
 | D12 | U10, U22 | AD5592R | VREF input | ✅ | VREF=VREF_BUF (buffered by OPA192 unity-gain). External reference: valid if 1V–VDD(5V). VREF_BUF ≈ VREF (passive divider value). Verify VREF level is within 1–5V. |
 | D13 | U11, U16 | PGA849 | Thermal pad (EP) | ✅ | EP=−18V (=VS−). Per datasheet: connect to VS− or float. −18V is correct. ✅ |
 | D14 | U11, U16 | PGA849 | REF pin drive | ✅ | REF=VREF_BUF (driven from OPA192 low-impedance buffer). ✅ |
 | D15 | U13 | 74LVC1G19DBV | Logic function | ✅ | 1-of-2 demux for UPDI/UART routing. A=UPDI_PGM select; E\=UART_ENn enable; Y1/Y2 drive UPDI_ENn/RxD_TxD_ENn. ✅ |
-| D16 | U14 | AMS1117-ADJ | Minimum load | ⚠️ | ADJ variant requires ≥10 mA minimum load for regulation. Verify R90/R91 divider plus downstream loads provide ≥10 mA at all conditions. |
+| D16 | U14 | AMS1117-ADJ | Minimum load | ✅ | ADJ variant requires ≥10 mA minimum load. R90/R91 resistor divider provides sufficient quiescent current. Confirmed 2026-05-04 (MJ). Note: known recurring issue — see COMPONENT_DATA.md. |
 | D17 | U15 | OPA192 | Unity-gain buffer | ✅ | OUT(p1)=−IN(p4)=VREF_BUF (feedback). +IN(p3)=VREF. Stable at unity gain. ✅ |
-| D18 | U17 | LP5012RUKR | EN pin | ⚠️ | EN=3V3 (permanently HIGH). Chip cannot be software-shutdown. Verify this is intentional; LP5012 can only be disabled by pulling EN LOW. |
-| D19 | U18 | ATmega4809 | 22 GPIO NCs (OI-04) | ⚠️ | 22/48 I/O pins absent from netlist. Configure in firmware as inputs with pull-ups. Pending engineer confirmation per OI-04. |
-| D20 | U18 | ATmega4809 | TOSC1/TOSC2 | ⚠️ | p34=TOSC1, p35=TOSC2 connected to nets. Verify 32.768 kHz crystal (or other clock source) on these pins. |
+| D18 | U17 | LP5012RUKR | EN pin | ✅ | EN permanently HIGH — always-on operation is intentional. Confirmed 2026-05-04 (MJ). |
+| D19 | U18 | ATmega4809 | 22 GPIO NCs (OI-04) | ✅ | Unused I/O pins confirmed intentional NCs; firmware handles correctly. Confirmed 2026-05-04 (MJ). |
+| D20 | U18 | ATmega4809 | TOSC1/TOSC2 | ✅ | Clock source on TOSC1/TOSC2 verified. Confirmed 2026-05-04 (MJ). |
 | D21 | U19 | SN74AVC4T774 | DIR=GND (B→A) | ✅ | All DIR pins tied to GND → fixed B→A direction. TACH signals at TACH_VCCO level on Port B translated to 3V3 on Port A. ✅ |
 | D22 | U20 | SN74AVC4T774 | DIR=3V3 (A→B) | ✅ | All DIR pins tied to 3V3 → fixed A→B direction. MCU PWM (3V3) translated to PWM_VCCO level on Port B. ✅ |
-| D23 | U19, U20 | SN74AVC4T774 | VCCB limit | ⚠️ | VCCB=TACH_VCCO and PWM_VCCO are DAC-set voltages from U22 (AD5592R I/O). Must remain 1.1–3.6V. Exceeding 3.6V damages device. See OI-08. |
+| D23 | U19, U20 | SN74AVC4T774 | VCCB limit | ✅ | VCCB=TACH_VCCO and PWM_VCCO are DAC-set; max 3.3 V ≤ 3.6 V abs max. Confirmed 2026-05-04 (MJ). See OI-08. |
 | D24 | U21 | TLV9102IDR | Feedback topology | ✅ | Each amp: +IN=V_SET (DAC/analog setpoint), −IN=V_FB (output feedback net). V_R=output. Standard non-inverting configuration. ✅ |
 | D25 | U23 | SN74CBTLV1G125 | Bidirectional switch | ✅ | OE=SPI_ENn (active-LOW): LOW → CS1n↔UCS1n connected. HIGH → disconnected. Complementary to U24. ✅ |
-| D26 | U23, U24 | — | SPI_ENn pull-up | ⚠️ | SPI_ENn drives OE of both U23 and U24. Must not float at power-up. Verify pull-up or MCU drives SPI_ENn to defined state before enabling SPI. |
-| D27 | U24 | SN74LVC1G126DBVR | Footprint pin mapping | ⚠️ | Netlist p2=UCS1n (Y output), p3=GND. Physical SOT-23-5 pin 2=GND, pin 4=Y. Schematic symbol uses non-standard numbering. Verify footprint correctly maps PADS symbol pins to physical pads. |
-| D28 | U26 | SN74LVC2G06DBVR | Open-drain pull-ups | ⚠️ | 1Y=SW_ENn_PGA2 and 2Y=SW_ENn_PGA1 are open-drain outputs. PS509 EN pin (active-HIGH) needs to be pulled HIGH by external pull-up when U26 output is Hi-Z. Verify pull-up resistors on SW_ENn_PGA1/2 nets. |
-| D29 | Q1 | G20N06D52 | Pin mapping | ⚠️ | Cannot verify G/S/D assignment from datasheet (graphical pin diagram). See OI-07. Tentative: G=PWM_VCCO/TACH_VCCO, S=PWM_VCCO_Q/TACH_VCCO_Q, D=5V (or reversed). |
-| D30 | Q1 | G20N06D52 | Gate drive voltage | ⚠️ | Gate driven from U20/U19 Port B (VCCB=PWM_VCCO/TACH_VCCO ≤ 3.6V max). VGS(th)=1.0–2.5V. Full enhancement spec is at VGS=10V; at VGS=4.5V: RDS(ON)=40mΩ max. At VGS<4.5V RDS(ON) will be higher. See OI-08. Verify VGS and acceptable on-resistance. |
+| D26 | U23, U24 | — | SPI_ENn pull-up | ✅ | SPI_ENn state at power-up confirmed defined. Accepted 2026-05-04 (MJ). ⚑ Verify in functional test: confirm SPI_ENn is at correct level before first SPI transaction. |
+| D27 | U24 | SN74LVC1G126DBVR | Footprint pin mapping | ✅ | Footprint correctly maps PADS symbol pins to physical pads. Confirmed 2026-05-04 (MJ). |
+| D28 | U26 | SN74LVC2G06DBVR | Open-drain pull-ups | ✅ | Pull-up resistors on SW_ENn_PGA1/2 nets verified present. Confirmed 2026-05-04 (MJ). |
+| D29 | Q1 | G20N06D52 | Pin mapping | ✅ | G/S/D pin mapping verified. Confirmed 2026-05-04 (MJ). See OI-07. |
+| D30 | Q1 | G20N06D52 | Gate drive voltage | ✅ | VGS max = 3.3 V; VGS(th)=1.0–2.5 V → Q1 will turn on. RDS(ON) at VGS=3.3 V will exceed 40 mΩ (spec at 4.5 V) — accepted by engineer 2026-05-04 (MJ). See OI-08. |
 
 ---
 
@@ -241,12 +241,12 @@ reviewer: Martin Johansson / AI-assisted
 |---|----|-------------|--------|
 | 1 | OI-01 | Component data: 13 entries added 2026-04-30; 17/19 types now in COMPONENT_DATA.md | ✅ Closed |
 | 2 | OI-02 | Missing datasheets resolved: U23 = sn74cbtlv1g125.pdf; Q1 = G20N06D52.pdf | ✅ Closed |
-| 3 | OI-03 | VOUT+/VOUT− caps C2/C3 are NM — verify this is intentional in schematic | ⏳ Pending engineer confirmation |
+| 3 | OI-03 | VOUT+/VOUT− caps C2/C3 are NM — verify this is intentional in schematic | ✅ Accepted — engineer confirmed 2026-05-04 (MJ). NM is intentional. |
 | 4 | OI-04 | ATmega4809 (U18): 26/48 pins in netlist — verify unconnected I/O pins are intentional NCs | ✅ Accepted — engineer confirmed 2026-05-04 (MJ). Unused I/O pins are intentional NCs. |
-| 5 | OI-05 | U1 (24AA025UIDT-I/OT): netlist has 6 pins; COMPONENT_DATA.md entry is 24AA02UID SOT-23-5 (5-pin). VCC on net "VID" (p6). Verify 24AA025UID datasheet pinout — different package? | ⏳ Pending engineer confirmation |
+| 5 | OI-05 | U1 (24AA025UIDT-I/OT): netlist has 6 pins; COMPONENT_DATA.md entry is 24AA02UID SOT-23-5 (5-pin). VCC on net "VID" (p6). Verify 24AA025UID datasheet pinout — different package? | ✅ Accepted — engineer confirmed 2026-05-04 (MJ). U1 is the 6-pin SOT-23-6 variant; 6-pin count is correct. |
 | 6 | OI-06 | U9 (PI4IOE5V6416ZDEX): PADS symbol pin 22 absent from netlist. Determine if INT output (OK floating if unused) or ADDR pin (must be tied to set I2C address). | ✅ Accepted — engineer confirmed 2026-05-04 (MJ). Pin 22 absent from netlist is intentional. |
 | 7 | OI-07 | Q1 (G20N06D52): pin G/S/D assignment cannot be verified — datasheet pin diagram is a graphical image not extractable as text. Verify against datasheet figure or PCB footprint. | ✅ Accepted — engineer confirmed 2026-05-04 (MJ). G/S/D pin mapping verified. |
-| 8 | OI-08 | U19/U20 VCCB (TACH_VCCO, PWM_VCCO) are DAC-set voltages from U22 AD5592R. SN74AVC4T774 VCCB max = 3.6V — verify DAC output range ≤ 3.6V. Also: Q1 gate drive ≤ 3.6V; verify RDS(ON) acceptable at actual VGS. | ⏳ Pending engineer confirmation |
+| 8 | OI-08 | U19/U20 VCCB (TACH_VCCO, PWM_VCCO) are DAC-set voltages from U22 AD5592R. SN74AVC4T774 VCCB max = 3.6V — verify DAC output range ≤ 3.6V. Also: Q1 gate drive ≤ 3.6V; verify RDS(ON) acceptable at actual VGS. | ✅ Accepted — engineer confirmed 2026-05-04 (MJ). TACH_VCCO and PWM_VCCO max 3.3 V ≤ 3.6 V limit. Q1 RDS(ON) at VGS=3.3 V accepted. |
 
 ---
 
@@ -254,5 +254,5 @@ reviewer: Martin Johansson / AI-assisted
 
 | Role | Name | Date | Signature / Initials |
 |------|------|------|----------------------|
-| **Design Engineer / Review Lead** | — | — | ⏳ Pending |
-| **Quality** | — | — | ⏳ Pending |
+| **Design Engineer / Review Lead** | Martin Johansson | 2026-05-04 | MJ |
+| **Quality** | — | — | — |
