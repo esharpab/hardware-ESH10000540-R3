@@ -41,6 +41,10 @@ Fixture Link is an interface board between Accordion and Fixture Electronics. Th
 | FL-C06 | Control IO | I2C transceivers shall pass traffic to Sparrow FE when I2C_EN asserted | All expected Sparrow FE I2C devices visible on bus | C.04 | Pending |
 | FL-C07 | Control IO | U7 open-drain outputs shall present valid logic levels at J1 | SRQn, INTERRUPTn, SRQ1–4n_BUF show valid levels — confirms Accordion pull-ups (closes schematic review F-02) | C.05 | Pending |
 | FL-C08 | Control IO | UART interface shall pass loopback test | RXD, TXD, RTS, CTS all loopback correctly | C.06 | Pending |
+| FL-M03 | Mechanical | DSUB oblong hole shall have no solder paste (R2 change #1) | Visual: no solder paste visible in DSUB oblong hole | M.02 | Pending |
+| FL-M04 | Mechanical | DSUB connector shall be correctly positioned after 1.1 mm shift (R2 change #5) | DSUB seats correctly in panel cutout; no interference | M.03 | Pending |
+| FL-C09 | Control IO | UART pull-up resistors R6 and R39 shall be populated; pull-up voltage present on UTXD and DRXD (R2 change #2/#3) | R6 and R39 mounted; ≥2 V measured on UTXD and DRXD with no driver active | C.07 | Pending |
+| FL-M05 | Mechanical | PCB silkscreen revision marking shall read R2 (R2 change #4) | "R2" visible on PCB silkscreen | M.04 | Pending |
 
 ---
 
@@ -74,6 +78,7 @@ Fixture Link is an interface board between Accordion and Fixture Electronics. Th
 | Rev | Date | Author | Description |
 |-----|------|--------|-------------|
 | R2 | 2026-05-04 | MJ | Populated requirements from R1 verification plan; expanded scope to include verification |
+| R2 | 2026-05-04 | MJ | Added FL-M03, FL-M04, FL-M05, FL-C09 to cover R2 design changes from DesignLog Rev 1 tab |
 
 ---
 

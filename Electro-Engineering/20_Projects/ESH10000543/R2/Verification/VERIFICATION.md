@@ -51,6 +51,9 @@ Functional verification of Fixture Link R2 against the requirements defined in S
 |----|------|----------|---------------|---------|---------|------|-----|---------------|--------|
 | M.00 | No Mounts | No Mounts | Verify all NM components are not populated per BOM | — | — | — | — | No NM component mounted | FL-M01 |
 | M.01 | Mechanical Fit | Panel Fit | Confirm board fits mechanically with Sparrow front panel; no interference | — | — | — | — | No mechanical interference | FL-M02 |
+| M.02 | DSUB Solder Paste | DSUB Oblong Hole | Inspect DSUB connector oblong hole; confirm no solder paste present (R2 change #1) | — | — | — | — | No solder paste in oblong hole | FL-M03 |
+| M.03 | DSUB Position | DSUB 1.1 mm Shift | Verify DSUB connector seats correctly in panel cutout after 1.1 mm position change; no interference (R2 change #5) | — | — | — | — | DSUB correctly positioned; no interference | FL-M04 |
+| M.04 | Rev Marking | Silkscreen | Inspect PCB silkscreen; confirm revision marking reads R2 (R2 change #4) | — | — | — | — | Silkscreen reads R2 | FL-M05 |
 
 ### Power
 
@@ -80,6 +83,7 @@ Functional verification of Fixture Link R2 against the requirements defined in S
 | C.04 | IO Expander | I2C Transceivers | Assert I2C_EN; scan I2C bus; confirm all Sparrow FE devices visible | I2C_EN*, SDA*, SCL* | All expected Sparrow FE I2C devices ACK | FL-C06 |
 | C.05 | IO Expander | SRQ Interrupts | Assert SRQ signals from Sparrow FE; observe SRQn, INTERRUPTn, SRQ1–4n_BUF at J1 | SRQn, INTERRUPTn, SRQ1–4n_BUF | **R2 addition (F-02):** Verify open-drain output levels are valid logic levels — confirms Accordion provides pull-ups on these nets. Note R1 result: signals were observed but not functionally used. | FL-C07 |
 | C.06 | UART | UART Loopback | Connect UART loopback; test RXD, TXD, RTS, CTS | RXD, TXD, RTS, CTS | All four signals loopback correctly | FL-C08 |
+| C.07 | UART Pull-ups | R6, R39 Population | Inspect PCB: confirm R6 and R39 are mounted. Measure voltage on UTXD and DRXD with no driver active (R2 changes #2 & #3) | UTXD, DRXD | ≥2 V (pull-up active) | V | — | R6 and R39 mounted; UTXD and DRXD measure ≥2 V | FL-C09 |
 
 ---
 
@@ -109,6 +113,10 @@ Functional verification of Fixture Link R2 against the requirements defined in S
 | FL-C06 | I2C transceivers pass traffic when I2C_EN | C.04 | Pending |
 | FL-C07 | U7 open-drain output levels valid (pull-ups on Accordion) | C.05 | Pending |
 | FL-C08 | UART loopback passes | C.06 | Pending |
+| FL-M03 | DSUB oblong hole has no solder paste | M.02 | Pending |
+| FL-M04 | DSUB position correct after 1.1 mm shift | M.03 | Pending |
+| FL-M05 | PCB silkscreen reads R2 | M.04 | Pending |
+| FL-C09 | UART pull-ups R6/R39 populated; UTXD and DRXD ≥2 V | C.07 | Pending |
 
 ---
 
@@ -130,3 +138,4 @@ See `DOCS/Verification_FixtureLink.xlsx` for full R1 measurements.
 - All test results are logged in **DUT_LOG.md** — immutable once written.
 - C.05 is a required test for R2 to close schematic review finding F-02 (U7 pull-ups on Accordion).
 - P.10 expected result is "does not start" — record actual behaviour for characterisation.
+- M.02, M.03, M.04, C.07 are R2-specific additions derived from DesignLog_FixttureLink.xlsx Rev 1 tab (changes #1–#5). All must pass before R2 verification can be signed off.
