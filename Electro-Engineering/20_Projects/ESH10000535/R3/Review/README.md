@@ -6,7 +6,8 @@ This folder contains design reviews (schematic, layout, etc.) and review finding
 
 | File | Purpose |
 |------|---------|
-| **SCHEMATIC_REVIEW.md** | ERC and design review findings for schematic |
+| **SCHEMATIC_REVIEW.md** | ERC and design review findings for schematic — signed off 2026-05-04 (MJ) |
+| **LAYOUT_REVIEW.md** | Layout review findings — in progress |
 
 ## Workflow
 
