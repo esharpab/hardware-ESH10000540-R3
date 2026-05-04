@@ -60,7 +60,7 @@ they do not constitute R3 evidence. All R3 results must be recorded in DUT_LOG.m
 
 | Test ID | Req | Group | Description | Signal(s) | Nominal | Unit | Tol. | R2 | R3 Status |
 |---------|-----|-------|-------------|-----------|---------|------|------|----|-----------|
-| M.00 | SR-M01 | Mechanical / No Mounts | Verify all no-mount components are absent | NA | — | — | — | Pass | Pending |
+| M.00 | SR-M01 | Mechanical / No Mounts | Verify all no-mount components are absent; explicitly confirm RS485 bias resistors (DesignLog item 17) are not populated | NA | — | — | — | Pass | Pending |
 | M.01 | SR-M02 | Mechanical / Spacers | Verify N-Top spacers M1, M2 fit mechanically | NA | — | — | — | Pass | Pending |
 | M.02 | SR-M02 | Mechanical / Spacers | Verify M.2 Active Load spacers M3, M4 fit mechanically | NA | — | — | — | Pass | Pending |
 | M.03 | SR-M02 | Mechanical / Spacers | Verify M.2 PSU spacers M5, M6 fit mechanically | NA | — | — | — | Pass | Pending |
@@ -132,6 +132,27 @@ they do not constitute R3 evidence. All R3 results must be recorded in DUT_LOG.m
 | P.58 | SR-P11 | Power / Fixed Load | Activate GND_SW1; measure load current at 5 V | GND_SW1_OUT | 2.273 | mA | ±2.0% | Pass | Pending |
 | P.59 | SR-P11 | Power / Fixed Load | Activate GND_SW2; measure load current at 5 V | GND_SW2_OUT | 2.273 | mA | ±2.0% | Pass | Pending |
 | P.60 | SR-P11 | Power / Fixed Load | Activate GND_SW3; measure load current at 5 V | GND_SW3_OUT | 2.273 | mA | ±2.0% | Pass | Pending |
+
+### Audio Load ADC (R3-new — DesignLog item 9: R215–R222 changed to 14 kΩ for pseudo-differential)
+
+> **Note:** Tolerances match DMM-based load current tests — bias ±2.3%, phantom ±5.4% (DesignLog item 9, R215–R222 changed to 14 kΩ pseudo-differential).
+
+| Test ID | Req | Group | Description | Signal(s) | Nominal | Unit | Tol. | R2 | R3 Status |
+|---------|-----|-------|-------------|-----------|---------|------|------|----|-----------|
+| P.61 | SR-P10 | Power / Audio Load / ADC | Activate MIC_BIAS_LOAD_L; read ADC current; compare to DMM | MIC_IN_L | DMM vs ADC | mA | ±2.3% | — | Pending |
+| P.62 | SR-P10 | Power / Audio Load / ADC | Activate MIC_BIAS_LOAD_Ln; read ADC current; compare to DMM | MIC_IN_Ln | DMM vs ADC | mA | ±2.3% | — | Pending |
+| P.63 | SR-P10 | Power / Audio Load / ADC | Activate MIC_BIAS_LOAD_R; read ADC current; compare to DMM | MIC_IN_R | DMM vs ADC | mA | ±2.3% | — | Pending |
+| P.64 | SR-P10 | Power / Audio Load / ADC | Activate MIC_BIAS_LOAD_Rn; read ADC current; compare to DMM | MIC_IN_Rn | DMM vs ADC | mA | ±2.3% | — | Pending |
+| P.65 | SR-P10 | Power / Audio Load / ADC | Activate PHANTOM_LOAD_L; read ADC current; compare to DMM | MIC_IN_L | DMM vs ADC | mA | ±5.4% | — | Pending |
+| P.66 | SR-P10 | Power / Audio Load / ADC | Activate PHANTOM_LOAD_Ln; read ADC current; compare to DMM | MIC_IN_Ln | DMM vs ADC | mA | ±5.4% | — | Pending |
+| P.67 | SR-P10 | Power / Audio Load / ADC | Activate PHANTOM_LOAD_R; read ADC current; compare to DMM | MIC_IN_R | DMM vs ADC | mA | ±5.4% | — | Pending |
+| P.68 | SR-P10 | Power / Audio Load / ADC | Activate PHANTOM_LOAD_Rn; read ADC current; compare to DMM | MIC_IN_Rn | DMM vs ADC | mA | ±5.4% | — | Pending |
+
+### AGND–GND Coupling (R3-new — DesignLog items 10/11: R181 1 MΩ + ESD protection added)
+
+| Test ID | Req | Group | Description | Signal(s) | Nominal | Unit | Tol. | R2 | R3 Status |
+|---------|-----|-------|-------------|-----------|---------|------|------|----|-----------|
+| P.69 | SR-P12 | Power / AGND–GND | Power off DUT; measure resistance between AGND and GND test points with DMM | AGND–GND | 1.0 | MΩ | 0.5–2.0 MΩ | — | Pending |
 
 ---
 

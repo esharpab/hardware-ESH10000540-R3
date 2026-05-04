@@ -35,7 +35,7 @@ Requirements are derived from the R2 verification plan (Verification_Sparrow_FE.
 
 | Req ID | Category | Requirement | Acceptance Criteria | Test Case(s) | Status |
 |--------|----------|-------------|---------------------|--------------|--------|
-| SR-M01 | Mechanical | All no-mount (NM) components must not be populated | Visual inspection: all NM components absent | M.00 | Pending |
+| SR-M01 | Mechanical | All no-mount (NM) components must not be populated; RS485 bias resistors (DesignLog item 17) must be absent | Visual inspection: all NM components absent; RS485 bias resistors confirmed unpopulated | M.00 | Pending |
 | SR-M02 | Mechanical | Spacers for N-Top (M1, M2), M.2 Active Load (M3, M4), and M.2 PSU (M5, M6) must fit mechanically | All spacer groups fit without mechanical interference | M.01–M.03 | Pending |
 | SR-P01 | Power | VDD (20 V) input supply must be within tolerance | 20.000 V ±5.0% (DMM) | P.00 | Pending |
 | SR-P02 | Power | 12 V DC/DC, 12V_EXT switched output, IDC availability, voltage monitoring, current limit, and current sensing must all be within spec | 12 V ±5%; 12V_EXT ±5%; VMON_12V_EXT ±2.4%; PG trips at 500 mA ±5%; IMON_12V_EXT_R ±10% | P.01–P.07 | Pending |
@@ -46,8 +46,9 @@ Requirements are derived from the R2 verification plan (Verification_Sparrow_FE.
 | SR-P07 | Power | VREF 2.500 V reference supply must be within tight tolerance | 2.500 V ±0.14% (DMM) | P.43 | Pending |
 | SR-P08 | Power | UART-RS485 charge pump supply nodes (C1+/-, C2+/-, VS+, VS-) must all be present with non-zero voltages | Non-zero voltage measured by DMM on all four nodes | P.44–P.47 | Pending |
 | SR-P09 | Power | Power LED must indicate active Fixture Link connection | LED_GREEN illuminates when Fixture Link is active | P.48 | Pending |
-| SR-P10 | Power | Audio bias loads (MIC_BIAS_LOAD_L/Ln/R/Rn) and phantom loads (PHANTOM_LOAD_L/Ln/R/Rn) must produce correct load currents | Bias: 2.273 mA ±2.3%; Phantom: 7.353 mA ±5.4% | P.49–P.56 | Pending |
+| SR-P10 | Power | Audio bias loads (MIC_BIAS_LOAD_L/Ln/R/Rn) and phantom loads (PHANTOM_LOAD_L/Ln/R/Rn) must produce correct load currents; ADS7828 ADC reading of each load current must agree with DMM reference (R215–R222 pseudo-differential path, DesignLog item 9) | Bias: 2.273 mA ±2.3%; Phantom: 7.353 mA ±5.4%; ADC vs DMM: bias ±2.3%, phantom ±5.4% | P.49–P.68 | Pending |
 | SR-P11 | Power | Fixed loads (GND_SW0–GND_SW3) must produce correct load current when activated | 2.273 mA ±2.0% at 5 V | P.57–P.60 | Pending |
+| SR-P12 | Power | AGND–GND coupling resistance must be ~1 MΩ (R181 + ESD protection, DesignLog items 10/11); a short or open would indicate a PCB fault | 0.5–2.0 MΩ measured at power-off | P.69 | Pending |
 | SR-U01 | User IO | Audio ADC must correctly measure bias voltages at MIC_IN_L, MIC_IN_Ln, MIC_IN_R, and MIC_IN_Rn at both 15 V and 0.1 V stimulus | 15 V ±2.4%; 0.1 V ±7.1% | UIO.00–UIO.07 | Pending |
 | SR-U02 | User IO | RS485 ADC must correctly measure RS485_TX* and RS485_RX* voltages | RS485_TX* logic-1: >0.2 V ±2.5%; RS485_RX* at 2.5 V ±1.9%; RS485_RX* at 0.1 V ±7.1% | UIO.08–UIO.10 | Pending |
 | SR-U03 | User IO | Fixed load ADC must correctly measure GND_SW0–GND_SW3 output voltages at 5 V and 0.1 V stimulus | 5 V (informational); 0.1 V ±6.4% | UIO.11–UIO.18 | Pending |
@@ -98,6 +99,7 @@ Requirements are derived from the R2 verification plan (Verification_Sparrow_FE.
 | Revision | Date | Changes |
 |----------|------|---------|
 | R3 | 2026-05-04 | Requirements derived from R2 verification plan (Verification_Sparrow_FE.xlsx); R2 failure notes captured in SR-U07 and SR-U09 |
+| R3.1 | 2026-05-04 | Added SR-P12 (AGND–GND coupling); extended SR-M01 (RS485 bias NM); extended SR-P10 (audio load ADC) — from DesignLog Rev2 gap analysis |
 
 ---
 
