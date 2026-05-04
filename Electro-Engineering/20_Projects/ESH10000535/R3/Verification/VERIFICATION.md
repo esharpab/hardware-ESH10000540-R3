@@ -12,6 +12,7 @@ created: 2026-05-04
 
 Derived from R2 manual verification plan (DOCS/Verification_Sparrow_N-TOP.xlsx).
 All acceptance criteria marked **[R2]** are carried from R2 and must be confirmed by the engineer before R3 sign-off.
+Tests marked **[R3-CHG]** are new or augmented steps required to verify R3-specific design changes (Design Log Rev 2, items 1, 3, 4, 5, 8, 9).
 
 ---
 
@@ -117,7 +118,7 @@ Apply 12V supply. Measure all rails with DMM. Record to DUT_LOG.md.
 | Test ID | Step | Description | Signals | Pass Criteria | R2 Notes |
 |---------|------|-------------|---------|---------------|----------|
 | CIO.00 | I2C scan | Find all I2C devices; program IDPROM | SDA, SCL | LED driver at 0x14 and 0x0C; I2C expander at 0x20; IDPROM at 0x50; IDPROM write succeeds | R2: R96 missing caused wrong LED driver address |
-| CIO.01 | UART loopback | Loopback UART at ATmega pins | UART_ENn, DRTS, DTXD, UCTS, URXD, UPDI_PGM, UPDI | Loopback data received correctly | R2: Question — sometimes needed to toggle PROG_EN; investigate PROG_EN / EN switch behaviour |
+| CIO.01 | UART pull-up + loopback | **[R3-CHG]** (1) Measure UTXD and DRXD idle voltage with no driver active. (2) Loopback UART at ATmega pins. | UART_ENn, DRTS, DTXD, UCTS, URXD, UPDI_PGM, UPDI | (1) UTXD and DRXD idle ≈ 3.3 V (confirms R73/R74 mounted and 10k pull-ups on UTXD/DRXD). (2) Loopback data received correctly. | R2: Question — sometimes needed to toggle PROG_EN; investigate PROG_EN / EN switch behaviour |
 | CIO.02 | ATmega UART program | Program ATmega over UART | UART_ENn, DRTS, DTXD, UCTS, URXD, UPDI_PGM, UPDI | Firmware loads without error | — |
 | CIO.03 | ATmega I2C | Find ATmega over I2C | SDA, SCL | ATmega responds at 0x30 | — |
 | CIO.04 | ATmega reset | Test ATmega RESETn pin | RESETn | MCU restarts correctly on RESETn assertion | — |
@@ -134,8 +135,8 @@ Apply 12V supply. Measure all rails with DMM. Record to DUT_LOG.md.
 
 | Test ID | Step | Description | Signals | Pass Criteria | R2 Notes |
 |---------|------|-------------|---------|---------------|----------|
-| UIO.00 | PWM functional | Test PWM output at all VCCO voltages; static low, high, tri-state, and dynamic | PWM* | PWM signal correct at all setpoints; no unexpected tri-state behaviour | R2: FAIL on 1 DUT — investigate on R3 |
-| UIO.01 | Tach functional | Test tach input at all VCCO voltages and frequencies | TACH* | Tach signal received correctly at all setpoints and frequencies | — |
+| UIO.00 | PWM functional | **[R3-CHG]** ⚠️ Firmware must use R3 ATmega pin mapping (PWM_LS_A = pin 5, PWM_LS_B = pin 9) before this test. Test PWM output at all VCCO voltages; static low, high, tri-state, and dynamic. Capture waveform on scope and verify signal quality. | PWM* | PWM signal correct at all setpoints; no unexpected tri-state behaviour; scope shows clean edges with no excessive ringing (confirms series termination effective). | R2: FAIL on 1 DUT — investigate on R3 |
+| UIO.01 | Tach functional | **[R3-CHG]** (1) Measure TACH idle level with no signal driven; confirm consistent with 10k pull resistor + series termination per schematic. Record measured value. (2) Test tach input at all VCCO voltages and frequencies. | TACH* | (1) TACH idle level matches calculated value per schematic (10k pull resistor + series termination); record measured value. (2) Tach signal received correctly at all setpoints and frequencies. | — |
 | UIO.02 | MPIO | Test MPIO (with Fixture Electronics) | MPIO_0 | MPIO_0 operates correctly | — |
 | UIO.03 | Differential analog IO | Set DAC to 2.5V (VREF); compare to DMM | MPIO_1 | DAC setpoint matches DMM ±acceptance; ADC reads back correctly | Tested via Fixture Electronics |
 
