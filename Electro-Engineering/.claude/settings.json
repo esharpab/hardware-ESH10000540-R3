@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python 40_Tools/extract_pdf.py \"70_Assets/Datasheets/PS508-509.pdf\" --pages 2-4 --stdout)",
+      "Bash(python 40_Tools/extract_pdf.py \"70_Assets/Datasheets/3265fa.pdf\" --pages 4-7 --stdout)",
+      "Bash(python 40_Tools/extract_pdf.py \"70_Assets/Datasheets/3265fa.pdf\" --pages 8-12 --stdout)",
+      "Bash(python 40_Tools/extract_pdf.py \"70_Assets/Datasheets/lp5012.pdf\" --pages 4-6 --stdout)",
+      "Bash(git commit -m ' *)",
+      "Bash(python 40_Tools/extract_pdf.py \"70_Assets/Datasheets/sn74cbtlv1g125.pdf\" --pages 1-5 --stdout)",
+      "Bash(python 40_Tools/extract_pdf.py \"70_Assets/Datasheets/sn74cbtlv1g125.pdf\" --pages 1-4 --stdout)",
+      "Bash(python 40_Tools/extract_pdf.py \"70_Assets/Datasheets/G20N06D52.pdf\" --pages 1-4 --stdout)",
+      "Bash(python 40_Tools/extract_pdf.py \"70_Assets/Datasheets/G20N06D52.pdf\" --pages 4-6 --stdout)",
+      "PowerShell(Get-Item \"c:\\\\Workspace\\\\Electro-Engineering\\\\20_Projects\\\\ESH10000543\\\\R2\\\\DOCS\\\\NetList_Fixture_Link_R2.qcv\", \"c:\\\\Workspace\\\\Electro-Engineering\\\\20_Projects\\\\ESH10000543\\\\R2\\\\DOCS\\\\PartsList_Fixture_Link_R2.csv\" | Select-Object Name, @{N='KB';E={[math]::Round\\($_.Length/1KB,1\\)}})",
+      "Bash(python3 -c ' *)",
+      "Bash(python -c ' *)",
+      "Bash(python -c \"import pypdf; pdf=pypdf.PdfReader\\('c:/Workspace/Electro-Engineering/70_Assets/Datasheets/sn74lvc07a.pdf'\\); [print\\(f'--- PAGE {i+1} ---\\\\n', pdf.pages[i].extract_text\\(\\)\\) for i in range\\(min\\(6,len\\(pdf.pages\\)\\)\\)]\")",
+      "Bash(python -c \"import PyPDF2; pdf=PyPDF2.PdfReader\\('c:/Workspace/Electro-Engineering/70_Assets/Datasheets/sn74lvc07a.pdf'\\); [print\\(f'--- PAGE {i+1} ---\\\\n', pdf.pages[i].extract_text\\(\\)\\) for i in range\\(min\\(6,len\\(pdf.pages\\)\\)\\)]\")",
+      "Bash(python -c \"import sys; print\\(sys.version\\); import pkgutil; pkgs=[p.name for p in pkgutil.iter_modules\\(\\)]; print\\([p for p in pkgs if 'pdf' in p.lower\\(\\) or 'plumb' in p.lower\\(\\)]\\)\")",
+      "Bash(Get-Date -Format \"yyyy-MM-dd\")"
+    ]
+  }
+}
