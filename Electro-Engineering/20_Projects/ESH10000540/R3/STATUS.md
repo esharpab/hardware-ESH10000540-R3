@@ -8,7 +8,7 @@ updated: 2026-05-04
 
 ## Current Phase
 
-**Review — Layout Review** (R3) — Complete; 5 Info items pending engineer disposition
+**Verification** (R3) — Verification plan complete; awaiting DUT serial numbers and layout Info item disposition
 
 ---
 
@@ -21,9 +21,13 @@ updated: 2026-05-04
 - [x] ERC-C08/P06/D — complete for all 17 device types; all findings closed 2026-04-30
 - [x] Schematic ERC sign-off — ✅ Signed Martin Johansson 2026-04-30
 - [x] Layout review — 14 checks, 9 Pass, 5 Info, 0 Fail (2026-05-04)
+- [x] SPECIFICATION.md: 28 requirements populated from R2 plan (2026-05-04)
+- [x] Verification/VERIFICATION.md: 341 test cases populated from R2 plan (2026-05-04)
 - [ ] Disposition 5 layout review Info items (see Review/LAYOUT_REVIEW.md)
 - [ ] Obtain Quality sign-off on schematic ERC
 - [ ] Layout sign-off once Info items dispositioned
+- [ ] Assign R3 DUT serial numbers; populate Verification/DUT_LOG.md
+- [ ] Execute verification (start with M and P groups)
 
 ---
 
@@ -40,6 +44,7 @@ updated: 2026-05-04
   - 0 unrouted nets; 0 orphan pads
   - 5 Info items open (fab spec, bottom assembly, annular ring)
 - **Layout sign-off:** ⏳ Pending — Info items must be dispositioned first
+- **Verification plan:** ✅ Complete — SPECIFICATION.md (28 req) + VERIFICATION.md (341 tests) 2026-05-04
 
 ---
 
@@ -55,9 +60,9 @@ updated: 2026-05-04
 
 ## Next 3 Actions
 
-1. **Disposition 5 layout review Info items** — [Review/LAYOUT_REVIEW.md](Review/LAYOUT_REVIEW.md)
-2. **Obtain Quality sign-off** on schematic ERC — [Signoff/DESIGN_SIGNOFF.md](Signoff/DESIGN_SIGNOFF.md)
-3. **Layout sign-off** — once Info items closed — [Signoff/DESIGN_SIGNOFF.md](Signoff/DESIGN_SIGNOFF.md)
+1. **Assign R3 DUT serial numbers** — populate [Verification/DUT_LOG.md](Verification/DUT_LOG.md)
+2. **Disposition 5 layout review Info items** — [Review/LAYOUT_REVIEW.md](Review/LAYOUT_REVIEW.md)
+3. **Begin verification** — execute M and P groups first; record in DUT_LOG.md
 
 ---
 
