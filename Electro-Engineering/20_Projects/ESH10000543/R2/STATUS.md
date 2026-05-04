@@ -6,7 +6,7 @@
 
 ## Current Focus
 
-Layout review in progress — 3 Info findings awaiting engineer disposition.
+Verification plan created — awaiting R2 DUT assignment to begin testing.
 
 ## Latest Confirmed State
 
@@ -25,6 +25,7 @@ None.
 
 ## Next Actions
 
+- [ ] Assign R2 DUT serial number(s) and log in Verification/DUT_LOG.md.
+- [ ] Execute test cases M.00–C.06 per Verification/VERIFICATION.md.
 - [ ] Disposition layout review findings: GBR-F03, LR-P02, LR-V01.
 - [ ] Run EDA DRC pass in Xpedition before releasing Gerbers to fab.
-- [ ] During verification: confirm U7 output levels on SRQn, INTERRUPTn, SRQ1–4n_BUF nets.
