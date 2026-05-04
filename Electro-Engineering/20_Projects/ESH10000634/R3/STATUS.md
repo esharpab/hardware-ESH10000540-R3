@@ -14,15 +14,15 @@ updated: 2026-05-04
 
 ## Current Focus
 
-- [ ] Define product scope in SPECIFICATION.md
-- [ ] Populate requirements
+- [x] Project created and schematic familiarization complete (2026-05-04)
+- [ ] Populate SPECIFICATION.md scope and requirements
 
 ---
 
 ## Latest Confirmed State
 
+- **Design:** Schematic R3 reviewed — 7 sheets, functional blocks understood
 - **Requirements:** Not started
-- **Design:** Not started
 
 ---
 
@@ -34,6 +34,6 @@ updated: 2026-05-04
 
 ## Next 3 Actions
 
-1. **Define scope** — populate SPECIFICATION.md scope section
+1. **Define scope** — populate SPECIFICATION.md scope section from schematic summary
 2. **Add requirements** — derive from system-level requirements or prior revision
 3. **Approve requirements** — review and sign off SPECIFICATION.md
