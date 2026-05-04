@@ -23,12 +23,12 @@ This test covers **system-level integration** only. It does not repeat parametri
 | Item | Description | Status |
 |------|-------------|--------|
 | Accordion A2 (ESH10000182) | Test controller — hosts I2C, SPI, power | Available |
-| Sparrow Test Adapter (ESH10000654 R0) | Physical interface Accordion ↔ Sparrow DUT | ⚠️ Design not started |
+| Sparrow Test Adapter (ESH10000654 R0) | Physical interface Accordion ↔ Sparrow DUT | ✅ Assembled in-house — verification pending |
 | DC Supply (20 V) | 20 V input to Fixture Link | TBD |
 | DC Supply (56 V) | 56 V input to PoE module (PT-POE) | TBD |
 | Test Software | Accordion automation scripts | TBD |
 
-> **Blocker:** The test adapter (ESH10000654) must be designed before a complete production test procedure can be written. Test adapter requirements are driven by the signal/power interfaces needed in each PT step below.
+> **Note:** ESH10000654 R0 is assembled and in-house. Requirements defined (21 req). 4 open interface items remain (see ESH10000654 R0 SPECIFICATION.md open items). PT procedure can be written in parallel once PSU connector assignment and PoE routing are confirmed.
 
 ---
 
@@ -224,7 +224,7 @@ The following is a preliminary list of what ESH10000654 must provide to support 
 | # | Item | Owner | Status |
 |---|------|-------|--------|
 | 1 | Define all system-level requirements in SPECIFICATION.md | Martin Johansson | Closed — requirements populated from Sparrow Hardware Datasheet v3 (44 requirements, SYS/PWR/COM/FW/SIG/COS) |
-| 2 | Complete test adapter requirements (ESH10000654) driven by TA Requirements column above | Martin Johansson | Open |
+| 2 | Complete test adapter requirements (ESH10000654) driven by TA Requirements column above | Martin Johansson | In progress — SPECIFICATION.md drafted (21 req); 4 open interface items remain (PoE routing, PSU connector assignment, PWR_EN, PD load) |
 | 3 | Confirm Accordion software API for I2C scan, SPI, GPIO, ADC readback | Martin Johansson | Open |
 | 4 | Define DUT serial number format and IDPROM content | Martin Johansson | Open |
 | 5 | Define firmware version to be loaded for production (ATmega) | Martin Johansson | Open |
