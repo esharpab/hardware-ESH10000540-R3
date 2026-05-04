@@ -1,0 +1,152 @@
+$HEADER$
+BOARD_TYPE PCB_DESIGN
+UNITS MM
+$END HEADER$
+
+$PART_SECTION_BEGIN$
+R56                              pn-res0402I                      0.00       16.50      14.75      BOTTOM     YES
+R66                              pn-res0402I                      90.00      12.25      22.50      BOTTOM     YES
+R67                              pn-res0402I                      90.00      10.25      22.50      BOTTOM     YES
+R70                              pn-res0402I                      270.00     5.75       9.25       BOTTOM     YES
+R68                              pn-res0402I                      90.00      8.75       22.50      BOTTOM     YES
+R69                              pn-res0402I                      90.00      6.75       22.50      BOTTOM     YES
+R71                              pn-res0402I                      270.00     8.75       9.25       BOTTOM     YES
+R111                             pn-res0805I                      90.00      44.75      9.00       BOTTOM     YES
+R72                              pn-res0402I                      90.00      11.25      22.50      BOTTOM     YES
+R73                              pn-res0402I                      90.00      7.75       22.50      BOTTOM     YES
+R109                             pn-res0805I                      90.00      50.75      9.00       BOTTOM     YES
+R74                              pn-res0402I                      270.00     7.75       9.25       BOTTOM     YES
+R76                              pn-res1206I                      180.00     14.50      13.75      TOP        NO
+R77                              pn-res1206I                      0.00       8.75       13.75      TOP        NO
+R80                              pn-res0402I                      0.00       51.75      14.25      BOTTOM     YES
+R78                              pn-res0402I                      0.00       16.50      13.75      BOTTOM     YES
+R81                              pn-res0402I                      270.00     25.00      3.50       BOTTOM     YES
+R79                              pn-res0402I                      0.00       16.50      12.25      BOTTOM     YES
+R82                              pn-res0402I                      270.00     24.50      1.75       BOTTOM     YES
+R83                              pn-res0402I                      270.00     23.50      3.50       BOTTOM     YES
+R84                              pn-res0402I                      270.00     23.00      1.75       BOTTOM     YES
+R85                              pn-res0402I                      270.00     22.50      3.50       BOTTOM     YES
+R86                              pn-res0402I                      270.00     22.00      1.75       BOTTOM     YES
+R87                              pn-res0402I                      270.00     21.50      3.50       BOTTOM     YES
+R90                              pn-res0402I                      270.00     33.50      1.75       BOTTOM     YES
+R88                              pn-res0402I                      270.00     21.00      1.75       BOTTOM     YES
+R89                              pn-res0402I                      270.00     34.00      4.00       BOTTOM     YES
+R91                              pn-res0402I                      270.00     28.50      1.75       BOTTOM     YES
+R92                              pn-res0402I                      270.00     27.50      1.75       BOTTOM     YES
+R93                              pn-res0402I                      270.00     27.50      3.50       BOTTOM     YES
+R94                              pn-res0402I                      270.00     26.50      1.75       BOTTOM     YES
+R95                              pn-res0402I                      270.00     26.50      6.25       BOTTOM     YES
+R96                              pn-res0402I                      270.00     25.50      6.25       BOTTOM     YES
+R97                              pn-res0402I                      270.00     35.50      1.75       BOTTOM     YES
+R98                              pn-res0402I                      270.00     34.50      1.75       BOTTOM     YES
+R112                             pn-res0805I                      90.00      55.50      9.50       TOP        NO
+Re1                              pn-hfd4                          270.00     16.25      21.75      TOP        NO
+Re2                              pn-hfd4                          270.00     5.50       21.75      TOP        NO
+C1                               pn-cap0402I                      90.00      30.75      34.25      BOTTOM     YES
+D1                               pn-bzx384                        180.00     43.50      26.00      TOP        NO
+J1                               pn-accordion_m2_module_2         180.00     29.00      -2.25      TOP        NO
+Q1                               pn-csd19537_common               270.00     46.11      17.50      BOTTOM     YES
+R1                               pn-res0402I                      0.00       43.75      24.25      TOP        NO
+U1                               pn-tps2491                       0.00       43.75      25.00      BOTTOM     YES
+C2                               pn-cap0402I                      0.00       16.50      11.00      BOTTOM     YES
+D2                               pn-bzx384                        0.00       36.00      25.50      BOTTOM     YES
+J2                               pn-termblock_5_2pin_detachable   180.00     48.25      36.75      TOP        NO
+Q2                               pn-sqj479                        0.00       42.75      30.75      TOP        NO
+R2                               pn-res0402I                      0.00       46.50      26.00      TOP        NO
+U2                               pn-ap331_pwr                     0.00       40.25      28.75      BOTTOM     YES
+C3                               pn-cap0402I                      180.00     35.00      14.00      BOTTOM     YES
+J3                               pn-RJ45_ra_th_1                  180.00     11.25      37.90      TOP        NO
+R3                               pn-res0402I                      90.00      41.50      25.75      BOTTOM     YES
+C4                               pn-cap0402I                      180.00     45.50      14.00      BOTTOM     YES
+J4                               pn-rj45-poe+4                    180.00     31.00      35.85      TOP        NO
+R4                               pn-res0402I                      90.00      42.50      29.50      BOTTOM     YES
+U4                               pn-tps23881                      90.00      9.50       16.00      BOTTOM     YES
+C5                               pn-cap0402I                      90.00      31.75      34.25      BOTTOM     YES
+R5                               pn-res0402I                      0.00       43.75      29.25      BOTTOM     YES
+R107                             pn-res0805I                      90.00      48.75      9.00       BOTTOM     YES
+C6                               pn-cap0402I                      180.00     45.50      13.00      BOTTOM     YES
+Q6                               pn-buk9k32-100                   180.00     11.00      8.25       TOP        NO
+R6                               pn-res0402I                      90.00      42.50      8.00       TOP        NO
+C10                              pn-cap0402I                      180.00     22.75      33.00      BOTTOM     YES
+C7                               pn-cap1206I                      0.00       48.25      39.25      BOTTOM     YES
+D10                              pn-tvs58                         90.00      16.00      5.00       TOP        NO
+C11                              pn-cap0402I                      0.00       15.75      23.75      BOTTOM     YES
+D11                              pn-tvs58                         90.00      6.00       4.75       TOP        NO
+C12                              pn-cap0402I                      0.00       24.50      14.00      BOTTOM     YES
+D12                              pn-bat54j-1                      0.00       49.25      4.25       BOTTOM     YES
+TP1                              pn-tp_rctcte                     180.00     56.00      21.25      TOP        NO
+C13                              pn-cap0402I                      270.00     13.50      22.50      BOTTOM     YES
+D13                              pn-w2s118ts                      180.00     11.25      42.10      BOTTOM     YES
+Q7                               pn-2n7002dw_single               0.00       29.85      7.50       BOTTOM     YES
+R7                               pn-res0402I                      90.00      40.50      8.00       TOP        NO
+TP2                              pn-tp_rctcte                     180.00     56.00      19.25      TOP        NO
+R10                              pn-res0402I                      0.00       28.75      9.00       TOP        NO
+C14                              pn-cap0402I                      90.00      56.00      13.00      TOP        NO
+D14                              pn-w2s118ts                      180.00     25.50      42.10      BOTTOM     YES
+U10                              pn-lp5012rukr                    0.00       29.75      38.25      BOTTOM     YES
+U7                               pn-eeprom_2k_i2c_sot23           180.00     41.50      4.75       TOP        NO
+TP3                              pn-tp_rctcte                     180.00     56.00      15.25      TOP        NO
+R11                              pn-res0402I                      180.00     28.75      8.00       TOP        NO
+C15                              pn-cap0402I                      0.00       5.00       23.75      BOTTOM     YES
+D15                              pn-w2s118ts                      180.00     36.50      42.10      BOTTOM     YES
+R12                              pn-res0402I                      270.00     37.50      10.00      TOP        NO
+C16                              pn-cap0805I                      90.00      4.00       13.25      BOTTOM     YES
+D16                              pn-w2s118ts                      180.00     48.25      42.10      BOTTOM     YES
+U12                              pn-drv8220                       0.00       5.50       26.25      BOTTOM     YES
+R13                              pn-res0402I                      180.00     45.00      19.75      BOTTOM     YES
+C17                              pn-cap0805I                      270.00     50.50      20.50      BOTTOM     YES
+D17                              pn-tvs58                         270.00     41.75      20.35      TOP        NO
+U13                              pn-drv8220                       0.00       16.25      26.25      BOTTOM     YES
+R14                              pn-res0402I                      270.00     36.50      1.75       BOTTOM     YES
+C8                               pn-cap0402I                      270.00     45.00      30.50      BOTTOM     YES
+C20                              pn-cap0805I                      270.00     19.50      5.75       TOP        NO
+C18                              pn-cap0805I                      90.00      26.50      7.75       TOP        NO
+U14                              pn-pi4ioe5v6416ep                90.00      18.50      32.75      BOTTOM     YES
+R15                              pn-res0402I                      0.00       39.75      31.75      BOTTOM     YES
+C19                              pn-cap0805I                      0.00       39.25      20.00      BOTTOM     YES
+C21                              pn-cap0805I                      270.00     2.50       5.75       TOP        NO
+R16                              pn-res0402I                      90.00      39.25      25.75      BOTTOM     YES
+C22                              pn-capp_100uF_100                90.00      49.25      20.50      TOP        NO
+R17                              pn-res0402I                      90.00      44.00      30.50      BOTTOM     YES
+C23                              pn-cap0805I                      180.00     47.75      20.75      BOTTOM     YES
+R20                              pn-res0402I                      0.00       25.50      32.50      BOTTOM     YES
+R18                              pn-res1206I                      0.00       41.75      17.50      BOTTOM     YES
+R8                               pn-res0402I                      0.00       33.00      4.50       TOP        NO
+C24                              pn-cap1206I                      90.00      55.25      9.00       BOTTOM     YES
+U8                               pn-ltc2992                       270.00     33.50      7.25       TOP        NO
+R19                              pn-res0805I                      180.00     39.25      22.75      BOTTOM     YES
+R21                              pn-res0402I                      90.00      32.50      1.75       BOTTOM     YES
+C25                              pn-cap0402I                      0.00       28.75      6.00       TOP        NO
+R22                              pn-res0402I                      180.00     16.50      18.75      BOTTOM     YES
+C26                              pn-cap0402I                      90.00      26.75      35.25      BOTTOM     YES
+R23                              pn-res0402I                      90.00      22.00      31.50      BOTTOM     YES
+C27                              pn-cap0402I                      90.00      22.00      29.50      BOTTOM     YES
+R24                              pn-res0402I                      90.00      27.75      35.25      BOTTOM     YES
+C9                               pn-cap0402I                      270.00     44.75      4.50       BOTTOM     YES
+C28                              pn-cap0402I                      0.00       28.75      7.00       TOP        NO
+R25                              pn-res0402I                      0.00       16.50      19.75      BOTTOM     YES
+R26                              pn-res0402I                      90.00      33.00      36.75      BOTTOM     YES
+R27                              pn-res0402I                      90.00      33.00      34.25      BOTTOM     YES
+R28                              pn-res0402I                      90.00      34.00      36.75      BOTTOM     YES
+R9                               pn-res0402I                      0.00       45.00      20.75      BOTTOM     YES
+R100                             pn-res0402I                      90.00      35.75      10.50      TOP        NO
+U9                               pn-isow7842                      0.00       49.25      9.00       TOP        NO
+R29                              pn-res0402I                      90.00      34.00      34.25      BOTTOM     YES
+R110                             pn-res0805I                      90.00      52.75      9.00       BOTTOM     YES
+R108                             pn-res0805I                      90.00      46.75      9.00       BOTTOM     YES
+R43                              pn-res0402I                      0.00       26.50      14.00      BOTTOM     YES
+R44                              pn-res0402I                      90.00      27.50      6.25       BOTTOM     YES
+R53                              pn-res0402I                      0.00       16.50      17.75      BOTTOM     YES
+R54                              pn-res0402I                      0.00       16.50      16.75      BOTTOM     YES
+R55                              pn-res0402I                      0.00       16.50      15.75      BOTTOM     YES
+$PART_SECTION_END$
+
+$FIDUCIAL_SECTION_BEGIN$
+BOARD                            2.00       2.00       BOTTOM    
+BOARD                            56.00      2.50       BOTTOM    
+BOARD                            56.00      42.00      TOP       
+BOARD                            56.00      2.50       TOP       
+BOARD                            56.00      42.00      BOTTOM    
+BOARD                            2.00       34.25      BOTTOM    
+BOARD                            2.00       34.25      TOP       
+$FIDUCIAL_SECTION_END$
