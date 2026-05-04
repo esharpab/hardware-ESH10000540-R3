@@ -5,7 +5,7 @@ Overview of all projects — active and otherwise.
 | Project | Product / Document | Revision | Phase | Status | Notes |
 |---|---|---|---|---|---|
 | ESH10000540 | Sparrow Fixture Electronics PCBA | R3 | Verification | 🟢 Active | Verification plan complete (341 tests) — awaiting DUT serial numbers |
-| ESH10000535 | Sparrow N-Top | R3 | Verification | 🟢 Active | Spec approved; verification plan ready — awaiting R3 DUT serials |
+| ESH10000535 | Sparrow N-Top | R3 | Verification | 🟢 Active | Verification plan complete incl. R3-CHG tests — awaiting R3 DUT serials |
 | ESH10000543 | Fixture Link | R2 | Verification | 🟢 Active | Schematic + layout review complete; verification plan ready — awaiting R2 DUT |
 
 ---
