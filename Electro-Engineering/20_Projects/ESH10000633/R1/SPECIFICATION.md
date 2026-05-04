@@ -15,16 +15,24 @@ This document defines the product-level requirements and acceptance criteria for
 Requirements are derived from the **Sparrow Hardware Datasheet v3 (2026-04-16)**, stored at:
 `DOCS/Sparrow Hardware Datasheet-v3-20260504_150735.pdf`
 
-The Sparrow is a multi-channel test instrument assembled from the following sub-assemblies:
+The Sparrow is a multi-channel test instrument. The MES top-level BOM (ESH10000633 R1) contains two major sub-assemblies; their contents are listed below.
 
-| Sub-assembly | ESH | Rev |
-|-------------|-----|-----|
-| Accordion A2 Base | ESH10000182 | — |
-| Sparrow N-Top | ESH10000535 | R3 |
-| Sparrow Fixture Electronics PCBA | ESH10000540 | R3 |
-| Fixture Link | ESH10000543 | R2 |
-| Active Load | ESH10000536 | R2 |
-| PoE | ESH10000534 | R4 |
+**ESH10000631 — Sparrow Accordion A2**
+
+| Sub-assembly | ESH | Rev | Notes |
+|-------------|-----|-----|-------|
+| Accordion A2 Bare | ESH10000182 | — | Accordion base chassis |
+| Sparrow N-Top | ESH10000535 | R3 | N-Top PCBA |
+| Fixture Link | ESH10000543 | R2 | Interface PCBA between Accordion and Fixture Electronics |
+| PoE | ESH10000534 | R4 | M.2 PoE module |
+
+**ESH10000636 — Sparrow ASSY Fixture Electronics with Active Load**
+
+| Sub-assembly | ESH | Rev | Notes |
+|-------------|-----|-----|-------|
+| Sparrow Fixture Electronics PCBA | ESH10000540 | R3 | Main fixture electronics |
+| Sparrow IDC N-Top | ESH10000634 | R3 | IDC connector board for N-Top interface |
+| Active Load | ESH10000536 | R2 | M.2 active load module |
 
 Test tooling:
 
@@ -63,7 +71,7 @@ Test tooling:
 | PWR-04 | Power | 3V3_EXT external rail output voltage | 3.23 V ≤ V ≤ 3.37 V | PT-PSU.03 | Draft |
 | PWR-05 | Power | 1V8_EXT external rail output voltage | 1.76 V ≤ V ≤ 1.82 V | PT-PSU.04 | Draft |
 | PWR-06 | Power | VADJ programmable rail range and accuracy | 0–6 V user-adjustable; accuracy ±1.6% | PT-PSU.01 | Draft |
-| PWR-07 | Power | EXT_VIO programmable rail range and accuracy | 0–3.3 V user-adjustable; accuracy ±1.6% | — | Draft |
+| PWR-07 | Power | EXT_VIO programmable rail range and accuracy | 0–3.3 V user-adjustable; accuracy ±1.6% | PT-PSU.02 | Draft |
 | PWR-08 | Power | VREF precision reference voltage | 2.499 V ≤ V ≤ 2.501 V; Iout ≤ ±10 mA; must not drive loads | PT-PWR.06 | Draft |
 | PWR-09 | Power | External rails (12V_EXT, 3V3_EXT, 1V8_EXT, VADJ, EXT_VIO) overcurrent protection | Circuit breaker activates at Ilim = 0.5 A; fault flag raised; rail stays off until re-enabled | — | Draft |
 | PWR-10 | Power | External rails voltage monitoring accuracy (VMEAS) | ±2% of nominal for all external rails | PT-PSU.00–.04 | Draft |
@@ -109,6 +117,7 @@ Test tooling:
 | Rev | Date | Author | Change |
 |-----|------|--------|--------|
 | R1 | 2026-05-04 | Martin Johansson | Initial document created; requirements table populated from Sparrow Hardware Datasheet v3 |
+| R1 | 2026-05-04 | Martin Johansson | Sub-assembly table restructured to reflect two-level MES BOM hierarchy; ESH10000634 (Sparrow IDC N-Top) added |
 
 ---
 

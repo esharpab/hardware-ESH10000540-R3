@@ -61,6 +61,19 @@ The table below maps each production test area to the sub-assembly verification 
 - RS485 bias resistor verification
 - Connector pin mapping verification (tested at sub-assembly level)
 
+### Explicitly Deferred (no PT test case — rationale recorded)
+
+| Req | Description | Reason deferred |
+|-----|-------------|-----------------|
+| PWR-09 | External rail OCP circuit breaker activation | Requires deliberate overcurrent fault injection; risk of damaging DUT; covered by design review and sub-assembly characterization |
+| PWR-11 | External rail IMEAS accuracy | Requires calibrated current load per rail; spot-check VMEAS (PT-PSU) is sufficient at production level |
+| PWR-15 | PoE maximum output power ≤ 90 W | Requires high-power Ethernet load (>90 W capable); impractical at production test; covered by subsystem design |
+| PWR-20 | Active Load Phoenix connector 3/5 A | Phoenix connector is an alternative interface; IDC header (0.4/1 A) tested via PT-AL; Phoenix characterization is sub-assembly scope |
+| PWR-21 | Active Load EMAX 250 Ws shutdown | Requires sustained load run to energy limit; destructive/time-consuming; covered by firmware design |
+| PWR-24 | PSU optional output (0–18 V) | PSU is an optional module not fitted in standard Sparrow R1 configuration |
+| SIG-06 | Relay driver (4 ch) low-side drive | Relay driver functional check requires external coil load; not fitted in standard system test configuration |
+| SIG-09 | Tampering latch-and-hold edge detection | Requires specific signal edge injection and software reset sequence; deferred to system-level DVT |
+
 ---
 
 ## Test Areas
@@ -71,7 +84,7 @@ The table below maps each production test area to the sub-assembly verification 
 
 | Step ID | Description | Pass Criteria | TA Requirement |
 |---------|-------------|---------------|----------------|
-| PT-M.00 | Verify all four sub-assemblies installed: Accordion A2 base, Fixture Link (R2), Sparrow N-Top (R3), Fixture Electronics PCBA (R3) | All sub-assemblies present and correctly seated | — |
+| PT-M.00 | Verify all sub-assemblies installed: Accordion A2 (ESH10000631), Fixture Electronics with Active Load (ESH10000636) including Fixture Electronics PCBA (R3), IDC N-Top (ESH10000634 R3), and Active Load (R2); Sparrow N-Top (R3), Fixture Link (R2), PoE (R4) present inside Accordion | All sub-assemblies present and correctly seated | — |
 | PT-M.01 | Inspect board-to-board connectors for correct seating; no bent pins visible | All connectors seated; no visible damage | — |
 | PT-M.02 | Confirm revision markings: Fixture Link silkscreen reads R2 | Silkscreen correct | — |
 
