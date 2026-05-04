@@ -159,33 +159,39 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 
 ### Gate 1 — Design Release *(target: Week 1–2)*
 
-- [ ] ESH10000540 R3 promoted to Manufacturing in MES
-- [ ] ESH10000535 R3 promoted to Manufacturing in MES
-- [ ] ESH10000543 R2 promoted to Manufacturing in MES
-- [ ] ESH10000534 R4 promoted to Manufacturing in MES
-- [ ] ESH10000536 R2 promoted to Manufacturing in MES
-- [ ] ESH10000182 R0 promoted to Manufacturing in MES
-- [ ] ESH10000544 R0 BOM defined, approved, promoted to Manufacturing
-- [ ] ESH10000572 R0 BOM defined, approved, promoted to Manufacturing
-- [ ] ESH10000614 R0 promoted to Manufacturing in MES
-- [ ] ESH10000634: confirm R1 or R2 — pin revision in ESH10000636 BOM
+- [ ] ESH10000540 R3 (Sparrow Fixture Electronics) promoted to Manufacturing in MES
+- [ ] ESH10000535 R3 (Sparrow N-Top) promoted to Manufacturing in MES
+- [ ] ESH10000543 R2 (Fixture Link) promoted to Manufacturing in MES
+- [ ] ESH10000534 R4 (M2Top PoE) promoted to Manufacturing in MES
+- [ ] ESH10000536 R2 (M2Top Active Load) promoted to Manufacturing in MES
+- [ ] ESH10000182 R0 (Accordion A2 Bare) promoted to Manufacturing in MES
+- [ ] ESH10000538 R0 (M2base loopback) approved and promoted to Manufacturing in MES
+- [ ] ESH10000062 R0 (PCIe16 riser for AGENT base) approved and promoted to Manufacturing in MES
+- [ ] ESH10000544 R0 (A2 Front Panel DSub Fixturelink) BOM defined, approved, promoted to Manufacturing
+- [ ] ESH10000572 R0 (Accordion Sparrow Top) BOM defined, approved, promoted to Manufacturing
+- [ ] ESH10000579 R0.2 (USB PD 100W PSU PCBA) approved and promoted to Manufacturing in MES
+- [ ] ESH10000580 R0.1 (USB PD 100W PSU Front Panel) approved and promoted to Manufacturing in MES
+- [ ] ESH10000581 R0.1 (USB PD 100W Rear Panel) approved and promoted to Manufacturing in MES
+- [ ] ESH10000614 R0 (Sleeved Coax Cable HLCD-20-40.00) promoted to Manufacturing in MES
+- [ ] ESH10000615 R0 (Kontakthuvud HLCD-20-40.00) promoted to Manufacturing in MES
+- [ ] ESH10000634 (Sparrow IDC N-Top): confirm R1 or R2 — pin revision in ESH10000636 BOM
 
 ### Gate 2 — Inventory Procurement *(target: Week 1–4)*
 
-- [ ] ESH10000182 build order placed (qty ≥ 19); confirm RPi4B 8GB stock for 20 units
-- [ ] ESH10000634 PCB fab + assembly order placed (qty ≥ 16)
-- [ ] ESH10000544 PCB order placed (qty ≥ 14) — pending design approval
-- [ ] ESH10000572 PCB order placed (qty ≥ 13) — pending design approval
-- [ ] ESH10000637 cable procurement order placed (qty ≥ 20)
-- [ ] EPN1000677 (USB wall charger) order placed (qty ≥ 2)
-- [ ] ESH10000535 units in Testing confirmed available for production (24 available, need 20)
-- [ ] ESH10000540 units in Testing confirmed available for production (50 available, need 20)
+- [ ] ESH10000182 (Accordion A2 Bare) build order placed (qty ≥ 19); confirm RPi4B 8GB stock for 20 units
+- [ ] ESH10000634 (Sparrow IDC N-Top) PCB fab + assembly order placed (qty ≥ 16)
+- [ ] ESH10000544 (A2 Front Panel DSub Fixturelink) PCB order placed (qty ≥ 14) — pending design approval
+- [ ] ESH10000572 (Accordion Sparrow Top) PCB order placed (qty ≥ 13) — pending design approval
+- [ ] ESH10000637 (Sparrow PSU Power Cable 1m) cable procurement order placed (qty ≥ 20)
+- [ ] EPN1000677 (5-port USB wall charger) order placed (qty ≥ 2)
+- [ ] ESH10000535 (Sparrow N-Top R3) units in Testing confirmed available for production (24 available, need 20)
+- [ ] ESH10000540 (Sparrow Fixture Electronics R3) units in Testing confirmed available for production (50 available, need 20)
 
 ### Gate 3 — Test & Production Infrastructure *(target: Week 2–4)*
 
 - [ ] Production test plan approved (PRODUCTION_TEST_PLAN.md)
 - [ ] PRODUCTION_TEST_PROCEDURE.md written and reviewed
-- [ ] Sparrow Test Adapter (ESH10000654) designed and built
+- [ ] ESH10000654 (Sparrow Test Adapter) designed and built
 - [ ] Test software (Accordion automation scripts) ready
 - [ ] 20 V DC supply available for Fixture Link eFuse test
 - [ ] 56 V DC supply available for PoE test
@@ -219,11 +225,11 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 
 | Risk | Likelihood | Impact | Mitigation |
 |------|-----------|--------|------------|
-| ESH10000182 build lead time > 4 weeks | High | Critical — gates all 19 units | Order immediately; escalate if RPi4B supply constrained |
-| ESH10000634 PCB fab + assembly lead time > 3 weeks | High | Blocks 16 units | Order immediately in parallel with G-01 |
-| ESH10000544 / 572 design not approved in time | Medium | Blocks Accordion A2 build | Expedite design review; check if existing stock can be reworked |
-| Testing units (ESH10000535/540) not released for production | Medium | Blocks sub-assembly supply | Confirm with test team; 4 N-Top spare margin is tight |
-| ESH10000654 Test Adapter not ready in time | High | Blocks production test execution | Prioritise TA design; manual test as fallback for first article |
+| ESH10000182 (Accordion A2 Bare) build lead time > 4 weeks | High | Critical — gates all 19 units | Order immediately; escalate if RPi4B supply constrained |
+| ESH10000634 (Sparrow IDC N-Top) PCB fab + assembly lead time > 3 weeks | High | Blocks 16 units | Order immediately in parallel with G-01 |
+| ESH10000544 (A2 Front Panel DSub) / ESH10000572 (Accordion Sparrow Top) design not approved in time | Medium | Blocks Accordion A2 build | Expedite design review; check if existing stock can be reworked |
+| Testing units ESH10000535 (Sparrow N-Top) / ESH10000540 (Sparrow Fixture Electronics) not released for production | Medium | Blocks sub-assembly supply | Confirm with test team; 4 N-Top spare margin is tight |
+| ESH10000654 (Sparrow Test Adapter) not ready in time | High | Blocks production test execution | Prioritise TA design; manual test as fallback for first article |
 | Multiple sub-assemblies at Prototype — late MES promotion delays WO creation | Medium | Delays work order release | Assign MES promotion as Week 1 priority |
 
 ---
