@@ -6,7 +6,7 @@
 
 ## Current Focus
 
-Schematic ERC review complete — all findings dispositioned. Ready for layout review.
+Layout review in progress — 3 Info findings awaiting engineer disposition.
 
 ## Latest Confirmed State
 
@@ -25,5 +25,6 @@ None.
 
 ## Next Actions
 
-- [ ] Proceed to layout review.
+- [ ] Disposition layout review findings: GBR-F03, LR-P02, LR-V01.
+- [ ] Run EDA DRC pass in Xpedition before releasing Gerbers to fab.
 - [ ] During verification: confirm U7 output levels on SRQn, INTERRUPTn, SRQ1–4n_BUF nets.
