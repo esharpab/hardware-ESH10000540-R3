@@ -1,7 +1,7 @@
 ---
 project: ESH10000540
 revision: R3
-updated: 2026-05-04
+updated: 2026-05-04 (session 6)
 ---
 
 # Status: Sparrow Fixture Electronics PCBA R3
@@ -21,8 +21,10 @@ updated: 2026-05-04
 - [x] ERC-C08/P06/D — complete for all 17 device types; all findings closed 2026-04-30
 - [x] Schematic ERC sign-off — ✅ Signed Martin Johansson 2026-04-30
 - [x] Layout review — 14 checks, 9 Pass, 5 Info, 0 Fail (2026-05-04)
-- [x] SPECIFICATION.md: 28 requirements populated from R2 plan (2026-05-04)
-- [x] Verification/VERIFICATION.md: 341 test cases populated from R2 plan (2026-05-04)
+- [x] SPECIFICATION.md: 29 requirements (28 from R2 plan + SR-P12 new; 2026-05-04)
+- [x] Verification/VERIFICATION.md: 351 test cases (341 from R2 plan + 10 new; 2026-05-04)
+- [x] DesignLog Rev2 gap analysis complete — all 16 approved design changes reviewed
+- [ ] Resolve GAP 1: R132 → 4k3 (Gain = 5.3) — confirm which circuit/test case; update plan if needed
 - [ ] Disposition 5 layout review Info items (see Review/LAYOUT_REVIEW.md)
 - [ ] Obtain Quality sign-off on schematic ERC
 - [ ] Layout sign-off once Info items dispositioned
@@ -44,7 +46,8 @@ updated: 2026-05-04
   - 0 unrouted nets; 0 orphan pads
   - 5 Info items open (fab spec, bottom assembly, annular ring)
 - **Layout sign-off:** ⏳ Pending — Info items must be dispositioned first
-- **Verification plan:** ✅ Complete — SPECIFICATION.md (28 req) + VERIFICATION.md (341 tests) 2026-05-04
+- **Verification plan:** ✅ Complete — SPECIFICATION.md (29 req) + VERIFICATION.md (351 tests) 2026-05-04
+- **DesignLog Rev2 gap analysis:** ✅ Complete — 10 tests added; 1 open gap (R132 gain, GAP 1)
 
 ---
 
@@ -60,9 +63,9 @@ updated: 2026-05-04
 
 ## Next 3 Actions
 
-1. **Assign R3 DUT serial numbers** — populate [Verification/DUT_LOG.md](Verification/DUT_LOG.md)
-2. **Disposition 5 layout review Info items** — [Review/LAYOUT_REVIEW.md](Review/LAYOUT_REVIEW.md)
-3. **Begin verification** — execute M and P groups first; record in DUT_LOG.md
+1. **Resolve GAP 1** — confirm R132 (4k3, gain 5.3) circuit and update test plan parameter if needed
+2. **Assign R3 DUT serial numbers** — populate [Verification/DUT_LOG.md](Verification/DUT_LOG.md)
+3. **Disposition 5 layout review Info items** — [Review/LAYOUT_REVIEW.md](Review/LAYOUT_REVIEW.md)
 
 ---
 
