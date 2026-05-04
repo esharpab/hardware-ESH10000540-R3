@@ -14,7 +14,7 @@ Define the production test strategy, coverage, and pass/fail criteria for the as
 
 This test covers **system-level integration** only. It does not repeat parametric characterization already performed in sub-assembly verification plans (ESH10000535 R3, ESH10000540 R3, ESH10000543 R2). See DECISIONS.md D.01.
 
-> **Note:** ESH10000536 (Active Load R2) and ESH10000534 (PoE R4) are part of the Sparrow system. Their production test coverage is **TBD** — verification plans for these sub-assemblies must be reviewed before this plan can be considered complete.
+> **Note:** ESH10000536 (Active Load R2) and ESH10000534 (PoE R4) are part of the Sparrow system. No sub-assembly verification plans exist for these modules; PT-AL and PT-POE coverage has been derived from the Sparrow system datasheet.
 
 ---
 
@@ -24,7 +24,8 @@ This test covers **system-level integration** only. It does not repeat parametri
 |------|-------------|--------|
 | Accordion A2 (ESH10000182) | Test controller — hosts I2C, SPI, power | Available |
 | Sparrow Test Adapter (ESH10000654 R0) | Physical interface Accordion ↔ Sparrow DUT | ⚠️ Design not started |
-| DC Supply | 20 V input to Fixture Link | TBD |
+| DC Supply (20 V) | 20 V input to Fixture Link | TBD |
+| DC Supply (56 V) | 56 V input to PoE module (PT-POE) | TBD |
 | Test Software | Accordion automation scripts | TBD |
 
 > **Blocker:** The test adapter (ESH10000654) must be designed before a complete production test procedure can be written. Test adapter requirements are driven by the signal/power interfaces needed in each PT step below.
@@ -44,13 +45,8 @@ The table below maps each production test area to the sub-assembly verification 
 | PT-FW — Firmware | ESH10000535 CIO.02–CIO.03 | Confirms ATmega programmed and responding |
 | PT-SIG — Signal paths (spot check) | ESH10000535 UIO.00–UIO.03, ESH10000540 UIO.19–UIO.34, UIO.35–UIO.83, UIO.00–UIO.18, UIO.84–UIO.91 | One representative channel per signal type — full range at sub-assembly |
 | PT-COS — Cosmetics / LEDs | ESH10000543 C.01–C.02, ESH10000535 CIO.07 | Visual quality and LED function |
-
-### Coverage gaps — ESH10000536 and ESH10000534
-
-| Sub-assembly | Coverage | Action Required |
-|-------------|----------|----------------|
-| ESH10000536 Active Load R2 | ⚠️ Not yet covered — verification plan not reviewed | Review ESH10000536 verification plan; derive PT test steps |
-| ESH10000534 PoE R4 | ⚠️ Not yet covered — verification plan not reviewed | Review ESH10000534 verification plan; derive PT test steps |
+| PT-AL — Active Load (spot check) | ESH10000536 datasheet (IMEAS ±1%, VMEAS ±2%) | Both channels: sink 100 mA, verify IMEAS and VMEAS within spec |
+| PT-POE — PoE subsystem (spot check) | ESH10000534 datasheet (VMEAS ±2.5%, IMEAS ±3%) | Power-on, PoE negotiation, VMEAS and IMEAS within spec |
 
 ---
 
@@ -163,6 +159,33 @@ The table below maps each production test area to the sub-assembly verification 
 
 ---
 
+### PT-AL — Active Load (spot check)
+
+> Spot-check both Active Load channels: set a mid-range sink current, verify IMEAS and VMEAS are within spec. Full characterization is not required at production test.
+
+| Step ID | Description | Signal | Nominal | Tol | Pass Criteria | Source | TA Requirement |
+|---------|-------------|--------|---------|-----|---------------|--------|----------------|
+| PT-AL.00 | Set Active Load CH0 to sink 100 mA; verify IMEAS within ±1%; confirm no fault flag | IMEAS_CH0 | 100 mA | ±1% | 99–101 mA | ESH10000536 datasheet (IMEAS ±1%) | 24 V supply on VLOAD_POS_0 via TA |
+| PT-AL.01 | With 12 V applied to VLOAD_POS_0; read VMEAS_CH0; verify within ±2% | VMEAS_CH0 | 12.0 V | ±2% | 11.76–12.24 V | ESH10000536 datasheet (VMEAS ±2%) | 12 V on VLOAD_POS_0 via TA |
+| PT-AL.02 | Set Active Load CH1 to sink 100 mA; verify IMEAS within ±1%; confirm no fault flag | IMEAS_CH1 | 100 mA | ±1% | 99–101 mA | ESH10000536 datasheet (IMEAS ±1%) | 24 V supply on VLOAD_POS_1 via TA |
+| PT-AL.03 | With 12 V applied to VLOAD_POS_1; read VMEAS_CH1; verify within ±2% | VMEAS_CH1 | 12.0 V | ±2% | 11.76–12.24 V | ESH10000536 datasheet (VMEAS ±2%) | 12 V on VLOAD_POS_1 via TA |
+
+---
+
+### PT-POE — Power over Ethernet (spot check)
+
+> Apply 56 V to the PoE module and connect an Ethernet PD load to verify subsystem power-up, VMEAS, and IMEAS within spec.
+> **Safety: do not switch PoE output polarity while a DUT is active on ETH OUT.**
+
+| Step ID | Description | Signal | Nominal | Tol | Pass Criteria | Source | TA Requirement |
+|---------|-------------|--------|---------|-----|---------------|--------|----------------|
+| PT-POE.00 | Apply 56 V to PoE module; assert ON/OFF control; verify subsystem powers on (no fault, LED active) | PoE VIN | 56 V | ±5% | 53.2–58.8 V; no fault indication | ESH10000534 datasheet (44–57 V input range) | 56 V supply via TA; PoE ON/OFF GPIO from Accordion |
+| PT-POE.01 | Connect Ethernet PD load to ETH OUT; verify PoE negotiation completes (Cyan LED, normal polarity) | PoE link | — | — | Cyan LED active; PD load powered | ESH10000534 datasheet (TPS23881) | Ethernet PD load on ETH OUT |
+| PT-POE.02 | Read VMEAS; verify within ±2.5% of applied voltage | VMEAS | 56.0 V | ±2.5% | 54.6–57.4 V | ESH10000534 datasheet (VMEAS ±2.5%) | — |
+| PT-POE.03 | Draw ~100 mA from ETH OUT; read IMEAS; verify within ±3% | IMEAS | 100 mA | ±3% | 97–103 mA | ESH10000534 datasheet (IMEAS ±3%) | Calibrated Ethernet PD load on ETH OUT |
+
+---
+
 ## Test Adapter Requirements Summary
 
 The following is a preliminary list of what ESH10000654 must provide to support this test plan. This should be used as input to ESH10000654 R0 SPECIFICATION.md.
@@ -176,6 +199,10 @@ The following is a preliminary list of what ESH10000654 must provide to support 
 | PWM probe/loopback | Access to PWM output for scope or loopback | PT-SIG.05 |
 | Tach signal injection | Inject frequency signal to TACH input | PT-SIG.06 |
 | RS485 driver/loopback | Drive or loopback RS485_TX for ADC test | PT-SIG.08 |
+| Active Load supply (24 V, 2ch) | Route DC supply to VLOAD_POS_0 and VLOAD_POS_1 | PT-AL.00–.03 |
+| PoE supply (56 V) | Route DC supply to PoE module VIN | PT-POE.00–.03 |
+| PoE ON/OFF GPIO | GPIO from Accordion to PoE ON/OFF control | PT-POE.00 |
+| Ethernet PD load | Passive PD load on ETH OUT for PoE negotiation and IMEAS test | PT-POE.01, PT-POE.03 |
 
 ---
 
@@ -183,11 +210,11 @@ The following is a preliminary list of what ESH10000654 must provide to support 
 
 | # | Item | Owner | Status |
 |---|------|-------|--------|
-| 1 | Define all system-level requirements in SPECIFICATION.md | Martin Johansson | Open |
+| 1 | Define all system-level requirements in SPECIFICATION.md | Martin Johansson | Closed — requirements populated from Sparrow Hardware Datasheet v3 (44 requirements, SYS/PWR/COM/FW/SIG/COS) |
 | 2 | Complete test adapter requirements (ESH10000654) driven by TA Requirements column above | Martin Johansson | Open |
 | 3 | Confirm Accordion software API for I2C scan, SPI, GPIO, ADC readback | Martin Johansson | Open |
 | 4 | Define DUT serial number format and IDPROM content | Martin Johansson | Open |
 | 5 | Define firmware version to be loaded for production (ATmega) | Martin Johansson | Open |
 | 6 | Decide if PT-SIG.02 (AIN stimulus) requires an isolated source or if TA provides a fixed reference | Martin Johansson | Open |
-| 7 | Review ESH10000536 Active Load R2 verification plan; derive production test steps | Martin Johansson | Open |
-| 8 | Review ESH10000534 PoE R4 verification plan; derive production test steps | Martin Johansson | Open |
+| 7 | Review ESH10000536 Active Load R2 verification plan; derive production test steps | Martin Johansson | Closed — no verification plan exists; PT-AL derived from system datasheet (IMEAS ±1%, VMEAS ±2%) |
+| 8 | Review ESH10000534 PoE R4 verification plan; derive production test steps | Martin Johansson | Closed — no verification plan exists; PT-POE derived from system datasheet (TPS23881, VMEAS ±2.5%, IMEAS ±3%) |
