@@ -9,7 +9,7 @@ Overview of all projects — active and otherwise.
 | ESH10000543 | Fixture Link | R2 | Verification | 🟢 Active | Verification plan complete incl. R2-change tests (24 total) — awaiting R2 DUT |
 | ESH10000536 | Active Load | R2 | — | 🔵 Planned | Project created — phase and requirements TBD; assembled with Fixture Electronics (ESH10000540) |
 | ESH10000654 | Sparrow Test Adapter | R0 | Design | 🟢 Active | Project created — requirements definition next |
-| ESH10000633 | Sparrow Complete Product | R1 | Production Test | 🟢 Active | Production test plan draft started — test adapter (ESH10000654) and DUT pending |
+| ESH10000633 | Sparrow Complete Product | R1 | Production Test | 🟢 Active | SPECIFICATION.md populated (44 req); PT-AL/PT-POE added; open items 2–6 remain; TA design (ESH10000654) is next blocker |
 | ESH10000534 | PoE | R4 | Design | 🟢 Active | Project created — requirements definition next |
 
 ---
