@@ -43,7 +43,7 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 │
 ├── ESH10000636 R1 — Sparrow ASSY FE with Active Load (Manufacturing)         ×1/unit
 │   ├── ESH10000540 R3 — Sparrow Fixture Electronics (Prototype) ⚠️           ×1
-│   ├── ESH10000634 R3 — Sparrow IDC N-Top (planned — not yet in MES) 🔴        ×1
+│   ├── ESH10000634 R3 — Sparrow IDC N-Top (PCB ordered, ETA w/c 2026-05-04; PCBA ETA w/c 2026-05-11) ⚠️ ×1
 │   ├── ESH10000536 R2 — M2Top Active Load (Prototype) ⚠️                     ×1
 │   └── (connector, fasteners)
 │
@@ -80,7 +80,7 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 | ESH10000636 | Sparrow ASSY FE with Active Load | R1 | Manufacturing | ✅ | ✅ |
 | ESH10000582 | USB PD 100W PSU | R0.1 | Manufacturing | ✅ | ✅ |
 | ESH10000024 | Accordion Loopback R2 | R0 | Manufacturing | — | ✅ |
-| ESH10000634 | Sparrow IDC N-Top | R3 | Not in MES | — | 🔴 R3 not yet created in MES; R1 and R2 exist — R3 must be designed, approved, and BOM updated in ESH10000636 |
+| ESH10000634 | Sparrow IDC N-Top | R3 | Not in MES | — | ⚠️ PCB ordered, ETA w/c 2026-05-04; PCBA ETA w/c 2026-05-11 — promote to Manufacturing and update ESH10000636 BOM once received |
 | ESH10000540 | Sparrow Fixture Electronics | R3 | **Prototype** | ✅ | 🔴 Must be promoted to Manufacturing |
 | ESH10000535 | Sparrow N-Top | R3 | **Prototype** | ✅ | 🔴 Must be promoted to Manufacturing |
 | ESH10000543 | Fixture Link | R2 | **Prototype** | ✅ | 🔴 Must be promoted to Manufacturing |
@@ -143,7 +143,7 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 | # | Gap | Type | Impact | Action Required |
 |---|-----|------|--------|-----------------|
 | G-01 | ESH10000182 (Accordion A2 Bare): need 20, have 1 | Inventory | Blocks all 19 remaining units | Initiate build order immediately; check RPi4B stock |
-| G-02 | ESH10000634 R3 (Sparrow IDC N-Top): R3 not yet in MES; need 20, have 0 at R3 | Design + Inventory | Blocks all 20 units of ESH10000636 | Create R3 in MES, design, fab, assemble; update ESH10000636 BOM |
+| G-02 | ESH10000634 R3 (Sparrow IDC N-Top): need 20, have 0 at R3 | Design + Inventory | Blocks all 20 units of ESH10000636 | ⏳ In progress — PCB ordered ETA w/c 2026-05-04; PCBA ETA w/c 2026-05-11; promote to Manufacturing and update ESH10000636 BOM on receipt |
 | G-03 | ESH10000544 (A2 Front Panel DSub): need 20, have 6 | Inventory | Blocks 14 units of ESH10000631 | PCB order + assembly; currently NotApproved |
 | G-04 | ESH10000572 (Accordion Sparrow Top): need 20, have 7 | Inventory | Blocks 13 units of ESH10000631 | PCB order + assembly; currently NotApproved |
 | G-05 | ESH10000637 (PSU Power Cable): need 20, have 0 | Inventory | Blocks final assembly of all 20 units | Order cables |
@@ -174,7 +174,9 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 - [ ] ESH10000581 R0.1 (USB PD 100W Rear Panel) approved and promoted to Manufacturing in MES
 - [ ] ESH10000614 R0 (Sleeved Coax Cable HLCD-20-40.00) promoted to Manufacturing in MES
 - [ ] ESH10000615 R0 (Kontakthuvud HLCD-20-40.00) promoted to Manufacturing in MES
-- [ ] ESH10000634 R3 (Sparrow IDC N-Top): create R3 in MES, complete design, approve, promote to Manufacturing
+- [x] ESH10000634 R3 (Sparrow IDC N-Top): PCB ordered — ETA w/c 2026-05-04
+- [ ] ESH10000634 R3: PCBA assembled — ETA w/c 2026-05-11
+- [ ] ESH10000634 R3: create R3 in MES, verify, promote to Manufacturing
 - [ ] ESH10000634 R3: update ESH10000636 BOM to reference R3
 
 ### Sidetrack — New Sub-Assembly Revisions *(parallel track, not on critical path)*
@@ -195,7 +197,7 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 ### Gate 2 — Inventory Procurement *(target: Week 1–4)*
 
 - [ ] ESH10000182 (Accordion A2 Bare) build order placed (qty ≥ 19); confirm RPi4B 8GB stock for 20 units
-- [ ] ESH10000634 R3 (Sparrow IDC N-Top) PCB fab + assembly order placed (qty ≥ 20, current stock 4 at old revisions)
+- [x] ESH10000634 R3 (Sparrow IDC N-Top) PCB ordered (ETA w/c 2026-05-04); PCBA ETA w/c 2026-05-11
 - [ ] ESH10000544 (A2 Front Panel DSub Fixturelink) PCB order placed (qty ≥ 14) — pending design approval
 - [ ] ESH10000572 (Accordion Sparrow Top) PCB order placed (qty ≥ 13) — pending design approval
 - [ ] ESH10000637 (Sparrow PSU Power Cable 1m) cable procurement order placed (qty ≥ 20)
@@ -242,7 +244,7 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 | Risk | Likelihood | Impact | Mitigation |
 |------|-----------|--------|------------|
 | ESH10000182 (Accordion A2 Bare) build lead time > 4 weeks | High | Critical — gates all 19 units | Order immediately; escalate if RPi4B supply constrained |
-| ESH10000634 R3 (Sparrow IDC N-Top) design or fab delayed — R3 not yet in MES | High | Blocks all 20 units of ESH10000636 | Create R3 in MES immediately; treat as critical path item alongside G-01 |
+| ESH10000634 R3 (Sparrow IDC N-Top) PCBA delayed beyond w/c 2026-05-11 | Low | Blocks all 20 units of ESH10000636 | PCB already ordered; PCBA ETA w/c 2026-05-11 — monitor delivery |
 | ESH10000544 (A2 Front Panel DSub) / ESH10000572 (Accordion Sparrow Top) design not approved in time | Medium | Blocks Accordion A2 build | Expedite design review; check if existing stock can be reworked |
 | Testing units ESH10000535 (Sparrow N-Top) / ESH10000540 (Sparrow Fixture Electronics) not released for production | Medium | Blocks sub-assembly supply | Confirm with test team; 4 N-Top spare margin is tight |
 | ESH10000654 (Sparrow Test Adapter) not ready in time | High | Blocks production test execution | Prioritise TA design; manual test as fallback for first article |
@@ -260,3 +262,4 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 | R1 | 2026-05-04 | Martin Johansson | BOM hierarchy updated with full revision numbers from MES; additional NotApproved sub-components flagged (ESH10000538, 062, 579, 580, 581) |
 | R1 | 2026-05-04 | Martin Johansson | Sidetrack section added: ESH10000158 R6 and ESH10000539 new rev planned as parallel track; fallback to R5/R1 if not ready by Week 4 |
 | R1 | 2026-05-04 | Martin Johansson | ESH10000634 updated to R3 (hard requirement); R3 not yet in MES — added to critical path in Gate 1 and Gate 2 |
+| R1 | 2026-05-04 | Martin Johansson | ESH10000634 R3 status updated: PCB ordered ETA w/c 2026-05-04, PCBA ETA w/c 2026-05-11; risk downgraded to Low |
