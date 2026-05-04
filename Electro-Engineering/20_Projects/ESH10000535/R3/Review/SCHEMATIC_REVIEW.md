@@ -141,60 +141,60 @@ reviewer: Martin Johansson / AI-assisted
 
 ## ERC-C08: Unconnected Pin Check
 
-| RefDes | Device | Pins in Netlist | Required Pins | Result | Notes |
-|--------|--------|-----------------|---------------|--------|-------|
-| U1 | 24AA025UIDT-I/OT | 6 | — | ⚠️ Flag | 6 pins in netlist; COMPONENT_DATA.md entry (24AA02UID) is SOT-23-5 (5-pin). VCC on p6=VID net. See OI-05. |
-| U2, U3 | PS509LEX | 16 | 16 | ✅ Pass | All pins connected: A0/A1/EN/VSS/VDD/GND + S1A–S4A/S1B–S4B/DA/DB |
-| U4, U5 | SN74LVC126APW | 14 | 14 | ✅ Pass | All pins connected; all 4 OE pins driven |
-| U6, U7 | SN74LVC125APW | 14 | 14 | ✅ Pass | All pins connected; all 4 OE\ pins driven |
-| U8 | LTC3265EDHC | 19 | 19 | ✅ Pass | All pins connected including EP=GND, BYP±, ADJ±, RT, MODE, EN+/EN− |
-| U9 | PI4IOE5V6416ZDEX | 23 | 24 | ⚠️ Flag | p22 absent from netlist. Determine if INT (OK to leave floating) or ADDR (must be tied). See OI-06. |
-| U10, U22 | AD5592R | 16 | 16 | ✅ Pass | All pins connected; all 8 I/O pins driven |
-| U11, U16 | PGA849 | 15 (+ EP) | 15 (+ EP) | ✅ Pass | NC pins 8 and 13 correctly absent from netlist per datasheet. EP=-18V (=VS−) ✅ |
-| U12, U25 | PS509LEX | 16 | 16 | ✅ Pass | Calibration mux instance. S-channel pins tied to GND/VREF_BUF/CH_SHORT (intentional) |
-| U13 | 74LVC1G19DBV | 6 | 6 | ✅ Pass | All pins connected: A/E\/Y1/Y2/VCC/GND |
-| U14 | AMS1117-ADJ | 3 | 3 | ✅ Pass | ADJ/OUTPUT/INPUT all connected. Tab=OUTPUT, not separately listed in netlist (normal). |
-| U15 | OPA192 | 5 | 5 | ✅ Pass | All pins connected: OUT/V−/+IN/−IN/V+ |
-| U17 | LP5012RUKR | 20 + EP | 20 + EP | ✅ Pass | OUT0–OUT11, VCAP, ADDR0/1, VCC, SDA, SCL, EN, IREF, EP=GND all connected |
-| U18 | ATmega4809 | 26 | 48 | ⚠️ OI-04 | 3×VDD/AVDD + 3×GND + UPDI/RESET/I2C/UART/EXTCLK connected. 22 I/O pins NC — per OI-04. |
-| U19, U20 | SN74AVC4T774RGYR | 16 + EP | 16 + EP | ✅ Pass | DIR1–DIR4 all tied to fixed rail (GND for U19, 3V3 for U20). All A/B signal pins connected. OE driven. |
-| U21 | TLV9102IDR | 8 | 8 | ✅ Pass | Both amp inputs and outputs connected. V+=12V, V−=GND. |
-| U23 | SN74CBTLV1G125 | 5 | 5 | ✅ Pass | OE=SPI_ENn, A=CS1n, B=UCS1n, GND, VCC=3V3 |
-| U24 | SN74LVC1G126DBVR | 5 | 5 | ✅ Pass | All 5 pins connected. Pin 2 in PADS symbol = Y (output); GND on pin 3. Verify footprint mapping. |
-| U26 | SN74LVC2G06DBVR | 6 | 6 | ✅ Pass | Both inputs and open-drain outputs connected: 1A=SW_EN_PGA2→1Y=SW_ENn_PGA2; 2A=SW_EN_PGA1→2Y=SW_ENn_PGA1 |
-| Q1 | G20N06D52 | 6 | 6 | ⚠️ Flag | All 6 pins connected. Cannot verify G/S/D mapping — datasheet pin diagram is a graphical image. See OI-07. |
+| # | RefDes | Device | Pins in Netlist | Required Pins | Result | Notes |
+|---|--------|--------|-----------------|---------------|--------|-------|
+| C08-01 | U1 | 24AA025UIDT-I/OT | 6 | — | ⚠️ Flag | 6 pins in netlist; COMPONENT_DATA.md entry (24AA02UID) is SOT-23-5 (5-pin). VCC on p6=VID net. See OI-05. |
+| C08-02 | U2, U3 | PS509LEX | 16 | 16 | ✅ Pass | All pins connected: A0/A1/EN/VSS/VDD/GND + S1A–S4A/S1B–S4B/DA/DB |
+| C08-03 | U4, U5 | SN74LVC126APW | 14 | 14 | ✅ Pass | All pins connected; all 4 OE pins driven |
+| C08-04 | U6, U7 | SN74LVC125APW | 14 | 14 | ✅ Pass | All pins connected; all 4 OE\ pins driven |
+| C08-05 | U8 | LTC3265EDHC | 19 | 19 | ✅ Pass | All pins connected including EP=GND, BYP±, ADJ±, RT, MODE, EN+/EN− |
+| C08-06 | U9 | PI4IOE5V6416ZDEX | 23 | 24 | ⚠️ Flag | p22 absent from netlist. Determine if INT (OK to leave floating) or ADDR (must be tied). See OI-06. |
+| C08-07 | U10, U22 | AD5592R | 16 | 16 | ✅ Pass | All pins connected; all 8 I/O pins driven |
+| C08-08 | U11, U16 | PGA849 | 15 (+ EP) | 15 (+ EP) | ✅ Pass | NC pins 8 and 13 correctly absent from netlist per datasheet. EP=-18V (=VS−) ✅ |
+| C08-09 | U12, U25 | PS509LEX | 16 | 16 | ✅ Pass | Calibration mux instance. S-channel pins tied to GND/VREF_BUF/CH_SHORT (intentional) |
+| C08-10 | U13 | 74LVC1G19DBV | 6 | 6 | ✅ Pass | All pins connected: A/E\/Y1/Y2/VCC/GND |
+| C08-11 | U14 | AMS1117-ADJ | 3 | 3 | ✅ Pass | ADJ/OUTPUT/INPUT all connected. Tab=OUTPUT, not separately listed in netlist (normal). |
+| C08-12 | U15 | OPA192 | 5 | 5 | ✅ Pass | All pins connected: OUT/V−/+IN/−IN/V+ |
+| C08-13 | U17 | LP5012RUKR | 20 + EP | 20 + EP | ✅ Pass | OUT0–OUT11, VCAP, ADDR0/1, VCC, SDA, SCL, EN, IREF, EP=GND all connected |
+| C08-14 | U18 | ATmega4809 | 26 | 48 | ⚠️ OI-04 | 3×VDD/AVDD + 3×GND + UPDI/RESET/I2C/UART/EXTCLK connected. 22 I/O pins NC — per OI-04. |
+| C08-15 | U19, U20 | SN74AVC4T774RGYR | 16 + EP | 16 + EP | ✅ Pass | DIR1–DIR4 all tied to fixed rail (GND for U19, 3V3 for U20). All A/B signal pins connected. OE driven. |
+| C08-16 | U21 | TLV9102IDR | 8 | 8 | ✅ Pass | Both amp inputs and outputs connected. V+=12V, V−=GND. |
+| C08-17 | U23 | SN74CBTLV1G125 | 5 | 5 | ✅ Pass | OE=SPI_ENn, A=CS1n, B=UCS1n, GND, VCC=3V3 |
+| C08-18 | U24 | SN74LVC1G126DBVR | 5 | 5 | ✅ Pass | All 5 pins connected. Pin 2 in PADS symbol = Y (output); GND on pin 3. Verify footprint mapping. |
+| C08-19 | U26 | SN74LVC2G06DBVR | 6 | 6 | ✅ Pass | Both inputs and open-drain outputs connected: 1A=SW_EN_PGA2→1Y=SW_ENn_PGA2; 2A=SW_EN_PGA1→2Y=SW_ENn_PGA1 |
+| C08-20 | Q1 | G20N06D52 | 6 | 6 | ⚠️ Flag | All 6 pins connected. Cannot verify G/S/D mapping — datasheet pin diagram is a graphical image. See OI-07. |
 
 ---
 
 ## ERC-P06: Power Pin Voltage Range
 
-| RefDes | Device | Power Pin | Net | Actual Voltage | Spec Range | Result |
-|--------|--------|-----------|-----|----------------|------------|--------|
-| U1 | 24AA025UIDT | VCC | VID | Unknown (VID net) | 1.7–5.5 V | ⚠️ Verify VID rail voltage — see OI-05 |
-| U2, U3, U12, U25 | PS509LEX | VDD | +18V | +18 V | ±5–±18 V | ✅ |
-| U2, U3, U12, U25 | PS509LEX | VSS | −18V | −18 V | ±5–±18 V | ✅ |
-| U4, U5, U6, U7 | LVC126A / LVC125A | VCC | 3V3 | 3.3 V | 1.65–3.6 V | ✅ |
-| U8 | LTC3265EDHC | VIN_P | 12V | 12 V | 4.5–16 V | ✅ |
-| U8 | LTC3265EDHC | VIN_N | VOUT+ | ≈24 V | 4.5–32 V | ✅ (VOUT+=2×12V pre-LDO) |
-| U9 | PI4IOE5V6416ZDEX | VCC | 3V3 | 3.3 V | 1.65–5.5 V | ✅ |
-| U10, U22 | AD5592R | VDD | 5VA | 5 V | 2.7–5.5 V | ✅ |
-| U11, U16 | PGA849 | VS+ | +18V | +18 V | ±4–±18 V | ✅ |
-| U11, U16 | PGA849 | VS− | −18V | −18 V | ±4–±18 V | ✅ |
-| U11, U16 | PGA849 | LVDD | 5VA | 5 V | LVDD−LVSS ≥ ±2.25 V | ✅ (5V−0V=5V) |
-| U13 | 74LVC1G19DBV | VCC | 3V3 | 3.3 V | 1.65–5.5 V | ✅ |
-| U14 | AMS1117-ADJ | INPUT | 12V | 12 V | ≤18 V abs max | ✅ |
-| U15 | OPA192 | V+ | 5VA | 5 V | 4.5–36 V (single) | ✅ |
-| U17 | LP5012RUKR | VCC | 3V3 | 3.3 V | 2.7–5.5 V | ✅ |
-| U18 | ATmega4809 | VDD/AVDD | 3V3 | 3.3 V | 1.8–5.5 V | ✅ |
-| U19 | SN74AVC4T774 | VCCA | 3V3 | 3.3 V | 1.1–3.6 V | ✅ |
-| U19 | SN74AVC4T774 | VCCB | TACH_VCCO | DAC-set | 1.1–3.6 V | ⚠️ OI-08: Verify DAC range ≤3.6 V |
-| U20 | SN74AVC4T774 | VCCA | 3V3 | 3.3 V | 1.1–3.6 V | ✅ |
-| U20 | SN74AVC4T774 | VCCB | PWM_VCCO | DAC-set | 1.1–3.6 V | ⚠️ OI-08: Verify DAC range ≤3.6 V |
-| U21 | TLV9102IDR | V+ | 12V | 12 V | 2.7–16 V | ✅ |
-| U23 | SN74CBTLV1G125 | VCC | 3V3 | 3.3 V | 2.3–3.6 V | ✅ |
-| U24 | SN74LVC1G126DBVR | VCC | 3V3 | 3.3 V | 1.65–5.5 V | ✅ |
-| U26 | SN74LVC2G06DBVR | VCC | 3V3 | 3.3 V | 1.65–5.5 V | ✅ |
-| Q1 | G20N06D52 | Source (assumed) | 5V | 5 V | VDS ≤ 60 V; VGS ≤ ±20 V | ✅ VDS well within rating |
+| # | RefDes | Device | Power Pin | Net | Actual Voltage | Spec Range | Result |
+|---|--------|--------|-----------|-----|----------------|------------|--------|
+| P06-01 | U1 | 24AA025UIDT | VCC | VID | Unknown (VID net) | 1.7–5.5 V | ⚠️ Verify VID rail voltage — see OI-05 |
+| P06-02 | U2, U3, U12, U25 | PS509LEX | VDD | +18V | +18 V | ±5–±18 V | ✅ |
+| P06-03 | U2, U3, U12, U25 | PS509LEX | VSS | −18V | −18 V | ±5–±18 V | ✅ |
+| P06-04 | U4, U5, U6, U7 | LVC126A / LVC125A | VCC | 3V3 | 3.3 V | 1.65–3.6 V | ✅ |
+| P06-05 | U8 | LTC3265EDHC | VIN_P | 12V | 12 V | 4.5–16 V | ✅ |
+| P06-06 | U8 | LTC3265EDHC | VIN_N | VOUT+ | ≈24 V | 4.5–32 V | ✅ (VOUT+=2×12V pre-LDO) |
+| P06-07 | U9 | PI4IOE5V6416ZDEX | VCC | 3V3 | 3.3 V | 1.65–5.5 V | ✅ |
+| P06-08 | U10, U22 | AD5592R | VDD | 5VA | 5 V | 2.7–5.5 V | ✅ |
+| P06-09 | U11, U16 | PGA849 | VS+ | +18V | +18 V | ±4–±18 V | ✅ |
+| P06-10 | U11, U16 | PGA849 | VS− | −18V | −18 V | ±4–±18 V | ✅ |
+| P06-11 | U11, U16 | PGA849 | LVDD | 5VA | 5 V | LVDD−LVSS ≥ ±2.25 V | ✅ (5V−0V=5V) |
+| P06-12 | U13 | 74LVC1G19DBV | VCC | 3V3 | 3.3 V | 1.65–5.5 V | ✅ |
+| P06-13 | U14 | AMS1117-ADJ | INPUT | 12V | 12 V | ≤18 V abs max | ✅ |
+| P06-14 | U15 | OPA192 | V+ | 5VA | 5 V | 4.5–36 V (single) | ✅ |
+| P06-15 | U17 | LP5012RUKR | VCC | 3V3 | 3.3 V | 2.7–5.5 V | ✅ |
+| P06-16 | U18 | ATmega4809 | VDD/AVDD | 3V3 | 3.3 V | 1.8–5.5 V | ✅ |
+| P06-17 | U19 | SN74AVC4T774 | VCCA | 3V3 | 3.3 V | 1.1–3.6 V | ✅ |
+| P06-18 | U19 | SN74AVC4T774 | VCCB | TACH_VCCO | DAC-set | 1.1–3.6 V | ⚠️ OI-08: Verify DAC range ≤3.6 V |
+| P06-19 | U20 | SN74AVC4T774 | VCCA | 3V3 | 3.3 V | 1.1–3.6 V | ✅ |
+| P06-20 | U20 | SN74AVC4T774 | VCCB | PWM_VCCO | DAC-set | 1.1–3.6 V | ⚠️ OI-08: Verify DAC range ≤3.6 V |
+| P06-21 | U21 | TLV9102IDR | V+ | 12V | 12 V | 2.7–16 V | ✅ |
+| P06-22 | U23 | SN74CBTLV1G125 | VCC | 3V3 | 3.3 V | 2.3–3.6 V | ✅ |
+| P06-23 | U24 | SN74LVC1G126DBVR | VCC | 3V3 | 3.3 V | 1.65–5.5 V | ✅ |
+| P06-24 | U26 | SN74LVC2G06DBVR | VCC | 3V3 | 3.3 V | 1.65–5.5 V | ✅ |
+| P06-25 | Q1 | G20N06D52 | Source (assumed) | 5V | 5 V | VDS ≤ 60 V; VGS ≤ ±20 V | ✅ VDS well within rating |
 
 ---
 
@@ -242,10 +242,10 @@ reviewer: Martin Johansson / AI-assisted
 | 1 | OI-01 | Component data: 13 entries added 2026-04-30; 17/19 types now in COMPONENT_DATA.md | ✅ Closed |
 | 2 | OI-02 | Missing datasheets resolved: U23 = sn74cbtlv1g125.pdf; Q1 = G20N06D52.pdf | ✅ Closed |
 | 3 | OI-03 | VOUT+/VOUT− caps C2/C3 are NM — verify this is intentional in schematic | ⏳ Pending engineer confirmation |
-| 4 | OI-04 | ATmega4809 (U18): 26/48 pins in netlist — verify unconnected I/O pins are intentional NCs | ⏳ Pending engineer confirmation |
+| 4 | OI-04 | ATmega4809 (U18): 26/48 pins in netlist — verify unconnected I/O pins are intentional NCs | ✅ Accepted — engineer confirmed 2026-05-04 (MJ). Unused I/O pins are intentional NCs. |
 | 5 | OI-05 | U1 (24AA025UIDT-I/OT): netlist has 6 pins; COMPONENT_DATA.md entry is 24AA02UID SOT-23-5 (5-pin). VCC on net "VID" (p6). Verify 24AA025UID datasheet pinout — different package? | ⏳ Pending engineer confirmation |
-| 6 | OI-06 | U9 (PI4IOE5V6416ZDEX): PADS symbol pin 22 absent from netlist. Determine if INT output (OK floating if unused) or ADDR pin (must be tied to set I2C address). | ⏳ Pending engineer confirmation |
-| 7 | OI-07 | Q1 (G20N06D52): pin G/S/D assignment cannot be verified — datasheet pin diagram is a graphical image not extractable as text. Verify against datasheet figure or PCB footprint. | ⏳ Pending engineer confirmation |
+| 6 | OI-06 | U9 (PI4IOE5V6416ZDEX): PADS symbol pin 22 absent from netlist. Determine if INT output (OK floating if unused) or ADDR pin (must be tied to set I2C address). | ✅ Accepted — engineer confirmed 2026-05-04 (MJ). Pin 22 absent from netlist is intentional. |
+| 7 | OI-07 | Q1 (G20N06D52): pin G/S/D assignment cannot be verified — datasheet pin diagram is a graphical image not extractable as text. Verify against datasheet figure or PCB footprint. | ✅ Accepted — engineer confirmed 2026-05-04 (MJ). G/S/D pin mapping verified. |
 | 8 | OI-08 | U19/U20 VCCB (TACH_VCCO, PWM_VCCO) are DAC-set voltages from U22 AD5592R. SN74AVC4T774 VCCB max = 3.6V — verify DAC output range ≤ 3.6V. Also: Q1 gate drive ≤ 3.6V; verify RDS(ON) acceptable at actual VGS. | ⏳ Pending engineer confirmation |
 
 ---

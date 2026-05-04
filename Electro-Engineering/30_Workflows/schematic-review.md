@@ -349,6 +349,8 @@ Use this output format:
 - [ ] ...
 ```
 
+**Formatting rule — check IDs:** Every row in every review table (ERC-C08, ERC-P06, ERC-D, open items, and any other findings table) must have a unique check ID in a `#` column. Use the format `<section>-<NN>` (e.g. `C08-01`, `P06-03`, `D12`). Tables without a `#` column must be updated before the review is considered complete.
+
 ### 7. Engineer disposition
 The engineer reviews findings and dispositions each:
 - **Fix** — update the design
