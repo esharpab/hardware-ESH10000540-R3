@@ -8,7 +8,7 @@ Create a consistent project folder in the workbook whenever a new project begins
 2. **Product / document** — product name, part number, or requirements document reference
 3. **Hardware revision** — the revision under test or design (e.g. `R0`, `Rev B`)
 4. **Phase** — e.g. Requirements, Schematic, Layout, Release, Prototype, DVT, Compliance, Sign-off
-5. **Project type** — Design / Verification / Design + Verification
+5. **Project type** — Design / Review / Verification / Production Test
 
 ## Naming convention
 - Project folder: `20_Projects/Project-<ProjectName>/`
@@ -25,6 +25,7 @@ Create `20_Projects/Project-<ProjectName>/` with:
 **Always present:**
 ```
 Project-<ProjectName>/
+├── _<ProductName>      — empty file; product name only, underscore prefix sorts it to the top for quick identification
 ├── README.md           — TL;DR: scope, product, revision, key contacts
 ├── STATUS.md           — current focus, next 3 actions, risks (use template)
 ├── DECISIONS.md        — decisions that change how work is conducted
