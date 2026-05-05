@@ -225,6 +225,7 @@ The following is a preliminary list of what ESH10000654 must provide to support 
 |---|------|-------|--------|
 | 1 | Define all system-level requirements in SPECIFICATION.md | Martin Johansson | Closed — requirements populated from Sparrow Hardware Datasheet v3 (44 requirements, SYS/PWR/COM/FW/SIG/COS) |
 | 2 | Complete test adapter requirements (ESH10000654) driven by TA Requirements column above | Martin Johansson | In progress — SPECIFICATION.md drafted (21 req); 4 open interface items remain (PoE routing, PSU connector assignment, PWR_EN, PD load) |
+| 9 | Write PRODUCTION_TEST_PROCEDURE.md | Martin Johansson | Closed — Draft created 2026-05-05; 6 open items flagged (TBD inline); derived from Unit Test Specification v1 + PRODUCTION_TEST_PLAN.md |
 | 3 | Confirm Accordion software API for I2C scan, SPI, GPIO, ADC readback | Martin Johansson | Open |
 | 4 | Define DUT serial number format and IDPROM content | Martin Johansson | Open |
 | 5 | Define firmware version to be loaded for production (ATmega) | Martin Johansson | Open |

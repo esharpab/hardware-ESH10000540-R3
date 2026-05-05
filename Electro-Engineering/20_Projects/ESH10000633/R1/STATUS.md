@@ -1,7 +1,7 @@
 ---
 project: ESH10000633
 revision: R1
-updated: 2026-05-04 (session 13)
+updated: 2026-05-05 (session 14)
 ---
 
 # Status: Sparrow Complete Product R1
@@ -17,10 +17,11 @@ updated: 2026-05-04 (session 13)
 - [x] Define system-level requirements in SPECIFICATION.md ✅
 - [x] Build PRODUCTION_TEST_PLAN.md ✅ — 38/44 req covered; 6 deferred with rationale
 - [x] Production readiness checklist created ✅ — full MES BOM hierarchy, inventory gaps, 6 gates, weekly check-in
+- [x] Build PRODUCTION_TEST_PROCEDURE.md ✅ — Draft created 2026-05-05; 74 steps across 16 sections; 6 TBD items flagged
+- [ ] Resolve 6 TBD items in PRODUCTION_TEST_PROCEDURE.md (Accordion API, AIN cal, FIXED_LOAD delta, PWM readback, MIC_IN values, serial format)
 - [ ] Resolve Gate 1: promote Prototype sub-assemblies to Manufacturing in MES
 - [ ] Resolve Gate 2: ESH10000182 build order; ESH10000544/572 PCB orders
 - [ ] Verify ESH10000654 R0 (Test Adapter) — assembled, 4 open interface items remain
-- [ ] Build PRODUCTION_TEST_PROCEDURE.md — blocked on ESH10000654 verification
 
 ---
 
@@ -28,6 +29,7 @@ updated: 2026-05-04 (session 13)
 
 - **SPECIFICATION.md:** ✅ 44 requirements; sub-assembly table updated with two-level MES BOM hierarchy; ESH10000634 added
 - **PRODUCTION_TEST_PLAN.md:** ✅ Coverage reviewed; ESH10000634 added to PT-M.00; 8 requirements formally deferred
+- **PRODUCTION_TEST_PROCEDURE.md:** ✅ Draft created 2026-05-05 — 74 steps, connector-level structure (J4–J9), Accordion CLI, Active Load, PoE, cosmetics; 6 TBD items flagged
 - **ProductionReadiness/PRODUCTION_READINESS.md:** ✅ Created — full BOM hierarchy (all levels), inventory vs 20-unit need, 10 gaps identified, 6-gate checklist, weekly check-in section
 - **Test Adapter (ESH10000654):** ⚠️ Assembled in-house; 4 open interface items; verification pending
 - **ESH10000634 R3:** ⚠️ PCB ordered ETA w/c 2026-05-04; 98 pcs PCBA ordered ETA w/c 2026-05-11
@@ -48,9 +50,9 @@ updated: 2026-05-04 (session 13)
 
 ## Next 3 Actions
 
-1. **Place build order for ESH10000182** (Accordion A2 Bare) — qty ≥ 19; confirm RPi4B stock
-2. **Promote Prototype sub-assemblies to Manufacturing** in MES (Gate 1)
-3. **Resolve ESH10000654 R0 open items** — unblock PRODUCTION_TEST_PROCEDURE.md
+1. **Resolve PRODUCTION_TEST_PROCEDURE.md TBD items** — Accordion API (Open Item 1/3), AIN cal (2), FIXED_LOAD delta (3), PWM readback (4), MIC_IN values (5), serial format (6)
+2. **Place build order for ESH10000182** (Accordion A2 Bare) — qty ≥ 19; confirm RPi4B stock
+3. **Promote Prototype sub-assemblies to Manufacturing** in MES (Gate 1)
 
 ---
 
