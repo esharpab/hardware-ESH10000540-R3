@@ -1,57 +1,61 @@
 ---
 project: ESH10000633
 revision: R1
-updated: 2026-05-04 (session 12)
+updated: 2026-05-04 (session 13)
 ---
 
 # Status: Sparrow Complete Product R1
 
 ## Current Phase
 
-**Production Test** (R1) — Production test plan substantially complete; procedure pending test adapter design.
+**Production Test + Production Readiness** (R1) — Production readiness checklist created; 20-unit delivery target 2026-07-13.
 
 ---
 
 ## Current Focus
 
-- [x] Define system-level requirements in SPECIFICATION.md ✅ 44 requirements derived from Sparrow Hardware Datasheet v3
-- [x] Build PRODUCTION_TEST_PLAN.md — strategy and full coverage including PT-AL (Active Load) and PT-POE (PoE) ✅
-- [ ] Complete test adapter requirements table (OI #2) — drives ESH10000654 design
-- [ ] Build PRODUCTION_TEST_PROCEDURE.md — blocked on ESH10000654 test adapter design
+- [x] Define system-level requirements in SPECIFICATION.md ✅
+- [x] Build PRODUCTION_TEST_PLAN.md ✅ — 38/44 req covered; 6 deferred with rationale
+- [x] Production readiness checklist created ✅ — full MES BOM hierarchy, inventory gaps, 6 gates, weekly check-in
+- [ ] Resolve Gate 1: promote Prototype sub-assemblies to Manufacturing in MES
+- [ ] Resolve Gate 2: ESH10000182 build order; ESH10000544/572 PCB orders
+- [ ] Verify ESH10000654 R0 (Test Adapter) — assembled, 4 open interface items remain
+- [ ] Build PRODUCTION_TEST_PROCEDURE.md — blocked on ESH10000654 verification
 
 ---
 
 ## Latest Confirmed State
 
-- **SPECIFICATION.md:** ✅ 44 requirements (SYS, PWR, COM, FW, SIG, COS) — derived from Sparrow Hardware Datasheet v3 §5.2
-- **PRODUCTION_TEST_PLAN.md:** ✅ Draft complete — all 6 sub-assemblies covered; open items 1, 7, 8 closed; OI 2–6 remain
-- **PRODUCTION_TEST_PROCEDURE.md:** ⏳ Stub only — blocked on ESH10000654 design
-- **Test Adapter (ESH10000654):** ⏳ Design not started — interface requirements table in PRODUCTION_TEST_PLAN.md defines inputs
+- **SPECIFICATION.md:** ✅ 44 requirements; sub-assembly table updated with two-level MES BOM hierarchy; ESH10000634 added
+- **PRODUCTION_TEST_PLAN.md:** ✅ Coverage reviewed; ESH10000634 added to PT-M.00; 8 requirements formally deferred
+- **ProductionReadiness/PRODUCTION_READINESS.md:** ✅ Created — full BOM hierarchy (all levels), inventory vs 20-unit need, 10 gaps identified, 6-gate checklist, weekly check-in section
+- **Test Adapter (ESH10000654):** ⚠️ Assembled in-house; 4 open interface items; verification pending
+- **ESH10000634 R3:** ⚠️ PCB ordered ETA w/c 2026-05-04; 98 pcs PCBA ordered ETA w/c 2026-05-11
 - **DUT:** ⏳ No DUT available yet
-- **Committed:** 287ab57 — SPECIFICATION.md + PRODUCTION_TEST_PLAN.md + Sparrow Hardware Datasheet v3 PDF
 
 ---
 
 ## Open Issues / Blockers
 
-1. **ESH10000654 Test Adapter** — design not started; PRODUCTION_TEST_PROCEDURE.md blocked
-2. **Test Adapter requirements** (OI #2) — TA Requirements column in PRODUCTION_TEST_PLAN.md needs a complete SPECIFICATION.md for ESH10000654
-3. **Accordion software API** (OI #3) — I2C scan, SPI read/write, GPIO, ADC API not yet confirmed
-4. **DUT IDPROM content** (OI #4) — serial number format and IDPROM field definitions not yet defined
-5. **ATmega firmware version** (OI #5) — production firmware version not yet decided
-6. **PT-SIG.02 AIN stimulus** (OI #6) — isolated source or TA fixed reference — decision pending
+1. **ESH10000182 (Accordion A2 Bare)** — only 1 in stock, need 20; build order not yet placed — critical path
+2. **ESH10000544 / ESH10000572** — NotApproved, no BOM; blocks Accordion A2 build
+3. **6 sub-assemblies at Prototype** — ESH10000540, 535, 543, 534, 536, 182 must be promoted to Manufacturing before WOs can be released
+4. **ESH10000634 R3** — not yet in MES; must be created, approved, and ESH10000636 BOM updated
+5. **ESH10000654 R0** — 4 open interface items (PSU connector, PoE routing) block PRODUCTION_TEST_PROCEDURE.md
+6. **ESH10000539 revision** — unverified; confirm R1 is correct before sidetrack planning proceeds
 
 ---
 
 ## Next 3 Actions
 
-1. **Complete ESH10000654 SPECIFICATION.md** — populate adapter requirements from TA Requirements column in PRODUCTION_TEST_PLAN.md (OI #2)
-2. **Confirm Accordion software API** — I2C, SPI, GPIO, ADC interfaces for test scripts (OI #3)
-3. **Draft PRODUCTION_TEST_PROCEDURE.md** — once test adapter requirements are agreed and ESH10000654 design is underway
+1. **Place build order for ESH10000182** (Accordion A2 Bare) — qty ≥ 19; confirm RPi4B stock
+2. **Promote Prototype sub-assemblies to Manufacturing** in MES (Gate 1)
+3. **Resolve ESH10000654 R0 open items** — unblock PRODUCTION_TEST_PROCEDURE.md
 
 ---
 
 ## Risks
 
-- Test adapter design (ESH10000654) is the critical-path dependency for any automated production test
-- Requirements with no PT test case yet: PWR-07, PWR-09, PWR-11, PWR-15, PWR-20, PWR-21, PWR-24, SIG-06, SIG-09 — some may require additional PT steps or explicit deferral decisions
+- ESH10000182 build lead time is the longest critical-path item — order immediately
+- ESH10000544 and ESH10000572 at NotApproved with no BOM — design approval path needed
+- ESH10000654 R0 verification must complete before production test procedure can be written
