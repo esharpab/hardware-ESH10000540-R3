@@ -136,6 +136,38 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 | ESH10000634 | Sparrow IDC N-Top R3 | 1 | 20 | 0 | 98 | +78 | ⏳ 98 pcs on order, ETA w/c 2026-05-11 |
 | ESH10000536 | M2Top Active Load R2 | 1 | 20 | 31 | 31 | +11 | ✅ |
 
+### 3.4 ESH10000182 — Accordion A2 Bare (contents, ×1 per Accordion A2)
+
+> 1 ESH10000182 is already on hand; **19 new builds** are required to cover 20 production units.
+> Need column shows components required for those 19 builds. Inventory snapshot 2026-05-05.
+
+| Part | Name | Qty/Build | Need ×19 | On Hand | Available | Gap | Status |
+|------|------|-----------|----------|---------|-----------|-----|--------|
+| ESH10000158 | Accordion A2 Base PCBA (R5) | 1 | 19 | 0 | 0 | **−19** | 🔴 Critical shortage — build/order required (sidetrack: R6 may supersede) |
+| ESH10000183 | Accordion A2 Top PCBA (R6) | 1 | 19 | 20 | 20 | +1 | ⚠️ Very tight margin (1 spare) |
+| ESH10000539 | Control Module 32ch A2 (R1) | 1 | 19 | 7 | 7 | **−12** | 🔴 Critical shortage; stock in *Testing* location — confirm release; revision to be verified |
+| ESH10000031 | Raspberry Pi 4B 8GB | 1 | 19 | 39 | 39 | +20 | ✅ |
+| ESH10000062 | PCIe16 riser for AGENT base | 2 | 38 | 265 | 265 | +227 | ✅ (status NotApproved — see Gate 1) |
+| ESH10000538 | M2base loopback | 1 | 19 | 15 | 15 | **−4** | 🔴 Shortage; status NotApproved (Gate 1) |
+| EPN1000012 | Agent Fan 25×10mm 5V | 1 | 19 | 22 | 22 | +3 | ⚠️ Tight margin (3 spare) |
+| EPN1000068 | RPI Fan 30×10mm 5V | 1 | 19 | 15 | 15 | **−4** | 🔴 Order ≥4 |
+| EPN1000072 | SD card 32GB | 1 | 19 | 106 | 106 | +87 | ✅ |
+| EGP10001249 | Connector 6-173977-3 (3p fan housing) | 2 | 38 | 163 | 163 | +125 | ✅ |
+| EPN1000439 | Hammond enclosure (blue, AGENT A2) | 1 | 19 | 20 | 20 | +1 | ⚠️ Very tight margin (1 spare) |
+| EPN1000704 | CAP pushbutton square black | 1 | 19 | 142 | 142 | +123 | ✅ |
+| EPN1000676 | Jumper 2.54 mm 2-pos black | 1 | 19 | 45 | 45 | +26 | ✅ |
+| EPN1000152 | Skruv M2.5 × 16 mm | 6 | 114 | 326 | 326 | +212 | ✅ |
+| EPN1000182 | Mutter M2.5 | 6 | 114 | 221 | 221 | +107 | ✅ |
+| EPN1000154 | Skruv M3 × 8 mm | 1 | 19 | 750 | 750 | +731 | ✅ |
+| EPN1000213 | Skruv M3 × 4 mm | 1 | 19 | 454 | 454 | +435 | ✅ |
+| EPN1000186 | Mutter M3 | 1 | 19 | 994 | 984 | +965 | ✅ |
+
+**Summary — ESH10000182 build of 19:**
+- 🔴 4 critical shortages: **ESH10000158 (−19), ESH10000539 (−12), ESH10000538 (−4), EPN1000068 (−4)**
+- ⚠️ 3 tight margins (≤3 spare): **ESH10000183 (+1), EPN1000439 (+1), EPN1000012 (+3)**
+- ESH10000538 and ESH10000062 carry NotApproved/Prototype design status — see Gate 1
+- ESH10000539 stock is in *Testing* location — confirm released for production; revision verification pending
+
 ---
 
 ## 4. Critical Gaps Summary
