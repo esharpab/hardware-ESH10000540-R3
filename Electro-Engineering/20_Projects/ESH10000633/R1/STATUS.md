@@ -1,7 +1,7 @@
 ---
 project: ESH10000633
 revision: R1
-updated: 2026-05-05 (session 14)
+updated: 2026-05-06 (session 15)
 ---
 
 # Status: Sparrow Complete Product R1
@@ -17,6 +17,7 @@ updated: 2026-05-05 (session 14)
 - [x] Define system-level requirements in SPECIFICATION.md ✅
 - [x] Build PRODUCTION_TEST_PLAN.md ✅ — 38/44 req covered; 6 deferred with rationale
 - [x] Production readiness checklist created ✅ — full MES BOM hierarchy, inventory gaps, 6 gates, weekly check-in
+- [x] ESH10000182 BOM unfolded in PRODUCTION_READINESS.md §3.4 ✅ (2026-05-06) — 18 sub-components vs need ×19; 4 critical shortages identified
 - [x] Build PRODUCTION_TEST_PROCEDURE.md ✅ — Draft created 2026-05-05; 74 steps across 16 sections; 6 TBD items flagged
 - [ ] Resolve 6 TBD items in PRODUCTION_TEST_PROCEDURE.md (Accordion API, AIN cal, FIXED_LOAD delta, PWM readback, MIC_IN values, serial format)
 - [ ] Resolve Gate 1: promote Prototype sub-assemblies to Manufacturing in MES
@@ -30,7 +31,7 @@ updated: 2026-05-05 (session 14)
 - **SPECIFICATION.md:** ✅ 44 requirements; sub-assembly table updated with two-level MES BOM hierarchy; ESH10000634 added
 - **PRODUCTION_TEST_PLAN.md:** ✅ Coverage reviewed; ESH10000634 added to PT-M.00; 8 requirements formally deferred
 - **PRODUCTION_TEST_PROCEDURE.md:** ✅ Draft created 2026-05-05 — 74 steps, connector-level structure (J4–J9), Accordion CLI, Active Load, PoE, cosmetics; 6 TBD items flagged
-- **ProductionReadiness/PRODUCTION_READINESS.md:** ✅ Created — full BOM hierarchy (all levels), inventory vs 20-unit need, 10 gaps identified, 6-gate checklist, weekly check-in section
+- **ProductionReadiness/PRODUCTION_READINESS.md:** ✅ Created — full BOM hierarchy (all levels), inventory vs 20-unit need, 10 gaps identified, 6-gate checklist, weekly check-in section; **§3.4 added 2026-05-06** — ESH10000182 sub-component inventory (18 rows) showing 4 critical shortages: ESH10000158 (−19), ESH10000539 (−12), ESH10000538 (−4), EPN1000068 (−4)
 - **Test Adapter (ESH10000654):** ⚠️ Assembled in-house; 4 open interface items; verification pending
 - **ESH10000634 R3:** ⚠️ PCB ordered ETA w/c 2026-05-04; 98 pcs PCBA ordered ETA w/c 2026-05-11
 - **DUT:** ⏳ No DUT available yet
