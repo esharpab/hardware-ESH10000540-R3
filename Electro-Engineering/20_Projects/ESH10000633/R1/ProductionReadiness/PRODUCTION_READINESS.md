@@ -145,10 +145,10 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 |------|------|-----------|----------|---------|-----------|-----|--------|
 | ESH10000158 | Accordion A2 Base PCBA (R5) | 1 | 19 | 0 | 0 | **−19** | 🔴 Critical shortage — build/order required (sidetrack: R6 may supersede) |
 | ESH10000183 | Accordion A2 Top PCBA (R6) | 1 | 19 | 20 | 20 | +1 | ⚠️ Very tight margin (1 spare) |
-| ESH10000539 | Control Module 32ch A2 (R1) | 1 | 19 | 7 | 7 | **−12** | 🔴 Critical shortage; stock in *Testing* location — confirm release; revision to be verified |
+| ESH10000539 | Control Module 32ch A2 (R1) | 1 | 19 | 7 | 67 | +48 | ✅ 60 pcs on order (2026-05-08); ⚠️ R2 component change planned — see ISSUE-002; revise build plan re: R1 vs R2 stock |
 | ESH10000031 | Raspberry Pi 4B 8GB | 1 | 19 | 39 | 39 | +20 | ✅ |
 | ESH10000062 | PCIe16 riser for AGENT base | 2 | 38 | 265 | 265 | +227 | ✅ (status NotApproved — see Gate 1) |
-| ESH10000538 | M2base loopback | 1 | 19 | 15 | 15 | **−4** | 🔴 Shortage; status NotApproved (Gate 1) |
+| ESH10000538 | M2base loopback | 1 | 19 | 15 | 115 | +96 | ✅ 100 pcs on order (2026-05-08); status NotApproved (Gate 1); ⚠️ ISSUE-001 — suspected SPI/loopback intermittency, investigation open |
 | EPN1000012 | Agent Fan 25×10mm 5V | 1 | 19 | 22 | 22 | +3 | ⚠️ Tight margin (3 spare) |
 | EPN1000068 | RPI Fan 30×10mm 5V | 1 | 19 | 15 | 15 | **−4** | 🔴 Order ≥4 |
 | EPN1000072 | SD card 32GB | 1 | 19 | 106 | 106 | +87 | ✅ |
@@ -163,10 +163,13 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 | EPN1000186 | Mutter M3 | 1 | 19 | 994 | 984 | +965 | ✅ |
 
 **Summary — ESH10000182 build of 19:**
-- 🔴 4 critical shortages: **ESH10000158 (−19), ESH10000539 (−12), ESH10000538 (−4), EPN1000068 (−4)**
+- 🔴 2 critical shortages remaining: **ESH10000158 (−19), EPN1000068 (−4)**
+- ✅ Resolved 2026-05-08 by procurement orders: **ESH10000538 (+96 after 100 pcs on order)**, **ESH10000539 (+48 after 60 pcs on order)**
 - ⚠️ 3 tight margins (≤3 spare): **ESH10000183 (+1), EPN1000439 (+1), EPN1000012 (+3)**
 - ESH10000538 and ESH10000062 carry NotApproved/Prototype design status — see Gate 1
-- ESH10000539 stock is in *Testing* location — confirm released for production; revision verification pending
+- ⚠️ **ESH10000538 R0 — open quality concern (ISSUE-001):** intermittent Sparrow N-Top startup faults suspected to be linked to loopback PCB thickness or SPI startup sequencing. **Not a gate** — flagged for investigation in parallel with build planning. See `ISSUES/ISSUE-001_M2base_loopback_SPI_intermittent.md`.
+- ⚠️ **ESH10000539 R1 → R2 BOM change planned (ISSUE-002):** 4 component changes (R5, C37, R14, mount C32). 60 pcs R1 on order — **open question:** are the incoming R1 boards reworked to R2 spec, or used as-is? See `ISSUES/ISSUE-002_ESH10000539_R2_BOM_change.md`.
+- ESH10000539 stock is in *Testing* location — confirm released for production. ✅ **Revision resolved 2026-05-08:** current rev is **R1**; the "R4" seen on the silkscreen is the legacy `ESH10000023 R4` part number from before the renumber to ESH10000539 — silkscreen artwork was never updated. MES BOM (R1) is correct.
 
 ---
 
@@ -213,17 +216,20 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 
 ### Sidetrack — New Sub-Assembly Revisions *(parallel track, not on critical path)*
 
-> **Strategy:** New revisions of ESH10000158 and ESH10000539 are planned to run in parallel with the 10-week production programme. If the new revisions are ready in time, they will be incorporated into the ESH10000182 (Accordion A2 Bare) build. If not, the current approved revisions (ESH10000158 R5 / ESH10000539 R1 — **verify**) will be used. Do not hold production start or ESH10000182 build orders pending these revisions.
+> **Strategy:** New revisions of ESH10000158 and ESH10000539 are planned to run in parallel with the 10-week production programme. If the new revisions are ready in time, they will be incorporated into the ESH10000182 (Accordion A2 Bare) build. If not, the current approved revisions (ESH10000158 R5 / ESH10000539 R1 — verified 2026-05-08) will be used. Do not hold production start or ESH10000182 build orders pending these revisions.
 
-- [ ] **⚠️ VERIFY:** Confirm current production revision of ESH10000539 (Control Module 32ch A2) — MES shows R1; is this correct?
+- [x] ✅ **VERIFIED 2026-05-08:** Current revision is **ESH10000539 R1** (MES BOM is correct). The "R4" observed on MJsAgent is the legacy `ESH10000023 R4` part number still printed on the silkscreen — the board was renumbered to ESH10000539 R1 but the silkscreen artwork was never updated. No revision change needed.
+- [ ] Confirm what revision the 7 pcs in *Testing* location are (should all be ESH10000539 R1) and whether they are released for production use.
 - [ ] ESH10000158 R6 (Accordion A2 Base PCBA): schematic/layout complete
 - [ ] ESH10000158 R6: PCB fab ordered
 - [ ] ESH10000158 R6: PCBA assembled and verified
 - [ ] ESH10000158 R6: promoted to Manufacturing in MES and BOM in ESH10000182 updated
-- [ ] ESH10000539 new rev (Accordion A2 Base PCBA — Control Module 32ch A2): revision confirmed and design started
-- [ ] ESH10000539 new rev: PCB fab ordered
-- [ ] ESH10000539 new rev: PCBA assembled and verified
-- [ ] ESH10000539 new rev: promoted to Manufacturing in MES and BOM in ESH10000182 updated
+- [ ] **ESH10000539 R2** (Control Module 32ch A2) — BOM change defined 2026-05-08 (ISSUE-002): R5 → 0 Ω; C37 → 330 pF; R14 → 680 Ω; mount C32 = EGP10001337 (22 µF 100 V)
+- [ ] ESH10000539 R2: schematic/BOM updated and approved in MES
+- [ ] ESH10000539 R2: PCB fab ordered (or determine whether existing R1 boards can be reworked to R2 spec — 60 pcs R1 currently on order)
+- [ ] ESH10000539 R2: PCBA assembled and verified
+- [ ] ESH10000539 R2: promoted to Manufacturing in MES and BOM in ESH10000182 updated
+- [ ] **Decision needed:** rework strategy for the 60 incoming R1 boards (R1 as-is vs. rework to R2 spec) — see ISSUE-002
 - [ ] If either new revision is **not** ready by Week 4: decision recorded — fall back to ESH10000158 R5 and ESH10000539 R1 for this production run
 
 ### Gate 2 — Inventory Procurement *(target: Week 1–4)*
@@ -283,8 +289,8 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 | Testing units ESH10000535 (Sparrow N-Top) / ESH10000540 (Sparrow Fixture Electronics) not released for production | Medium | Blocks sub-assembly supply | Confirm with test team; 4 N-Top spare margin is tight |
 | ESH10000654 (Sparrow Test Adapter) verification not complete in time | Medium | Blocks production test execution | TA assembled and in-house; 4 open interface items remain (see ESH10000654 R0 SPECIFICATION.md); verification in progress — monitor weekly |
 | Multiple sub-assemblies at Prototype — late MES promotion delays WO creation | Medium | Delays work order release | Assign MES promotion as Week 1 priority |
-| ESH10000158 R6 / ESH10000539 new rev not ready in time | Low–Medium | Minor — fallback to R5/R1 is available; no production stop | Treat as sidetrack; decide at Week 4 gate; do not delay ESH10000182 build order pending these |
-| ESH10000539 revision unclear — may not be R1 | Medium | Wrong revision built into ESH10000182 if unverified | Verify immediately (Gate 1 sidetrack action) |
+| ESH10000158 R6 / ESH10000539 R2 not ready in time | Low–Medium | Minor — fallback to R5/R1 is available; no production stop | Treat as sidetrack; decide at Week 4 gate; do not delay ESH10000182 build order pending these |
+| ~~ESH10000539 revision unclear~~ ✅ **RESOLVED 2026-05-08** — current rev is R1; "R4" on silkscreen is legacy ESH10000023 R4 designator from before the renumber | Closed | No action — MES BOM (R1) is correct | Outstanding: confirm release of 7 pcs in *Testing* location |
 
 ---
 
@@ -298,6 +304,7 @@ ESH10000633 R1 — Sparrow Complete Product (Manufacturing)
 | R1 | 2026-05-04 | Martin Johansson | ESH10000634 updated to R3 (hard requirement); R3 not yet in MES — added to critical path in Gate 1 and Gate 2 |
 | R1 | 2026-05-04 | Martin Johansson | ESH10000634 R3 status updated: PCB ordered ETA w/c 2026-05-04, PCBA ETA w/c 2026-05-11; risk downgraded to Low |
 | R1 | 2026-05-04 | Martin Johansson | Weekly check-in section added |
+| R1 | 2026-05-08 | Martin Johansson | Procurement update: 100 pcs ESH10000538 and 60 pcs ESH10000539 R1 on order — both removed from critical-shortage list. ESH10000539 R1→R2 BOM change scoped (4 components: R5, C37, R14, mount C32) — see ISSUE-002. ESH10000538 R0 quality concern logged (ISSUE-001). |
 
 ---
 

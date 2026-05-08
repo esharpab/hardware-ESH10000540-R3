@@ -1,7 +1,7 @@
 ---
 project: ESH10000633
 revision: R1
-updated: 2026-05-06 (session 15)
+updated: 2026-05-08 (session 16)
 ---
 
 # Status: Sparrow Complete Product R1
@@ -31,7 +31,7 @@ updated: 2026-05-06 (session 15)
 - **SPECIFICATION.md:** ✅ 44 requirements; sub-assembly table updated with two-level MES BOM hierarchy; ESH10000634 added
 - **PRODUCTION_TEST_PLAN.md:** ✅ Coverage reviewed; ESH10000634 added to PT-M.00; 8 requirements formally deferred
 - **PRODUCTION_TEST_PROCEDURE.md:** ✅ Draft created 2026-05-05 — 74 steps, connector-level structure (J4–J9), Accordion CLI, Active Load, PoE, cosmetics; 6 TBD items flagged
-- **ProductionReadiness/PRODUCTION_READINESS.md:** ✅ Created — full BOM hierarchy (all levels), inventory vs 20-unit need, 10 gaps identified, 6-gate checklist, weekly check-in section; **§3.4 added 2026-05-06** — ESH10000182 sub-component inventory (18 rows) showing 4 critical shortages: ESH10000158 (−19), ESH10000539 (−12), ESH10000538 (−4), EPN1000068 (−4)
+- **ProductionReadiness/PRODUCTION_READINESS.md:** ✅ Created — full BOM hierarchy (all levels), inventory vs 20-unit need, 6-gate checklist, weekly check-in section; **§3.4 added 2026-05-06** — ESH10000182 sub-component inventory (18 rows). **Updated 2026-05-08:** 100 pcs ESH10000538 + 60 pcs ESH10000539 R1 on order — critical shortages reduced to 2 (ESH10000158 −19, EPN1000068 −4)
 - **Test Adapter (ESH10000654):** ⚠️ Assembled in-house; 4 open interface items; verification pending
 - **ESH10000634 R3:** ⚠️ PCB ordered ETA w/c 2026-05-04; 98 pcs PCBA ordered ETA w/c 2026-05-11
 - **DUT:** ⏳ No DUT available yet
@@ -45,7 +45,9 @@ updated: 2026-05-06 (session 15)
 3. **6 sub-assemblies at Prototype** — ESH10000540, 535, 543, 534, 536, 182 must be promoted to Manufacturing before WOs can be released
 4. **ESH10000634 R3** — not yet in MES; must be created, approved, and ESH10000636 BOM updated
 5. **ESH10000654 R0** — 4 open interface items (PSU connector, PoE routing) block PRODUCTION_TEST_PROCEDURE.md
-6. **ESH10000539 revision** — unverified; confirm R1 is correct before sidetrack planning proceeds
+6. ~~**ESH10000539 revision discrepancy**~~ ✅ **RESOLVED 2026-05-08** — Current revision is **ESH10000539 R1** (MES BOM is correct). The "R4" seen on the silkscreen is the legacy `ESH10000023 R4` part number — the board was renumbered to ESH10000539 R1 but the silkscreen artwork was never updated. No revision change needed; *Testing*-location release confirmation still pending.
+7. **ISSUE-001** — Sparrow N-Top LEDs red on startup; suspected ESH10000538 R0 loopback PCB thickness or SPI startup-sequence issue. See `ISSUES/ISSUE-001_M2base_loopback_SPI_intermittent.md`
+8. **ISSUE-002** — ESH10000539 R1 → R2 BOM change scoped 2026-05-08 (R5 → 0 Ω; C37 → 330 pF; R14 → 680 Ω; mount C32 = EGP10001337). 60 pcs R1 on order — **decision needed** on whether incoming R1 stock is used as-is or reworked to R2 spec. See `ISSUES/ISSUE-002_ESH10000539_R2_BOM_change.md`
 
 ---
 
