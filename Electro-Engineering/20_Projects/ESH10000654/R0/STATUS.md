@@ -1,7 +1,7 @@
 ---
 project: ESH10000654
 revision: R0
-updated: 2026-05-04 (session 2)
+updated: 2026-05-12 (session 3)
 ---
 
 # Status: Sparrow Test Adapter R0
@@ -60,3 +60,11 @@ updated: 2026-05-04 (session 2)
 
 - *Open interface questions* — items 1–4 must be resolved before the production test procedure (ESH10000633) can be completed
 - *No schematic/layout review on record* — assembled board was built prior to formal review; review should be done before verification sign-off
+
+---
+
+## Carry-forward to next revision
+
+See [DESIGN_LOG.md](DESIGN_LOG.md) "Carry-forward to next revision" section.
+
+- **2026-05-12** — J7 pins 12/14/16/18 (Sparrow FE relay drivers): add pull-up to 2.5 V + connection to FE_MPIO_[8:11] for relay-driver readback. (Not a current-revision change.)
