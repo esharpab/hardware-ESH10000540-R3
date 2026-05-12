@@ -44,3 +44,14 @@ Reseat both M2base loopbacks until LEDs come up green.
 
 - Issue logged from intermittent observation on the bench by MJ — not yet root-caused. Hypotheses are explicitly **unverified**.
 - No DUT has formally failed a recorded production test step from this — this is a pre-emptive issue note so it is not lost.
+
+## Update 2026-05-12 — production target rev change
+
+Production target for ESH10000538 has moved from R0 to **R1** (PRODUCTION_READINESS.md §1). R1 is not yet in MES — must be created at Manufacturing, BOM defined, R0 retired.
+
+**Open question:** does the R1 design address the SPI/loopback intermittency observed on R0?
+
+- If yes: ISSUE-001 may be resolved by switching to R1 stock. The 15 R0 pcs on hand and 100 R0 pcs on order need disposition (scrap / rework / use for non-production).
+- If no: ISSUE-001 investigation continues independently of the rev change; R1 stock has the same defect.
+
+Action: confirm with design lead whether R1 includes a fix for the SPI startup intermittency (e.g. PCB thickness change, loopback signal-integrity update).

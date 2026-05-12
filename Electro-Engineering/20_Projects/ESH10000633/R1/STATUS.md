@@ -1,7 +1,7 @@
 ---
 project: ESH10000633
 revision: R1
-updated: 2026-05-08 (session 16)
+updated: 2026-05-12 (session 17)
 ---
 
 # Status: Sparrow Complete Product R1
@@ -47,7 +47,7 @@ updated: 2026-05-08 (session 16)
 5. **ESH10000654 R0** — 4 open interface items (PSU connector, PoE routing) block PRODUCTION_TEST_PROCEDURE.md
 6. ~~**ESH10000539 revision discrepancy**~~ ✅ **RESOLVED 2026-05-08** — Current revision is **ESH10000539 R1** (MES BOM is correct). The "R4" seen on the silkscreen is the legacy `ESH10000023 R4` part number — the board was renumbered to ESH10000539 R1 but the silkscreen artwork was never updated. No revision change needed; *Testing*-location release confirmation still pending.
 7. **ISSUE-001** — Sparrow N-Top LEDs red on startup; suspected ESH10000538 R0 loopback PCB thickness or SPI startup-sequence issue. See `ISSUES/ISSUE-001_M2base_loopback_SPI_intermittent.md`
-8. **ISSUE-002** — ESH10000539 R1 → R2 BOM change scoped 2026-05-08 (R5 → 0 Ω; C37 → 330 pF; R14 → 680 Ω; mount C32 = EGP10001337). 60 pcs R1 on order — **decision needed** on whether incoming R1 stock is used as-is or reworked to R2 spec. See `ISSUES/ISSUE-002_ESH10000539_R2_BOM_change.md`
+8. **ISSUE-002** — ESH10000539 R1 → R2 BOM change. Spec: mount R67 (10 kΩ) for DRxD; mount R61 (10 kΩ) for DCTS. **R2 created at Manufacturing in MES ✅ 2026-05-12** (BOM 33 items). **Decisions 2026-05-12:** 60 incoming boards mounted as R2 spec ✅; 7 R1 pcs in *Testing* kept as-is, not for this build ✅. Still open: retire R1 in MES (single-Mfg). See `ISSUES/ISSUE-002_ESH10000539_R2_BOM_change.md`
 
 ---
 
