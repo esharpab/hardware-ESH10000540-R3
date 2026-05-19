@@ -1,7 +1,7 @@
 ---
 project: ESH10000654
 revision: R0
-updated: 2026-05-12 (session 3)
+updated: 2026-05-15 (session 4)
 ---
 
 # Status: Sparrow Test Adapter R0
@@ -17,7 +17,8 @@ updated: 2026-05-12 (session 3)
 - [ ] Resolve 4 open interface questions (PoE routing, PWR_EN, PD load, PSU connector assignment)
 - [ ] Schedule schematic review (Review/SCHEMATIC_REVIEW.md)
 - [ ] Schedule layout review (Review/LAYOUT_REVIEW.md)
-- [ ] Create Verification/VERIFICATION.md with functional verification plan
+- [x] Create Verification/VERIFICATION.md with functional verification plan ✅ 2026-05-15 (32 test cases across 7 categories; 4 cases deferred pending Open Items 1–4)
+- [ ] Execute verification test cases (start with patch-validation S.01/S.02/S.03 on DUT-01 P0)
 
 ---
 
@@ -32,7 +33,7 @@ updated: 2026-05-12 (session 3)
 | PCBA assembled | ✅ In-house | Available for verification |
 | Schematic review | ⏳ Not started | — |
 | Layout review | ⏳ Not started | — |
-| Verification | ⏳ Not started | Plan not yet created |
+| Verification | 🔄 Plan complete | **VERIFICATION.md created 2026-05-15** (32 test cases, 22 SPEC req covered). **DUT_LOG.md created 2026-05-15** (DUT-01 = S/N P0; 2× rail patches logged). Test execution not yet started. |
 | Design sign-off | ⏳ Not started | Pending reviews |
 
 ---

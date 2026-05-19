@@ -20,7 +20,7 @@ updated: 2026-05-04
 | PCB fabricated | ✅ Done | — | Date not recorded |
 | PCBA assembled | ✅ Done | — | Assembled board in-house |
 | Design sign-off | ⏳ Pending | | Pending schematic + layout review |
-| Verification plan | ⏳ Pending | | Create Verification/VERIFICATION.md |
+| Verification plan | ✅ Done | 2026-05-15 | 32 test cases across 7 categories; 22/22 SPEC requirements covered; 4 cases deferred pending Open Items 1–4 |
 | Verification complete | ⏳ Pending | | |
 
 ---
