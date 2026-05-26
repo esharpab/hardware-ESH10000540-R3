@@ -2,7 +2,7 @@
 issue_id: ISSUE-002
 project: ESH10000633 R1
 component: ESH10000539 — Control Module 32ch A2
-status: Open — R2 created in MES 2026-05-12; 60 incoming → R2 spec (decided 2026-05-12); 7 R1 pcs in Testing kept as-is, not for this build (decided 2026-05-12); R1 retirement in MES pending
+status: Closed — R2 at Manufacturing in MES (BOM 33 items, 2026-05-12); 60 incoming → R2 spec (decided 2026-05-12); 7 R1 pcs in Testing kept as-is, not for this build (decided 2026-05-12); **R1 → EOL 2026-05-15** ✅. Single-Mfg clean.
 opened: 2026-05-08
 type: BOM change / revision bump R1 → R2
 ---
@@ -49,7 +49,7 @@ With the 7 R1 boards excluded from this build, usable stock for the 19 builds of
 - [x] Schematic and BOM updated (mount R61 10 kΩ, mount R67 10 kΩ) and reviewed ✅
 - [x] R2 created in MES with new BOM (33 items); old R1 BOM preserved ✅ 2026-05-12
 - [x] R2 promoted to Manufacturing in MES ✅ 2026-05-12
-- [ ] **Retire R1 from Manufacturing in MES** (single-Mfg rule — currently both R1 and R2 at Mfg)
+- [x] ~~Retire R1 from Manufacturing in MES~~ ✅ **DONE 2026-05-15** — R1 → EndOfLife; R2 sole Manufacturing rev.
 - [x] Decision recorded for the 60 pcs on order ✅ 2026-05-12 — mount as R2 spec
 - [ ] Confirm with supplier/assembly that the 60 pcs are mounted with R61 + R67 (10 kΩ each) before PCBA completion; receive as R2 stock
 - [x] Disposition decision for the 7 R1 pcs on hand in *Testing* location ✅ 2026-05-12 — kept as-is, not for this build

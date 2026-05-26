@@ -1,66 +1,90 @@
 ---
 project: ESH10000633
 revision: R1
-updated: 2026-05-12 (session 17)
+updated: 2026-05-15 (session 18)
 ---
 
 # Status: Sparrow Complete Product R1
 
 ## Current Phase
 
-**Production Test + Production Readiness** (R1) — Production readiness checklist created; 20-unit delivery target 2026-07-13.
+**Production Test + Production Readiness** (R1). Gate 1 design release substantially complete (2026-05-11/12 audit); critical-path procurement and ESH10000182 build still open. Delivery target 2026-07-13 — **scope expanded 2026-05-12** to include standalone items (10× 636, 20× 614, 20× 637, 20× EPN1000786) in addition to 20 systems.
 
 ---
 
 ## Current Focus
 
-- [x] Define system-level requirements in SPECIFICATION.md ✅
-- [x] Build PRODUCTION_TEST_PLAN.md ✅ — 38/44 req covered; 6 deferred with rationale
-- [x] Production readiness checklist created ✅ — full MES BOM hierarchy, inventory gaps, 6 gates, weekly check-in
-- [x] ESH10000182 BOM unfolded in PRODUCTION_READINESS.md §3.4 ✅ (2026-05-06) — 18 sub-components vs need ×19; 4 critical shortages identified
-- [x] Build PRODUCTION_TEST_PROCEDURE.md ✅ — Draft created 2026-05-05; 74 steps across 16 sections; 6 TBD items flagged
-- [ ] Resolve 6 TBD items in PRODUCTION_TEST_PROCEDURE.md (Accordion API, AIN cal, FIXED_LOAD delta, PWM readback, MIC_IN values, serial format)
-- [ ] Resolve Gate 1: promote Prototype sub-assemblies to Manufacturing in MES
-- [ ] Resolve Gate 2: ESH10000182 build order; ESH10000544/572 PCB orders
-- [ ] Verify ESH10000654 R0 (Test Adapter) — assembled, 4 open interface items remain
+- [x] SPECIFICATION.md ✅
+- [x] PRODUCTION_TEST_PLAN.md ✅ (38/44 req covered; 6 deferred)
+- [x] PRODUCTION_TEST_PROCEDURE.md ✅ (74 steps; 6 TBD items)
+- [x] PRODUCTION_READINESS.md ✅ (full BOM hierarchy, 6 gates, weekly check-ins)
+- [x] Gate 1 MES audit ✅ 2026-05-11/12 — 9 promotions, 2 hard-rule violations closed, single-Mfg discipline applied
+- [x] ESH10000539 R2 created in MES ✅; 60 incoming R1 pcs decided to be mounted as R2 spec
+- [x] USB PD PSU sub-system R1.0 rollout ✅ (582, 579, 580, 581)
+- [x] ESH10000158 / ESH10000183 / 522 / 544 / 572 / 615 reclassified as externally built (no MES BOM expected)
+- [ ] **Resolve 6 TBD items in PRODUCTION_TEST_PROCEDURE.md** (Accordion API, AIN cal, FIXED_LOAD delta, PWM readback, MIC_IN values, serial format)
+- [ ] **Place ESH10000182 build order** (qty ≥ 19) — critical path
+- [ ] **Place ESH10000637 cable procurement order** (qty ≥ 40 — doubled by scope expansion)
+- [x] **ESH10000539 R1 → EOL** ✅ 2026-05-15 (single-Mfg clean; ISSUE-002 closed)
+- [x] ESH10000544 R3 created in MES + R1 → EOL ✅ 2026-05-15 (75 pcs R3 on order; single-Mfg clean)
+- [x] ESH10000572 R3 created in MES + R1 → EOL ✅ 2026-05-15 (75 pcs R3 on order; single-Mfg clean)
+- [x] **ESH10000522 R5 created in MES** + R0+R1 → EOL ✅ 2026-05-15 (single-Mfg clean)
+- [x] **ESH10000182 R0 promoted to Manufacturing** ✅ 2026-05-15 (last Gate 1 Block A promotion)
+- [x] ESH10000538 R1 — externally built ✅ 2026-05-15 (no MES BOM needed; 100 pcs on order ETA 2026-05-29)
+- [x] ESH10000062 R1 — externally built ✅ 2026-05-15 (no MES BOM needed; 265 R0 pcs on hand — disposition TBC)
+- [x] Testing-location stock released for production ✅ 2026-05-15 — ESH10000535 (24), 540 (50), 536 (31 — ⚠️ +1 margin still tight)
+- [ ] Track ESH10000634 R3 + ESH10000534 R4 PCBA internal assembly (ETA 2026-05-22)
+- [ ] Resolve ESH10000654 R0 4 open interface items (PSU connector, PoE routing, PWR_EN, PD load) — unblocks PT procedure
 
 ---
 
 ## Latest Confirmed State
 
-- **SPECIFICATION.md:** ✅ 44 requirements; sub-assembly table updated with two-level MES BOM hierarchy; ESH10000634 added
-- **PRODUCTION_TEST_PLAN.md:** ✅ Coverage reviewed; ESH10000634 added to PT-M.00; 8 requirements formally deferred
-- **PRODUCTION_TEST_PROCEDURE.md:** ✅ Draft created 2026-05-05 — 74 steps, connector-level structure (J4–J9), Accordion CLI, Active Load, PoE, cosmetics; 6 TBD items flagged
-- **ProductionReadiness/PRODUCTION_READINESS.md:** ✅ Created — full BOM hierarchy (all levels), inventory vs 20-unit need, 6-gate checklist, weekly check-in section; **§3.4 added 2026-05-06** — ESH10000182 sub-component inventory (18 rows). **Updated 2026-05-08:** 100 pcs ESH10000538 + 60 pcs ESH10000539 R1 on order — critical shortages reduced to 2 (ESH10000158 −19, EPN1000068 −4)
-- **Test Adapter (ESH10000654):** ⚠️ Assembled in-house; 4 open interface items; verification pending
-- **ESH10000634 R3:** ⚠️ PCB ordered ETA w/c 2026-05-04; 98 pcs PCBA ordered ETA w/c 2026-05-11
-- **DUT:** ⏳ No DUT available yet
+- **SPECIFICATION.md:** ✅ 44 requirements (8 formally deferred)
+- **PRODUCTION_TEST_PLAN.md:** ✅ Coverage reviewed; ESH10000634 added to PT-M.00
+- **PRODUCTION_TEST_PROCEDURE.md:** ✅ Draft (74 steps, 6 TBD items flagged)
+- **PRODUCTION_READINESS.md:** ✅ Updated continuously — see its §revision history for full ledger. Most recent: 2026-05-12 — ESH10000634/534 R4 PCBA assembly status, ESH10000536 Testing-location flag (+1 margin), delivery scope expansion
+- **Gate 1 Block A (promotions):** ✅ **COMPLETE** — all 10 sub-assemblies at Manufacturing (182 promoted 2026-05-15)
+- **Gate 1 Block B (single-Mfg rule):** ✅ **COMPLETE** — zero remaining violations (539/544/572 R1 all → EOL 2026-05-15)
+- **Gate 1 Block C (NotApproved + rev jumps):** ✅ all rev creates done (522 R5, 544 R3, 572 R3 in MES; 579/580/581 R1.0 promoted; 538/062 R1 Mfg — BOM TBC remaining)
+- **Gate 1 Block D (BOM-missing on Mfg revs):** ✅ closed (all externally-built items reclassified N/A; 634 R3 BOM added)
+- **ESH10000634 R3:** Manufacturing + BOM 21 items ✅; PCB in-house (98 pcs); PCBA in internal assembly — ETA 2026-05-22
+- **ESH10000534 R4:** Manufacturing ✅; PCBA in internal assembly (24 pcs in process) — ETA 2026-05-22
+- **ESH10000539:** ✅ R2 sole Manufacturing rev (R0+R1 EOL 2026-05-15); 60 incoming boards mounted as R2; 7 R1 in *Testing* kept as-is (not for this build); ISSUE-002 closed
+- **ESH10000654 R0 (Test Adapter):** VERIFICATION.md created 2026-05-15 (33 test cases, 22/22 SPEC req covered); DUT_LOG.md created — DUT-01 = S/N P0 with 2 rail patches + R48 fitted; verification execution not yet started
+- **DUT (Sparrow system):** ⏳ none assembled yet
 
 ---
 
 ## Open Issues / Blockers
 
-1. **ESH10000182 (Accordion A2 Bare)** — only 1 in stock, need 20; build order not yet placed — critical path
-2. **ESH10000544 / ESH10000572** — NotApproved, no BOM; blocks Accordion A2 build
-3. **6 sub-assemblies at Prototype** — ESH10000540, 535, 543, 534, 536, 182 must be promoted to Manufacturing before WOs can be released
-4. **ESH10000634 R3** — not yet in MES; must be created, approved, and ESH10000636 BOM updated
-5. **ESH10000654 R0** — 4 open interface items (PSU connector, PoE routing) block PRODUCTION_TEST_PROCEDURE.md
-6. ~~**ESH10000539 revision discrepancy**~~ ✅ **RESOLVED 2026-05-08** — Current revision is **ESH10000539 R1** (MES BOM is correct). The "R4" seen on the silkscreen is the legacy `ESH10000023 R4` part number — the board was renumbered to ESH10000539 R1 but the silkscreen artwork was never updated. No revision change needed; *Testing*-location release confirmation still pending.
-7. **ISSUE-001** — Sparrow N-Top LEDs red on startup; suspected ESH10000538 R0 loopback PCB thickness or SPI startup-sequence issue. See `ISSUES/ISSUE-001_M2base_loopback_SPI_intermittent.md`
-8. **ISSUE-002** — ESH10000539 R1 → R2 BOM change. Spec: mount R67 (10 kΩ) for DRxD; mount R61 (10 kΩ) for DCTS. **R2 created at Manufacturing in MES ✅ 2026-05-12** (BOM 33 items). **Decisions 2026-05-12:** 60 incoming boards mounted as R2 spec ✅; 7 R1 pcs in *Testing* kept as-is, not for this build ✅. Still open: retire R1 in MES (single-Mfg). See `ISSUES/ISSUE-002_ESH10000539_R2_BOM_change.md`
+1. **ESH10000182 (Accordion A2 Bare)** — only 1 in stock, need 19 fresh builds; **build order still not placed** — critical path
+1a. **ESH10000158 R5 procurement — DECISION DUE 2026-05-27** (G-13) — no order in MES yet; need 19 pcs; if R6 sidetrack slips, this blocks the entire ESH10000182 build
+2. **ESH10000637 cable** — need 40 (system + standalone), 0 on hand — order doubled by scope expansion
+3. ~~ESH10000182 R0 promotion~~ ✅ DONE 2026-05-15 (Gate 1 Block A complete)
+4. ~~ESH10000539 R1 retirement~~ ✅ DONE 2026-05-15 (R1 → EOL; ISSUE-002 closed)
+5. ~~ESH10000522 R5 / 544 R3 / 572 R3 rev jumps~~ ✅ ALL DONE 2026-05-15 (single-Mfg clean for all three)
+6. **Six TBD items in PRODUCTION_TEST_PROCEDURE.md** — Accordion API, AIN cal, FIXED_LOAD delta, PWM readback, MIC_IN values, serial format
+7. **ESH10000654 R0** — 4 open interface items (PSU connector, PoE routing, PWR_EN, PD load) block production test procedure finalisation
+8. **ESH10000536 Active Load** — only +1 spare (31 released from Testing 2026-05-15 vs need 30 incl. standalone); margin remains tight
+9. **ISSUE-001** — ESH10000538 R0 SPI/loopback intermittency. Open question whether the new ESH10000538 R1 design addresses it. See `ISSUES/ISSUE-001_M2base_loopback_SPI_intermittent.md`
+10. ~~ISSUE-002~~ ✅ **CLOSED 2026-05-15** — ESH10000539 R2 BOM change fully done (R2 at Mfg, R1 EOL, 60 incoming mounted as R2, 7 R1 in *Testing* set aside). See `ISSUES/ISSUE-002_ESH10000539_R2_BOM_change.md`
 
 ---
 
 ## Next 3 Actions
 
-1. **Resolve PRODUCTION_TEST_PROCEDURE.md TBD items** — Accordion API (Open Item 1/3), AIN cal (2), FIXED_LOAD delta (3), PWM readback (4), MIC_IN values (5), serial format (6)
-2. **Place build order for ESH10000182** (Accordion A2 Bare) — qty ≥ 19; confirm RPi4B stock
-3. **Promote Prototype sub-assemblies to Manufacturing** in MES (Gate 1)
+1. **ESH10000158 R5 procurement decision — DUE 2026-05-27** (G-13): order ≥19 pcs OR confirm R6 sidetrack timing
+2. **Place ESH10000182 build order** (qty ≥ 19) — critical path, longest lead time
+3. **Place ESH10000637 cable procurement order** (qty ≥ 40 — doubled by scope expansion)
 
 ---
 
 ## Risks
 
+- ESH10000158 R5 procurement decision is a hard 2026-05-27 deadline — slipping it risks blocking the ESH10000182 build outright
 - ESH10000182 build lead time is the longest critical-path item — order immediately
-- ESH10000544 and ESH10000572 at NotApproved with no BOM — design approval path needed
-- ESH10000654 R0 verification must complete before production test procedure can be written
+- ESH10000536 stock is tight (+1 margin) — if any unit committed to verification, build shortfalls
+- ESH10000634 R3 / ESH10000534 R4 PCBA delivery 2026-05-22 — monitor; coordinated milestone
+- ESH10000654 R0 verification must complete before production test procedure can be finalised (4 open interface items still pending)
+- ISSUE-001 SPI intermittency unresolved — may surface in production test if the new R1 design doesn't address it

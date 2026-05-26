@@ -9,7 +9,7 @@ Overview of all projects — active and otherwise.
 | ESH10000543 | Fixture Link | R2 | Verification | 🟢 Active | Verification plan complete (24 tests); F-02 CM32 pull-ups confirmed — awaiting R2 DUT |
 | ESH10000536 | Active Load | R2 | — | 🔵 Planned | Project created — phase and requirements TBD; assembled with Fixture Electronics (ESH10000540) |
 | ESH10000654 | Sparrow Test Adapter | R0 | Verification | 🟢 Active | VERIFICATION.md created 2026-05-15 (33 test cases, 22/22 req covered); DUT_LOG.md created — DUT-01 S/N P0 with 2 rail patches (10 kΩ→2.5 V) and R48 populated (R0 BOM defect). Pending: schematic/layout review, 4 open interface items, test execution |
-| ESH10000633 | Sparrow Complete Product | R1 | Production Test | 🟢 Active | Major Gate 1 MES audit 2026-05-12: 9 promotions, ESH10000539 R2 created (60 incoming to be mounted as R2), USB PD R1.0 rollout, scope expanded (10× 636 / 20× 614 / 20× 637 / 20× EPN1000786 standalone). Open: ESH10000182 build order, 522/544/572 rev creates, R1 retirement, 538 ISSUE-001 |
+| ESH10000633 | Sparrow Complete Product | R1 | Production Test | 🟢 Active | Gate 1 hygiene effectively complete 2026-05-15: 182 promoted to Mfg, 522 R5 / 544 R3 / 572 R3 / 539 R2 all created with R1s → EOL; G-07, G-08, G-09, G-10, G-11, G-12 closed. 538/062 reclassified externally built. **G-13 ESH10000158 R5 procurement decision due 2026-05-27**. Open: ESH10000182 build order, 637 cable order (×40), MES data check on 539 Pending |
 | ESH10000634 | Sparrow FE N-Top | R3 | Design | 🔵 Planned | Project created — requirements definition next |
 | ESH10000534 | PoE | R4 | Design | 🟢 Active | Project created — requirements definition next |
 
